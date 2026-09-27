@@ -154,6 +154,28 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 @media(max-width:620px){#koszyk span{display:none}#koszyk{padding:12px 14px}}
 .uwGdzie{font-size:12px;letter-spacing:.04em;color:var(--akcent);margin-bottom:5px}
 .szTresc .uwEl{background:#fff;border:1px solid var(--ramka);border-left-width:3px;border-radius:4px;padding:12px 14px;margin-bottom:11px}
+.odpBox{margin-top:10px}
+.odpBox textarea{width:100%;min-height:80px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--akcent);border-radius:4px;background:#fffdf7;resize:vertical}
+.odpAkc{display:flex;gap:7px;margin-top:7px}
+.odpAkc .zap2{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.uwGdzie[data-idzie]{cursor:pointer;display:inline-block}
+.uwGdzie[data-idzie]:hover{text-decoration:underline}
+.pStan{font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;
+  border-radius:12px;padding:3px 11px;white-space:nowrap}
+.pStan i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.pStan.nie{background:#fdf3f0;color:#c0392b}      .pStan.nie i{background:#c0392b}
+.pStan.robi{background:#fdf8ee;color:#a9741d}     .pStan.robi i{background:#d99a2b}
+.pStan.gotowe{background:#f4f9f5;color:#3c5a46}   .pStan.gotowe i{background:#3c5a46}
+.k.p-nie{border-left:4px solid #c0392b}
+.k.p-robi{border-left:4px solid #d99a2b}
+.k.p-gotowe{border-left:4px solid #3c5a46}
+.siatka .sk.nie::after,.siatka .sk.robi::after,.siatka .sk.gotowe::after{
+  content:'';position:absolute;top:7px;right:7px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.siatka .sk.nie::after{background:#c0392b}
+.siatka .sk.robi::after{background:#d99a2b}
+.siatka .sk.gotowe::after{background:#3c5a46}
+.k.blysk{animation:blysk 1.6s ease}
+@keyframes blysk{0%{box-shadow:0 0 0 4px rgba(60,90,70,.45)}100%{box-shadow:0 0 0 0 rgba(60,90,70,0)}}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1326,6 +1348,16 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       .then(function (j) { if (j && j.ok) { UWAGI = j.uwagi || []; rysujWszystko(); } return j; });
   }
 
+  // zmiana od razu widoczna, zapis leci w tle
+  function odRazu(nr, zmiany, dane) {
+    var u = UWAGI.filter(function (x) { return x.nr === nr; })[0];
+    if (u) { for (var k in zmiany) u[k] = zmiany[k]; }
+    rysujWszystko();
+    return wyslij(dane)['catch'](function () {
+      pobierz().then(rysujWszystko);
+    });
+  }
+
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -1386,7 +1418,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
         (u.ocena ? '<span class="uwOc">' + esc(u.ocena) + '</span>' : '') +
         '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
-        '<div class="uwGdzie">' + esc(u.pozycja) + '</div>' +
+        '<div class="uwGdzie" data-idzie="' + esc(u.pozycja) + '">' + esc(u.pozycja) + ' →</div>' +
         '<div class="uwTxt">' + esc(u.uwaga).split('\n').join('<br>') + '</div>' +
         (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
         '<div class="uwAkc">' +
@@ -1403,7 +1435,42 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       ' uwag, otwartych ' + otwarte + '.</div>';
   }
 
-  function rysujWszystko() { rysujPrzyPostach(); rysujTabele(); odswiezLicznik(); }
+  // status calego postu: najgorszy ze statusow jego uwag
+  function statusPostu(tytul) {
+    var moje = dla(tytul).filter(function (u) { return u.uwaga || u.ocena; });
+    if (!moje.length) return null;
+    if (moje.some(function (u) { return !u.status || u.status === 'nowa'; })) return 'nowa';
+    if (moje.some(function (u) { return u.status === 'w robocie'; })) return 'w robocie';
+    return 'zrobione';
+  }
+
+  function rysujStatusyPostow() {
+    [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
+      var karta = u.closest('.k');
+      if (!karta) return;
+      var st = statusPostu(u.dataset.tytul);
+      karta.classList.remove('p-nie', 'p-robi', 'p-gotowe');
+      var zn = karta.querySelector('.pStan');
+      if (!st) { if (zn) zn.remove(); return; }
+      karta.classList.add('p-' + stanKlasa(st));
+      if (!zn) {
+        zn = document.createElement('span');
+        zn.className = 'pStan';
+        var gl = karta.querySelector('.gl');
+        if (gl) gl.appendChild(zn); else karta.insertBefore(zn, karta.firstChild);
+      }
+      zn.className = 'pStan ' + stanKlasa(st);
+      zn.innerHTML = '<i></i>' + stanNazwa(st);
+      // ten sam kolor na kafelku w siatce feedu
+      var kafel = document.querySelector('.siatka .sk[data-go="' + karta.id + '"]');
+      if (kafel) {
+        kafel.classList.remove('nie', 'robi', 'gotowe');
+        kafel.classList.add(stanKlasa(st));
+      }
+    });
+  }
+
+  function rysujWszystko() { rysujPrzyPostach(); rysujTabele(); rysujStatusyPostow(); odswiezLicznik(); }
 
   // ---- akcje na uwagach ----
   document.addEventListener('click', function (e) {
@@ -1418,18 +1485,50 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (b.classList.contains('edy')) {
       var nowy = prompt('Popraw swoja uwage:', u.uwaga);
       if (nowy === null) return;
-      b.disabled = true;
-      wyslij({ akcja: 'edytuj', nr: nr, ocena: u.ocena, uwaga: nowy });
+      odRazu(nr, { uwaga: nowy }, { akcja: 'edytuj', nr: nr, ocena: u.ocena, uwaga: nowy });
     } else if (b.classList.contains('cof')) {
       if (!confirm('Wycofac te uwage?')) return;
-      wyslij({ akcja: 'usun', nr: nr });
+      odRazu(nr, { status: 'cofnieta' }, { akcja: 'usun', nr: nr });
     } else if (b.classList.contains('st')) {
-      wyslij({ akcja: 'status', nr: nr, status: b.dataset.st });
+      odRazu(nr, { status: b.dataset.st }, { akcja: 'status', nr: nr, status: b.dataset.st });
     } else if (b.classList.contains('odp')) {
-      var o = prompt('Nasza odpowiedz:', u.odpowiedz || '');
-      if (o === null) return;
-      wyslij({ akcja: 'status', nr: nr, status: u.status || 'w robocie', odpowiedz: o });
+      if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
+      var box = document.createElement('div');
+      box.className = 'odpBox';
+      box.innerHTML = '<textarea placeholder="Napisz odpowiedz dla Ani..."></textarea>' +
+        '<div class="odpAkc"><button class="mini zap2">Zapisz odpowiedz</button>' +
+        '<button class="mini anu">Anuluj</button></div>';
+      el.appendChild(box);
+      var ta = box.querySelector('textarea');
+      ta.value = u.odpowiedz || '';
+      ta.focus();
+      box.querySelector('.anu').addEventListener('click', function () { box.remove(); });
+      box.querySelector('.zap2').addEventListener('click', function () {
+        var o = ta.value.trim();
+        var st = u.status === 'zrobione' ? 'zrobione' : (u.status || 'w robocie');
+        box.remove();
+        odRazu(nr, { odpowiedz: o, status: st }, { akcja: 'status', nr: nr, status: st, odpowiedz: o });
+      });
     }
+  });
+
+  // klik w nazwe pozycji: zamykamy szuflade i skaczemy do tego miejsca
+  document.addEventListener('click', function (e) {
+    var g = e.target.closest ? e.target.closest('.uwGdzie[data-idzie]') : null;
+    if (!g) return;
+    var tytul = g.dataset.idzie;
+    var cel = [].slice.call(document.querySelectorAll('.uw,.wst'))
+      .filter(function (x) { return x.dataset.tytul === tytul; })[0];
+    if (!cel) return;
+    otworzSz(false);
+    var sek = cel.closest('.sek');
+    if (sek) pokazSekcje(sek.id.replace('sek-', ''));
+    setTimeout(function () {
+      var karta = cel.closest('.k') || cel;
+      karta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      karta.classList.add('blysk');
+      setTimeout(function () { karta.classList.remove('blysk'); }, 1600);
+    }, 120);
   });
 
   // ---- zakladki ----
