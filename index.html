@@ -393,6 +393,13 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   box-shadow:0 0 0 0 rgba(106,197,44,.7);animation:tetno 2.4s ease-out infinite}
 @keyframes tetno{0%{box-shadow:0 0 0 0 rgba(106,197,44,.65)}70%{box-shadow:0 0 0 7px rgba(106,197,44,0)}100%{box-shadow:0 0 0 0 rgba(106,197,44,0)}}
 @media (prefers-reduced-motion: reduce){#zywo::before{animation:none}}
+
+/* pasek: jest nowsza wersja planu */
+#nowaW{position:fixed;left:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:10px;
+  font:13px inherit;padding:11px 15px;border-radius:8px;background:var(--tekst);color:#fff;
+  box-shadow:0 6px 20px rgba(28,27,24,.25)}
+#nowaW button{font:13px inherit;padding:6px 13px;border-radius:14px;border:0;cursor:pointer;
+  background:#6ac52c;color:#12300a;font-weight:600}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -2275,7 +2282,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 
   // ostrzezenie przy zamykaniu karty, gdy cos jest napisane a niezapisane
   window.addEventListener('beforeunload', function (e) {
-    var cos = Object.keys(szkic).some(function (k) { return (szkic[k].tekst || '').trim() || szkic[k].ocena; });
+    var cos = Object.keys(szkic).some(function (k) { return (szkic[k].tekst || '').trim(); });
     if (!cos) return;
     e.preventDefault();
     e.returnValue = '';
@@ -2420,6 +2427,35 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (JEDZIE || KOLEJKA.length) return;
     pobierz().then(function () { przerysuj(); pokazOdswiezenie(); });
   });
+  // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
+  // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
+  // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
+  var MOJA_WERSJA = '1790549815264';
+  function czyNowaWersja() {
+    fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.text(); })
+      .then(function (w) {
+        w = (w || '').trim();
+        if (!w || w === MOJA_WERSJA) return;
+        var piszeCos = Object.keys(szkic).some(function (k) {
+          return (szkic[k].tekst || '').trim();
+        });
+        if (piszeCos || JEDZIE || KOLEJKA.length) { pokazNowaWersje(); return; }
+        location.reload();
+      })
+      ['catch'](function () {});
+  }
+  function pokazNowaWersje() {
+    if (document.getElementById('nowaW')) return;
+    var d = document.createElement('div');
+    d.id = 'nowaW';
+    d.innerHTML = 'Jest nowsza wersja planu. <button id="wczytajW">Wczytaj</button>';
+    document.body.appendChild(d);
+    document.getElementById('wczytajW').addEventListener('click', function () { location.reload(); });
+  }
+  setInterval(czyNowaWersja, 60000);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) czyNowaWersja(); });
+
   naZywo();
 })();
 </script></body></html>
