@@ -209,6 +209,23 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .pAkc{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 2px}
 .pAkcE{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);margin-right:3px}
 .mini.pst.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+/* czwarty stan: zrobione u nas, czeka na jej tak */
+.pStan.czeka{background:#2e6b9e;color:#fff}   .pStan.czeka i{background:#fff}
+.k.p-czeka{border-left:6px solid #2e6b9e;background:#fbfdff}
+.k.p-czeka .gl h3,.k.p-czeka .dat{color:#2e6b9e}
+.uwEl.czeka{border-left-color:#2e6b9e}
+.uwEl.czeka .uwSt{color:#2e6b9e}
+.uwEl.czeka .uwSt i{background:#2e6b9e}
+.uwEl.czeka .uwGdzie{color:#2e6b9e}
+.siatka .sk.czeka::after{background:#2e6b9e}
+.siatka .sk.czeka span{background:rgba(46,107,158,.88)}
+.kol.czeka{background:#eef5fb;color:#2e6b9e}
+.pAkcept{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef5fb;border:1px solid #cfe0ee;
+  border-radius:5px;padding:12px 15px;margin-top:14px}
+.pAkcept span{font-size:15px;color:#2e6b9e}
+.pAkcept .zatw{font:15px inherit;padding:9px 20px;border-radius:20px;border:1px solid #2e6b9e;
+  background:#2e6b9e;color:#fff;cursor:pointer}
+.pAkcept .zatw:disabled{opacity:.6}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1345,8 +1362,10 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   var STATUSY = [
     { id: 'nowa', nazwa: 'nie zrobione', klasa: 'nie' },
     { id: 'w robocie', nazwa: 'w robocie', klasa: 'robi' },
-    { id: 'zrobione', nazwa: 'zrobione', klasa: 'gotowe' },
+    { id: 'czeka', nazwa: 'czeka na Twoje tak', klasa: 'czeka' },
+    { id: 'zrobione', nazwa: 'zatwierdzone', klasa: 'gotowe' },
   ];
+  var PORZ = { 'nowa': 0, '': 0, 'w robocie': 1, 'czeka': 2, 'zrobione': 3 };
   function stanKlasa(s) {
     var z = STATUSY.filter(function (x) { return x.id === s; })[0];
     return z ? z.klasa : 'nie';
@@ -1474,9 +1493,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // ---- kolejnosc w szufladzie: stala w trakcie pracy ----
   var KOLEJNOSC = [];
   function ustalKolejnosc(lista) {
-    var porz = { 'nowa': 0, '': 0, 'w robocie': 1, 'zrobione': 2 };
     KOLEJNOSC = lista.slice()
-      .sort(function (a, b) { return (porz[a.status] || 0) - (porz[b.status] || 0) || a.nr - b.nr; })
+      .sort(function (a, b) { return (PORZ[a.status] || 0) - (PORZ[b.status] || 0) || a.nr - b.nr; })
       .map(function (u) { return u.nr; });
   }
   function przeliczKolejnosc() { KOLEJNOSC = []; }
@@ -1526,9 +1544,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (zn && zn.status) return zn.status;
     var moje = dla(tytul).filter(function (u) { return u.uwaga || u.ocena; });
     if (!moje.length) return null;
-    if (moje.some(function (u) { return !u.status || u.status === 'nowa'; })) return 'nowa';
-    if (moje.some(function (u) { return u.status === 'w robocie'; })) return 'w robocie';
-    return 'zrobione';
+    var naj = 9;
+    moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
+    return ['nowa', 'w robocie', 'czeka', 'zrobione'][naj] || 'nowa';
   }
 
   // przyciski gotowosci na samym poscie — dzialaja takze wtedy, gdy nie ma zadnej uwagi
@@ -1548,12 +1566,25 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     }).join('');
   }
 
+  // dla Ani: gdy cos czeka na jej tak, dostaje jeden duzy przycisk
+  function dodajPrzyciskAkceptu(karta, tytul, teraz) {
+    var stary = karta.querySelector('.pAkcept');
+    if (ZESPOL || teraz !== 'czeka') { if (stary) stary.remove(); return; }
+    if (stary) return;
+    var d = document.createElement('div');
+    d.className = 'pAkcept';
+    d.innerHTML = '<span>Poprawione. Pasuje tak?</span>' +
+      '<button class="zatw" data-tytul="' + esc(tytul) + '">Zatwierdzam</button>';
+    var uw = karta.querySelector('.uw');
+    if (uw) karta.insertBefore(d, uw); else karta.appendChild(d);
+  }
+
   function rysujStatusyPostow() {
     [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
       var karta = u.closest('.k');
       if (!karta) return;
       var st = statusPostu(u.dataset.tytul);
-      karta.classList.remove('p-nie', 'p-robi', 'p-gotowe');
+      karta.classList.remove('p-nie', 'p-robi', 'p-czeka', 'p-gotowe');
       var zn = karta.querySelector('.pStan');
       if (!st) {
         if (zn) zn.remove();
@@ -1570,10 +1601,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       zn.className = 'pStan ' + stanKlasa(st);
       zn.innerHTML = '<i></i>' + stanNazwa(st);
       dodajPrzyciskiPostu(karta, u.dataset.tytul, st);
+      dodajPrzyciskAkceptu(karta, u.dataset.tytul, st);
       // ten sam kolor na kafelku w siatce feedu
       var kafel = document.querySelector('.siatka .sk[data-go="' + karta.id + '"]');
       if (kafel) {
-        kafel.classList.remove('nie', 'robi', 'gotowe');
+        kafel.classList.remove('nie', 'robi', 'czeka', 'gotowe');
         kafel.classList.add(stanKlasa(st));
       }
     });
@@ -1617,6 +1649,22 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         var st = u.status === 'zrobione' ? 'zrobione' : (u.status || 'w robocie');
         box.remove();
         odRazu(nr, { odpowiedz: o, status: st }, { akcja: 'status', nr: nr, status: st, odpowiedz: o });
+      });
+    }
+  });
+
+  // Ania zatwierdza poprawiony post
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.zatw') : null;
+    if (!b) return;
+    var tytul = b.dataset.tytul;
+    b.disabled = true; b.textContent = 'Zapisuje...';
+    var zn = znacznikPostu(tytul);
+    if (zn) {
+      odRazu(zn.nr, { status: 'zrobione' }, { akcja: 'status', nr: zn.nr, status: 'zrobione' });
+    } else {
+      dla(tytul).forEach(function (u) {
+        odRazu(u.nr, { status: 'zrobione' }, { akcja: 'status', nr: u.nr, status: 'zrobione' });
       });
     }
   });
@@ -1731,7 +1779,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 
   function odswiezLicznik() {
     var otwarte = UWAGI.filter(function (u) {
-      return u.status !== 'cofnieta' && u.status !== 'zrobione' && (u.uwaga || u.ocena);
+      return u.status !== 'cofnieta' && u.status !== 'zrobione' && !jestZnacznikiem(u) && (u.uwaga || u.ocena);
     }).length;
     var k = document.getElementById('koszykLicz');
     if (k) { k.textContent = otwarte; k.classList.toggle('pusto', otwarte === 0); }
