@@ -411,6 +411,10 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .grDecyzja .odrzuc{border:1px solid #7a1f1a;color:#7a1f1a}
 .grDecyzja .odrzuc:hover,.grDecyzja .odrzuc.akt{background:#7a1f1a;border-color:#7a1f1a;color:#fff}
 .grDecyzja .akt{font-weight:600}
+
+/* slad ostatniej zmiany: kiedy i czyja reka */
+.uwZm{display:block;font-size:11px;color:var(--cichy);margin-top:2px}
+.stZm{font-size:11px;color:var(--cichy);margin-left:8px;white-space:nowrap}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1581,6 +1585,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // dzieki temu w srodku lancucha nikt nie zobaczy stanu posredniego.
   function wyslijCicho(dane) {
     dane.token = TOKEN;
+    // kazdy zapis podpisuje sie, kto go zrobil — stad bierze sie "zmienione przez"
+    if (dane.kto === undefined) dane.kto = ZESPOL ? 'ZOVU' : 'Ania';
     return fetch(MOST, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -1643,10 +1649,16 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   var ZNACZNIK = 'STATUS POSTU';
   function jestZnacznikiem(u) { return u.ocena === ZNACZNIK; }
 
-  // przy kazdej uwadze widac, od kogo jest i o ktorej godzinie
+  // Przy kazdej uwadze widac, od kogo jest, a jesli ktos pozniej cos przy niej
+  // ruszyl — kiedy i kto. Zeby nie trzeba bylo zgadywac, czyja to ostatnia reka.
+  function ktoTo(k) { return k === 'ZOVU' ? 'my' : (k === 'Ania' ? 'Ania' : k); }
   function kto(u) {
-    if (!u.kto) return '';
-    return ' &middot; ' + (u.kto === 'ZOVU' ? 'od nas' : 'od Ani');
+    var h = u.kto ? ' &middot; ' + (u.kto === 'ZOVU' ? 'od nas' : 'od Ani') : '';
+    if (u.zmieniono && u.zmieniono !== u.czas) {
+      h += '<span class="uwZm">zmienione ' + esc(u.zmieniono) +
+        (u.ktoZmienil ? ', ' + esc(ktoTo(u.ktoZmienil)) : '') + '</span>';
+    }
+    return h;
   }
 
   // indeks budowany raz na przerysowanie — bez niego kazde klikniecie
@@ -2014,6 +2026,17 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       }
       zn.className = 'pStan ' + stanKlasa(st);
       zn.innerHTML = '<i></i>' + stanNazwa(st);
+      // obok stanu: kiedy ostatnio ktos go ruszyl i kto
+      var znacz = znacznikPostu(u.dataset.tytul);
+      var kiedyEl = karta.querySelector('.stZm');
+      if (znacz && znacz.zmieniono) {
+        if (!kiedyEl) {
+          kiedyEl = document.createElement('span');
+          kiedyEl.className = 'stZm';
+          zn.parentNode.insertBefore(kiedyEl, zn.nextSibling);
+        }
+        kiedyEl.textContent = znacz.zmieniono + (znacz.ktoZmienil ? ' · ' + ktoTo(znacz.ktoZmienil) : '');
+      } else if (kiedyEl) { kiedyEl.remove(); }
       dodajPrzyciskiPostu(karta, u.dataset.tytul, st);
       dodajPrzyciskAkceptu(karta, u.dataset.tytul, st);
       // ten sam kolor na kafelku w siatce feedu
@@ -2437,7 +2460,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790550313251';
+  var MOJA_WERSJA = '1790550721569';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
