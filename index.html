@@ -54,6 +54,22 @@ h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--akce
 .naw a{font-size:13px;text-decoration:none;color:var(--akcent);background:#fffdf7;border:1px solid var(--ramka);border-radius:20px;padding:7px 14px}
 .naw a:hover{background:var(--akcent);color:#fff;border-color:var(--akcent)}
 h2.dzial{font-size:22px;font-weight:300;letter-spacing:.01em;text-transform:none;color:var(--tekst);margin:52px 0 10px;padding-top:14px;border-top:2px solid var(--akcent)}
+.naw button.zak{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px solid var(--ramka);background:#fffdf7;color:var(--akcent);cursor:pointer}
+.naw button.zak.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.siatka{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:520px;margin:0 0 6px}
+.siatka .sk{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#eee;text-decoration:none}
+.siatka .sk img{width:100%;height:100%;object-fit:cover;display:block}
+.siatka .sk span{position:absolute;left:0;right:0;bottom:0;background:rgba(20,19,17,.62);color:#fff;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;text-align:center}
+.gora{max-width:520px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);margin:6px 0}
+.wst{margin:6px 0 10px}
+.wstB{font:13px inherit;padding:5px 13px;border-radius:16px;border:1px dashed var(--ramka);background:transparent;color:var(--cichy);cursor:pointer}
+.wstB:hover{border-color:var(--akcent);color:var(--akcent)}
+.wstP{display:none;margin-top:8px}
+.wstP textarea{width:100%;min-height:56px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--ramka);border-radius:4px;background:#fffdf7;resize:vertical}
+.wst.otw .wstP{display:block}
+.rej .hi{background:var(--karta);border:1px solid var(--ramka);border-left:3px solid var(--zm);border-radius:4px;padding:13px 15px;margin-bottom:10px}
+.rej .hi.ok{border-left-color:var(--ok)}
+.co{font-size:15px;margin-top:8px;color:#4a463e}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -65,8 +81,50 @@ h2.dzial{font-size:22px;font-weight:300;letter-spacing:.01em;text-transform:none
     Twoje wczesniejsze uwagi i nasza odpowiedz zostaja przy poscie, wiec nie musisz niczego szukac
     ani poprawiac dwa razy tego samego.
   </div>
-  <nav class="naw"><a href="#s-posty">Posty</a><a href="#s-reklama">Reklama w Meta</a><a href="#s-mailing">Mailing</a></nav>
-  <h2 class="dzial" id="s-posty">Posty</h2><h2>wrzesien i poczatek pazdziernika</h2>
+  <nav class="naw"><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="uwagi">Twoje uwagi</button><button class="zak" data-sek="wydatki">Wydatki</button></nav>
+  <div class="sek" id="sek-feed"><h2 class="dzial">Feed</h2><div class="jak" style="margin:0 0 16px">
+  <b>Tak ulozy sie Wasz profil.</b> Czytamy od gory &mdash; na Instagramie nowy post wskakuje w lewy gorny rog
+  i spycha reszte w dol, wiec na dole siatki jest zawsze najstarszy. Stories w siatce nie ma, bo nie zostaja na profilu.<br><br>
+  Publikujemy o dwoch porach: <b>14:30</b> albo <b>20:30</b>. Przejrzelismy Wasze posty z ostatnich miesiecy &mdash;
+  wiekszosc tych, ktore poszly najlepiej, wychodzila wlasnie w tych godzinach.<br><br>
+  Kliknij w kadr, zeby przejsc do tego postu.</div>
+<div class="gora">&uarr; gora profilu &middot; najnowszy</div>
+<div class="siatka"><a href="#q-00" class="sk" data-go="q-00">
+    <img src="kadry/q-00-1.jpg" alt="" loading="lazy"><span>pazdziernik, data po zdjeciach od Ani</span></a><a href="#q-09" class="sk" data-go="q-09">
+    <img src="kadry/q-09-1.jpg" alt="" loading="lazy"><span>pt 23.10</span></a><a href="#q-08" class="sk" data-go="q-08">
+    <img src="kadry/q-08-1.jpg" alt="" loading="lazy"><span>sr 21.10</span></a><a href="#q-07" class="sk" data-go="q-07">
+    <img src="kadry/q-07-1.jpg" alt="" loading="lazy"><span>pon 19.10</span></a><a href="#q-06" class="sk" data-go="q-06">
+    <img src="kadry/q-06-1.jpg" alt="" loading="lazy"><span>sob 17.10</span></a><a href="#q-05" class="sk" data-go="q-05">
+    <img src="kadry/q-05-1.jpg" alt="" loading="lazy"><span>czw 15.10</span></a><a href="#q-04" class="sk" data-go="q-04">
+    <img src="kadry/q-04-1.jpg" alt="" loading="lazy"><span>wt 13.10</span></a><a href="#q-03" class="sk" data-go="q-03">
+    <img src="kadry/q-03-1.jpg" alt="" loading="lazy"><span>nd 11.10</span></a><a href="#q-02" class="sk" data-go="q-02">
+    <img src="kadry/q-02-1.jpg" alt="" loading="lazy"><span>pt 09.10</span></a><a href="#q-01" class="sk" data-go="q-01">
+    <img src="kadry/q-01-1.jpg" alt="" loading="lazy"><span>sr 07.10</span></a><a href="#p-10" class="sk" data-go="p-10">
+    <img src="kadry/p-10-1.jpg" alt="" loading="lazy"><span>pon 05.10</span></a><a href="#p-11" class="sk" data-go="p-11">
+    <img src="kadry/p-11-1.jpg" alt="" loading="lazy"><span>nd 04.10</span></a><a href="#p-09" class="sk" data-go="p-09">
+    <img src="kadry/p-09-1.jpg" alt="" loading="lazy"><span>sob 03.10</span></a><a href="#p-03" class="sk" data-go="p-03">
+    <img src="kadry/p-03-1.jpg" alt="" loading="lazy"><span>pt 02.10</span></a><a href="#p-08" class="sk" data-go="p-08">
+    <img src="kadry/p-08-1.jpg" alt="" loading="lazy"><span>czw 01.10</span></a><a href="#p-07" class="sk" data-go="p-07">
+    <img src="kadry/p-07-1.jpg" alt="" loading="lazy"><span>sr 30.09</span></a><a href="#p-06" class="sk" data-go="p-06">
+    <img src="kadry/p-06-1.jpg" alt="" loading="lazy"><span>wt 29.09</span></a><a href="#p-04" class="sk" data-go="p-04">
+    <img src="kadry/p-04-1.jpg" alt="" loading="lazy"><span>sob 26.09</span></a><a href="#p-01" class="sk" data-go="p-01">
+    <img src="kadry/p-01-1.jpg" alt="" loading="lazy"><span>pt 25.09</span></a></div><div class="gora">&darr; dol profilu &middot; najstarszy</div>
+<section class="k" id="f-siatka">
+  <div class="gl"><h3>Cala siatka profilu</h3></div>
+  <p class="ekr">To jest pierwsza rzecz do zatwierdzenia &mdash; dopiero po niej dopracowujemy szczegoly pojedynczych postow.</p>
+  <div class="uw" data-id="f-siatka" data-tytul="[feed] Cala siatka profilu">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Co zmienic w kolejnosci albo w kadrach?"></textarea>
+    <div class="zap"></div>
+  </div>
+</section></div><div class="sek" id="sek-posty" hidden><h2 class="dzial">Posty</h2><h2>wrzesien i poczatek pazdziernika</h2>
+<div class="wst" data-tytul="[wstawka] przed pt 25.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-01">
   <div class="gl"><span class="dat">pt 25.09</span><h3>Co jest w srodku</h3></div>
   <div class="met">POST, 1 kadr, 1080x1350</div>
@@ -88,6 +146,13 @@ No compromise. No animals involved.</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy pt 25.09 a pt 02.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-03">
   <div class="gl"><span class="dat">pt 02.10</span><h3>Recznie szyte we Wloszech</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -109,6 +174,13 @@ All our materials come from Europe. None from China. 🤍</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy pt 02.10 a sob 26.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-04">
   <div class="gl"><span class="dat">sob 26.09</span><h3>One boot, three heights</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -135,6 +207,13 @@ Short for the city, mid for most days, long for the days that really mean it.</d
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy sob 26.09 a pon 28.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-05">
   <div class="gl"><span class="dat">pon 28.09</span><h3>Ankieta: Short / Mid / Long</h3></div>
   <div class="met">STORIES, 2 plansze</div>
@@ -156,6 +235,13 @@ Tap to vote — and we will write to you first when your size is back.</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy pon 28.09 a wt 29.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-06">
   <div class="gl"><span class="dat">wt 29.09</span><h3>Removable insole</h3></div>
   <div class="met">POST, 1 kadr, 1080x1350</div>
@@ -184,6 +270,13 @@ Need a different size? Exchanges are always free. 🤍</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy wt 29.09 a sr 30.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-07">
   <div class="gl"><span class="dat">sr 30.09</span><h3>39 czy 40</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -217,6 +310,13 @@ Need a different size? Exchanges are always free. 🤍</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy sr 30.09 a czw 01.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-08">
   <div class="gl"><span class="dat">czw 01.10</span><h3>Oat Milk Tee / World Vegetarian Day</h3></div>
   <div class="met">POST</div>
@@ -233,6 +333,13 @@ No speech from us today — just our Oat Milk tee, which we would wear anyway. �
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy czw 01.10 a sob 03.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-09">
   <div class="gl"><span class="dat">sob 03.10</span><h3>Cold feet</h3></div>
   <div class="met">REEL, 6 s, trzy ujecia, kamera stoi &middot; jest tez gotowy film</div>
@@ -254,6 +361,13 @@ Ours keep water out for up to 2.5 hours in snow and rain — warm and dry is wha
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy sob 03.10 a pon 05.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-10">
   <div class="gl"><span class="dat">pon 05.10</span><h3>Akcesoria</h3></div>
   <div class="met">POST</div>
@@ -270,6 +384,13 @@ Spare insoles, care spray, and scrunchies sewn from what is left after the boots
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy pon 05.10 a nd 04.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-11">
   <div class="gl"><span class="dat">nd 04.10</span><h3>World Animal Day</h3></div>
   <div class="met">POST, 1 kadr</div>
@@ -291,6 +412,13 @@ Nothing to sell today — just a thank you to every animal that never had to be 
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy nd 04.10 a nd 27.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="p-12">
   <div class="gl"><span class="dat">nd 27.09</span><h3>Pre-order: czerwona spódnica</h3></div>
   <div class="met">POST + STORIES + MAIL</div>
@@ -318,6 +446,13 @@ The next batch is already in production.</div>
     <div class="zap"></div>
   </div>
 </section><h2>pazdziernik, od trzeciego tygodnia</h2>
+<div class="wst" data-tytul="[wstawka] miedzy nd 27.09 a pazdziernik, data po zdjeciach od Ani">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-00">
   <div class="gl"><span class="dat">pazdziernik, data po zdjeciach od Ani</span><h3>Adoption Story 1 — Patricia i Oscar</h3></div>
   <div class="met">REEL + karuzela</div>
@@ -335,6 +470,13 @@ We have supported adoption since 2021. 🤍</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy pazdziernik, data po zdjeciach od Ani a sr 07.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-01">
   <div class="gl"><span class="dat">sr 07.10</span><h3>Navy, nie czarny</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -351,6 +493,13 @@ Our Classic Vegan Medium in the colour that already goes with everything you own
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy sr 07.10 a pt 09.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-02">
   <div class="gl"><span class="dat">pt 09.10</span><h3>Psy</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -367,6 +516,13 @@ Our vegan dog hoodie and our boots — perfect match in style, human &amp; hound
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy pt 09.10 a nd 11.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-03">
   <div class="gl"><span class="dat">nd 11.10</span><h3>Podeszwa</h3></div>
   <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
@@ -383,6 +539,13 @@ That is the part that keeps you steady on wet cobblestones from November to Marc
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy nd 11.10 a wt 13.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-04">
   <div class="gl"><span class="dat">wt 13.10</span><h3>Wzgorza</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -399,6 +562,13 @@ Swiss hills, real weather, no studio. 🤍</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy wt 13.10 a czw 15.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-05">
   <div class="gl"><span class="dat">czw 15.10</span><h3>Czerwona spodnica — rusza wysylka</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -415,6 +585,13 @@ Our Winter Vegan Skirt in red — five per size, then that is it.</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy czw 15.10 a sob 17.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-06">
   <div class="gl"><span class="dat">sob 17.10</span><h3>Czern w miescie</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -431,6 +608,13 @@ Our Classic Vegan Short in the city, from the first coffee to the last tram.</di
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy sob 17.10 a pon 19.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-07">
   <div class="gl"><span class="dat">pon 19.10</span><h3>Skarpety</h3></div>
   <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
@@ -447,6 +631,13 @@ Soft, warm and made to live inside our boots. 🤍</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy pon 19.10 a sr 21.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-08">
   <div class="gl"><span class="dat">sr 21.10</span><h3>Do rozmiaru 46</h3></div>
   <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
@@ -463,6 +654,13 @@ Because warm feet should not depend on how big they are.</div>
     <div class="zap"></div>
   </div>
 </section>
+<div class="wst" data-tytul="[wstawka] miedzy sr 21.10 a pt 23.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div>
 <section class="k" id="q-09">
   <div class="gl"><span class="dat">pt 23.10</span><h3>Zielone</h3></div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
@@ -478,7 +676,105 @@ Our Classic Vegan Short in green, for everyone who already has the other two.</d
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
     <div class="zap"></div>
   </div>
-</section><h2 class="dzial" id="s-reklama">Reklama w Meta</h2>
+</section>
+<div class="wst" data-tytul="[wstawka] po pt 23.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
+    <div class="zap"></div>
+  </div>
+</div></div><div class="sek" id="sek-stories" hidden><h2 class="dzial">Stories</h2><div class="jak" style="margin:0 0 16px">Stories nie zostaja na profilu, wiec nie ma ich w siatce.
+Tu jest wszystko, co planujemy puscic w Stories, razem z tekstem, ktory idzie na plansze.</div>
+<section class="k" id="sp-04">
+  <div class="gl"><span class="dat">sob 26.09</span><h3>One boot, three heights</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="pod">One boot. Three winters.</div>
+  <div class="uw" data-id="sp-04" data-tytul="[stories] sob 26.09 — One boot, three heights">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sp-05">
+  <div class="gl"><span class="dat">pon 28.09</span><h3>Ankieta: Short / Mid / Long</h3></div>
+  <div class="met">STORIES, 2 plansze</div>
+  <div class="pod">—</div>
+  <div class="uw" data-id="sp-05" data-tytul="[stories] pon 28.09 — Ankieta: Short / Mid / Long">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sp-06">
+  <div class="gl"><span class="dat">wt 29.09</span><h3>Removable insole</h3></div>
+  <div class="met">POST, 1 kadr, 1080x1350</div>
+  <div class="pod">Brak tekstu na kadrze.</div>
+  <div class="uw" data-id="sp-06" data-tytul="[stories] wt 29.09 — Removable insole">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sp-08">
+  <div class="gl"><span class="dat">czw 01.10</span><h3>Oat Milk Tee / World Vegetarian Day</h3></div>
+  <div class="met">POST</div>
+  <div class="pod">Oat milk, please.</div>
+  <div class="uw" data-id="sp-08" data-tytul="[stories] czw 01.10 — Oat Milk Tee / World Vegetarian Day">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sp-09">
+  <div class="gl"><span class="dat">sob 03.10</span><h3>Cold feet</h3></div>
+  <div class="met">REEL, 6 s, trzy ujecia, kamera stoi</div>
+  <div class="pod">Cold feet? Rarely the shoe alone.</div>
+  <div class="uw" data-id="sp-09" data-tytul="[stories] sob 03.10 — Cold feet">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sp-10">
+  <div class="gl"><span class="dat">pon 05.10</span><h3>Akcesoria</h3></div>
+  <div class="met">POST</div>
+  <div class="pod">Small things that go with everything.</div>
+  <div class="uw" data-id="sp-10" data-tytul="[stories] pon 05.10 — Akcesoria">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sp-11">
+  <div class="gl"><span class="dat">nd 04.10</span><h3>World Animal Day</h3></div>
+  <div class="met">POST, 1 kadr</div>
+  <div class="pod">Nothing to sell today.</div>
+  <div class="uw" data-id="sp-11" data-tytul="[stories] nd 04.10 — World Animal Day">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sp-12">
+  <div class="gl"><span class="dat">nd 27.09</span><h3>Pre-order: czerwona spódnica</h3></div>
+  <div class="met">POST + STORIES + MAIL</div>
+  <div class="pod">Back. Five per size.</div>
+  <div class="uw" data-id="sp-12" data-tytul="[stories] nd 27.09 — Pre-order: czerwona spódnica">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="sq-00">
+  <div class="gl"><span class="dat">pazdziernik, data po zdjeciach od Ani</span><h3>Adoption Story 1 — Patricia i Oscar</h3></div>
+  <div class="met">REEL + karuzela</div>
+  <div class="pod">Stories, dziesiec plansz, na kazdej jedno zdanie jej wlasnymi slowami:<br>  1  Oscar is almost 14. He turns 14 in December.<br>  2  For ten years he was a farm dog in Hungary.<br>  3  When his owner died, no one could take him. He ended up in a shelter.<br>  4  Old. Black. Big. The three things that make a dog hardest to adopt.<br>  5  That is exactly why it was clear to me it would be him.<br>  6  I visited him twice. The first time to meet him. The second to take him home.<br>  7  Two and a half years later we walk ten kilometres a day.<br>  8  He does not like cuddling. He gets five minutes anyway. Every day.<br>  9  A senior dog is not too old to learn anything new.<br> 10  The best decision of my entire life.<br>     (malym drukiem: Oscar was adopted from Tierheim Kondorgos — the same shelter where Zeno is waiting.)<br><br>TEASER, osobno i wczesniej: jeden kadr do feedu + ta sama plansza w Stories.<br>Na kadrze: OUR ADOPTION STORIES.<br>Podpis teasera: Real people. Adopted dogs. Told in their own words.<br>We have supported adoption since 2021. First story this week.</div>
+  <div class="uw" data-id="sq-00" data-tytul="[stories] pazdziernik, data po zdjeciach od Ani — Adoption Story 1 — Patricia i Oscar">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section></div><div class="sek" id="sek-reklama" hidden><h2 class="dzial">Reklama w Meta</h2>
 <div class="jak" style="margin:0 0 16px">Te kadry nie pojawiaja sie na profilu &mdash; widza je tylko ludzie,
 do ktorych kierujemy reklame. Kazdy kadr jest po angielsku (Szwajcaria) i po niemiecku (Niemcy i Austria).
 <b>Nic z tego nie zostalo jeszcze uruchomione</b> &mdash; czekamy na Twoje tak.<br><br>
@@ -718,7 +1014,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
     <div class="zap"></div>
   </div>
-</section><h2 class="dzial" id="s-mailing">Mailing</h2>
+</section></div><div class="sek" id="sek-mailing" hidden><h2 class="dzial">Mailing</h2>
 <section class="k" id="m-01">
   <div class="gl"><span class="dat">gotowe, czeka na Twoje tak</span><h3>List pierwszy &mdash; czerwona spodnica</h3></div>
   <div class="met">EN i DE &middot; jedna kampania, jezyk podstawia sie sam wedlug tego, jak ktos sie zapisal</div>
@@ -739,7 +1035,156 @@ Temat B (test): The red skirt goes back into production</div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
     <div class="zap"></div>
   </div>
+</section></div><div class="sek" id="sek-strategia" hidden><h2 class="dzial">Strategia</h2><div class="jak" style="margin:0 0 16px">To sa ustalenia, na ktorych stoi caly plan.
+Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdash; dlatego warto zaczac wlasnie stad.</div>
+<section class="k" id="st-0">
+  <div class="gl"><h3>Po co to wszystko</h3></div>
+  <p class="co">Jeden cel na ten sezon: <b>sprzedac 600 par</b>. Wszystko, co nie pracuje na sprzedaz, odpada. Nie liczymy postow ani obserwujacych.</p>
+  <div class="uw" data-id="st-0" data-tytul="[strategia] Po co to wszystko">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
 </section>
+<section class="k" id="st-1">
+  <div class="gl"><h3>Kiedy publikujemy</h3></div>
+  <p class="co">Dwie pory: <b>14:30</b> albo <b>20:30</b>. Przejrzelismy Wasze posty z ostatnich miesiecy &mdash; wiekszosc tych, ktore poszly najlepiej, wychodzila wlasnie w tych godzinach.</p>
+  <div class="uw" data-id="st-1" data-tytul="[strategia] Kiedy publikujemy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-2">
+  <div class="gl"><h3>Jakim jezykiem</h3></div>
+  <p class="co">Profil po angielsku, bez hashtagow, tak jak prowadzicie go od zawsze. Niemiecki idzie wylacznie jako osobna kreacja w Meta i na profil nie trafia &mdash; Niemcy to 34 % zamowien, a tylko 8,7 % obserwujacych.</p>
+  <div class="uw" data-id="st-2" data-tytul="[strategia] Jakim jezykiem">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-3">
+  <div class="gl"><h3>O czym mowimy</h3></div>
+  <p class="co">Piec stalych tematow zamiast dwunastu: <b>wkladka i komfort</b>, <b>Italian handmade i europejskie materialy</b>, <b>ciepło i sucho do 2,5 h</b>, <b>psy i adopcje od 2021</b>, <b>Szwajcaria i nagrody</b>. Kazdy post nalezy do jednego z nich.</p>
+  <div class="uw" data-id="st-3" data-tytul="[strategia] O czym mowimy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-4">
+  <div class="gl"><h3>Czego nie robimy</h3></div>
+  <p class="co">Nie robimy reklamy porownawczej z UGG &mdash; w platnej reklamie w ogole, w organice tylko bez marki i bez cudzego buta w kadrze. Nie robimy wymiany starych butow na nowe. Nie oglaszamy programu przyjmowania starych butow do recyklingu &mdash; za niespelnione obietnice ekologiczne w UE i Szwajcarii sa kary.</p>
+  <div class="uw" data-id="st-4" data-tytul="[strategia] Czego nie robimy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-5">
+  <div class="gl"><h3>Produkt zawsze z Waszego zdjecia</h3></div>
+  <p class="co">Twoje slowa z 27.09: &bdquo;AI przerabia produkty tak, ze nie wygladaja jak nasze&rdquo;. Od teraz: but, spodnica czy kurtka zawsze z Waszej sesji albo z packshotu ze sklepu. Generacja moze byc najwyzej tlem.</p>
+  <div class="uw" data-id="st-5" data-tytul="[strategia] Produkt zawsze z Waszego zdjecia">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-6">
+  <div class="gl"><h3>Kazdy post linkuje produkt</h3></div>
+  <p class="co">Katalog Shopify jest podpiety, 88 pozycji zatwierdzonych, Instagram to aktywny kanal sprzedazy. Kazdy post, na ktorym widac produkt, idzie z oznaczonym produktem. Wczesniej tego nie robilismy i to byl nasz blad.</p>
+  <div class="uw" data-id="st-6" data-tytul="[strategia] Kazdy post linkuje produkt">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-7">
+  <div class="gl"><h3>Reklama</h3></div>
+  <p class="co">Traffic w 90 % przypadkow, engagement tylko tam, gdzie chodzi o zasieg a nie o sprzedaz. Posty informacyjne nie sa promowane. Szwajcaria w tym sezonie bez platnej reklamy, jedyny wyjatek to Blickfang 20&ndash;22.11 &mdash; Zurych i okolice, na engagement.</p>
+  <div class="uw" data-id="st-7" data-tytul="[strategia] Reklama">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-8">
+  <div class="gl"><h3>Mailing</h3></div>
+  <p class="co">Jedna kampania, jezyk podstawia sie sam wedlug tego, jak ktos sie zapisal. Przed kazda wysylka test na Twoje Yahoo. Baza idzie czesciami, zeby nie wpasc w spam. Locale EN 1205 osob, Locale DE 179.</p>
+  <div class="uw" data-id="st-8" data-tytul="[strategia] Mailing">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="st-9">
+  <div class="gl"><h3>Listopad trzymamy osobno</h3></div>
+  <p class="co">World Vegan Day 1.11, Wasze piate urodziny, World Vegan Month, 11.11 i Black Friday planujemy oddzielnie &mdash; listopad robi 36 % sprzedazy i zasluguje na wlasny plan.</p>
+  <div class="uw" data-id="st-9" data-tytul="[strategia] Listopad trzymamy osobno">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section></div><div class="sek" id="sek-uwagi" hidden><h2 class="dzial">Twoje uwagi</h2><div class="jak" style="margin:0 0 16px">Wszystko, co nam powiedzialas &mdash; z rozmowy, z czatu i z maila &mdash;
+i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div><div class="rej"><div class="hi ok">
+    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
+    <blockquote>Tam te uwagi co daje &mdash; znikaja. Jezeli mam dawac uwagi, to one musza byc w takiej historii.</blockquote><p>Zrobione. Teraz wszystko jest na tej stronie i zostaje przy poscie.</p></div><div class="hi ok">
+    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
+    <blockquote>Mozemy zrobic zakladke Kalendarz i ten podglad feedu chcialabym miec.</blockquote><p>Zrobione. Zakladka Feed pokazuje cala siatke profilu, a Posty ida po kolei po datach.</p></div><div class="hi ok">
+    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
+    <blockquote>Spodnice mozna juz dzisiaj wrzucac albo jutro.</blockquote><p>Nasz blad &mdash; stala w planie na 27.10, miesiac za pozno. Poprawione.</p></div><div class="hi ok">
+    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
+    <blockquote>Po prostu usuncie ten post adoption stories, chce pokazac prawdziwych ludzi w parku, z psami.</blockquote><p>Stary usuniety. Nowy zrobiony na Twoim materiale &mdash; Patricia i Oscar.</p></div><div class="hi ">
+    <div class="hk">23.09 rozmowa <span class="hs">jeszcze robimy</span></div>
+    <blockquote>Do podmiany te buty, co napisalam. (02.10 i 04.10)</blockquote><p>Jeszcze nie zamkniete. Podmieniamy na Wasze packshoty ze sklepu, nie przegenerowujemy.</p></div><div class="hi ok">
+    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
+    <blockquote>Zeby byl zawsze podglad, ile juz wydane na reklame.</blockquote><p>Zrobione, zakladka Wydatki. Aktualizujemy co dwa dni.</p></div><div class="hi ok">
+    <div class="hk">24.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Wezcie nogi w butach z tego lookbooka.</blockquote><p>Zrobione, kadry z Waszego lookbooka.</p></div><div class="hi ok">
+    <div class="hk">26.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Zmienilabym kolejnosc klatek: krotki, sredni, wysoki.</blockquote><p>Zrobione, post otwiera krotki.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Ta spodnica zle wyglada &mdash; nie nasza.</blockquote><p>Post zdjety tego samego dnia. Kadr zastapiony Waszym zdjeciem ze sklepu.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>AI przerabia produkty tak, ze nie wygladaja jak nasze.</blockquote><p>Przyjete jako zasada, jest w zakladce Strategia.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Musisz linkowac produkty w postach.</blockquote><p>Przy kazdym poscie sa juz konkretne produkty do oznaczenia.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Musimy pracowac na JEDNYM dokumencie.</blockquote><p>Ta strona. Zaden plik wiecej nie idzie.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Nie podobaja mi sie copy, nie czuje tego. Wgrajcie posty z naszych ostatnich 2 miesiecy.</blockquote><p>Zrobione. Przeczytalismy Wasze podpisy z lipca i sierpnia i przepisalismy wszystkie teksty na Wasz jezyk.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Ankieta Short / Mid / Long wypadla z planu.</blockquote><p>Wraca na 28.09 w Stories razem z zaproszeniem na liste.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Macie w ogole gotowy email do mejlingu?</blockquote><p>Tak, EN i DE. Jest w zakladce Mailing, mozna go otworzyc i przeczytac.</p></div><div class="hi ">
+    <div class="hk">27.09 czat <span class="hs">jeszcze robimy</span></div>
+    <blockquote>Logo jest nie nasze, sprawdzcie fonty z brandbookiem.</blockquote><p>Masz racje &mdash; logo bylo zlozone z tekstu, a font nie byl ustawiony wcale. Przerabiamy list na Wasz szablon z Klaviyo.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Najpierw zatwierdzamy feed i plan publikacji, potem dopracowujemy szczegoly.</blockquote><p>Tak robimy. Zakladka Feed jest pierwsza i to od niej zaczynamy.</p></div><div class="hi ok">
+    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
+    <blockquote>Powinna byc mozliwosc dodania czegos miedzy postami.</blockquote><p>Zrobione. Miedzy kazdymi dwoma postami jest przycisk &bdquo;dodaj cos tutaj&rdquo;.</p></div><div class="hi ok">
+    <div class="hk">22.09 mail <span class="hs">zrobione</span></div>
+    <blockquote>Reklamy porownawczej z UGG raczej nie powinnismy robic.</blockquote><p>Zgoda, nie robimy w platnej reklamie.</p></div><div class="hi ok">
+    <div class="hk">22.09 mail <span class="hs">zrobione</span></div>
+    <blockquote>Sa dwie wymienne wkladki, klasyczna z futerkiem i cienka bez.</blockquote><p>Przeoczylismy to wczesniej. Copy do 29.09 przepisane.</p></div></div></div><div class="sek" id="sek-wydatki" hidden><h2 class="dzial">Wydatki</h2>
+<section class="k" id="w-budzet">
+  <div class="gl"><h3>Ile wydane na reklame</h3></div>
+  <p class="co">Prosilas o to 23.09: &bdquo;zeby byl zawsze podglad, ile juz wydane&rdquo;. Aktualizujemy co dwa dni.</p>
+  <table>
+    <tr><th>Data</th><th>Kampania</th><th>Wydane</th><th>Klikniecia</th><th>Sprzedaz</th></tr>
+    <tr><td colspan="5" style="color:var(--cichy)">Nic jeszcze nie uruchomione &mdash; czekamy na Twoje tak do kreacji.</td></tr>
+    <tr><td><b>Razem wrzesien</b></td><td></td><td><b>0 &euro;</b></td><td><b>0</b></td><td><b>0 &euro;</b></td></tr>
+  </table>
+  <p class="co">Budzet: <b>500 &euro; miesiecznie</b>. Pierwsze dziesiec dni to test po 25 &euro; dziennie,
+  potem cala druga polowa idzie juz tylko na te kreacje, ktore dowioza. Na koncie stoi limit laczny,
+  zeby nie dalo sie wydac wiecej nawet przez pomylke.</p>
+  <div class="uw" data-id="w-budzet" data-tytul="[wydatki] Budzet reklamowy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section></div>
   <div class="jak" style="text-align:center;margin-top:34px"><b>To wszystko.</b><br>
     Kliknij ponizej &mdash; Twoje uwagi trafia do nas od razu.
     <div style="margin-top:12px"><button class="duzy kop">Wyslij uwagi</button></div>
@@ -785,8 +1230,51 @@ Temat B (test): The red skirt goes back into production</div>
     } catch (e) { przezRamke(p); }
   }
 
+  // ---- zakladki ----
+  function pokazSekcje(id) {
+    [].slice.call(document.querySelectorAll('.sek')).forEach(function (s) {
+      s.hidden = s.id !== 'sek-' + id;
+    });
+    [].slice.call(document.querySelectorAll('.naw .zak')).forEach(function (b) {
+      b.classList.toggle('akt', b.dataset.sek === id);
+    });
+    try { localStorage.setItem(KLUCZ + ':zak', id); } catch (e) {}
+  }
+  [].slice.call(document.querySelectorAll('.naw .zak')).forEach(function (b) {
+    b.addEventListener('click', function () { pokazSekcje(b.dataset.sek); window.scrollTo(0, 0); });
+  });
+  try {
+    var zapZak = localStorage.getItem(KLUCZ + ':zak');
+    if (zapZak && document.getElementById('sek-' + zapZak)) pokazSekcje(zapZak);
+  } catch (e) {}
+
+  // z siatki feedu skok do konkretnego postu
+  [].slice.call(document.querySelectorAll('.siatka .sk')).forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      pokazSekcje('posty');
+      var cel = document.getElementById(a.dataset.go);
+      if (cel) setTimeout(function () { cel.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 60);
+    });
+  });
+
+  // ---- wstawki miedzy postami ----
+  [].slice.call(document.querySelectorAll('.wst')).forEach(function (w, n) {
+    var id = 'wst-' + n;
+    w.dataset.id = id;
+    var ta = w.querySelector('textarea');
+    var s = stan[id] || {};
+    if (s.tekst) { ta.value = s.tekst; w.classList.add('otw'); }
+    if (wyslane[id]) { var z = w.querySelector('.zap'); z.textContent = 'Zapisane u nas ✓'; z.classList.add('jest'); w.classList.add('otw'); }
+    w.querySelector('.wstB').addEventListener('click', function () { w.classList.toggle('otw'); if (w.classList.contains('otw')) ta.focus(); });
+    ta.addEventListener('input', function () {
+      stan[id] = { ocena: '', tekst: ta.value };
+      pisz('stan', stan); odswiezLicznik();
+    });
+  });
+
   // ---- karty ----
-  var karty = [].slice.call(document.querySelectorAll('.uw'));
+  var karty = [].slice.call(document.querySelectorAll('.uw')).concat([].slice.call(document.querySelectorAll('.wst')));
 
   function odswiezLicznik() {
     var n = karty.filter(function (u) { var s = stan[u.dataset.id]; return s && (s.ocena || (s.tekst || '').trim()); }).length;
