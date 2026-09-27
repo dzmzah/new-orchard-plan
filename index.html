@@ -341,6 +341,11 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .uwbtn button:hover{border-color:var(--akcent)}
 .uwbtn button[data-st="ok"]:not(.akt){color:#3f7d18}
 .uwbtn button[data-st="zmiana"]:not(.akt){color:#b4552e}
+
+/* pytanie przy wycofywaniu uwagi — zamiast okienka przegladarki */
+.odpBox .pytanie{font-size:14px;color:var(--tekst);margin-bottom:8px}
+.mini.cofT{color:#b4552e;border-color:#b4552e}
+.mini.cofT:hover{background:#b4552e;color:#fff}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1702,9 +1707,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
       '<div class="uwTxt">' + esc(u.uwaga).replace(/\n/g, '<br>') + '</div>' +
       (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
+      // Przy samym poscie Ania juz tego nie widzi — poprawia i wycofuje
+      // w jednym miejscu, w koszyku. Tu ma czysto.
       '<div class="uwAkc">' +
-        '<button class="mini edy">Popraw</button>' +
-        '<button class="mini cof">Wycofaj</button>';
+        (ZESPOL ? '<button class="mini edy">Popraw</button>' +
+                  '<button class="mini cof">Wycofaj</button>' : '');
     if (ZESPOL) {
       h += '<span class="uwSep"></span>';
       STATUSY.forEach(function (s) {
@@ -1895,17 +1902,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     karta.dataset.zwinieteSzcz = '1';
   }
 
-  // przyciski gotowosci na samym poscie — dzialaja takze wtedy, gdy nie ma zadnej uwagi
-  function dodajPrzyciskiPostu(karta, tytul, teraz) {
-    if (!ZESPOL) return;
-    var pas = karta.querySelector('.pAkc');
-    if (!pas) {
-      pas = document.createElement('div');
-      pas.className = 'pAkc';
-      karta.appendChild(pas);   // najpierw czytasz post, potem decydujesz
-    }
+  // Porzadek na karcie — tak samo u nas i u Ani: szczegoly zwiniete,
+  // pole pisania na koncu i tez zwiniete. Wczesniej robilo sie to tylko
+  // w trybie zespolu, wiec ona dostawala cala sciane tekstu.
+  function uporzadkujKarte(karta) {
     zwinSzczegoly(karta);
-    // pole pisania zawsze na samym koncu karty i domyslnie zwiniete
     var pole = karta.querySelector('.uw');
     if (pole) {
       if (karta.lastElementChild !== pole) karta.appendChild(pole);
@@ -1922,6 +1923,21 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         pole.parentNode.insertBefore(otw, pole);
       }
     }
+  }
+
+  // przyciski gotowosci na samym poscie — dzialaja takze wtedy, gdy nie ma zadnej uwagi
+  function dodajPrzyciskiPostu(karta, tytul, teraz) {
+    var pas = null;
+    if (ZESPOL) {
+      pas = karta.querySelector('.pAkc');
+      if (!pas) {
+        pas = document.createElement('div');
+        pas.className = 'pAkc';
+        karta.appendChild(pas);   // najpierw czytasz post, potem decydujesz
+      }
+    }
+    uporzadkujKarte(karta);       // pole pisania zawsze ladujE na samym koncu
+    if (!ZESPOL) return;
     pas.innerHTML = '<span class="pAkcE">ten post:</span>' + STATUSY.map(function (s) {
       return '<button class="mini pst' + (teraz === s.id ? ' akt' : '') + '" data-st="' + s.id +
         '" data-tytul="' + esc(tytul) + '">' + s.nazwa + '</button>';
@@ -2005,12 +2021,37 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (!u) return;
 
     if (b.classList.contains('edy')) {
-      var nowy = prompt('Popraw swoja uwage:', u.uwaga);
-      if (nowy === null) return;
-      odRazu(nr, { uwaga: nowy }, { akcja: 'edytuj', nr: nr, ocena: u.ocena, uwaga: nowy });
+      // poprawianie wprost w koszyku, bez okienka przegladarki —
+      // okienko potrafi byc zablokowane i wtedy nic sie nie dzieje
+      if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
+      var boxE = document.createElement('div');
+      boxE.className = 'odpBox';
+      boxE.innerHTML = '<textarea placeholder="Popraw swoja uwage..."></textarea>' +
+        '<div class="odpAkc"><button class="mini zapE">Zapisz zmiane</button>' +
+        '<button class="mini anu">Anuluj</button></div>';
+      el.appendChild(boxE);
+      var taE = boxE.querySelector('textarea');
+      taE.value = u.uwaga || '';
+      taE.focus();
+      boxE.querySelector('.anu').addEventListener('click', function () { boxE.remove(); });
+      boxE.querySelector('.zapE').addEventListener('click', function () {
+        var nowy = taE.value.trim();
+        boxE.remove();
+        odRazu(nr, { uwaga: nowy }, { akcja: 'edytuj', nr: nr, ocena: u.ocena, uwaga: nowy });
+      });
     } else if (b.classList.contains('cof')) {
-      if (!confirm('Wycofac te uwage?')) return;
-      odRazu(nr, { status: 'cofnieta' }, { akcja: 'usun', nr: nr });
+      if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
+      var boxC = document.createElement('div');
+      boxC.className = 'odpBox';
+      boxC.innerHTML = '<div class="pytanie">Na pewno wycofac te uwage?</div>' +
+        '<div class="odpAkc"><button class="mini cofT">Tak, wycofaj</button>' +
+        '<button class="mini anu">Zostaw</button></div>';
+      el.appendChild(boxC);
+      boxC.querySelector('.anu').addEventListener('click', function () { boxC.remove(); });
+      boxC.querySelector('.cofT').addEventListener('click', function () {
+        boxC.remove();
+        odRazu(nr, { status: 'cofnieta' }, { akcja: 'usun', nr: nr });
+      });
     } else if (b.classList.contains('st')) {
       // zmiana przy pojedynczej uwadze podciaga za soba stan calego postu
       var nowyStan = b.dataset.st;
