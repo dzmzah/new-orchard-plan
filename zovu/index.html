@@ -1678,6 +1678,12 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   var ZNACZNIK = 'STATUS POSTU';
   function jestZnacznikiem(u) { return u.ocena === ZNACZNIK; }
 
+  // przy kazdej uwadze widac, od kogo jest i o ktorej godzinie
+  function kto(u) {
+    if (!u.kto) return '';
+    return ' &middot; ' + (u.kto === 'ZOVU' ? 'od nas' : 'od Ani');
+  }
+
   // indeks budowany raz na przerysowanie — bez niego kazde klikniecie
   // przemielalo wszystkie uwagi razy wszystkie posty i strona mulila
   var INDEKS = null;
@@ -1735,7 +1741,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   function wierszUwagi(u) {
     var kl = stanKlasa(u.status);
     var h = '<div class="uwEl ' + kl + '" data-nr="' + u.nr + '">' +
-      '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
+      '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + kto(u) + '</span>' +
       
       '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
       '<div class="uwTxt">' + esc(u.uwaga).replace(/\n/g, '<br>') + '</div>' +
@@ -1887,7 +1893,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 
   function wierszSzuflady(u) {
     return '<div class="uwEl ' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
-        '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
+        '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + kto(u) + '</span>' +
         
         '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
         (u.uwaga
