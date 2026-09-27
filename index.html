@@ -2405,7 +2405,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // wolniej kiedy tylko ja ma otwarta, najwolniej w tle. Arkusz Google ma dzienny
   // limit czasu pracy — stale 3 sekundy przez caly dzien wyczerpalyby go do wieczora
   // i most przestalby odpowiadac wszystkim.
-  var PRZY_PRACY = 3000, OTWARTA = 20000, W_TLE = 60000;
+  // Zahar: ma sie odswiezac natychmiast, bez zwalniania.
+  var PRZY_PRACY = 2000, OTWARTA = 2000, W_TLE = 30000;
   var OSTATNI_RUCH = Date.now();
   ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll', 'wheel'].forEach(function (z) {
     window.addEventListener(z, function () { OSTATNI_RUCH = Date.now(); }, { passive: true });
@@ -2445,7 +2446,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790549883939';
+  var MOJA_WERSJA = '1790549962328';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
