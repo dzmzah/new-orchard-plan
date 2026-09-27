@@ -1833,7 +1833,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
             (function () {
               var z = znacznikPostu(m ? m.tytul : g.pozycja);
               if (!z || !z.zmieniono) return '';
-              return '<span class="stZm">' + esc(z.zmieniono) +
+              return '<span class="stZm">ostatnia zmiana ' + esc(z.zmieniono) +
                 (z.ktoZmienil ? ' &middot; ' + esc(ktoTo(z.ktoZmienil)) : '') + '</span>';
             })() +
           '</div><span class="grStrz">&rarr;</span></div>';
@@ -2047,7 +2047,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
           kiedyEl.className = 'stZm';
           zn.parentNode.insertBefore(kiedyEl, zn.nextSibling);
         }
-        kiedyEl.textContent = znacz.zmieniono + (znacz.ktoZmienil ? ' · ' + ktoTo(znacz.ktoZmienil) : '');
+        kiedyEl.textContent = 'ostatnia zmiana ' + znacz.zmieniono +
+          (znacz.ktoZmienil ? ' · ' + ktoTo(znacz.ktoZmienil) : '');
       } else if (kiedyEl) { kiedyEl.remove(); }
       dodajPrzyciskiPostu(karta, u.dataset.tytul, st);
       dodajPrzyciskAkceptu(karta, u.dataset.tytul, st);
@@ -2472,7 +2473,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790552164072';
+  var MOJA_WERSJA = '1790552281002';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
