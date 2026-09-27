@@ -176,6 +176,36 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .siatka .sk.gotowe::after{background:#3c5a46}
 .k.blysk{animation:blysk 1.6s ease}
 @keyframes blysk{0%{box-shadow:0 0 0 4px rgba(60,90,70,.45)}100%{box-shadow:0 0 0 0 rgba(60,90,70,0)}}
+/* nazwa postu sama swieci kolorem — widac od razu, bez czytania plakietki */
+.k.p-nie .gl h3{color:#c0392b}
+.k.p-robi .gl h3{color:#a9741d}
+.k.p-gotowe .gl h3{color:#3c5a46}
+.k.p-nie .dat{color:#c0392b}
+.k.p-robi .dat{color:#a9741d}
+.k.p-gotowe .dat{color:#3c5a46}
+.k.p-nie{background:#fffcfb}
+.k.p-robi{background:#fffdf9}
+.k.p-gotowe{background:#fcfefc}
+/* to samo w szufladzie: nazwa pozycji w kolorze statusu */
+.uwEl.nie .uwGdzie{color:#c0392b}
+.uwEl.robi .uwGdzie{color:#a9741d}
+.uwEl.gotowe .uwGdzie{color:#3c5a46}
+.siatka .sk.nie span{background:rgba(192,57,43,.85)}
+.siatka .sk.robi span{background:rgba(217,154,43,.88)}
+.siatka .sk.gotowe span{background:rgba(60,90,70,.85)}
+/* stan ma bic po oczach, a nie szeptac */
+.pStan{font-weight:600;font-size:12px;padding:4px 13px}
+.pStan.nie{background:#c0392b;color:#fff}      .pStan.nie i{background:#fff}
+.pStan.robi{background:#d99a2b;color:#fff}     .pStan.robi i{background:#fff}
+.pStan.gotowe{background:#3c5a46;color:#fff}   .pStan.gotowe i{background:#fff}
+.k.p-nie{border-left-width:6px}
+.k.p-robi{border-left-width:6px}
+.k.p-gotowe{border-left-width:6px}
+.k.p-nie .gl h3,.k.p-robi .gl h3,.k.p-gotowe .gl h3{font-weight:600}
+.uwSt{font-weight:600}
+.uwEl.nie .uwSt{color:#c0392b}
+.uwEl.robi .uwSt{color:#a9741d}
+.uwEl.gotowe .uwSt{color:#3c5a46}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1430,13 +1460,29 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     });
   }
 
+  // ---- kolejnosc w szufladzie: stala w trakcie pracy ----
+  var KOLEJNOSC = [];
+  function ustalKolejnosc(lista) {
+    var porz = { 'nowa': 0, '': 0, 'w robocie': 1, 'zrobione': 2 };
+    KOLEJNOSC = lista.slice()
+      .sort(function (a, b) { return (porz[a.status] || 0) - (porz[b.status] || 0) || a.nr - b.nr; })
+      .map(function (u) { return u.nr; });
+  }
+  function przeliczKolejnosc() { KOLEJNOSC = []; }
+
   // ---- tabela w zakladce Twoje uwagi ----
   function rysujTabele() {
     var cel = document.getElementById('tabUwag');
     if (!cel) return;
     var lista = UWAGI.filter(function (u) { return u.status !== 'cofnieta' && (u.uwaga || u.ocena); });
-    var porz = { 'nowa': 0, '': 0, 'w robocie': 1, 'zrobione': 2 };
-    lista.sort(function (a, b) { return (porz[a.status] || 0) - (porz[b.status] || 0); });
+    // kolejnosc ustalamy RAZ, przy pobraniu z serwera. Zmiana statusu ma zmieniac kolor,
+    // a nie przerzucac pozycji w inne miejsce listy — inaczej klika sie w ruchomy cel.
+    if (!KOLEJNOSC.length) ustalKolejnosc(lista);
+    lista.sort(function (a, b) {
+      var ia = KOLEJNOSC.indexOf(a.nr), ib = KOLEJNOSC.indexOf(b.nr);
+      if (ia < 0) ia = 9999; if (ib < 0) ib = 9999;
+      return ia - ib;
+    });
     if (!lista.length) { cel.innerHTML = '<div class="ekr">Na razie nie ma zadnych uwag.</div>'; return; }
     var h = '';
     lista.forEach(function (u) {
