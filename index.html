@@ -418,6 +418,12 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 
 /* slad zmiany w koszyku, przy naglowku grupy */
 .grOpis .stZm{display:block;margin:3px 0 0;white-space:normal}
+
+/* czerwona kropka z liczba nowych zmian od drugiej strony */
+#nowosci{min-width:20px;height:20px;border-radius:10px;background:#c0392b;color:#fff;
+  font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
+  padding:0 6px;margin-left:-4px;box-shadow:0 0 0 2px #fff}
+#nowosci[hidden]{display:none!important}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -2306,7 +2312,45 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       var stopka = u.querySelector('.uwStopka');
       if (stopka) u.insertBefore(pasek, stopka); else u.appendChild(pasek);
     }
-    pasek.textContent = 'Niezapisany szkic — trzyma sie na tym urzadzeniu. Kliknij Zapisz, zeby trafil do nas.';
+    pasek.textContent = szkic[u.dataset.id] && szkic[u.dataset.id].nr
+      ? 'Zapisane automatycznie — druga strona juz to widzi.'
+      : 'Zapisuje sie samo za chwile...';
+  }
+
+  // AUTOZAPIS. Tekst dociera do drugiej strony sam, bez klikania "Zapisz" —
+  // wystarczy przestac pisac na kilka sekund. Pierwszy raz zaklada wiersz,
+  // kazdy nastepny poprawia ten sam, zeby nie robic dziesieciu kopii.
+  var ZEGARY = {};
+  function zaplanujAutozapis(u) {
+    var id = u.dataset.id;
+    if (ZEGARY[id]) clearTimeout(ZEGARY[id]);
+    ZEGARY[id] = setTimeout(function () { autozapis(u); }, 6000);
+  }
+  function autozapis(u) {
+    var id = u.dataset.id;
+    var ta = u.querySelector('textarea');
+    var tekst = ((ta && ta.value) || '').trim();
+    var s = szkic[id];
+    if (!tekst || !s) return;
+    var ocena = zDecyzji(u.dataset.tytul);
+    if (s.nr) {
+      doArkusza({ akcja: 'edytuj', nr: s.nr, ocena: ocena, uwaga: tekst });
+      pokazSzkic(u);
+      return;
+    }
+    if (s.wysylam) return;
+    s.wysylam = true;
+    doArkusza({
+      akcja: 'dodaj', pozycja: u.dataset.tytul, ocena: ocena, uwaga: tekst,
+      kto: ZESPOL ? 'ZOVU' : 'Ania',
+    }, function (j) {
+      s.wysylam = false;
+      if (!j || !j.ok) return;
+      var swiezy = (j.uwagi || []).filter(function (x) {
+        return x.uwaga === tekst && pasuje(x.pozycja, u.dataset.tytul) && x.status !== 'cofnieta';
+      }).pop();
+      if (swiezy) { s.nr = swiezy.nr; zapiszSzkic(); pokazSzkic(u); }
+    });
   }
 
   // ostrzezenie przy zamykaniu karty, gdy cos jest napisane a niezapisane
@@ -2340,14 +2384,50 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     ta.addEventListener('input', function () {
       var akt = u.querySelector('.uwbtn button.akt');
       szkic[id] = { ocena: akt ? akt.dataset.st : '', tekst: ta.value };
-      zapiszSzkic(); odswiezLicznik(); pokazSzkic(u);
+      zapiszSzkic(); odswiezLicznik(); pokazSzkic(u); zaplanujAutozapis(u);
     });
     pokazSzkic(u);
     var przyc = u.querySelector('.wstB');
     if (przyc) przyc.addEventListener('click', function () { u.classList.toggle('otw'); if (u.classList.contains('otw')) ta.focus(); });
   });
 
+  // ---- ile nowego od drugiej strony ----
+  // Czerwona kropka na koszyku: tyle pozycji zmienila druga strona, odkad
+  // ostatnio tu zagladalismy. My liczymy zmiany Ani, ona nasze.
+  var OBCY = ZESPOL ? 'Ania' : 'ZOVU';
+  var WIDZIANE = {};
+  try { WIDZIANE = JSON.parse(localStorage.getItem(KLUCZ + ':widziane') || '{}'); } catch (e) {}
+  function zapiszWidziane() {
+    try { localStorage.setItem(KLUCZ + ':widziane', JSON.stringify(WIDZIANE)); } catch (e) {}
+  }
+  function noweOdNich() {
+    return UWAGI.filter(function (u) {
+      return u.status !== 'cofnieta' && u.ktoZmienil === OBCY &&
+        u.zmieniono && WIDZIANE[u.nr] !== u.zmieniono;
+    });
+  }
+  function odswiezNowosci() {
+    var ile = noweOdNich().length;
+    var kropka = document.getElementById('nowosci');
+    if (!kropka) {
+      var kosz = document.getElementById('koszyk');
+      if (!kosz) return;
+      kropka = document.createElement('b');
+      kropka.id = 'nowosci';
+      kosz.appendChild(kropka);
+    }
+    kropka.textContent = ile;
+    kropka.hidden = ile === 0;
+    kropka.title = ile ? ile + ' nowych zmian od drugiej strony' : '';
+  }
+  function odhaczNowosci() {
+    noweOdNich().forEach(function (u) { WIDZIANE[u.nr] = u.zmieniono; });
+    zapiszWidziane();
+    odswiezNowosci();
+  }
+
   function odswiezLicznik() {
+    odswiezNowosci();
     var otwarte = UWAGI.filter(function (u) {
       return u.status !== 'cofnieta' && u.status !== 'zrobione' && !jestZnacznikiem(u) && (u.uwaga || u.ocena);
     }).length;
@@ -2377,14 +2457,13 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       // ocena bierze sie z decyzji nad postem, a nie z osobnych przyciskow
       var ocenaZDecyzji = akt ? etykieta(akt.dataset.st) : zDecyzji(u.dataset.tytul);
       var zap = u.querySelector('.zap');
+      var byly = szkic[u.dataset.id] || {};
+      if (ZEGARY[u.dataset.id]) clearTimeout(ZEGARY[u.dataset.id]);
       b.disabled = true; b.textContent = 'Zapisuje...';
-      wyslij({
-        akcja: 'dodaj',
-        pozycja: u.dataset.tytul,
-        ocena: ocenaZDecyzji,
-        uwaga: tekst,
-        kto: ZESPOL ? 'ZOVU' : 'Ania',
-      }).then(function () {
+      wyslij(byly.nr
+        ? { akcja: 'edytuj', nr: byly.nr, ocena: ocenaZDecyzji, uwaga: tekst }
+        : { akcja: 'dodaj', pozycja: u.dataset.tytul, ocena: ocenaZDecyzji, uwaga: tekst,
+            kto: ZESPOL ? 'ZOVU' : 'Ania' }).then(function () {
         ta.value = '';
         u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
         delete szkic[u.dataset.id]; zapiszSzkic(); pokazSzkic(u);
@@ -2405,6 +2484,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     zasl.classList.toggle('otw', tak);
     szuf.setAttribute('aria-hidden', tak ? 'false' : 'true');
     document.body.style.overflow = tak ? 'hidden' : '';
+    // zajrzeliśmy do koszyka — czerwona kropka gasnie
+    if (tak) odhaczNowosci();
   }
   var kosz = document.getElementById('koszyk');
   if (kosz) kosz.addEventListener('click', function () { otworzSz(true); });
@@ -2475,7 +2556,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790552505605';
+  var MOJA_WERSJA = '1790553313403';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
