@@ -1,0 +1,608 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New Orchard — plan i uwagi</title>
+<style>:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--ramka:#e3dfd5;--ok:#3c5a46;--zm:#b4552e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--tlo);color:var(--tekst);font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;padding:32px 16px 150px;-webkit-text-size-adjust:100%}
+.w{max-width:1120px;margin:0 auto}
+h1{font-size:28px;font-weight:300;letter-spacing:.01em}
+h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--akcent);margin:40px 0 14px;font-weight:600}
+.jak{background:#fffdf7;border:1px solid var(--ramka);border-left:3px solid var(--akcent);border-radius:4px;padding:16px 18px;margin:18px 0 34px;font-size:15px;color:#4a463e}
+.jak b{color:var(--tekst)}
+.k{background:var(--karta);border:1px solid var(--ramka);border-radius:5px;padding:20px 22px 18px;margin-bottom:16px}
+.gl{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dat{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);white-space:nowrap}
+.gl h3{font-size:19px;font-weight:400}
+.met{font-size:13px;color:var(--cichy);margin-top:4px}
+.kadry{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.kadry img{height:280px;width:auto;border-radius:3px;border:1px solid var(--ramka);cursor:zoom-in;background:#eee}
+.pod{white-space:pre-wrap;background:#fbfaf6;border:1px solid var(--ramka);border-radius:4px;padding:13px 15px;margin-top:14px;font-size:15px}
+.ekr,.prd,.st{font-size:13px;color:var(--cichy);margin-top:10px}
+.prd a{color:var(--akcent)}
+.st{font-size:12px;letter-spacing:.04em;color:#8a8478;border-top:1px dashed var(--ramka);padding-top:9px}
+.hist{margin-top:14px;border-left:3px solid var(--ramka);padding-left:14px}
+.histT{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);margin-bottom:8px}
+.hi{margin-bottom:12px}
+.hi blockquote{font-style:italic;color:#4a463e;font-size:14px;margin-bottom:4px}
+.hi p{font-size:14px;color:var(--cichy)}
+.hk{font-size:11px;color:var(--cichy);letter-spacing:.08em}
+.hs{color:var(--zm);margin-left:6px}
+.hi.ok .hs{color:var(--ok)}
+.uw{margin-top:16px;border-top:1px solid var(--ramka);padding-top:14px}
+.uwbtn{display:flex;gap:8px;flex-wrap:wrap}
+.uwbtn button{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px solid var(--ramka);background:#fff;cursor:pointer;color:var(--tekst)}
+.uwbtn button[data-st="ok"].akt{background:var(--ok);border-color:var(--ok);color:#fff}
+.uwbtn button[data-st="zmiana"].akt{background:var(--zm);border-color:var(--zm);color:#fff}
+.uw textarea{width:100%;margin-top:9px;min-height:64px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--ramka);border-radius:4px;background:#fffdf7;resize:vertical}
+.zap{font-size:12px;color:var(--ok);margin-top:6px;min-height:15px;opacity:0;transition:opacity .2s}
+.zap.jest{opacity:1}
+#pasek{position:fixed;left:0;right:0;bottom:0;background:#fffdf7;border-top:1px solid var(--ramka);padding:11px 16px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:20}
+#pasek .licz{font-size:13px;color:var(--cichy)}
+#pasek button,.duzy{font:15px inherit;padding:10px 22px;border-radius:22px;border:1px solid var(--akcent);background:var(--akcent);color:#fff;cursor:pointer}
+#pasek button.d,.duzy.d{background:#fff;color:var(--akcent)}
+#lupa{position:fixed;inset:0;background:rgba(20,19,17,.9);display:none;align-items:center;justify-content:center;z-index:40;cursor:zoom-out}
+#lupa img{max-width:94vw;max-height:94vh}
+#okno{position:fixed;inset:0;background:rgba(20,19,17,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:18px}
+#okno .p{background:#fff;border-radius:6px;padding:20px;max-width:720px;width:100%}
+#okno h4{font-weight:400;margin-bottom:10px}
+#okno textarea{width:100%;min-height:300px;font:13px/1.5 ui-monospace,Menlo,monospace;padding:10px;border:1px solid var(--ramka);border-radius:4px}
+#okno .r{display:flex;gap:10px;margin-top:12px;justify-content:flex-end}
+#okno button{font:15px inherit;padding:9px 18px;border-radius:20px;border:1px solid var(--ramka);background:#fff;cursor:pointer}
+#okno button.pr{background:var(--akcent);border-color:var(--akcent);color:#fff}
+@media(max-width:620px){.kadry img{height:200px}h1{font-size:23px}}
+</style></head><body>
+<div class="w">
+  <h1>New Orchard &mdash; plan i uwagi</h1>
+  <div class="jak">
+    <b>To jest jedno miejsce na wszystko.</b> Ten adres sie nie zmienia &mdash; zawsze wchodzisz tutaj
+    i zawsze widzisz aktualna wersje. Zadnych nowych plikow i linkow.<br><br>
+    Pod kazdym postem klikasz <b>Jest ok</b> albo <b>Do poprawki</b> i piszesz, co zmienic.
+    Uwaga leci do nas od razu &mdash; widzimy, ktorego postu dotyczy, o ktorej godzinie i co napisalas.
+    Twoje wczesniejsze uwagi i nasza odpowiedz zostaja przy poscie, wiec nie musisz niczego szukac
+    ani poprawiac dwa razy tego samego.
+  </div>
+  <h2>wrzesien i poczatek pazdziernika</h2>
+<section class="k" id="p-01">
+  <div class="gl"><span class="dat">pt 25.09</span><h3>Co jest w srodku</h3></div>
+  <div class="met">POST, 1 kadr, 1080x1350</div>
+  <div class="kadry"><img src="kadry/p-01-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Inside our Classic Vegan Short. Soft faux fur that keeps its shape all winter.
+No compromise. No animals involved.</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">GOTOWE. Kadr Wasz, ze sklepu. Zero generowania.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>Jest ok</blockquote>
+        <p>Dziekujemy. Post poszedl 25.09 o 17:00.</p>
+      </div></div>
+  <div class="uw" data-id="p-01" data-tytul="pt 25.09 — Co jest w srodku">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-03">
+  <div class="gl"><span class="dat">pt 02.10</span><h3>Recznie szyte we Wloszech</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/p-03-1.jpg" alt="" loading="lazy"><img src="kadry/p-03-2.jpg" alt="" loading="lazy"><img src="kadry/p-03-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Every pair is hand-sewn in Italy, by people whose families have been making shoes for generations.
+All our materials come from Europe. None from China. 🤍</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-medium-grey" target="_blank" rel="noopener">classic vegan medium grey</a><br><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">COPY POPRAWIONE 27.09 wg jej maila z 22.09, punkt 7: Italian handmade, European materials, pokolenia tradycji szewskiej.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">22.09 mail <span class="hs">zrobione</span></div>
+        <blockquote>Italian handmade / produkcja - to obszar, ktory zdecydowanie mozemy pokazywac mocniej. Materialy z Europy, nie z Chin, tradycje przekazywane od pokolen.</blockquote>
+        <p>Copy przepisane na te fakty.</p>
+      </div></div>
+  <div class="uw" data-id="p-03" data-tytul="pt 02.10 — Recznie szyte we Wloszech">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-04">
+  <div class="gl"><span class="dat">sob 26.09</span><h3>One boot, three heights</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/p-04-1.jpg" alt="" loading="lazy"><img src="kadry/p-04-2.jpg" alt="" loading="lazy"><img src="kadry/p-04-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Our Classic Vegan boot comes in three heights.
+Short for the city, mid for most days, long for the days that really mean it.</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>One boot. Three winters.</div>
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a><br><a href="https://theneworchard.com/products/classic-vegan-medium-all-black-limited-edition" target="_blank" rel="noopener">classic vegan medium all black limited edition</a><br><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a></div>
+  <div class="st">ZAPLANOWANE 26.09 na 20:30, Instagram + Facebook. Kolejnosc i podeszwa</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">26.09 <span class="hs">zrobione</span></div>
+        <blockquote>Ja bym tylko zmienila kolejnosc klatek: krotki but, sredni i wysoki.</blockquote>
+        <p>Zrobione, post otwiera krotki. Opublikowany 26.09 o 20:30.</p>
+      </div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>Jest ok</blockquote>
+        <p>Dziekujemy.</p>
+      </div></div>
+  <div class="uw" data-id="p-04" data-tytul="sob 26.09 — One boot, three heights">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-05">
+  <div class="gl"><span class="dat">pon 28.09</span><h3>Ankieta: Short / Mid / Long</h3></div>
+  <div class="met">STORIES, 2 plansze</div>
+  <div class="kadry"><img src="kadry/p-05-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Which one is your winter? Short, mid or long.
+Tap to vote — and we will write to you first when your size is back.</div>
+  
+  
+  <div class="st">WRACA DO PLANU 27.09 na prosbe Ani - byla w pierwszym dokumencie na 22.09 i wypadla przy przepisywaniu. Plansza 1: naklejka-ankieta na kadrze z trzema wysokosciami. Plansza 2: zaproszenie na liste, na kadrze Twoj rozmiar wroci - napiszemy pierwsi.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>To tez mi sie podobalo, a teraz tego nie ma w planie. (ankieta Short / Mid / Long)</blockquote>
+        <p>Wypadla przy przepisywaniu planu, nasz blad. Wraca na 28.09 w Stories, razem z zaproszeniem na liste.</p>
+      </div></div>
+  <div class="uw" data-id="p-05" data-tytul="pon 28.09 — Ankieta: Short / Mid / Long">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-06">
+  <div class="gl"><span class="dat">wt 29.09</span><h3>Removable insole</h3></div>
+  <div class="met">POST, 1 kadr, 1080x1350</div>
+  <div class="kadry"><img src="kadry/p-06-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Two insoles, one pair of boots.
+The classic one with faux fur for real winter, the thin one for milder days — swap them depending on the weather.
+
+Need a different size? Exchanges are always free. 🤍</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Brak tekstu na kadrze.</div>
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-insole-faux-fur-black" target="_blank" rel="noopener">classic vegan insole faux fur black</a><br><a href="https://theneworchard.com/products/classic-vegan-insole-faux-fur-white" target="_blank" rel="noopener">classic vegan insole faux fur white</a></div>
+  <div class="st">POPRAWIONE 27.09 wg jej maila z 22.09, punkt 6: sa DWIE wymienne wkladki, klasyczna z futerkiem i cienka bez. Wczesniej pisalismy o jednej i to byla wlasnie ta nieuwzgledniona poprawka.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">24.09 <span class="hs">zrobione</span></div>
+        <blockquote>Wkladka troche nie ten ksztalt.</blockquote>
+        <p>Kadr wymieniony na prawdziwy packshot Waszej wkladki ze sklepu.</p>
+      </div>
+      <div class="hi ok">
+        <div class="hk">27.09 20:16 <span class="hs">zrobione</span></div>
+        <blockquote>Do tego juz dawalam poprawki do copy - i nie sa tu uwzglednione.</blockquote>
+        <p>Masz racje, przeoczylismy. Chodzilo o punkt 6 z Twojego maila z 22.09: sa DWIE wymienne wkladki, klasyczna z futerkiem i cienka bez futerka. Copy przepisane.</p>
+      </div></div>
+  <div class="uw" data-id="p-06" data-tytul="wt 29.09 — Removable insole">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-07">
+  <div class="gl"><span class="dat">sr 30.09</span><h3>39 czy 40</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/p-07-1.jpg" alt="" loading="lazy"><img src="kadry/p-07-2.jpg" alt="" loading="lazy"><img src="kadry/p-07-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">39 or 40?
+
+Between sizes? Tell us which style you want and which sizes you’re between. We’ll help you choose.
+
+Need a different size? Exchanges are always free. 🤍</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a><br><a href="https://theneworchard.com/products/classic-vegan-medium-grey" target="_blank" rel="noopener">classic vegan medium grey</a></div>
+  <div class="st">COPY OD ANI, 27.09 20:16 - jej wlasna wersja, wklejona doslownie. Sens posta wraca do pierwotnego: pomagamy dobrac rozmiar i rozkrecamy dyskusje w komentarzach.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 20:16 <span class="hs">zrobione</span></div>
+        <blockquote>Co ten text w ogole znaczy? Ten post mial byc o tym, ze jesli wahasz sie miedzy rozmiarami to pomozemy dobrac. Zrezygnowaliscie z tego? Mielismy probowac rozkrecic dyskusje pod postem w komentarzach.</blockquote>
+        <p>Nie zrezygnowalismy, zgubilismy sens przy przepisywaniu. Twoje copy wklejone doslownie i wracamy do pytania o rozmiar plus dyskusja w komentarzach.</p>
+      </div></div>
+  <div class="uw" data-id="p-07" data-tytul="sr 30.09 — 39 czy 40">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-08">
+  <div class="gl"><span class="dat">czw 01.10</span><h3>Oat Milk Tee / World Vegetarian Day</h3></div>
+  <div class="met">POST</div>
+  <div class="kadry"><img src="kadry/p-08-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Happy World Vegetarian Day.
+No speech from us today — just our Oat Milk tee, which we would wear anyway. 💚</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Oat milk, please.</div>
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/vegan-t-shirt-oat-milk" target="_blank" rel="noopener">vegan t shirt oat milk</a></div>
+  <div class="st">GOTOWE DO PUBLIKACJI (kadr wymieniony na PRAWDZIWE zdjecie produktu)</div>
+  
+  <div class="uw" data-id="p-08" data-tytul="czw 01.10 — Oat Milk Tee / World Vegetarian Day">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-09">
+  <div class="gl"><span class="dat">sob 03.10</span><h3>Cold feet</h3></div>
+  <div class="met">REEL, 6 s, trzy ujecia, kamera stoi &middot; jest tez gotowy film</div>
+  <div class="kadry"><img src="kadry/p-09-1.jpg" alt="" loading="lazy"><img src="kadry/p-09-2.jpg" alt="" loading="lazy"><img src="kadry/p-09-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Cold feet are rarely the shoe alone.
+Ours keep water out for up to 2.5 hours in snow and rain — warm and dry is what you tell us most.</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Cold feet? Rarely the shoe alone.</div>
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a><br><a href="https://theneworchard.com/products/water-repellent-vegan-spray" target="_blank" rel="noopener">water repellent vegan spray</a></div>
+  <div class="st">CZEKA NA ZATWIERDZENIE ANI. Kadr 1 i 2 poprawione 24.09: but zmieniony na Wasz Classic Vegan Medium, czubek trzyma ksztalt. Reel zlozony na nowo.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ">
+        <div class="hk">23.09 <span class="hs">jeszcze robimy</span></div>
+        <blockquote>Zupelnie inny but, do wymiany.</blockquote>
+        <p>Jeszcze nie zamkniete. Bierzemy Wasz packshot ze sklepu zamiast przegenerowania - tak jak przy spodnicy.</p>
+      </div></div>
+  <div class="uw" data-id="p-09" data-tytul="sob 03.10 — Cold feet">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-10">
+  <div class="gl"><span class="dat">pon 05.10</span><h3>Akcesoria</h3></div>
+  <div class="met">POST</div>
+  <div class="kadry"><img src="kadry/p-10-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Small things that go with everything.
+Spare insoles, care spray, and scrunchies sewn from what is left after the boots. Nothing wasted. 🤍</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Small things that go with everything.</div>
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-insole-faux-fur-black" target="_blank" rel="noopener">classic vegan insole faux fur black</a><br><a href="https://theneworchard.com/products/water-repellent-vegan-spray" target="_blank" rel="noopener">water repellent vegan spray</a><br><a href="https://theneworchard.com/products/upcycled-vegan-scrunchies-deep-green" target="_blank" rel="noopener">upcycled vegan scrunchies deep green</a></div>
+  <div class="st">GOTOWE DO PUBLIKACJI. Blokada zdjeta 23.09 - produkty SA w sklepie.</div>
+  
+  <div class="uw" data-id="p-10" data-tytul="pon 05.10 — Akcesoria">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-11">
+  <div class="gl"><span class="dat">nd 04.10</span><h3>World Animal Day</h3></div>
+  <div class="met">POST, 1 kadr</div>
+  <div class="kadry"><img src="kadry/p-11-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">World Animal Day.
+Nothing to sell today — just a thank you to every animal that never had to be part of what we make. 💚</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Nothing to sell today.</div>
+  
+  <div class="st">CZEKA NA ZATWIERDZENIE ANI. Buty w kadrze wymienione 24.09 na Wasze Classic Vegan Short Black.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ">
+        <div class="hk">23.09 <span class="hs">jeszcze robimy</span></div>
+        <blockquote>Przod troche za dlugi, jakby modelka miala bardzo duzy rozmiar stopy.</blockquote>
+        <p>Jeszcze nie zamkniete. Tak samo - podmieniamy na Wasz packshot.</p>
+      </div></div>
+  <div class="uw" data-id="p-11" data-tytul="nd 04.10 — World Animal Day">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="p-12">
+  <div class="gl"><span class="dat">nd 27.09</span><h3>Pre-order: czerwona spódnica</h3></div>
+  <div class="met">POST + STORIES + MAIL</div>
+  <div class="kadry"><img src="kadry/p-12-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">She is back. Five per size.
+Missed her last time? Preorder now.❤️
+The next batch is already in production.</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Back. Five per size.</div>
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/winter-vegan-skirt-red-limited-edition" target="_blank" rel="noopener">winter vegan skirt red limited edition</a></div>
+  <div class="st">COPY OD ANI, 27.09 20:16 - jej wlasna wersja, wklejona doslownie. Kadr: Wasze zdjecia z jesiennej sesji, nie AI. Do zrobienia: karuzela z klatek z planu 15.10, tak jak prosila.</div>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>Kurcze teraz zauwazylam, ze ta spodnica zle wyglada - nie nasza. Mozna usunac post i poprawic?</blockquote>
+        <p>Post zdjety tego samego dnia z Instagrama i z Facebooka.</p>
+      </div>
+      <div class="hi ">
+        <div class="hk">27.09 20:16 <span class="hs">jeszcze robimy</span></div>
+        <blockquote>Uzyjcie naszych zdjec z sesji, nie AI. I tutaj pierwotnie miala byc karuzela - wezcie te klatki z planu 15.10. COPY wole to co bylo we wczesniejszych propozycjach.</blockquote>
+        <p>Kadr juz jest Wasz, ze sklepu, z jesiennej sesji. Twoje copy wklejone doslownie. Karuzela z klatek z 15.10 - robimy.</p>
+      </div></div>
+  <div class="uw" data-id="p-12" data-tytul="nd 27.09 — Pre-order: czerwona spódnica">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section><h2>pazdziernik, od trzeciego tygodnia</h2>
+<section class="k" id="q-00">
+  <div class="gl"><span class="dat">pazdziernik, data po zdjeciach od Ani</span><h3>Adoption Story 1 — Patricia i Oscar</h3></div>
+  <div class="met">REEL + karuzela</div>
+  <div class="kadry"><img src="kadry/q-00-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Oscar is almost 14. Old, black and big — the three things that make a dog hardest to adopt.
+That is exactly why Patricia chose him. Two and a half years later they walk ten kilometres a day.
+We have supported adoption since 2021. 🤍</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Stories, dziesiec plansz, na kazdej jedno zdanie jej wlasnymi slowami:<br>  1  Oscar is almost 14. He turns 14 in December.<br>  2  For ten years he was a farm dog in Hungary.<br>  3  When his owner died, no one could take him. He ended up in a shelter.<br>  4  Old. Black. Big. The three things that make a dog hardest to adopt.<br>  5  That is exactly why it was clear to me it would be him.<br>  6  I visited him twice. The first time to meet him. The second to take him home.<br>  7  Two and a half years later we walk ten kilometres a day.<br>  8  He does not like cuddling. He gets five minutes anyway. Every day.<br>  9  A senior dog is not too old to learn anything new.<br> 10  The best decision of my entire life.<br>     (malym drukiem: Oscar was adopted from Tierheim Kondorgos — the same shelter where Zeno is waiting.)<br><br>TEASER, osobno i wczesniej: jeden kadr do feedu + ta sama plansza w Stories.<br>Na kadrze: OUR ADOPTION STORIES.<br>Podpis teasera: Real people. Adopted dogs. Told in their own words.<br>We have supported adoption since 2021. First story this week.</div>
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/dog-hooodie-navy-blue" target="_blank" rel="noopener">dog hooodie navy blue</a></div>
+  <div class="st">Material od Ani przyszedl 27.09 — 33 zdjecia i spisane nagranie Patricii. Czeka na Twoje tak.</div>
+  
+  <div class="uw" data-id="q-00" data-tytul="pazdziernik, data po zdjeciach od Ani — Adoption Story 1 — Patricia i Oscar">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-01">
+  <div class="gl"><span class="dat">sr 07.10</span><h3>Navy, nie czarny</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-01-1.jpg" alt="" loading="lazy"><img src="kadry/q-01-2.jpg" alt="" loading="lazy"><img src="kadry/q-01-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Navy, not black.
+Our Classic Vegan Medium in the colour that already goes with everything you own.</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-medium-blue" target="_blank" rel="noopener">classic vegan medium blue</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-01" data-tytul="sr 07.10 — Navy, nie czarny">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-02">
+  <div class="gl"><span class="dat">pt 09.10</span><h3>Psy</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-02-1.jpg" alt="" loading="lazy"><img src="kadry/q-02-2.jpg" alt="" loading="lazy"><img src="kadry/q-02-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Same walk. Warmer.
+Our vegan dog hoodie and our boots — perfect match in style, human &amp; hound. 🤍</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/dog-hooodie-navy-blue" target="_blank" rel="noopener">dog hooodie navy blue</a><br><a href="https://theneworchard.com/products/classic-vegan-medium-blue" target="_blank" rel="noopener">classic vegan medium blue</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-02" data-tytul="pt 09.10 — Psy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-03">
+  <div class="gl"><span class="dat">nd 11.10</span><h3>Podeszwa</h3></div>
+  <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-03-1.jpg" alt="" loading="lazy"><img src="kadry/q-03-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Look down.
+That is the part that keeps you steady on wet cobblestones from November to March.</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-03" data-tytul="nd 11.10 — Podeszwa">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-04">
+  <div class="gl"><span class="dat">wt 13.10</span><h3>Wzgorza</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-04-1.jpg" alt="" loading="lazy"><img src="kadry/q-04-2.jpg" alt="" loading="lazy"><img src="kadry/q-04-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Where we test them.
+Swiss hills, real weather, no studio. 🤍</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-04" data-tytul="wt 13.10 — Wzgorza">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-05">
+  <div class="gl"><span class="dat">czw 15.10</span><h3>Czerwona spodnica — rusza wysylka</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-05-1.jpg" alt="" loading="lazy"><img src="kadry/q-05-2.jpg" alt="" loading="lazy"><img src="kadry/q-05-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">She is back, and she ships today.
+Our Winter Vegan Skirt in red — five per size, then that is it.</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/winter-vegan-skirt-red-limited-edition" target="_blank" rel="noopener">winter vegan skirt red limited edition</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-05" data-tytul="czw 15.10 — Czerwona spodnica — rusza wysylka">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-06">
+  <div class="gl"><span class="dat">sob 17.10</span><h3>Czern w miescie</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-06-1.jpg" alt="" loading="lazy"><img src="kadry/q-06-2.jpg" alt="" loading="lazy"><img src="kadry/q-06-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Black goes everywhere.
+Our Classic Vegan Short in the city, from the first coffee to the last tram.</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-06" data-tytul="sob 17.10 — Czern w miescie">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-07">
+  <div class="gl"><span class="dat">pon 19.10</span><h3>Skarpety</h3></div>
+  <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-07-1.jpg" alt="" loading="lazy"><img src="kadry/q-07-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Socks by us, too.
+Soft, warm and made to live inside our boots. 🤍</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/knee-high-vegan-socks-green" target="_blank" rel="noopener">knee high vegan socks green</a></div>
+  <div class="st">Kadr z logo poprawiony 24.09 na uwage Ani.</div>
+  
+  <div class="uw" data-id="q-07" data-tytul="pon 19.10 — Skarpety">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-08">
+  <div class="gl"><span class="dat">sr 21.10</span><h3>Do rozmiaru 46</h3></div>
+  <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-08-1.jpg" alt="" loading="lazy"><img src="kadry/q-08-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Up to size 46.
+Because warm feet should not depend on how big they are.</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a><br><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-08" data-tytul="sr 21.10 — Do rozmiaru 46">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+<section class="k" id="q-09">
+  <div class="gl"><span class="dat">pt 23.10</span><h3>Zielone</h3></div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="kadry/q-09-1.jpg" alt="" loading="lazy"><img src="kadry/q-09-2.jpg" alt="" loading="lazy"><img src="kadry/q-09-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Not black. Not beige.
+Our Classic Vegan Short in green, for everyone who already has the other two.</div>
+  
+  <div class="prd"><b>Produkty oznaczone w poscie:</b><br><a href="https://theneworchard.com/products/classic-vegan-short-green" target="_blank" rel="noopener">classic vegan short green</a><br><a href="https://theneworchard.com/products/classic-vegan-medium-green" target="_blank" rel="noopener">classic vegan medium green</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  <div class="uw" data-id="q-09" data-tytul="pt 23.10 — Zielone">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="zap"></div>
+  </div>
+</section>
+  <div class="jak" style="text-align:center;margin-top:34px"><b>To wszystko.</b><br>
+    Kliknij ponizej &mdash; Twoje uwagi trafia do nas od razu.
+    <div style="margin-top:12px"><button class="duzy kop">Wyslij uwagi</button></div>
+  </div>
+</div>
+<div id="pasek"><div class="licz" id="licz">Nic jeszcze nie zaznaczone</div>
+  <button id="kop">Wyslij uwagi</button><button class="d" id="pob">Zobacz wszystkie uwagi</button></div>
+<div id="lupa"><img src="" alt=""></div>
+<div id="okno"><div class="p"><h4>Twoje uwagi &mdash; wszystko w jednym miejscu</h4>
+  <textarea id="tresc" readonly></textarea>
+  <div class="r"><button id="zamknij">Zamknij</button><button class="pr" id="kop2">Wyslij uwagi</button></div></div></div>
+<script>(function () {
+  var FORMULARZ = 'https://docs.google.com/forms/d/e/1FAIpQLSfXUDJxtEYE5RAiDyHYWxn-geG9OvXuQLmq-AbZs6R5tc2i8w/formResponse';
+  var POLA = { pozycja: 'entry.870198872', ocena: 'entry.1078469807', uwaga: 'entry.1887617065' };
+  var KLUCZ = 'no-strona';
+
+  // ---- pamiec przegladarki: co juz zaznaczyla i co juz poszlo do nas ----
+  function czytaj(k) { try { return JSON.parse(localStorage.getItem(KLUCZ + ':' + k) || '{}'); } catch (e) { return {}; } }
+  function pisz(k, v) { try { localStorage.setItem(KLUCZ + ':' + k, JSON.stringify(v)); } catch (e) {} }
+  var stan = czytaj('stan');     // id -> {ocena, tekst}
+  var wyslane = czytaj('wyslane'); // id -> podpis tego, co juz poszlo
+
+  // ---- wysylka do formularza ----
+  function przezRamke(p) {
+    var r = document.createElement('iframe');
+    r.name = 'r' + Date.now(); r.style.display = 'none';
+    document.body.appendChild(r);
+    var f = document.createElement('form');
+    f.action = FORMULARZ; f.method = 'POST'; f.target = r.name; f.style.display = 'none';
+    p.forEach(function (v, k) {
+      var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; f.appendChild(i);
+    });
+    document.body.appendChild(f); f.submit();
+    setTimeout(function () { f.remove(); r.remove(); }, 4000);
+  }
+  function slij(poz, ocena, uwaga) {
+    var p = new URLSearchParams();
+    p.append(POLA.pozycja, poz);
+    if (ocena) p.append(POLA.ocena, ocena);
+    if (uwaga) p.append(POLA.uwaga, uwaga);
+    try {
+      fetch(FORMULARZ, { method: 'POST', mode: 'no-cors', body: p })['catch'](function () { przezRamke(p); });
+    } catch (e) { przezRamke(p); }
+  }
+
+  // ---- karty ----
+  var karty = [].slice.call(document.querySelectorAll('.uw'));
+
+  function odswiezLicznik() {
+    var n = karty.filter(function (u) { var s = stan[u.dataset.id]; return s && (s.ocena || (s.tekst || '').trim()); }).length;
+    var t = n === 0 ? 'Nic jeszcze nie zaznaczone' : n + (n === 1 ? ' uwaga gotowa do wyslania' : (n < 5 ? ' uwagi gotowe do wyslania' : ' uwag gotowych do wyslania'));
+    var l = document.getElementById('licz'); if (l) l.textContent = t;
+  }
+
+  karty.forEach(function (u) {
+    var id = u.dataset.id;
+    var ta = u.querySelector('textarea');
+    var zap = u.querySelector('.zap');
+    var s = stan[id] || {};
+    if (s.tekst) ta.value = s.tekst;
+    if (s.ocena) {
+      var b = u.querySelector('button[data-st="' + s.ocena + '"]');
+      if (b) b.classList.add('akt');
+    }
+    if (wyslane[id]) { zap.textContent = 'Zapisane u nas ✓'; zap.classList.add('jest'); }
+
+    u.querySelectorAll('.uwbtn button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var byl = b.classList.contains('akt');
+        u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
+        if (!byl) b.classList.add('akt');
+        stan[id] = { ocena: byl ? '' : b.dataset.st, tekst: ta.value };
+        pisz('stan', stan); odswiezLicznik();
+      });
+    });
+    ta.addEventListener('input', function () {
+      var akt = u.querySelector('.uwbtn button.akt');
+      stan[id] = { ocena: akt ? akt.dataset.st : '', tekst: ta.value };
+      pisz('stan', stan); odswiezLicznik();
+    });
+  });
+  odswiezLicznik();
+
+  // ---- wyslij wszystko ----
+  function etykieta(o) { return o === 'ok' ? 'Jest ok' : (o === 'zmiana' ? 'Do poprawki' : ''); }
+
+  function wyslijWszystko() {
+    var ile = 0;
+    karty.forEach(function (u) {
+      var id = u.dataset.id;
+      var s = stan[id] || {};
+      var txt = (s.tekst || '').trim();
+      if (!s.ocena && !txt) return;
+      var podpis = (s.ocena || '') + '|' + txt;
+      if (wyslane[id] === podpis) return;       // juz poszlo, nie dublujemy
+      slij(u.dataset.tytul, etykieta(s.ocena), txt);
+      wyslane[id] = podpis;
+      var zap = u.querySelector('.zap');
+      zap.textContent = 'Zapisane u nas ✓'; zap.classList.add('jest');
+      ile++;
+    });
+    pisz('wyslane', wyslane);
+    var l = document.getElementById('licz');
+    if (l) l.textContent = ile ? 'Wyslane, dziekujemy ✓' : 'Wszystko juz u nas ✓';
+    setTimeout(odswiezLicznik, 4000);
+  }
+
+  document.getElementById('kop').addEventListener('click', wyslijWszystko);
+  [].slice.call(document.querySelectorAll('.duzy.kop')).forEach(function (b) {
+    b.addEventListener('click', wyslijWszystko);
+  });
+
+  // ---- podglad wszystkich uwag ----
+  function zbierz() {
+    var cz = [];
+    karty.forEach(function (u) {
+      var s = stan[u.dataset.id] || {};
+      var txt = (s.tekst || '').trim();
+      if (!s.ocena && !txt) return;
+      cz.push(u.dataset.tytul + '\n  ' + (etykieta(s.ocena) || '(bez oceny)') + (txt ? '\n  ' + txt : ''));
+    });
+    return cz.length ? cz.join('\n\n') : 'Nic jeszcze nie zaznaczone.';
+  }
+  var okno = document.getElementById('okno');
+  document.getElementById('pob').addEventListener('click', function () {
+    document.getElementById('tresc').value = zbierz();
+    okno.style.display = 'flex';
+  });
+  document.getElementById('zamknij').addEventListener('click', function () { okno.style.display = 'none'; });
+  document.getElementById('kop2').addEventListener('click', function () { wyslijWszystko(); okno.style.display = 'none'; });
+
+  // ---- lupa na kadry ----
+  var lupa = document.getElementById('lupa');
+  document.querySelectorAll('.kadry img').forEach(function (i) {
+    i.addEventListener('click', function () {
+      lupa.querySelector('img').src = i.src; lupa.style.display = 'flex';
+    });
+  });
+  lupa.addEventListener('click', function () { lupa.style.display = 'none'; });
+})();
+</script></body></html>
