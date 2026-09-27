@@ -1509,9 +1509,27 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 
   // ---- rozmowa z arkuszem ----
   var UWAGI = [];
+  // Nasze swieze klikniecie jest wazniejsze od odpowiedzi arkusza.
+  // Arkusz odpowiada z opoznieniem, wiec bez tego wybor sam by sie cofal.
+  var SWIEZE = {};
+  function zapamietajStan(nr, status) {
+    if (nr > 0) SWIEZE[nr] = { status: status, kiedy: Date.now() };
+  }
+  function nalozSwieze() {
+    var teraz = Date.now();
+    Object.keys(SWIEZE).forEach(function (nr) {
+      if (teraz - SWIEZE[nr].kiedy > 20000) { delete SWIEZE[nr]; return; }
+      var u = UWAGI.filter(function (x) { return x.nr === +nr; })[0];
+      if (u) u.status = SWIEZE[nr].status;
+    });
+  }
+
   function pobierz() {
     return fetch(MOST, { method: 'GET' }).then(function (r) { return r.json(); })
-      .then(function (j) { if (j && j.ok) { UWAGI = j.uwagi || []; } return UWAGI; })
+      .then(function (j) {
+        if (j && j.ok) { UWAGI = j.uwagi || []; INDEKS = null; nalozSwieze(); wyrownajWszystkie(); }
+        return UWAGI;
+      })
       ['catch'](function () { return UWAGI; });
   }
   // cicho: zapisuje i oddaje odpowiedz, ale NIE przerysowuje ekranu.
@@ -1526,7 +1544,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
   function wyslij(dane) {
     return wyslijCicho(dane).then(function (j) {
-      if (j && j.ok) { UWAGI = j.uwagi || []; przerysuj(); }
+      if (j && j.ok) { UWAGI = j.uwagi || []; INDEKS = null; nalozSwieze(); przerysuj(); }
       return j;
     });
   }
@@ -1534,7 +1552,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // zmiana od razu widoczna, zapis leci w tle
   function odRazu(nr, zmiany, dane) {
     var u = UWAGI.filter(function (x) { return x.nr === nr; })[0];
-    if (u) { for (var k in zmiany) u[k] = zmiany[k]; }
+    if (u) { for (var k in zmiany) u[k] = zmiany[k]; if (zmiany.status) zapamietajStan(nr, zmiany.status); }
     przerysuj();
     return wyslij(dane)['catch'](function () {
       pobierz().then(przerysuj);
@@ -1606,6 +1624,22 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
   function dla(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.uwagi, tytul); }
   function znacznikPostu(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.znaczniki, tytul)[0]; }
+
+  // Stan postu jest jeden. Prostujemy rozjazdy TYLKO po swiezym odczycie z arkusza
+  // i nigdy nie ruszamy tego, co przed chwila kliknelismy — inaczej wybor sam by sie cofal.
+  function wyrownajWszystkie() {
+    [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (el) {
+      var tytul = el.dataset.tytul;
+      var zn = znacznikPostu(tytul);
+      if (!zn || !zn.status || zn.status === 'cofnieta') return;
+      if (SWIEZE[zn.nr]) return;
+      dla(tytul).forEach(function (u) {
+        if (SWIEZE[u.nr] || u.status === zn.status) return;
+        u.status = zn.status;
+        if (u.nr > 0) wyslijCicho({ akcja: 'status', nr: u.nr, status: zn.status })['catch'](function () {});
+      });
+    });
+  }
 
   function wierszUwagi(u) {
     var kl = stanKlasa(u.status);
@@ -1854,28 +1888,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (uw) karta.insertBefore(d, uw); else karta.appendChild(d);
   }
 
-  // Stan postu jest jeden. Jesli w arkuszu uwaga zostala z innym stanem niz post
-  // (np. zapis nie doszedl), strona sama to prostuje przy najblizszym rysowaniu.
-  function wyrownajDoPostu(tytul) {
-    var zn = znacznikPostu(tytul);
-    if (!zn || !zn.status || zn.status === 'cofnieta') return false;
-    var zmienione = false;
-    dla(tytul).forEach(function (u) {
-      if (u.status !== zn.status) {
-        u.status = zn.status;
-        if (u.nr > 0) wyslijCicho({ akcja: 'status', nr: u.nr, status: zn.status })['catch'](function () {});
-        zmienione = true;
-      }
-    });
-    return zmienione;
-  }
-
   function rysujStatusyPostow() {
-    var trzebaJeszczeRaz = false;
-    [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
-      if (wyrownajDoPostu(u.dataset.tytul)) trzebaJeszczeRaz = true;
-    });
-    if (trzebaJeszczeRaz) przerysuj();
     [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
       var karta = u.closest('.k');
       if (!karta) return;
@@ -1951,6 +1964,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       odMaluj(b);
       var u2 = UWAGI.filter(function (x) { return x.nr === nr; })[0];
       if (u2) u2.status = nowyStan;
+      zapamietajStan(nr, nowyStan);
       przerysuj();
       wyslijCicho({ akcja: 'status', nr: nr, status: nowyStan })
         .then(function () { return zgraj(u2 ? u2.pozycja : '', null); })
@@ -2006,13 +2020,13 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     var kolejka = [];
     if (wymuszony) {
       moje.forEach(function (u) {
-        if (u.status !== cel) { u.status = cel; kolejka.push({ akcja: 'status', nr: u.nr, status: cel }); }
+        if (u.status !== cel) { u.status = cel; zapamietajStan(u.nr, cel); kolejka.push({ akcja: 'status', nr: u.nr, status: cel }); }
       });
     }
     var zn = znacznikPostu(tytul);
     if (cel) {
       if (zn) {
-        if (zn.status !== cel) { zn.status = cel; kolejka.push({ akcja: 'status', nr: zn.nr, status: cel }); }
+        if (zn.status !== cel) { zn.status = cel; zapamietajStan(zn.nr, cel); kolejka.push({ akcja: 'status', nr: zn.nr, status: cel }); }
       } else {
         UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, odpowiedz: '', kto: 'ZOVU' });
         kolejka.push({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, kto: 'ZOVU', doStatusu: cel });
