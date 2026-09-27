@@ -1965,9 +1965,10 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       var u2 = UWAGI.filter(function (x) { return x.nr === nr; })[0];
       if (u2) u2.status = nowyStan;
       zapamietajStan(nr, nowyStan);
-      przerysuj();
+      // stan calego postu podciagamy OD RAZU, nie po odpowiedzi arkusza —
+      // dzieki temu koszyk i glowna lista zmieniaja sie w tej samej chwili
+      zgraj(u2 ? u2.pozycja : '', null);
       wyslijCicho({ akcja: 'status', nr: nr, status: nowyStan })
-        .then(function () { return zgraj(u2 ? u2.pozycja : '', null); })
         ['catch'](function () { pobierz().then(przerysuj); });
     } else if (b.classList.contains('odp')) {
       if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
