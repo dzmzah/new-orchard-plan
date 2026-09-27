@@ -385,6 +385,14 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .rejT tr.odrz .kropka{background:#7a1f1a}
 .rejT tr.odrz td,table tr.odrz td{background:#fbf6f5}
 .kol.odrz{background:#fbf6f5;color:#7a1f1a}
+
+/* znacznik, ze strona sama dociaga zmiany */
+#zywo{margin-left:auto;align-self:center;font-size:11px;color:var(--cichy);white-space:nowrap;
+  display:inline-flex;align-items:center;gap:6px}
+#zywo::before{content:'';width:7px;height:7px;border-radius:50%;background:#6ac52c;
+  box-shadow:0 0 0 0 rgba(106,197,44,.7);animation:tetno 2.4s ease-out infinite}
+@keyframes tetno{0%{box-shadow:0 0 0 0 rgba(106,197,44,.65)}70%{box-shadow:0 0 0 7px rgba(106,197,44,0)}100%{box-shadow:0 0 0 0 rgba(106,197,44,0)}}
+@media (prefers-reduced-motion: reduce){#zywo::before{animation:none}}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -433,7 +441,7 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
     Przy niebieskich dostajesz przycisk <b>Zatwierdzam</b>.<br><br>
     Wszystkie uwagi razem sa pod przyciskiem <b>Twoje uwagi</b> w prawym dolnym rogu.
   </div>
-  <nav class="naw"><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="wydatki">Wydatki</button></nav>
+  <nav class="naw"><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="wydatki">Wydatki</button><span id="zywo">na zywo</span></nav>
   <div class="sek" id="sek-feed"><h2 class="dzial">Feed</h2><div class="jak" style="margin:0 0 16px">
   <b>Tak ulozy sie Wasz profil.</b> Czytamy od gory &mdash; na Instagramie nowy post wskakuje w lewy gorny rog
   i spycha reszte w dol, wiec na dole siatki jest zawsze najstarszy. Stories w siatce nie ma, bo nie zostaja na profilu.<br><br>
@@ -2382,6 +2390,36 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // ---- start ----
   odswiezLicznik();
   pobierz().then(function () { rysujWszystko(); doKotwicy(); });
-  setInterval(function () { pobierz().then(przerysuj); }, 45000);
+  // ---- na zywo u wszystkich ----
+  // Strona sama dociaga zmiany z arkusza: czesto, kiedy karta jest przed oczami,
+  // rzadko kiedy stoi w tle. Dzieki temu Ania widzi nasza zmiane, a my jej,
+  // bez odswiezania — i bez zajezdzania arkusza pytaniami przez cala dobe.
+  var CZESTO = 7000, RZADKO = 60000;
+  var TYKANIE = null;
+  function naZywo() {
+    if (TYKANIE) clearInterval(TYKANIE);
+    var co = document.hidden ? RZADKO : CZESTO;
+    TYKANIE = setInterval(function () {
+      if (JEDZIE || KOLEJKA.length) return;      // w trakcie zapisu nie przeszkadzamy
+      pobierz().then(function () { przerysuj(); pokazOdswiezenie(); });
+    }, co);
+  }
+  function pokazOdswiezenie() {
+    var e = document.getElementById('zywo');
+    if (!e) return;
+    var d = new Date();
+    e.textContent = 'na zywo, ostatnio ' +
+      ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+  }
+  document.addEventListener('visibilitychange', function () {
+    naZywo();
+    // wracasz do karty — od razu swieze dane, bez czekania na nastepne tykniecie
+    if (!document.hidden) pobierz().then(function () { przerysuj(); pokazOdswiezenie(); });
+  });
+  window.addEventListener('focus', function () {
+    if (JEDZIE || KOLEJKA.length) return;
+    pobierz().then(function () { przerysuj(); pokazOdswiezenie(); });
+  });
+  naZywo();
 })();
 </script></body></html>
