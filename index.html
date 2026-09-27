@@ -1364,8 +1364,34 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
 
   // ---- uwagi przy konkretnej pozycji ----
+  // stare uwagi przyszly z przedrostkiem [co i kiedy publikujemy] i ze stara data,
+  // a posty zdazyly sie przenumerowac — dlatego porownujemy po samym temacie.
+  var OGONKI = { 'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's', 'ż': 'z', 'ź': 'z' };
+  function klucz(s) {
+    return String(s || '')
+      .toLowerCase()
+      .replace(/\[[^\]]*\]/g, ' ')                  // [co i kiedy publikujemy]
+      .replace(/\([^)]*\)/g, ' ')                   // (przeniesiony z 27.09)
+      .replace(/[ąćęłńóśżź]/g, function (z) { return OGONKI[z] || z; })
+      .replace(/[a-zа-я]{2,4}\s*\d{1,2}\.\d{2}/g, ' ')  // pon 28.09
+      .replace(/[^a-z0-9а-я]/g, '');                // zostaja same litery i cyfry
+  }
+  // pozycje, ktore zmienily nazwe — tego zadna regula sama nie zgadnie
+  var ALIASY = {
+    'cisza': 'ankietashortmidlong',
+    'takbedziewygladalprofil': 'calasiatkaprofilu',
+  };
+  function pasuje(a, b) {
+    var x = klucz(a), y = klucz(b);
+    if (!x || !y) return false;
+    if (ALIASY[x]) x = ALIASY[x];
+    if (ALIASY[y]) y = ALIASY[y];
+    return x === y || x.indexOf(y) >= 0 || y.indexOf(x) >= 0;
+  }
   function dla(tytul) {
-    return UWAGI.filter(function (u) { return u.pozycja === tytul && u.status !== 'cofnieta'; });
+    return UWAGI.filter(function (u) {
+      return u.status !== 'cofnieta' && pasuje(u.pozycja, tytul);
+    });
   }
 
   function wierszUwagi(u) {
