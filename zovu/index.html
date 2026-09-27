@@ -2401,12 +2401,27 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Strona sama dociaga zmiany z arkusza: czesto, kiedy karta jest przed oczami,
   // rzadko kiedy stoi w tle. Dzieki temu Ania widzi nasza zmiane, a my jej,
   // bez odswiezania — i bez zajezdzania arkusza pytaniami przez cala dobe.
-  var CZESTO = 7000, RZADKO = 60000;
-  var TYKANIE = null;
+  // Trzy biegi zamiast jednego: szybko, kiedy ktos naprawde pracuje na stronie,
+  // wolniej kiedy tylko ja ma otwarta, najwolniej w tle. Arkusz Google ma dzienny
+  // limit czasu pracy — stale 3 sekundy przez caly dzien wyczerpalyby go do wieczora
+  // i most przestalby odpowiadac wszystkim.
+  var PRZY_PRACY = 3000, OTWARTA = 20000, W_TLE = 60000;
+  var OSTATNI_RUCH = Date.now();
+  ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll', 'wheel'].forEach(function (z) {
+    window.addEventListener(z, function () { OSTATNI_RUCH = Date.now(); }, { passive: true });
+  });
+  var TYKANIE = null, OBECNY_BIEG = null;
+  function jakiBieg() {
+    if (document.hidden) return W_TLE;
+    return (Date.now() - OSTATNI_RUCH < 90000) ? PRZY_PRACY : OTWARTA;
+  }
   function naZywo() {
+    var co = jakiBieg();
+    if (co === OBECNY_BIEG && TYKANIE) return;
+    OBECNY_BIEG = co;
     if (TYKANIE) clearInterval(TYKANIE);
-    var co = document.hidden ? RZADKO : CZESTO;
     TYKANIE = setInterval(function () {
+      naZywo();                                  // bieg moze sie w miedzyczasie zmienic
       if (JEDZIE || KOLEJKA.length) return;      // w trakcie zapisu nie przeszkadzamy
       pobierz().then(function () { przerysuj(); pokazOdswiezenie(); });
     }, co);
@@ -2430,7 +2445,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790549815264';
+  var MOJA_WERSJA = '1790549883939';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
