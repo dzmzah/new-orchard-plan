@@ -1249,6 +1249,19 @@ i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div
     if (zapZak && document.getElementById('sek-' + zapZak)) pokazSekcje(zapZak);
   } catch (e) {}
 
+  // link z kotwica, np. #p-05 — otwieramy zakladke, w ktorej ten element lezy, i przewijamy
+  function doKotwicy() {
+    var h = (location.hash || '').replace('#', '');
+    if (!h) return;
+    var cel = document.getElementById(h);
+    if (!cel) return;
+    var sek = cel.closest ? cel.closest('.sek') : null;
+    if (sek) pokazSekcje(sek.id.replace('sek-', ''));
+    setTimeout(function () { cel.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80);
+  }
+  doKotwicy();
+  window.addEventListener('hashchange', doKotwicy);
+
   // z siatki feedu skok do konkretnego postu
   [].slice.call(document.querySelectorAll('.siatka .sk')).forEach(function (a) {
     a.addEventListener('click', function (e) {
