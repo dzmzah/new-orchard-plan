@@ -1658,12 +1658,12 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   function zwinSzczegoly(karta) {
     if (karta.dataset.zwinieteSzcz) return;
     // produkty zostaja na wierzchu — to byla jej wyrazna prosba, zeby kazdy post linkowal towar
-    var doSchowania = [].slice.call(karta.querySelectorAll(':scope > .pod, :scope > .ekr, :scope > .st, :scope > .stara'));
+    var doSchowania = [].slice.call(karta.querySelectorAll(':scope > .pod, :scope > .ekr, :scope > .st, :scope > .stara, :scope > .hist'));
     if (!doSchowania.length) { karta.dataset.zwinieteSzcz = '1'; return; }
     var d = document.createElement('details');
     d.className = 'szcz';
     var s = document.createElement('summary');
-    s.textContent = 'Tekst postu, produkty i historia';
+    s.textContent = 'Tekst postu, historia uwag i poprzednie wersje';
     d.appendChild(s);
     karta.insertBefore(d, doSchowania[0]);
     doSchowania.forEach(function (el) { d.appendChild(el); });
