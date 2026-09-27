@@ -1465,7 +1465,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     var kl = stanKlasa(u.status);
     var h = '<div class="uwEl ' + kl + '" data-nr="' + u.nr + '">' +
       '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
-      (u.ocena ? '<span class="uwOc">' + esc(u.ocena) + '</span>' : '') +
+      
       '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
       '<div class="uwTxt">' + esc(u.uwaga).replace(/\n/g, '<br>') + '</div>' +
       (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
@@ -1576,7 +1576,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   function wierszSzuflady(u) {
     return '<div class="uwEl ' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
         '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
-        (u.ocena ? '<span class="uwOc">' + esc(u.ocena) + '</span>' : '') +
+        
         '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
         (u.uwaga
           ? (u.uwaga.length > 90
@@ -1721,7 +1721,14 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       if (!confirm('Wycofac te uwage?')) return;
       odRazu(nr, { status: 'cofnieta' }, { akcja: 'usun', nr: nr });
     } else if (b.classList.contains('st')) {
-      odRazu(nr, { status: b.dataset.st }, { akcja: 'status', nr: nr, status: b.dataset.st });
+      // zmiana przy pojedynczej uwadze podciaga za soba stan calego postu
+      var nowyStan = b.dataset.st;
+      var u2 = UWAGI.filter(function (x) { return x.nr === nr; })[0];
+      if (u2) u2.status = nowyStan;
+      rysujWszystko();
+      wyslijCicho({ akcja: 'status', nr: nr, status: nowyStan })
+        .then(function () { return zgraj(u2 ? u2.pozycja : '', null); })
+        ['catch'](function () { pobierz().then(rysujWszystko); });
     } else if (b.classList.contains('odp')) {
       if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
       var box = document.createElement('div');
@@ -1759,33 +1766,59 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     }
   });
 
+  // Jeden stan na post. Zmiana z gory schodzi na wszystkie jego uwagi,
+  // zmiana przy uwadze podnosi sie do postu. Zeby nigdy nie bylo dwoch roznych kolorow.
+  function zgraj(tytul, wymuszony) {
+    if (!tytul) { rysujWszystko(); return Promise.resolve(); }
+    var moje = dla(tytul);
+    var cel = wymuszony;
+    if (!cel) {                       // bez wymuszenia bierzemy najmniej zaawansowana uwage
+      var naj = 9;
+      moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
+      cel = moje.length ? ['nowa', 'w robocie', 'czeka', 'zrobione'][naj] : null;
+    }
+    var kolejka = [];
+    if (wymuszony) {
+      moje.forEach(function (u) {
+        if (u.status !== cel) { u.status = cel; kolejka.push({ akcja: 'status', nr: u.nr, status: cel }); }
+      });
+    }
+    var zn = znacznikPostu(tytul);
+    if (cel) {
+      if (zn) {
+        if (zn.status !== cel) { zn.status = cel; kolejka.push({ akcja: 'status', nr: zn.nr, status: cel }); }
+      } else {
+        UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, odpowiedz: '', kto: 'ZOVU' });
+        kolejka.push({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, kto: 'ZOVU', doStatusu: cel });
+      }
+    }
+    rysujWszystko();
+    return kolejka.reduce(function (p, z) {
+      return p.then(function () {
+        var doSt = z.doStatusu; delete z.doStatusu;
+        return wyslijCicho(z).then(function (j) {
+          if (doSt && j && j.ok) {
+            var swiezy = (j.uwagi || []).filter(function (u) {
+              return u.ocena === ZNACZNIK && pasuje(u.pozycja, tytul) && u.status !== 'cofnieta';
+            }).pop();
+            if (swiezy && swiezy.status !== doSt) return wyslijCicho({ akcja: 'status', nr: swiezy.nr, status: doSt });
+          }
+        });
+      });
+    }, Promise.resolve()).then(function () {
+      return pobierz().then(rysujWszystko);
+    });
+  }
+
   // klik w przycisk gotowosci calego postu
   document.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('button.pst') : null;
     if (!b) return;
     var tytul = b.dataset.tytul, nowy = b.dataset.st;
-    var zn = znacznikPostu(tytul);
-    if (zn) {
-      odRazu(zn.nr, { status: nowy }, { akcja: 'status', nr: zn.nr, status: nowy });
-    } else {
-      // znacznika jeszcze nie ma — jedno zadanie, od razu z wlasciwym stanem
-      UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, odpowiedz: '', kto: 'ZOVU' });
-      rysujWszystko();
-      // tworzymy wiersz i dopiero po ustawieniu stanu odswiezamy widok — bez migania
-      wyslijCicho({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, kto: 'ZOVU' })
-        .then(function (j) {
-          if (!j || !j.ok) throw new Error('brak zapisu');
-          var swiezy = (j.uwagi || []).filter(function (u) {
-            return u.ocena === ZNACZNIK && pasuje(u.pozycja, tytul) && u.status !== 'cofnieta';
-          }).pop();
-          if (swiezy && swiezy.status !== nowy) {
-            return wyslij({ akcja: 'status', nr: swiezy.nr, status: nowy });
-          }
-          UWAGI = j.uwagi || []; rysujWszystko();
-        })
-        ['catch'](function () { pobierz().then(rysujWszystko); });
-    }
+    zgraj(tytul, nowy)['catch'](function () { pobierz().then(rysujWszystko); });
+    return;
   });
+
 
   // klik w nazwe pozycji: zamykamy szuflade i skaczemy do tego miejsca
   document.addEventListener('click', function (e) {
