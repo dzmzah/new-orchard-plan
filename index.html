@@ -400,6 +400,17 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   box-shadow:0 6px 20px rgba(28,27,24,.25)}
 #nowaW button{font:13px inherit;padding:6px 13px;border-radius:14px;border:0;cursor:pointer;
   background:#6ac52c;color:#12300a;font-weight:600}
+
+/* decyzja Ani wprost w koszyku, przy grupie uwag danego postu */
+.grDecyzja{display:flex;gap:7px;flex-wrap:wrap;padding:10px 13px 13px;border-top:1px solid var(--ramka);background:#faf9f5}
+.grDecyzja button{font:13px inherit;padding:7px 14px;border-radius:16px;cursor:pointer;background:#fff}
+.grDecyzja .zatw{border:1px solid #3f7d18;color:#3f7d18}
+.grDecyzja .zatw:hover,.grDecyzja .zatw.akt{background:#6ac52c;border-color:#6ac52c;color:#12300a}
+.grDecyzja .dopop{border:1px solid #b4552e;color:#b4552e}
+.grDecyzja .dopop:hover,.grDecyzja .dopop.akt{background:#b4552e;border-color:#b4552e;color:#fff}
+.grDecyzja .odrzuc{border:1px solid #7a1f1a;color:#7a1f1a}
+.grDecyzja .odrzuc:hover,.grDecyzja .odrzuc.akt{background:#7a1f1a;border-color:#7a1f1a;color:#fff}
+.grDecyzja .akt{font-weight:600}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -583,36 +594,7 @@ Short for the city, mid for most days, long for the days that mean it.</div>
     <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
-<div class="wst" data-tytul="[wstawka] miedzy wt 29.09 (przeniesiony z 26.09) a pon 28.09 (przeniesiona z 22.09)">
-  <button class="wstB">+ dodaj cos tutaj</button>
-  <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc?"></textarea>
-    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
-  </div>
-</div>
-<section class="k" id="p-05">
-  <div class="gl"><span class="dat">pon 28.09 (przeniesiona z 22.09)</span><h3>Ankieta: Short / Mid / Long</h3>
-    <span class="przen">przeniesiony</span></div>
-  <div class="met">STORIES, 2 plansze</div>
-  <div class="kadry"><img src="kadry/p-05-1.jpg" alt="" loading="lazy"><img src="kadry/p-05-2.jpg" alt="" loading="lazy"></div>
-  <div class="pod">Which one is your winter? Short, mid or long.
-Tap to vote — and we will write to you first when your size is back.</div>
-  
-  <div class="prd tow brakTow"><span class="towE">W poscie oznaczamy:</span><i>nic &mdash; w tym kadrze nie pokazujemy produktu</i></div>
-  <div class="st">PRZENIESIONA. Byla w pierwszym planie na 22.09 i nie wyszla, a przy przepisywaniu planu wypadla. Nowy termin: poniedzialek 28.09 w Stories.</div>
-  
-  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
-      <div class="hi ok">
-        <div class="hk">27.09 <span class="hs">zrobione</span></div>
-        <blockquote>To tez mi sie podobalo, a teraz tego nie ma w planie. (ankieta Short / Mid / Long)</blockquote>
-        <p>Wypadla przy przepisywaniu planu, nasz blad. Wraca na 28.09 w Stories, razem z zaproszeniem na liste.</p>
-      </div></div>
-  <div class="uw" data-id="p-05" data-tytul="pon 28.09 (przeniesiona z 22.09) — Ankieta: Short / Mid / Long">
-    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
-  </div>
-</section>
-<div class="wst" data-tytul="[wstawka] miedzy pon 28.09 (przeniesiona z 22.09) a wt 29.09">
+<div class="wst" data-tytul="[wstawka] miedzy wt 29.09 (przeniesiony z 26.09) a wt 29.09">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
     <textarea placeholder="Co ma tu wejsc?"></textarea>
@@ -1834,6 +1816,15 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       g.uwagi.forEach(function (u) {
         h += wierszSzuflady(u);
       });
+      // Ania decyduje takze stad — nie musi wracac do posta na stronie
+      if (!ZESPOL) {
+        var tyt = esc(m ? m.tytul : g.pozycja);
+        h += '<div class="grDecyzja">' +
+          '<button class="zatw' + (st === 'zrobione' ? ' akt' : '') + '" data-tytul="' + tyt + '">Zatwierdzam</button>' +
+          '<button class="dopop' + (st === 'poprawka' ? ' akt' : '') + '" data-tytul="' + tyt + '">Do poprawki</button>' +
+          '<button class="odrzuc' + (st === 'odrzucone' ? ' akt' : '') + '" data-tytul="' + tyt + '">Nie</button>' +
+          '</div>';
+      }
       h += '</div>';
     });
 
@@ -2446,7 +2437,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790549962328';
+  var MOJA_WERSJA = '1790550313251';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
