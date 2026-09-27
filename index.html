@@ -256,6 +256,15 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .uwZwin summary:hover{color:var(--akcent)}
 .uwZwin .uwTxt{margin-top:7px}
 .stara summary{padding:2px 0}
+.szcz{margin-top:12px;border-top:1px solid var(--ramka);padding-top:10px}
+.szcz summary{cursor:pointer;font-size:13px;letter-spacing:.04em;color:var(--cichy);list-style:none}
+.szcz summary::-webkit-details-marker{display:none}
+.szcz summary::before{content:'▸ ';color:var(--akcent)}
+.szcz[open] summary::before{content:'▾ '}
+.szcz summary:hover{color:var(--akcent)}
+.szcz > .pod{margin-top:12px}
+.k{padding-bottom:14px}
+.kadry img{height:190px}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1581,6 +1590,22 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     return ['nowa', 'w robocie', 'czeka', 'zrobione'][naj] || 'nowa';
   }
 
+  // karta ma miescic sie na ekranie: widac kadr, date, nazwe i stan.
+  // tekst, produkty, historia i stara wersja chowaja sie pod jedno rozwiniecie.
+  function zwinSzczegoly(karta) {
+    if (karta.dataset.zwinieteSzcz) return;
+    var doSchowania = [].slice.call(karta.querySelectorAll(':scope > .pod, :scope > .ekr, :scope > .prd, :scope > .st, :scope > .stara'));
+    if (!doSchowania.length) { karta.dataset.zwinieteSzcz = '1'; return; }
+    var d = document.createElement('details');
+    d.className = 'szcz';
+    var s = document.createElement('summary');
+    s.textContent = 'Tekst postu, produkty i historia';
+    d.appendChild(s);
+    karta.insertBefore(d, doSchowania[0]);
+    doSchowania.forEach(function (el) { d.appendChild(el); });
+    karta.dataset.zwinieteSzcz = '1';
+  }
+
   // przyciski gotowosci na samym poscie — dzialaja takze wtedy, gdy nie ma zadnej uwagi
   function dodajPrzyciskiPostu(karta, tytul, teraz) {
     if (!ZESPOL) return;
@@ -1590,6 +1615,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       pas.className = 'pAkc';
       karta.appendChild(pas);   // najpierw czytasz post, potem decydujesz
     }
+    zwinSzczegoly(karta);
     // pole pisania zawsze na samym koncu karty i domyslnie zwiniete
     var pole = karta.querySelector('.uw');
     if (pole) {
@@ -1725,14 +1751,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (zn) {
       odRazu(zn.nr, { status: nowy }, { akcja: 'status', nr: zn.nr, status: nowy });
     } else {
-      // znacznika jeszcze nie ma — dokladamy wiersz i od razu pokazujemy wynik
+      // znacznika jeszcze nie ma — jedno zadanie, od razu z wlasciwym stanem
       UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, odpowiedz: '', kto: 'ZOVU' });
       rysujWszystko();
-      wyslij({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', kto: 'ZOVU' })
-        .then(function () {
-          var swiezy = znacznikPostu(tytul);
-          if (swiezy) wyslij({ akcja: 'status', nr: swiezy.nr, status: nowy });
-        });
+      wyslij({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, kto: 'ZOVU' })
+        ['catch'](function () { pobierz().then(rysujWszystko); });
     }
   });
 
