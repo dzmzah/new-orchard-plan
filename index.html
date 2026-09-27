@@ -152,6 +152,8 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .zap{font-size:12px;color:var(--ok);opacity:0;transition:opacity .2s}
 .zap.jest{opacity:1}
 @media(max-width:620px){#koszyk span{display:none}#koszyk{padding:12px 14px}}
+.uwGdzie{font-size:12px;letter-spacing:.04em;color:var(--akcent);margin-bottom:5px}
+.szTresc .uwEl{background:#fff;border:1px solid var(--ramka);border-left-width:3px;border-radius:4px;padding:12px 14px;margin-bottom:11px}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1377,19 +1379,29 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     var lista = UWAGI.filter(function (u) { return u.status !== 'cofnieta' && (u.uwaga || u.ocena); });
     var porz = { 'nowa': 0, '': 0, 'w robocie': 1, 'zrobione': 2 };
     lista.sort(function (a, b) { return (porz[a.status] || 0) - (porz[b.status] || 0); });
-    var h = '<table class="rejT"><tr><th>Kiedy</th><th>Czego dotyczy</th><th>Uwaga</th><th>Co zrobilismy</th><th>Status</th></tr>';
+    if (!lista.length) { cel.innerHTML = '<div class="ekr">Na razie nie ma zadnych uwag.</div>'; return; }
+    var h = '';
     lista.forEach(function (u) {
-      h += '<tr class="' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
-        '<td class="ki">' + esc(u.czas) + '</td>' +
-        '<td class="cz">' + esc(u.pozycja) + '</td>' +
-        '<td>' + (u.ocena ? '<span class="oc">' + esc(u.ocena) + '</span> ' : '') + esc(u.uwaga) + '</td>' +
-        '<td class="na">' + esc(u.odpowiedz) + '</td>' +
-        '<td class="sta"><span class="kropka"></span>' + stanNazwa(u.status) + '</td></tr>';
+      h += '<div class="uwEl ' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
+        '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
+        (u.ocena ? '<span class="uwOc">' + esc(u.ocena) + '</span>' : '') +
+        '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
+        '<div class="uwGdzie">' + esc(u.pozycja) + '</div>' +
+        '<div class="uwTxt">' + esc(u.uwaga).replace(/
+/g, '<br>') + '</div>' +
+        (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
+        '<div class="uwAkc">' +
+          '<button class="mini edy">Popraw</button>' +
+          '<button class="mini cof">Wycofaj</button>' +
+          (ZESPOL ? '<span class="uwSep"></span>' +
+            STATUSY.map(function (st) {
+              return '<button class="mini st' + (u.status === st.id ? ' akt' : '') + '" data-st="' + st.id + '">' + st.nazwa + '</button>';
+            }).join('') + '<button class="mini odp">Odpowiedz</button>' : '') +
+        '</div></div>';
     });
-    h += '</table>';
-    var licz = lista.filter(function (u) { return u.status !== 'zrobione'; }).length;
-    cel.innerHTML = '<div class="tabOtocz">' + h + '</div>' +
-      '<div class="ekr" style="margin-top:10px">Razem ' + lista.length + ' uwag, otwartych ' + licz + '.</div>';
+    var otwarte = lista.filter(function (u) { return u.status !== 'zrobione'; }).length;
+    cel.innerHTML = h + '<div class="ekr" style="margin-top:14px">Razem ' + lista.length +
+      ' uwag, otwartych ' + otwarte + '.</div>';
   }
 
   function rysujWszystko() { rysujPrzyPostach(); rysujTabele(); odswiezLicznik(); }
