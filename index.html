@@ -86,6 +86,29 @@ h2.dzial{font-size:22px;font-weight:300;letter-spacing:.01em;text-transform:none
 @media(max-width:620px){.lnkPrzerwa{display:none}.linki .lnk{font-size:12px;padding:6px 11px}}
 .kadry.pion img{height:430px}
 .plansz{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ok);border-radius:12px;padding:3px 10px}
+.tabOtocz{overflow-x:auto;margin-top:12px}
+.rejT{width:100%;border-collapse:collapse;font-size:14px}
+.rejT th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--ramka)}
+.rejT td{padding:11px 10px;vertical-align:top;border-bottom:1px solid var(--ramka);background:#fff}
+.rejT tr.nie td{background:#fdf3f0}
+.rejT tr.robi td{background:#fdf8ee}
+.rejT tr.gotowe td{background:#f4f9f5}
+.rejT td.ki{white-space:nowrap;font-size:12px;color:var(--cichy)}
+.rejT td.cz{font-weight:500;min-width:170px}
+.rejT td.na{color:#4a463e}
+.rejT td.sta{white-space:nowrap;font-size:12px;letter-spacing:.04em}
+.rejT .kropka{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.rejT tr.nie .kropka{background:#c0392b}
+.rejT tr.robi .kropka{background:#d99a2b}
+.rejT tr.gotowe .kropka{background:#3c5a46}
+.rejT .oc{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cichy)}
+.kol{padding:1px 7px;border-radius:10px}
+.kol.nie{background:#fdf3f0;color:#c0392b}
+.kol.robi{background:#fdf8ee;color:#a9741d}
+.kol.gotowe{background:#f4f9f5;color:#3c5a46}
+table tr.gotowe td{background:#f4f9f5}
+table tr.robi td{background:#fdf8ee}
+table tr.suma td{background:#fffdf7;border-bottom:none}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1162,7 +1185,140 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
     <div class="zap"></div>
   </div>
-</section></div><div class="sek" id="sek-uwagi" hidden><h2 class="dzial">Twoje uwagi</h2><div class="jak" style="margin:0 0 16px">Wszystko, co nam powiedzialas &mdash; z rozmowy, z czatu i z maila &mdash;
+</section></div><div class="sek" id="sek-uwagi" hidden><h2 class="dzial">Twoje uwagi</h2><div class="jak" style="margin:0 0 16px">
+  Wszystko, co nam powiedzialas, w jednym miejscu i z kolorem:
+  <b class="kol nie">czerwone</b> jeszcze nie zrobione,
+  <b class="kol robi">zolte</b> wzielismy do pracy,
+  <b class="kol gotowe">zielone</b> zrobione.
+  Nic stad nie znika i nie trzeba tego szukac po czatach.</div>
+<div class="tabOtocz"><table class="rejT">
+  <tr><th>Kiedy</th><th>Czego dotyczy</th><th>Twoja uwaga</th><th>Co zrobilismy</th><th>Status</th></tr><tr class="nie">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">nd 27.09 — Pre-order czerwona spodnica</td>
+    <td><span class="oc">Do poprawki</span> Tutaj pierwotnie miala byc karuzela — wezcie te klatki z planu 15.10.</td>
+    <td class="na">Jeszcze nie zrobione. Karuzela z klatek z 15.10 jest w robocie.</td>
+    <td class="sta"><span class="kropka"></span>nie zrobione</td>
+  </tr><tr class="nie">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">Tak bedzie wygladal profil</td>
+    <td>Nie podoba mi sie ten z dn 2.10 — wczesniej cos innego bylo w planie, mozemy trzymac sie ustalonego wczesniej feedu?</td>
+    <td class="na">Jeszcze nie zrobione. Wracamy do wczesniejszej kolejnosci feedu i wymieniamy kadr z 02.10.</td>
+    <td class="sta"><span class="kropka"></span>nie zrobione</td>
+  </tr><tr class="nie">
+    <td class="ki">23.09 rozmowa</td>
+    <td class="cz">sob 03.10 — Cold feet</td>
+    <td><span class="oc">Do poprawki</span> Zupelnie inny but, do wymiany.</td>
+    <td class="na">Jeszcze nie zrobione. Podmieniamy na Wasz packshot ze sklepu.</td>
+    <td class="sta"><span class="kropka"></span>nie zrobione</td>
+  </tr><tr class="nie">
+    <td class="ki">23.09 rozmowa</td>
+    <td class="cz">nd 04.10 — World Animal Day</td>
+    <td><span class="oc">Do poprawki</span> Przod troche za dlugi, jakby modelka miala bardzo duzy rozmiar stopy.</td>
+    <td class="na">Jeszcze nie zrobione. Tak samo, podmiana na Wasz packshot.</td>
+    <td class="sta"><span class="kropka"></span>nie zrobione</td>
+  </tr><tr class="robi">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">sob 26.09 — One boot three heights</td>
+    <td><span class="oc">Jest ok</span> </td>
+    <td class="na">Kadr zmieniony na Wasz z przedpokoju, bo dzinsy zaburzaly feed. Post przeniesiony na wt 29.09 o 14:30.</td>
+    <td class="sta"><span class="kropka"></span>w robocie</td>
+  </tr><tr class="robi">
+    <td class="ki">27.09 wieczor</td>
+    <td class="cz">sr 30.09 — 39 czy 40</td>
+    <td>Mielismy probowac rozkrecic dyskusje pod postem, moderowana prawdopodobnie.</td>
+    <td class="na">Tak robimy: pierwszy komentarz nasz, a przez trzy godziny po publikacji odpowiadamy kazdemu w ciagu godziny.</td>
+    <td class="sta"><span class="kropka"></span>w robocie</td>
+  </tr><tr class="robi">
+    <td class="ki">27.09 czat</td>
+    <td class="cz">Mailing</td>
+    <td>Logo jest nie nasze, sprawdzcie fonty z brandbookiem. W Klaviyo sa gotowe templatey.</td>
+    <td class="na">Sprawdzone, masz racje: logo bylo zlozone z tekstu, a font nie byl ustawiony wcale. Przerabiamy na Wasz szablon z Klaviyo.</td>
+    <td class="sta"><span class="kropka"></span>w robocie</td>
+  </tr><tr class="robi">
+    <td class="ki">27.09 czat</td>
+    <td class="cz">Mailing</td>
+    <td>Najpierw newsletter powitalny z prosba o review, spodnica jako drugi, za tydzien.</td>
+    <td class="na">Przyjete. Czekamy na Twoj tekst do powitalnego.</td>
+    <td class="sta"><span class="kropka"></span>w robocie</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">pt 25.09 — Co jest w srodku</td>
+    <td><span class="oc">Jest ok</span> </td>
+    <td class="na">Dziekujemy. Post poszedl 25.09 o 17:00.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">pon 28.09 — Ankieta Short / Mid / Long</td>
+    <td><span class="oc">Jest ok</span> </td>
+    <td class="na">Plansze gotowe, sa w zakladce Stories.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">nd 27.09 — Pre-order czerwona spodnica</td>
+    <td><span class="oc">Do poprawki</span> Uzyjcie naszych zdjec z sesji, nie AI.</td>
+    <td class="na">Kadr jest juz Wasz, ze sklepu, z jesiennej sesji. Zero generowania.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">nd 27.09 — Pre-order czerwona spodnica</td>
+    <td><span class="oc">Do poprawki</span> COPY wole to co bylo we wczesniejszych propozycjach: She is back. Five per size. Missed her last time? Preorder now. The next batch is already in production.</td>
+    <td class="na">Wklejone doslownie, slowo w slowo.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">wt 29.09 — Removable insole</td>
+    <td><span class="oc">Do poprawki</span> Do tego juz dawalam poprawki do copy i nie sa tu uwzglednione.</td>
+    <td class="na">Masz racje, przeoczylismy. Chodzilo o punkt 6 z Twojego maila z 22.09: sa DWIE wymienne wkladki. Copy przepisane.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 20:16</td>
+    <td class="cz">sr 30.09 — 39 czy 40</td>
+    <td>Co ten text w ogole znaczy? Ten post mial byc o tym, ze jesli wahasz sie miedzy rozmiarami to pomozemy dobrac.</td>
+    <td class="na">Zgubilismy sens przy przepisywaniu. Twoje copy wklejone doslownie.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 czat</td>
+    <td class="cz">Posty</td>
+    <td>Musisz linkowac produkty w postach.</td>
+    <td class="na">Katalog jest podpiety, 88 pozycji zatwierdzonych, Instagram to aktywny kanal. Przy kazdym poscie sa juz konkretne produkty do oznaczenia.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 czat</td>
+    <td class="cz">Caly dokument</td>
+    <td>Musimy pracowac na JEDNYM dokumencie, nie chce kolejnych linkow.</td>
+    <td class="na">Ta strona. Adres sie nie zmienia, zaden plik wiecej nie idzie.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 czat</td>
+    <td class="cz">Copy</td>
+    <td>Nie podobaja mi sie copy, nie czuje tego. Wgrajcie posty z naszych ostatnich 2 miesiecy.</td>
+    <td class="na">Przeczytalismy Wasze podpisy z lipca i sierpnia i przepisalismy wszystkie teksty na Wasz jezyk.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">27.09 czat</td>
+    <td class="cz">Caly dokument</td>
+    <td>Powinna byc mozliwosc dodania czegos miedzy postami.</td>
+    <td class="na">Miedzy kazdymi dwoma postami jest przycisk „dodaj cos tutaj”.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">23.09 rozmowa</td>
+    <td class="cz">Caly dokument</td>
+    <td>Te uwagi co daje — znikaja. Musza byc w historii.</td>
+    <td class="na">Zrobione. Ta tabela jest ta historia i zostaje na stronie.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">23.09 rozmowa</td>
+    <td class="cz">Reklama</td>
+    <td>Zeby byl zawsze podglad, ile juz wydane.</td>
+    <td class="na">Zrobione, zakladka Wydatki.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr><tr class="gotowe">
+    <td class="ki">22.09 mail</td>
+    <td class="cz">pt 02.10 — Recznie szyte we Wloszech</td>
+    <td>Italian handmade mozemy pokazywac mocniej: materialy z Europy, nie z Chin, tradycje od pokolen.</td>
+    <td class="na">Copy przepisane na te fakty.</td>
+    <td class="sta"><span class="kropka"></span>zrobione</td>
+  </tr></table></div><div class="jak" style="margin:0 0 16px">Wszystko, co nam powiedzialas &mdash; z rozmowy, z czatu i z maila &mdash;
 i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div><div class="rej"><div class="hi ok">
     <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
     <blockquote>Tam te uwagi co daje &mdash; znikaja. Jezeli mam dawac uwagi, to one musza byc w takiej historii.</blockquote><p>Zrobione. Teraz wszystko jest na tej stronie i zostaje przy poscie.</p></div><div class="hi ok">
@@ -1207,14 +1363,28 @@ i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div
 <section class="k" id="w-budzet">
   <div class="gl"><h3>Ile wydane na reklame</h3></div>
   <p class="co">Prosilas o to 23.09: &bdquo;zeby byl zawsze podglad, ile juz wydane&rdquo;. Aktualizujemy co dwa dni.</p>
-  <table>
+  <div class="tabOtocz"><table>
+    <tr><th>Miesiac</th><th>Plan</th><th>Wydane</th><th>Zostaje z sezonu</th><th>Co robimy</th></tr>
+    <tr class="gotowe"><td>wrzesien</td><td>0 &euro;</td><td><b>0 &euro;</b></td><td>2 500 &euro;</td><td>nic nie uruchomione, budzet zaoszczedzony</td></tr>
+    <tr class="robi"><td>pazdziernik</td><td>500 &euro;</td><td>0 &euro;</td><td>2 000 &euro;</td><td>start 28.09, dziesiec dni testu po 25 &euro;</td></tr>
+    <tr><td>listopad</td><td>900 &euro;</td><td>&mdash;</td><td>1 100 &euro;</td><td>World Vegan Day, urodziny, 11.11, Black Friday</td></tr>
+    <tr><td>grudzien</td><td>300 &euro;</td><td>&mdash;</td><td>800 &euro;</td><td>swieta, ostatnie wysylki</td></tr>
+    <tr><td>styczen</td><td>800 &euro;</td><td>&mdash;</td><td>0 &euro;</td><td>Veganuary, drugi najmocniejszy miesiac</td></tr>
+    <tr class="suma"><td><b>razem sezon</b></td><td><b>2 500 &euro;</b></td><td><b>0 &euro;</b></td><td><b>2 500 &euro;</b></td><td></td></tr>
+  </table></div>
+  <div class="tabOtocz"><table>
     <tr><th>Data</th><th>Kampania</th><th>Wydane</th><th>Klikniecia</th><th>Sprzedaz</th></tr>
-    <tr><td colspan="5" style="color:var(--cichy)">Nic jeszcze nie uruchomione &mdash; czekamy na Twoje tak do kreacji.</td></tr>
-    <tr><td><b>Razem wrzesien</b></td><td></td><td><b>0 &euro;</b></td><td><b>0</b></td><td><b>0 &euro;</b></td></tr>
-  </table>
-  <p class="co">Budzet: <b>500 &euro; miesiecznie</b>. Pierwsze dziesiec dni to test po 25 &euro; dziennie,
-  potem cala druga polowa idzie juz tylko na te kreacje, ktore dowioza. Na koncie stoi limit laczny,
+    <tr><td colspan="5" style="color:var(--cichy)">Nic jeszcze nie uruchomione. Pierwszy wiersz pojawi sie tu we wtorek, po pierwszej dobie.</td></tr>
+  </table></div>
+  <p class="co">Budzet nie jest miesieczny, tylko <b>na caly sezon: 2 500 &euro;</b> &mdash; i to my decydujemy,
+  w ktorym miesiacu ile z niego idzie. Wrzesien konczymy z <b>zerem wydanym</b>, wiec cale 2 500 &euro;
+  jest wciaz do dyspozycji i mozemy je przesunac tam, gdzie naprawde sprzedaje.</p>
+  <p class="co">Ruszamy <b>w poniedzialek 28.09</b>. Pierwsze dziesiec dni to test po 25 &euro; dziennie,
+  potem reszta budzetu idzie juz tylko na te kreacje, ktore dowioza. Na koncie stoi limit laczny,
   zeby nie dalo sie wydac wiecej nawet przez pomylke.</p>
+  <p class="co">Wazne z Waszych danych: <b>listopad i styczen daly 74 % zakupow</b> zeszlego sezonu,
+  a cena zakupu spadala tam z 200&ndash;400 &euro; do 56 &euro;. Dlatego nie rozkladamy budzetu po rowno
+  na piec miesiecy, tylko trzymamy wiekszosc na listopad i styczen.</p>
   <div class="uw" data-id="w-budzet" data-tytul="[wydatki] Budzet reklamowy">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
