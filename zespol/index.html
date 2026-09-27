@@ -1,6 +1,2327 @@
 <!doctype html><html lang="pl"><head><meta charset="utf-8">
-<meta name="robots" content="noindex"><title>New Orchard</title>
-<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-background:#f4f2ec;color:#7b766c;font:14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif}</style></head>
-<body><p>Otwieram plan&hellip;</p>
-<script>try{localStorage.setItem('no-strona:zespol','1')}catch(e){}location.replace('../');</script></body></html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New Orchard — plan i uwagi</title>
+<style>:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--ramka:#e3dfd5;--ok:#3c5a46;--zm:#b4552e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--tlo);color:var(--tekst);font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;padding:32px 16px 150px;-webkit-text-size-adjust:100%}
+.w{max-width:1120px;margin:0 auto}
+h1{font-size:28px;font-weight:300;letter-spacing:.01em}
+h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--akcent);margin:40px 0 14px;font-weight:600}
+.jak{background:#fffdf7;border:1px solid var(--ramka);border-left:3px solid var(--akcent);border-radius:4px;padding:16px 18px;margin:18px 0 34px;font-size:15px;color:#4a463e}
+.jak b{color:var(--tekst)}
+.k{background:var(--karta);border:1px solid var(--ramka);border-radius:5px;padding:20px 22px 18px;margin-bottom:16px}
+.gl{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dat{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);white-space:nowrap}
+.gl h3{font-size:19px;font-weight:400}
+.met{font-size:13px;color:var(--cichy);margin-top:4px}
+.kadry{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.kadry img{height:280px;width:auto;border-radius:3px;border:1px solid var(--ramka);cursor:zoom-in;background:#eee}
+.pod{white-space:pre-wrap;background:#fbfaf6;border:1px solid var(--ramka);border-radius:4px;padding:13px 15px;margin-top:14px;font-size:15px}
+.ekr,.prd,.st{font-size:13px;color:var(--cichy);margin-top:10px}
+.prd a{color:var(--akcent)}
+.st{font-size:12px;letter-spacing:.04em;color:#8a8478;border-top:1px dashed var(--ramka);padding-top:9px}
+.hist{margin-top:14px;border-left:3px solid var(--ramka);padding-left:14px}
+.histT{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);margin-bottom:8px}
+.hi{margin-bottom:12px}
+.hi blockquote{font-style:italic;color:#4a463e;font-size:14px;margin-bottom:4px}
+.hi p{font-size:14px;color:var(--cichy)}
+.hk{font-size:11px;color:var(--cichy);letter-spacing:.08em}
+.hs{color:var(--zm);margin-left:6px}
+.hi.ok .hs{color:var(--ok)}
+.uw{margin-top:16px;border-top:1px solid var(--ramka);padding-top:14px}
+.uwbtn{display:flex;gap:8px;flex-wrap:wrap}
+.uwbtn button{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px solid var(--ramka);background:#fff;cursor:pointer;color:var(--tekst)}
+.uwbtn button[data-st="ok"].akt{background:var(--ok);border-color:var(--ok);color:#fff}
+.uwbtn button[data-st="zmiana"].akt{background:var(--zm);border-color:var(--zm);color:#fff}
+.uw textarea{width:100%;margin-top:9px;min-height:64px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--ramka);border-radius:4px;background:#fffdf7;resize:vertical}
+.zap{font-size:12px;color:var(--ok);margin-top:6px;min-height:15px;opacity:0;transition:opacity .2s}
+.zap.jest{opacity:1}
+#pasek{position:fixed;left:0;right:0;bottom:0;background:#fffdf7;border-top:1px solid var(--ramka);padding:11px 16px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:20}
+#pasek .licz{font-size:13px;color:var(--cichy)}
+#pasek button,.duzy{font:15px inherit;padding:10px 22px;border-radius:22px;border:1px solid var(--akcent);background:var(--akcent);color:#fff;cursor:pointer}
+#pasek button.d,.duzy.d{background:#fff;color:var(--akcent)}
+#lupa{position:fixed;inset:0;background:rgba(20,19,17,.9);display:none;align-items:center;justify-content:center;z-index:40;cursor:zoom-out}
+#lupa img{max-width:94vw;max-height:94vh}
+#okno{position:fixed;inset:0;background:rgba(20,19,17,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:18px}
+#okno .p{background:#fff;border-radius:6px;padding:20px;max-width:720px;width:100%}
+#okno h4{font-weight:400;margin-bottom:10px}
+#okno textarea{width:100%;min-height:300px;font:13px/1.5 ui-monospace,Menlo,monospace;padding:10px;border:1px solid var(--ramka);border-radius:4px}
+#okno .r{display:flex;gap:10px;margin-top:12px;justify-content:flex-end}
+#okno button{font:15px inherit;padding:9px 18px;border-radius:20px;border:1px solid var(--ramka);background:#fff;cursor:pointer}
+#okno button.pr{background:var(--akcent);border-color:var(--akcent);color:#fff}
+@media(max-width:620px){.kadry img{height:200px}h1{font-size:23px}}
+.naw{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.naw a{font-size:13px;text-decoration:none;color:var(--akcent);background:#fffdf7;border:1px solid var(--ramka);border-radius:20px;padding:7px 14px}
+.naw a:hover{background:var(--akcent);color:#fff;border-color:var(--akcent)}
+h2.dzial{font-size:22px;font-weight:300;letter-spacing:.01em;text-transform:none;color:var(--tekst);margin:52px 0 10px;padding-top:14px;border-top:2px solid var(--akcent)}
+.naw button.zak{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px solid var(--ramka);background:#fffdf7;color:var(--akcent);cursor:pointer}
+.naw button.zak.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.siatka{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:520px;margin:0 0 6px}
+.siatka .sk{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#eee;text-decoration:none}
+.siatka .sk img{width:100%;height:100%;object-fit:cover;display:block}
+.siatka .sk span{position:absolute;left:0;right:0;bottom:0;background:rgba(20,19,17,.62);color:#fff;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;text-align:center}
+.gora{max-width:520px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);margin:6px 0}
+.wst{margin:6px 0 10px}
+.wstB{font:13px inherit;padding:5px 13px;border-radius:16px;border:1px dashed var(--ramka);background:transparent;color:var(--cichy);cursor:pointer}
+.wstB:hover{border-color:var(--akcent);color:var(--akcent)}
+.wstP{display:none;margin-top:8px}
+.wstP textarea{width:100%;min-height:56px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--ramka);border-radius:4px;background:#fffdf7;resize:vertical}
+.wst.otw .wstP{display:block}
+.rej .hi{background:var(--karta);border:1px solid var(--ramka);border-left:3px solid var(--zm);border-radius:4px;padding:13px 15px;margin-bottom:10px}
+.rej .hi.ok{border-left-color:var(--ok)}
+.co{font-size:15px;margin-top:8px;color:#4a463e}
+.przen{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--zm);border-radius:12px;padding:3px 10px}
+.stara{margin-top:14px;border:1px solid var(--ramka);border-radius:4px;background:#fbfaf6;padding:10px 14px}
+.stara summary{cursor:pointer;font-size:13px;letter-spacing:.06em;color:var(--cichy)}
+.stara summary:hover{color:var(--akcent)}
+.staraT{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);margin:10px 0 4px}
+.kadry.male img{height:170px}
+.linki{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0 4px}
+.linki .lnk{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:13px;letter-spacing:.02em;
+  color:var(--cichy);background:#fffdf7;border:1px solid var(--ramka);border-radius:20px;padding:7px 14px;transition:.15s}
+.linki .lnk svg{width:15px;height:15px;fill:currentColor;flex:none}
+.linki .lnk.gl{color:var(--akcent);border-color:#cfd8cf;background:#fff}
+.linki .lnk:hover{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.lnkPrzerwa{width:1px;height:22px;background:var(--ramka);margin:0 5px}
+@media(max-width:620px){.lnkPrzerwa{display:none}.linki .lnk{font-size:12px;padding:6px 11px}}
+.kadry.pion img{height:430px}
+.plansz{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ok);border-radius:12px;padding:3px 10px}
+.tabOtocz{overflow-x:auto;margin-top:12px}
+.rejT{width:100%;border-collapse:collapse;font-size:14px}
+.rejT th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--ramka)}
+.rejT td{padding:11px 10px;vertical-align:top;border-bottom:1px solid var(--ramka);background:#fff}
+.rejT tr.nie td{background:#fdf3f0}
+.rejT tr.robi td{background:#fdf8ee}
+.rejT tr.gotowe td{background:#f4f9f5}
+.rejT td.ki{white-space:nowrap;font-size:12px;color:var(--cichy)}
+.rejT td.cz{font-weight:500;min-width:170px}
+.rejT td.na{color:#4a463e}
+.rejT td.sta{white-space:nowrap;font-size:12px;letter-spacing:.04em}
+.rejT .kropka{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.rejT tr.nie .kropka{background:#c0392b}
+.rejT tr.robi .kropka{background:#d99a2b}
+.rejT tr.gotowe .kropka{background:#3c5a46}
+.rejT .oc{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cichy)}
+.kol{padding:1px 7px;border-radius:10px}
+.kol.nie{background:#fdf3f0;color:#c0392b}
+.kol.robi{background:#fdf8ee;color:#a9741d}
+.kol.gotowe{background:#f4f9f5;color:#3c5a46}
+table tr.gotowe td{background:#f4f9f5}
+table tr.robi td{background:#fdf8ee}
+table tr.suma td{background:#fffdf7;border-bottom:none}
+.uwLista{margin-bottom:12px}
+.uwEl{border-left:3px solid var(--ramka);padding:9px 0 9px 12px;margin-bottom:10px}
+.uwEl.nie{border-left-color:#c0392b}
+.uwEl.robi{border-left-color:#d99a2b}
+.uwEl.gotowe{border-left-color:#3c5a46}
+.uwGl{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.uwCzas{font-size:11px;color:var(--cichy);letter-spacing:.08em}
+.uwOc{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cichy);border:1px solid var(--ramka);border-radius:10px;padding:1px 8px}
+.uwSt{font-size:11px;letter-spacing:.06em;color:var(--cichy);display:inline-flex;align-items:center;gap:6px}
+.uwSt i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.uwEl.nie .uwSt i{background:#c0392b}
+.uwEl.robi .uwSt i{background:#d99a2b}
+.uwEl.gotowe .uwSt i{background:#3c5a46}
+.uwTxt{font-size:15px;white-space:pre-wrap}
+.uwOdp{font-size:14px;color:#4a463e;background:#fbfaf6;border-radius:4px;padding:8px 11px;margin-top:7px}
+.uwAkc{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.mini{font:12px inherit;padding:4px 11px;border-radius:14px;border:1px solid var(--ramka);background:#fff;color:var(--cichy);cursor:pointer}
+.mini:hover{border-color:var(--akcent);color:var(--akcent)}
+.mini.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.uwSep{width:1px;height:16px;background:var(--ramka);margin:0 3px}
+#koszyk{position:fixed;right:18px;bottom:18px;z-index:30;display:inline-flex;align-items:center;gap:9px;
+  font:14px inherit;padding:12px 18px;border-radius:26px;border:1px solid var(--akcent);background:var(--akcent);
+  color:#fff;cursor:pointer;box-shadow:0 6px 20px rgba(28,27,24,.18)}
+#koszyk svg{width:18px;height:18px}
+#koszyk b{min-width:22px;height:22px;border-radius:11px;background:#fff;color:var(--akcent);font-size:12px;
+  display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+#koszyk b.pusto{background:rgba(255,255,255,.28);color:#fff}
+#zaslona{position:fixed;inset:0;background:rgba(20,19,17,.45);opacity:0;pointer-events:none;transition:opacity .22s;z-index:40}
+#zaslona.otw{opacity:1;pointer-events:auto}
+#szuflada{position:fixed;top:0;right:0;bottom:0;width:min(620px,94vw);background:var(--tlo);z-index:50;
+  transform:translateX(102%);transition:transform .26s ease;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(28,27,24,.18)}
+#szuflada.otw{transform:none}
+#szuflada header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--ramka);background:#fffdf7}
+#szuflada header h4{font-size:19px;font-weight:400}
+#zamknijSz{font-size:26px;line-height:1;background:none;border:none;color:var(--cichy);cursor:pointer;padding:0 4px}
+#zamknijSz:hover{color:var(--tekst)}
+.szTresc{padding:18px 20px 40px;overflow-y:auto;flex:1}
+.uwStopka{display:flex;align-items:center;gap:12px;margin-top:9px}
+.zapisz{font:14px inherit;padding:8px 18px;border-radius:20px;border:1px solid var(--akcent);background:var(--akcent);color:#fff;cursor:pointer}
+.zapisz:disabled{opacity:.6;cursor:default}
+.zap{font-size:12px;color:var(--ok);opacity:0;transition:opacity .2s}
+.zap.jest{opacity:1}
+@media(max-width:620px){#koszyk span{display:none}#koszyk{padding:12px 14px}}
+.uwGdzie{font-size:12px;letter-spacing:.04em;color:var(--akcent);margin-bottom:5px}
+.szTresc .uwEl{background:#fff;border:1px solid var(--ramka);border-left-width:3px;border-radius:4px;padding:12px 14px;margin-bottom:11px}
+.odpBox{margin-top:10px}
+.odpBox textarea{width:100%;min-height:80px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--akcent);border-radius:4px;background:#fffdf7;resize:vertical}
+.odpAkc{display:flex;gap:7px;margin-top:7px}
+.odpAkc .zap2{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.uwGdzie[data-idzie]{cursor:pointer;display:inline-block}
+.uwGdzie[data-idzie]:hover{text-decoration:underline}
+.pStan{font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;
+  border-radius:12px;padding:3px 11px;white-space:nowrap}
+.pStan i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.pStan.nie{background:#fdf3f0;color:#c0392b}      .pStan.nie i{background:#c0392b}
+.pStan.robi{background:#fdf8ee;color:#a9741d}     .pStan.robi i{background:#d99a2b}
+.pStan.gotowe{background:#f4f9f5;color:#3c5a46}   .pStan.gotowe i{background:#3c5a46}
+.k.p-nie{border-left:4px solid #c0392b}
+.k.p-robi{border-left:4px solid #d99a2b}
+.k.p-gotowe{border-left:4px solid #3c5a46}
+.siatka .sk.nie::after,.siatka .sk.robi::after,.siatka .sk.czeka::after,.siatka .sk.gotowe::after,.siatka .sk.popr::after{
+  content:'';position:absolute;top:7px;right:7px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.siatka .sk.nie::after{background:#c0392b}
+.siatka .sk.robi::after{background:#d99a2b}
+.siatka .sk.gotowe::after{background:#3c5a46}
+.k.blysk{animation:blysk 1.6s ease}
+@keyframes blysk{0%{box-shadow:0 0 0 4px rgba(60,90,70,.45)}100%{box-shadow:0 0 0 0 rgba(60,90,70,0)}}
+/* nazwa postu sama swieci kolorem — widac od razu, bez czytania plakietki */
+.k.p-nie .gl h3{color:#c0392b}
+.k.p-robi .gl h3{color:#a9741d}
+.k.p-gotowe .gl h3{color:#3c5a46}
+.k.p-nie .dat{color:#c0392b}
+.k.p-robi .dat{color:#a9741d}
+.k.p-gotowe .dat{color:#3c5a46}
+.k.p-nie{background:#fffcfb}
+.k.p-robi{background:#fffdf9}
+.k.p-gotowe{background:#fcfefc}
+/* to samo w szufladzie: nazwa pozycji w kolorze statusu */
+.uwEl.nie .uwGdzie{color:#c0392b}
+.uwEl.robi .uwGdzie{color:#a9741d}
+.uwEl.gotowe .uwGdzie{color:#3c5a46}
+.siatka .sk.nie span{background:rgba(192,57,43,.85)}
+.siatka .sk.robi span{background:rgba(217,154,43,.88)}
+.siatka .sk.gotowe span{background:rgba(60,90,70,.85)}
+/* stan ma bic po oczach, a nie szeptac */
+.pStan{font-weight:600;font-size:12px;padding:4px 13px}
+.pStan.nie{background:#c0392b;color:#fff}      .pStan.nie i{background:#fff}
+.pStan.robi{background:#d99a2b;color:#fff}     .pStan.robi i{background:#fff}
+.pStan.gotowe{background:#3c5a46;color:#fff}   .pStan.gotowe i{background:#fff}
+.k.p-nie{border-left-width:6px}
+.k.p-robi{border-left-width:6px}
+.k.p-gotowe{border-left-width:6px}
+.k.p-nie .gl h3,.k.p-robi .gl h3,.k.p-gotowe .gl h3{font-weight:600}
+.uwSt{font-weight:600}
+.uwEl.nie .uwSt{color:#c0392b}
+.uwEl.robi .uwSt{color:#a9741d}
+.uwEl.gotowe .uwSt{color:#3c5a46}
+.pAkc{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 2px}
+.pAkcE{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);margin-right:3px}
+.mini.pst.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+/* czwarty stan: zrobione u nas, czeka na jej tak */
+.pStan.czeka{background:#2e6b9e;color:#fff}   .pStan.czeka i{background:#fff}
+.k.p-czeka{border-left:6px solid #2e6b9e;background:#fbfdff}
+.k.p-czeka .gl h3,.k.p-czeka .dat{color:#2e6b9e}
+.uwEl.czeka{border-left-color:#2e6b9e}
+.uwEl.czeka .uwSt{color:#2e6b9e}
+.uwEl.czeka .uwSt i{background:#2e6b9e}
+.uwEl.czeka .uwGdzie{color:#2e6b9e}
+.siatka .sk.czeka::after{background:#2e6b9e}
+.siatka .sk.czeka span{background:rgba(46,107,158,.88)}
+.kol.czeka{background:#eef5fb;color:#2e6b9e}
+.pAkcept{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef5fb;border:1px solid #cfe0ee;
+  border-radius:5px;padding:12px 15px;margin-top:14px}
+.pAkcept span{font-size:15px;color:#2e6b9e}
+.pAkcept .zatw{font:15px inherit;padding:9px 20px;border-radius:20px;border:1px solid #2e6b9e;
+  background:#2e6b9e;color:#fff;cursor:pointer}
+.pAkcept .zatw:disabled{opacity:.6}
+.pAkc{border-top:1px solid var(--ramka);padding-top:12px;margin:14px 0 0}
+.grupa{border:1px solid var(--ramka);border-left-width:4px;border-radius:5px;background:#fff;margin-bottom:14px;overflow:hidden}
+.grupa.nie{border-left-color:#c0392b}
+.grupa.robi{border-left-color:#d99a2b}
+.grupa.czeka{border-left-color:#2e6b9e}
+.grupa.gotowe{border-left-color:#3c5a46}
+.grGl{display:flex;align-items:center;gap:12px;padding:11px 13px;cursor:pointer;background:#fbfaf6;border-bottom:1px solid var(--ramka)}
+.grGl:hover{background:#f6f4ee}
+.grGl img{width:52px;height:65px;object-fit:cover;border-radius:3px;flex:none;background:#eee}
+.grBrak{width:52px;height:65px;border-radius:3px;background:#efece5;flex:none}
+.grOpis{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.grOpis b{font-size:15px;font-weight:500}
+.grData{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy)}
+.grOpis .pStan{align-self:flex-start;font-size:10px;padding:2px 9px}
+.grStrz{color:var(--cichy);font-size:18px;flex:none}
+.szTresc .grupa .uwEl{border:none;border-left:3px solid transparent;border-radius:0;margin:0;padding:12px 14px}
+.szTresc .grupa .uwEl + .uwEl{border-top:1px solid var(--ramka)}
+/* karta ma byc krotka: kadry w rzedzie z przewijaniem, pisanie zwiniete */
+.kadry{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}
+.kadry img{height:210px;flex:none}
+.kadry.pion img{height:300px}
+.kadry.male img{height:150px}
+.uwOtw{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px dashed var(--ramka);background:transparent;
+  color:var(--cichy);cursor:pointer;margin-top:12px}
+.uwOtw:hover{border-color:var(--akcent);color:var(--akcent)}
+.uw.zwin{display:none}
+.uwZwin summary{cursor:pointer;font-size:15px;color:#4a463e}
+.uwZwin summary:hover{color:var(--akcent)}
+.uwZwin .uwTxt{margin-top:7px}
+.stara summary{padding:2px 0}
+.szcz{margin-top:12px;border-top:1px solid var(--ramka);padding-top:10px}
+.szcz summary{cursor:pointer;font-size:13px;letter-spacing:.04em;color:var(--cichy);list-style:none}
+.szcz summary::-webkit-details-marker{display:none}
+.szcz summary::before{content:'▸ ';color:var(--akcent)}
+.szcz[open] summary::before{content:'▾ '}
+.szcz summary:hover{color:var(--akcent)}
+.szcz > .pod{margin-top:12px}
+.k{padding-bottom:14px}
+.kadry img{height:190px}
+/* linki do towarow zostaja na wierzchu — jej wyrazna prosba */
+.prd.tow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:12px}
+.towE{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy)}
+.prd.tow a{display:inline-flex;align-items:center;gap:5px;font-size:13px;text-decoration:none;color:var(--akcent);
+  background:#f4f9f5;border:1px solid #cfe0d4;border-radius:14px;padding:4px 12px}
+.prd.tow a::before{content:'\1F517';font-size:11px;filter:grayscale(1)}
+.prd.tow a:hover{background:var(--akcent);color:#fff;border-color:var(--akcent)}
+.prd.tow i{font-size:13px;color:var(--cichy)}
+.brakTow{opacity:.75}
+.szFiltry{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;position:sticky;top:0;background:var(--tlo);padding-bottom:10px;z-index:2}
+.szF{font:13px inherit;padding:6px 13px;border-radius:16px;border:1px solid var(--ramka);background:#fff;color:var(--cichy);cursor:pointer}
+.szF b{font-weight:600;color:var(--tekst)}
+.szF:hover{border-color:var(--akcent);color:var(--akcent)}
+.szF.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.szF.akt b{color:#fff}
+.szDzial{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy);margin:18px 0 8px}
+.szDzial:first-of-type{margin-top:2px}
+/* wybrany stan swieci swoim kolorem, nie zawsze zielonym */
+.mini.st.akt,.mini.pst.akt{color:#fff}
+.mini.st[data-st="nowa"].akt,.mini.pst[data-st="nowa"].akt{background:#c0392b;border-color:#c0392b}
+.mini.st[data-st="w robocie"].akt,.mini.pst[data-st="w robocie"].akt{background:#d99a2b;border-color:#d99a2b}
+.mini.st[data-st="czeka"].akt,.mini.pst[data-st="czeka"].akt{background:#2e6b9e;border-color:#2e6b9e}
+.mini.st[data-st="zrobione"].akt,.mini.pst[data-st="zrobione"].akt{background:#3c5a46;border-color:#3c5a46}
+/* niewybrane maja tylko delikatny slad swojego koloru */
+.mini.st[data-st="nowa"]:not(.akt),.mini.pst[data-st="nowa"]:not(.akt){color:#c0392b}
+.mini.st[data-st="w robocie"]:not(.akt),.mini.pst[data-st="w robocie"]:not(.akt){color:#a9741d}
+.mini.st[data-st="czeka"]:not(.akt),.mini.pst[data-st="czeka"]:not(.akt){color:#2e6b9e}
+.mini.st[data-st="zrobione"]:not(.akt),.mini.pst[data-st="zrobione"]:not(.akt){color:#3c5a46}
+.mini.st:hover,.mini.pst:hover{border-color:currentColor}
+
+/* napis na zalanym przycisku musi byc bialy — inaczej znika w tle */
+.mini.st.akt,.mini.pst.akt,.mini.st.akt:hover,.mini.pst.akt:hover{color:#fff!important}
+
+/* zatwierdzone — salatowy zamiast ciemnej zieleni.
+   Na tak jasnym tle bialy napis znika, wiec tekst jest ciemny (kontrast 6,2). */
+.pStan.gotowe{background:#6ac52c;color:#12300a}   .pStan.gotowe i{background:#12300a}
+.mini.st[data-st="zrobione"].akt,.mini.pst[data-st="zrobione"].akt{
+  background:#6ac52c;border-color:#6ac52c;color:#12300a!important}
+.mini.st[data-st="zrobione"]:not(.akt),.mini.pst[data-st="zrobione"]:not(.akt){color:#3f7d18}
+.k.p-gotowe{border-left-color:#6ac52c;background:#fbfef6}
+.k.p-gotowe .gl h3,.k.p-gotowe .dat{color:#3f7d18}
+.uwEl.gotowe{border-left-color:#6ac52c}
+.uwEl.gotowe .uwSt{color:#3f7d18}   .uwEl.gotowe .uwSt i{background:#6ac52c}
+.uwEl.gotowe .uwGdzie{color:#3f7d18}
+.siatka .sk.gotowe::after{background:#6ac52c}
+.siatka .sk.gotowe span{background:rgba(74,150,26,.88)}
+.grupa.gotowe{border-left-color:#6ac52c}
+.rejT tr.gotowe .kropka{background:#6ac52c}
+.rejT tr.gotowe td,table tr.gotowe td{background:#f5fdec}
+.kol.gotowe{background:#f5fdec;color:#3f7d18}
+
+/* piaty stan: do poprawki — Ania oddaje post z powrotem do nas */
+.pStan.popr{background:#b4552e;color:#fff}   .pStan.popr i{background:#fff}
+.mini.st[data-st="poprawka"].akt,.mini.pst[data-st="poprawka"].akt{
+  background:#b4552e;border-color:#b4552e;color:#fff!important}
+.mini.st[data-st="poprawka"]:not(.akt),.mini.pst[data-st="poprawka"]:not(.akt){color:#b4552e}
+.k.p-popr{border-left:6px solid #b4552e;background:#fffaf6}
+.k.p-popr .gl h3,.k.p-popr .dat{color:#b4552e}
+.k.p-popr .gl h3{font-weight:600}
+.uwEl.popr{border-left-color:#b4552e}
+.uwEl.popr .uwSt{color:#b4552e}   .uwEl.popr .uwSt i{background:#b4552e}
+.uwEl.popr .uwGdzie{color:#b4552e}
+.siatka .sk.popr::after{background:#b4552e}
+.siatka .sk.popr span{background:rgba(180,85,46,.88)}
+.grupa.popr{border-left-color:#b4552e}
+.rejT tr.popr .kropka{background:#b4552e}
+.rejT tr.popr td,table tr.popr td{background:#fff8f4}
+.kol.popr{background:#fff8f4;color:#b4552e}
+
+/* wybor przy pisaniu uwagi — ten sam jezyk kolorow co stany postu */
+.uwbtn{margin-top:2px}
+.uwbtn button[data-st="ok"].akt{background:#6ac52c;border-color:#6ac52c;color:#12300a}
+.uwbtn button[data-st="zmiana"].akt{background:#b4552e;border-color:#b4552e;color:#fff}
+.uwbtn button:hover{border-color:var(--akcent)}
+.uwbtn button[data-st="ok"]:not(.akt){color:#3f7d18}
+.uwbtn button[data-st="zmiana"]:not(.akt){color:#b4552e}
+
+/* pytanie przy wycofywaniu uwagi — zamiast okienka przegladarki */
+.odpBox .pytanie{font-size:14px;color:var(--tekst);margin-bottom:8px}
+.mini.cofT{color:#b4552e;border-color:#b4552e}
+.mini.cofT:hover{background:#b4552e;color:#fff}
+</style></head><body>
+<div class="w">
+  <h1>New Orchard &mdash; plan i uwagi</h1>
+  <div class="linki">
+  <a class="lnk gl" href="https://theneworchard.com/" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h12l1.6 4.3a1 1 0 0 1-.94 1.35H5.34a1 1 0 0 1-.94-1.35L6 2.5z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 9.5v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 13.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Sklep</span></a>
+  <a class="lnk gl" href="https://www.instagram.com/neworchard_/" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.43.42.7.83.9 1.4.18.43.38 1.05.43 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2a3.8 3.8 0 0 1-.9 1.4c-.42.43-.83.7-1.4.9-.43.18-1.05.38-2.2.43-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.18-.43-.38-1.05-.43-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.22-.6.48-1 .9-1.4.42-.43.83-.7 1.4-.9.43-.18 1.05-.38 2.2-.43C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.8.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.83-.4.4-.63.8-.83 1.3-.16.4-.35 1-.4 2.1C2.5 9.5 2.5 9.9 2.5 13s0 3.5.07 4.8c.05 1.1.24 1.7.4 2.1.2.5.44.9.83 1.3.4.4.8.63 1.3.83.4.16 1 .35 2.1.4 1.3.06 1.7.07 4.8.07s3.5 0 4.8-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.83.4-.4.63-.8.83-1.3.16-.4.35-1 .4-2.1.06-1.3.07-1.7.07-4.8V12c0-3.1 0-3.5-.07-4.8-.05-1.1-.24-1.7-.4-2.1a3.5 3.5 0 0 0-.83-1.3 3.5 3.5 0 0 0-1.3-.83c-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4z"/><path d="M12 7.1a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8.1a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4z"/><circle cx="17.1" cy="6.9" r="1.15"/></svg><span>Instagram</span></a>
+  <a class="lnk gl" href="https://www.facebook.com/NewOrchardVeganShoes" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V7c0-.7.5-.9.9-.9H16V3.6h-2.1c-2.4 0-2.9 1.8-2.9 2.9v2H9.5v2.9h1.5V21H14v-9.6h2.2l.3-2.9H14z"/></svg><span>Facebook</span></a>
+  <a class="lnk gl" href="https://www.tiktok.com/@neworchard_vegan" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2.2h-2.9v12.1a2.2 2.2 0 1 1-2.2-2.2c.2 0 .4 0 .6.07V9.2a5.2 5.2 0 1 0 4.5 5.15V8.2a6 6 0 0 0 3.5 1.12V6.4a3.4 3.4 0 0 1-3.5-3.36V2.2z"/></svg><span>TikTok</span></a>
+  <a class="lnk gl" href="https://www.pinterest.com/theneworchardveganshoes/" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 0 0-3.6 18.9c-.08-.76-.15-1.94.03-2.78.17-.76 1.1-4.84 1.1-4.84s-.28-.56-.28-1.4c0-1.3.76-2.28 1.7-2.28.8 0 1.19.6 1.19 1.33 0 .8-.51 2.01-.78 3.13-.22.94.47 1.7 1.4 1.7 1.68 0 2.97-1.77 2.97-4.33 0-2.26-1.63-3.85-3.95-3.85-2.69 0-4.27 2.02-4.27 4.1 0 .81.31 1.68.7 2.16a.28.28 0 0 1 .07.27c-.07.3-.23.94-.26 1.07-.04.17-.14.21-.32.13-1.2-.56-1.95-2.31-1.95-3.72 0-3.03 2.2-5.81 6.34-5.81 3.33 0 5.92 2.37 5.92 5.54 0 3.31-2.09 5.97-4.98 5.97-.97 0-1.89-.5-2.2-1.1l-.6 2.29c-.22.84-.8 1.9-1.2 2.54A9.8 9.8 0 1 0 12 2.2z"/></svg><span>Pinterest</span></a>
+  <a class="lnk gl" href="https://www.linkedin.com/company/neworchard" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8zM3.4 8.8h3.3V21H3.4V8.8zm5.6 0h3.15v1.67h.05c.44-.8 1.5-1.66 3.1-1.66 3.3 0 3.9 2.1 3.9 4.9V21h-3.3v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.46-2.2 2.96V21H9V8.8z"/></svg><span>LinkedIn</span></a>
+  <span class="lnkPrzerwa"></span>
+  <a class="lnk" href="https://theneworchard.com/collections/short-vegan-shoes" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Short</span></a>
+  <a class="lnk" href="https://theneworchard.com/collections/mid-calf-vegan-shoes" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Mid</span></a>
+  <a class="lnk" href="https://theneworchard.com/collections/long-winter-vegan-shoes" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Long</span></a>
+  <a class="lnk" href="https://theneworchard.com/collections/vegan-skirts" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Spodnice</span></a>
+  <a class="lnk" href="https://theneworchard.com/collections/dog-vegan-hoodies" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Dla psow</span></a>
+  <a class="lnk" href="https://theneworchard.com/collections/extra-insoles" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Wkladki</span></a>
+  <a class="lnk" href="https://theneworchard.com/collections/accessories" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Akcesoria</span></a>
+  <a class="lnk" href="https://theneworchard.com/collections/bestsellers" target="_blank" rel="noopener">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Bestsellery</span></a>
+</div>
+  <div class="jak">
+    <b>To jest jedno miejsce na wszystko.</b> Ten adres sie nie zmienia &mdash; zawsze wchodzisz tutaj
+    i zawsze widzisz aktualna wersje. Zadnych nowych plikow i linkow.<br><br>
+    Na dole kazdego postu jest <b>+ napisz uwage do tego postu</b>. Piszesz i zapisujesz &mdash;
+    uwaga zostaje na stronie od razu, widzimy ja u siebie w tej samej chwili.
+    Mozesz ja pozniej poprawic albo wycofac, przyciski sa przy niej.<br><br>
+    Kolor mowi, na czyim boku jest pilka:
+    <b class="kol nie">czerwone</b> jeszcze nie zrobione,
+    <b class="kol robi">zolte</b> wzielismy do pracy,
+    <b class="kol czeka">niebieskie</b> poprawione i czeka na Twoja zgode,
+    <b class="kol gotowe">zielone</b> zatwierdzone przez Ciebie.
+    Przy niebieskich dostajesz przycisk <b>Zatwierdzam</b>.<br><br>
+    Wszystkie uwagi razem sa pod przyciskiem <b>Twoje uwagi</b> w prawym dolnym rogu.
+  </div>
+  <nav class="naw"><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="wydatki">Wydatki</button></nav>
+  <div class="sek" id="sek-feed"><h2 class="dzial">Feed</h2><div class="jak" style="margin:0 0 16px">
+  <b>Tak ulozy sie Wasz profil.</b> Czytamy od gory &mdash; na Instagramie nowy post wskakuje w lewy gorny rog
+  i spycha reszte w dol, wiec na dole siatki jest zawsze najstarszy. Stories w siatce nie ma, bo nie zostaja na profilu.<br><br>
+  Publikujemy o dwoch porach: <b>14:30</b> albo <b>20:30</b>. Przejrzelismy Wasze posty z ostatnich miesiecy &mdash;
+  wiekszosc tych, ktore poszly najlepiej, wychodzila wlasnie w tych godzinach.<br><br>
+  Kliknij w kadr, zeby przejsc do tego postu.</div>
+<div class="gora">&uarr; gora profilu &middot; najnowszy</div>
+<div class="siatka"><a href="#q-09" class="sk" data-go="q-09">
+    <img src="../kadry/q-09-1.jpg" alt="" loading="lazy"><span>pt 23.10</span></a><a href="#q-08" class="sk" data-go="q-08">
+    <img src="../kadry/q-08-1.jpg" alt="" loading="lazy"><span>sr 21.10</span></a><a href="#q-07" class="sk" data-go="q-07">
+    <img src="../kadry/q-07-1.jpg" alt="" loading="lazy"><span>pon 19.10</span></a><a href="#q-06" class="sk" data-go="q-06">
+    <img src="../kadry/q-06-1.jpg" alt="" loading="lazy"><span>sob 17.10</span></a><a href="#q-05" class="sk" data-go="q-05">
+    <img src="../kadry/q-05-1.jpg" alt="" loading="lazy"><span>czw 15.10</span></a><a href="#q-04" class="sk" data-go="q-04">
+    <img src="../kadry/q-04-1.jpg" alt="" loading="lazy"><span>wt 13.10</span></a><a href="#q-03" class="sk" data-go="q-03">
+    <img src="../kadry/q-03-1.jpg" alt="" loading="lazy"><span>nd 11.10</span></a><a href="#q-02" class="sk" data-go="q-02">
+    <img src="../kadry/q-02-1.jpg" alt="" loading="lazy"><span>pt 09.10</span></a><a href="#q-01" class="sk" data-go="q-01">
+    <img src="../kadry/q-01-1.jpg" alt="" loading="lazy"><span>sr 07.10</span></a><a href="#p-10" class="sk" data-go="p-10">
+    <img src="../kadry/p-10-1.jpg" alt="" loading="lazy"><span>pon 05.10</span></a><a href="#p-11" class="sk" data-go="p-11">
+    <img src="../kadry/p-11-1.jpg" alt="" loading="lazy"><span>nd 04.10</span></a><a href="#p-09" class="sk" data-go="p-09">
+    <img src="../kadry/p-09-1.jpg" alt="" loading="lazy"><span>sob 03.10</span></a><a href="#p-03" class="sk" data-go="p-03">
+    <img src="../kadry/p-03-1.jpg" alt="" loading="lazy"><span>pt 02.10</span></a><a href="#p-08" class="sk" data-go="p-08">
+    <img src="../kadry/p-08-1.jpg" alt="" loading="lazy"><span>czw 01.10</span></a><a href="#p-07" class="sk" data-go="p-07">
+    <img src="../kadry/p-07-1.jpg" alt="" loading="lazy"><span>sr 30.09</span></a><a href="#p-04" class="sk" data-go="p-04">
+    <img src="../kadry/p-04-1.jpg" alt="" loading="lazy"><span>wt 29.09 (przeniesiony z 26.09)</span></a><a href="#p-06" class="sk" data-go="p-06">
+    <img src="../kadry/p-06-1.jpg" alt="" loading="lazy"><span>wt 29.09</span></a><a href="#p-12" class="sk" data-go="p-12">
+    <img src="../kadry/p-12-1.jpg" alt="" loading="lazy"><span>pon 28.09 (przeniesiony z 27.09)</span></a><a href="#p-01" class="sk" data-go="p-01">
+    <img src="../kadry/p-01-1.jpg" alt="" loading="lazy"><span>pt 25.09</span></a><a href="#q-00" class="sk" data-go="q-00">
+    <img src="../kadry/q-00-1.jpg" alt="" loading="lazy"><span>pazdziernik, data po zdjeciach od Ani</span></a></div><div class="gora">&darr; dol profilu &middot; najstarszy</div>
+<section class="k" id="f-siatka">
+  <div class="gl"><h3>Cala siatka profilu</h3></div>
+  <p class="ekr">To jest pierwsza rzecz do zatwierdzenia &mdash; dopiero po niej dopracowujemy szczegoly pojedynczych postow.</p>
+  <div class="uw" data-id="f-siatka" data-tytul="[feed] Cala siatka profilu">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Co zmienic w kolejnosci albo w kadrach?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section></div><div class="sek" id="sek-posty" hidden><h2 class="dzial">Posty</h2><h2>wrzesien i poczatek pazdziernika</h2>
+<div class="wst" data-tytul="[wstawka] przed pt 25.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-01">
+  <div class="gl"><span class="dat">pt 25.09</span><h3>Co jest w srodku</h3>
+    </div>
+  <div class="met">POST, 1 kadr, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/p-01-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Inside our Classic Vegan Short. Soft faux fur that keeps its shape all winter.
+No compromise. No animals involved.</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">GOTOWE. Kadr Wasz, ze sklepu. Zero generowania.</div>
+  
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>Jest ok</blockquote>
+        <p>Dziekujemy. Post poszedl 25.09 o 17:00.</p>
+      </div></div>
+  <div class="uw" data-id="p-01" data-tytul="pt 25.09 — Co jest w srodku">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy pt 25.09 a pt 02.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-03">
+  <div class="gl"><span class="dat">pt 02.10</span><h3>Recznie szyte we Wloszech</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/p-03-1.jpg" alt="" loading="lazy"><img src="../kadry/p-03-2.jpg" alt="" loading="lazy"><img src="../kadry/p-03-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Every pair is hand-sewn in Italy, by people whose families have been making shoes for generations.
+All our materials come from Europe. None from China. 🤍</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-medium-grey" target="_blank" rel="noopener">classic vegan medium grey</a><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">COPY POPRAWIONE 27.09 wg jej maila z 22.09, punkt 7: Italian handmade, European materials, pokolenia tradycji szewskiej.</div>
+  
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">22.09 mail <span class="hs">zrobione</span></div>
+        <blockquote>Italian handmade / produkcja - to obszar, ktory zdecydowanie mozemy pokazywac mocniej. Materialy z Europy, nie z Chin, tradycje przekazywane od pokolen.</blockquote>
+        <p>Copy przepisane na te fakty.</p>
+      </div></div>
+  <div class="uw" data-id="p-03" data-tytul="pt 02.10 — Recznie szyte we Wloszech">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy pt 02.10 a wt 29.09 (przeniesiony z 26.09)">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-04">
+  <div class="gl"><span class="dat">wt 29.09 (przeniesiony z 26.09)</span><h3>One boot, three heights</h3>
+    <span class="przen">przeniesiony</span></div>
+  <div class="met">KARUZELA, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/p-04-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Our Classic Vegan boot comes in three heights.
+Short for the city, mid for most days, long for the days that really mean it.</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>One boot. Three winters.</div>
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a><a href="https://theneworchard.com/products/classic-vegan-medium-all-black-limited-edition" target="_blank" rel="noopener">classic vegan medium all black limited edition</a><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a></div>
+  <div class="st">PRZENIESIONY. Wersja z 26.09 wyszla o 20:30 na kadrach z lookbooka w studio, w dzinsach - i to wlasnie te dzinsy zaburzyly feed. Nowa wersja stoi na Waszym kadrze z przedpokoju. Nowy termin: wtorek 29.09 o 14:30.</div>
+  <details class="stara"><summary>Jak ten post wygladal wczesniej</summary>
+    <div class="staraT">wersja opublikowana 26.09 o 20:30</div>
+    <div class="kadry male"><img src="../kadry/stare-p-04-1.jpg" alt="" loading="lazy"><img src="../kadry/stare-p-04-2.jpg" alt="" loading="lazy"><img src="../kadry/stare-p-04-3.jpg" alt="" loading="lazy"></div>
+    <div class="pod">One boot, three winters.
+Short for the city, mid for most days, long for the days that mean it.</div>
+    <p class="ekr">Kadry byly z lookbooka w studio, w dzinsach. Twoja uwaga: „te spodnie jeansowe nam to zaburzyly”. Nowa wersja stoi na Waszym kadrze z przedpokoju.</p>
+  </details>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">26.09 <span class="hs">zrobione</span></div>
+        <blockquote>Ja bym tylko zmienila kolejnosc klatek: krotki but, sredni i wysoki.</blockquote>
+        <p>Zrobione, post otwiera krotki. Opublikowany 26.09 o 20:30.</p>
+      </div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>Jest ok</blockquote>
+        <p>Dziekujemy.</p>
+      </div></div>
+  <div class="uw" data-id="p-04" data-tytul="wt 29.09 (przeniesiony z 26.09) — One boot, three heights">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy wt 29.09 (przeniesiony z 26.09) a pon 28.09 (przeniesiona z 22.09)">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-05">
+  <div class="gl"><span class="dat">pon 28.09 (przeniesiona z 22.09)</span><h3>Ankieta: Short / Mid / Long</h3>
+    <span class="przen">przeniesiony</span></div>
+  <div class="met">STORIES, 2 plansze</div>
+  <div class="kadry"><img src="../kadry/p-05-1.jpg" alt="" loading="lazy"><img src="../kadry/p-05-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Which one is your winter? Short, mid or long.
+Tap to vote — and we will write to you first when your size is back.</div>
+  
+  <div class="prd tow brakTow"><span class="towE">W poscie oznaczamy:</span><i>nic &mdash; w tym kadrze nie pokazujemy produktu</i></div>
+  <div class="st">PRZENIESIONA. Byla w pierwszym planie na 22.09 i nie wyszla, a przy przepisywaniu planu wypadla. Nowy termin: poniedzialek 28.09 w Stories.</div>
+  
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>To tez mi sie podobalo, a teraz tego nie ma w planie. (ankieta Short / Mid / Long)</blockquote>
+        <p>Wypadla przy przepisywaniu planu, nasz blad. Wraca na 28.09 w Stories, razem z zaproszeniem na liste.</p>
+      </div></div>
+  <div class="uw" data-id="p-05" data-tytul="pon 28.09 (przeniesiona z 22.09) — Ankieta: Short / Mid / Long">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy pon 28.09 (przeniesiona z 22.09) a wt 29.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-06">
+  <div class="gl"><span class="dat">wt 29.09</span><h3>Removable insole</h3>
+    </div>
+  <div class="met">POST, 1 kadr, 1080x1350 — tego dnia o 20:30</div>
+  <div class="kadry"><img src="../kadry/p-06-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Two insoles, one pair of boots.
+The classic one with faux fur for real winter, the thin one for milder days — swap them depending on the weather.
+
+Need a different size? Exchanges are always free. 🤍</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Brak tekstu na kadrze.</div>
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-insole-faux-fur-black" target="_blank" rel="noopener">classic vegan insole faux fur black</a><a href="https://theneworchard.com/products/classic-vegan-insole-faux-fur-white" target="_blank" rel="noopener">classic vegan insole faux fur white</a></div>
+  <div class="st">CZEKA NA ZATWIERDZENIE ANI. Wtorek 29.09 o 20:30, bo o 14:30 idzie post o trzech wysokosciach.</div>
+  
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">24.09 <span class="hs">zrobione</span></div>
+        <blockquote>Wkladka troche nie ten ksztalt.</blockquote>
+        <p>Kadr wymieniony na prawdziwy packshot Waszej wkladki ze sklepu.</p>
+      </div>
+      <div class="hi ok">
+        <div class="hk">27.09 20:16 <span class="hs">zrobione</span></div>
+        <blockquote>Do tego juz dawalam poprawki do copy - i nie sa tu uwzglednione.</blockquote>
+        <p>Masz racje, przeoczylismy. Chodzilo o punkt 6 z Twojego maila z 22.09: sa DWIE wymienne wkladki, klasyczna z futerkiem i cienka bez futerka. Copy przepisane.</p>
+      </div></div>
+  <div class="uw" data-id="p-06" data-tytul="wt 29.09 — Removable insole">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy wt 29.09 a sr 30.09">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-07">
+  <div class="gl"><span class="dat">sr 30.09</span><h3>39 czy 40</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/p-07-1.jpg" alt="" loading="lazy"><img src="../kadry/p-07-2.jpg" alt="" loading="lazy"><img src="../kadry/p-07-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">39 or 40? Between sizes?
+Tell us the sizes you’re between. We are here to help you choose.
+
+Need a different size? Exchanges are always free. 🤍</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a><a href="https://theneworchard.com/products/classic-vegan-medium-grey" target="_blank" rel="noopener">classic vegan medium grey</a></div>
+  <div class="st">COPY OD ANI, druga wersja z 27.09 wieczorem - wklejone doslownie, zastepuje wersje z 20:16.</div>
+  
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 20:16 <span class="hs">zrobione</span></div>
+        <blockquote>Co ten text w ogole znaczy? Ten post mial byc o tym, ze jesli wahasz sie miedzy rozmiarami to pomozemy dobrac. Zrezygnowaliscie z tego? Mielismy probowac rozkrecic dyskusje pod postem w komentarzach.</blockquote>
+        <p>Nie zrezygnowalismy, zgubilismy sens przy przepisywaniu. Przepraszamy.</p>
+      </div>
+      <div class="hi ok">
+        <div class="hk">27.09 wieczor <span class="hs">zrobione</span></div>
+        <blockquote>Moja propozycja copy: 39 or 40? Between sizes? Tell us the sizes you are between. We are here to help you choose. Need a different size? Exchanges are always free.</blockquote>
+        <p>Wklejone doslownie. Ta wersja zastepuje poprzednia.</p>
+      </div>
+      <div class="hi ok">
+        <div class="hk">27.09 wieczor <span class="hs">zrobione</span></div>
+        <blockquote>W pierwotnym planie tu miala sie rozwinac dyskusja na temat rozmiarow pod tym postem, moderowana prawdopodobnie.</blockquote>
+        <p>Tak robimy. Pierwszy komentarz nasz, zeby otworzyc rozmowe, a przez pierwsze trzy godziny po publikacji odpowiadamy kazdemu w ciagu godziny i doradzamy konkretny rozmiar.</p>
+      </div></div>
+  <div class="uw" data-id="p-07" data-tytul="sr 30.09 — 39 czy 40">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy sr 30.09 a czw 01.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-08">
+  <div class="gl"><span class="dat">czw 01.10</span><h3>Oat Milk Tee / World Vegetarian Day</h3>
+    </div>
+  <div class="met">POST</div>
+  <div class="kadry"><img src="../kadry/p-08-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Happy World Vegetarian Day.
+No speech from us today — just our Oat Milk tee, which we would wear anyway. 💚</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Oat milk, please.</div>
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/vegan-t-shirt-oat-milk" target="_blank" rel="noopener">vegan t shirt oat milk</a></div>
+  <div class="st">GOTOWE DO PUBLIKACJI (kadr wymieniony na PRAWDZIWE zdjecie produktu)</div>
+  
+  
+  <div class="uw" data-id="p-08" data-tytul="czw 01.10 — Oat Milk Tee / World Vegetarian Day">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy czw 01.10 a sob 03.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-09">
+  <div class="gl"><span class="dat">sob 03.10</span><h3>Cold feet</h3>
+    </div>
+  <div class="met">REEL, 6 s, trzy ujecia, kamera stoi &middot; jest tez gotowy film</div>
+  <div class="kadry"><img src="../kadry/p-09-1.jpg" alt="" loading="lazy"><img src="../kadry/p-09-2.jpg" alt="" loading="lazy"><img src="../kadry/p-09-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Cold feet are rarely the shoe alone.
+Ours keep water out for up to 2.5 hours in snow and rain — warm and dry is what you tell us most.</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Cold feet? Rarely the shoe alone.</div>
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a><a href="https://theneworchard.com/products/water-repellent-vegan-spray" target="_blank" rel="noopener">water repellent vegan spray</a></div>
+  <div class="st">CZEKA NA ZATWIERDZENIE ANI. Kadr 1 i 2 poprawione 24.09: but zmieniony na Wasz Classic Vegan Medium, czubek trzyma ksztalt. Reel zlozony na nowo.</div>
+  
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ">
+        <div class="hk">23.09 <span class="hs">jeszcze robimy</span></div>
+        <blockquote>Zupelnie inny but, do wymiany.</blockquote>
+        <p>Jeszcze nie zamkniete. Bierzemy Wasz packshot ze sklepu zamiast przegenerowania - tak jak przy spodnicy.</p>
+      </div></div>
+  <div class="uw" data-id="p-09" data-tytul="sob 03.10 — Cold feet">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy sob 03.10 a pon 05.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-10">
+  <div class="gl"><span class="dat">pon 05.10</span><h3>Akcesoria</h3>
+    </div>
+  <div class="met">POST</div>
+  <div class="kadry"><img src="../kadry/p-10-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Small things that go with everything.
+Spare insoles, care spray, and scrunchies sewn from what is left after the boots. Nothing wasted. 🤍</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Small things that go with everything.</div>
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-insole-faux-fur-black" target="_blank" rel="noopener">classic vegan insole faux fur black</a><a href="https://theneworchard.com/products/water-repellent-vegan-spray" target="_blank" rel="noopener">water repellent vegan spray</a><a href="https://theneworchard.com/products/upcycled-vegan-scrunchies-deep-green" target="_blank" rel="noopener">upcycled vegan scrunchies deep green</a></div>
+  <div class="st">GOTOWE DO PUBLIKACJI. Blokada zdjeta 23.09 - produkty SA w sklepie.</div>
+  
+  
+  <div class="uw" data-id="p-10" data-tytul="pon 05.10 — Akcesoria">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy pon 05.10 a nd 04.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-11">
+  <div class="gl"><span class="dat">nd 04.10</span><h3>World Animal Day</h3>
+    </div>
+  <div class="met">POST, 1 kadr</div>
+  <div class="kadry"><img src="../kadry/p-11-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">World Animal Day.
+Nothing to sell today — just a thank you to every animal that never had to be part of what we make. 💚</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Nothing to sell today.</div>
+  <div class="prd tow brakTow"><span class="towE">W poscie oznaczamy:</span><i>nic &mdash; w tym kadrze nie pokazujemy produktu</i></div>
+  <div class="st">CZEKA NA ZATWIERDZENIE ANI. Buty w kadrze wymienione 24.09 na Wasze Classic Vegan Short Black.</div>
+  
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ">
+        <div class="hk">23.09 <span class="hs">jeszcze robimy</span></div>
+        <blockquote>Przod troche za dlugi, jakby modelka miala bardzo duzy rozmiar stopy.</blockquote>
+        <p>Jeszcze nie zamkniete. Tak samo - podmieniamy na Wasz packshot.</p>
+      </div></div>
+  <div class="uw" data-id="p-11" data-tytul="nd 04.10 — World Animal Day">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy nd 04.10 a pon 28.09 (przeniesiony z 27.09)">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="p-12">
+  <div class="gl"><span class="dat">pon 28.09 (przeniesiony z 27.09)</span><h3>Pre-order: czerwona spódnica</h3>
+    <span class="przen">przeniesiony</span></div>
+  <div class="met">POST + STORIES + MAIL</div>
+  <div class="kadry"><img src="../kadry/p-12-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">She is back. Five per size.
+Missed her last time? Preorder now.❤️
+The next batch is already in production.</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Back. Five per size.</div>
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/winter-vegan-skirt-red-limited-edition" target="_blank" rel="noopener">winter vegan skirt red limited edition</a></div>
+  <div class="st">PRZENIESIONY. Mial wyjsc 27.09, zostal opublikowany i zdjety na Twoja prosbe - spodnica w kadrze nie byla Wasza. Kadr jest juz Wasz, ze sklepu, copy Twoje. Nowy termin: poniedzialek 28.09 o 20:30. Tego dnia rano nic nie wychodzi, wiec slot jest wolny. Mail ze spodnica idzie osobno, za tydzien.</div>
+  <details class="stara"><summary>Jak ten post wygladal wczesniej</summary>
+    <div class="staraT">wersja opublikowana i zdjeta 27.09</div>
+    <div class="kadry male"><img src="../kadry/stare-p-12-1.jpg" alt="" loading="lazy"></div>
+    <div class="pod">Back. Five per size, then that is it.
+Pre-order now, shipping after 15 October.</div>
+    <p class="ekr">Spodnica w kadrze byla wygenerowana i nie wygladala jak Wasza. Twoje slowa: „ta spodnica zle wyglada, nie nasza”. Teraz jest Wasze zdjecie ze sklepu, a copy jest Twoje.</p>
+  </details>
+  <div class="hist"><div class="histT">Twoje wczesniejsze uwagi</div>
+      <div class="hi ok">
+        <div class="hk">27.09 <span class="hs">zrobione</span></div>
+        <blockquote>Kurcze teraz zauwazylam, ze ta spodnica zle wyglada - nie nasza. Mozna usunac post i poprawic?</blockquote>
+        <p>Post zdjety tego samego dnia z Instagrama i z Facebooka.</p>
+      </div>
+      <div class="hi ">
+        <div class="hk">27.09 20:16 <span class="hs">jeszcze robimy</span></div>
+        <blockquote>Uzyjcie naszych zdjec z sesji, nie AI. I tutaj pierwotnie miala byc karuzela - wezcie te klatki z planu 15.10. COPY wole to co bylo we wczesniejszych propozycjach.</blockquote>
+        <p>Kadr juz jest Wasz, ze sklepu, z jesiennej sesji. Twoje copy wklejone doslownie. Karuzela z klatek z 15.10 - robimy.</p>
+      </div></div>
+  <div class="uw" data-id="p-12" data-tytul="pon 28.09 (przeniesiony z 27.09) — Pre-order: czerwona spódnica">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section><h2>pazdziernik, od trzeciego tygodnia</h2>
+<div class="wst" data-tytul="[wstawka] miedzy pon 28.09 (przeniesiony z 27.09) a pazdziernik, data po zdjeciach od Ani">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-00">
+  <div class="gl"><span class="dat">pazdziernik, data po zdjeciach od Ani</span><h3>Adoption Story 1 — Patricia i Oscar</h3>
+    </div>
+  <div class="met">REEL + karuzela</div>
+  <div class="kadry"><img src="../kadry/q-00-1.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Oscar is almost 14. Old, black and big — the three things that make a dog hardest to adopt.
+That is exactly why Patricia chose him. Two and a half years later they walk ten kilometres a day.
+We have supported adoption since 2021. 🤍</div>
+  <div class="ekr"><b>Na ekranie / Stories:</b><br>Stories, dziesiec plansz, na kazdej jedno zdanie jej wlasnymi slowami:<br>  1  Oscar is almost 14. He turns 14 in December.<br>  2  For ten years he was a farm dog in Hungary.<br>  3  When his owner died, no one could take him. He ended up in a shelter.<br>  4  Old. Black. Big. The three things that make a dog hardest to adopt.<br>  5  That is exactly why it was clear to me it would be him.<br>  6  I visited him twice. The first time to meet him. The second to take him home.<br>  7  Two and a half years later we walk ten kilometres a day.<br>  8  He does not like cuddling. He gets five minutes anyway. Every day.<br>  9  A senior dog is not too old to learn anything new.<br> 10  The best decision of my entire life.<br>     (malym drukiem: Oscar was adopted from Tierheim Kondorgos — the same shelter where Zeno is waiting.)<br><br>TEASER, osobno i wczesniej: jeden kadr do feedu + ta sama plansza w Stories.<br>Na kadrze: OUR ADOPTION STORIES.<br>Podpis teasera: Real people. Adopted dogs. Told in their own words.<br>We have supported adoption since 2021. First story this week.</div>
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/dog-hooodie-navy-blue" target="_blank" rel="noopener">dog hooodie navy blue</a></div>
+  <div class="st">Material od Ani przyszedl 27.09 — 33 zdjecia i spisane nagranie Patricii. Czeka na Twoje tak.</div>
+  
+  
+  <div class="uw" data-id="q-00" data-tytul="pazdziernik, data po zdjeciach od Ani — Adoption Story 1 — Patricia i Oscar">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy pazdziernik, data po zdjeciach od Ani a sr 07.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-01">
+  <div class="gl"><span class="dat">sr 07.10</span><h3>Navy, nie czarny</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-01-1.jpg" alt="" loading="lazy"><img src="../kadry/q-01-2.jpg" alt="" loading="lazy"><img src="../kadry/q-01-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Navy, not black.
+Our Classic Vegan Medium in the colour that already goes with everything you own.</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-medium-blue" target="_blank" rel="noopener">classic vegan medium blue</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-01" data-tytul="sr 07.10 — Navy, nie czarny">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy sr 07.10 a pt 09.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-02">
+  <div class="gl"><span class="dat">pt 09.10</span><h3>Psy</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-02-1.jpg" alt="" loading="lazy"><img src="../kadry/q-02-2.jpg" alt="" loading="lazy"><img src="../kadry/q-02-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Same walk. Warmer.
+Our vegan dog hoodie and our boots — perfect match in style, human &amp; hound. 🤍</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/dog-hooodie-navy-blue" target="_blank" rel="noopener">dog hooodie navy blue</a><a href="https://theneworchard.com/products/classic-vegan-medium-blue" target="_blank" rel="noopener">classic vegan medium blue</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-02" data-tytul="pt 09.10 — Psy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy pt 09.10 a nd 11.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-03">
+  <div class="gl"><span class="dat">nd 11.10</span><h3>Podeszwa</h3>
+    </div>
+  <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-03-1.jpg" alt="" loading="lazy"><img src="../kadry/q-03-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Look down.
+That is the part that keeps you steady on wet cobblestones from November to March.</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-03" data-tytul="nd 11.10 — Podeszwa">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy nd 11.10 a wt 13.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-04">
+  <div class="gl"><span class="dat">wt 13.10</span><h3>Wzgorza</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-04-1.jpg" alt="" loading="lazy"><img src="../kadry/q-04-2.jpg" alt="" loading="lazy"><img src="../kadry/q-04-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Where we test them.
+Swiss hills, real weather, no studio. 🤍</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-04" data-tytul="wt 13.10 — Wzgorza">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy wt 13.10 a czw 15.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-05">
+  <div class="gl"><span class="dat">czw 15.10</span><h3>Czerwona spodnica — rusza wysylka</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-05-1.jpg" alt="" loading="lazy"><img src="../kadry/q-05-2.jpg" alt="" loading="lazy"><img src="../kadry/q-05-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">She is back, and she ships today.
+Our Winter Vegan Skirt in red — five per size, then that is it.</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/winter-vegan-skirt-red-limited-edition" target="_blank" rel="noopener">winter vegan skirt red limited edition</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-05" data-tytul="czw 15.10 — Czerwona spodnica — rusza wysylka">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy czw 15.10 a sob 17.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-06">
+  <div class="gl"><span class="dat">sob 17.10</span><h3>Czern w miescie</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-06-1.jpg" alt="" loading="lazy"><img src="../kadry/q-06-2.jpg" alt="" loading="lazy"><img src="../kadry/q-06-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Black goes everywhere.
+Our Classic Vegan Short in the city, from the first coffee to the last tram.</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-06" data-tytul="sob 17.10 — Czern w miescie">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy sob 17.10 a pon 19.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-07">
+  <div class="gl"><span class="dat">pon 19.10</span><h3>Skarpety</h3>
+    </div>
+  <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-07-1.jpg" alt="" loading="lazy"><img src="../kadry/q-07-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Socks by us, too.
+Soft, warm and made to live inside our boots. 🤍</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/knee-high-vegan-socks-green" target="_blank" rel="noopener">knee high vegan socks green</a></div>
+  <div class="st">Kadr z logo poprawiony 24.09 na uwage Ani.</div>
+  
+  
+  <div class="uw" data-id="q-07" data-tytul="pon 19.10 — Skarpety">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy pon 19.10 a sr 21.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-08">
+  <div class="gl"><span class="dat">sr 21.10</span><h3>Do rozmiaru 46</h3>
+    </div>
+  <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-08-1.jpg" alt="" loading="lazy"><img src="../kadry/q-08-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Up to size 46.
+Because warm feet should not depend on how big they are.</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-short-black-unisex" target="_blank" rel="noopener">classic vegan short black unisex</a><a href="https://theneworchard.com/products/classic-vegan-long-black" target="_blank" rel="noopener">classic vegan long black</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-08" data-tytul="sr 21.10 — Do rozmiaru 46">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] miedzy sr 21.10 a pt 23.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div>
+<section class="k" id="q-09">
+  <div class="gl"><span class="dat">pt 23.10</span><h3>Zielone</h3>
+    </div>
+  <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
+  <div class="kadry"><img src="../kadry/q-09-1.jpg" alt="" loading="lazy"><img src="../kadry/q-09-2.jpg" alt="" loading="lazy"><img src="../kadry/q-09-3.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Not black. Not beige.
+Our Classic Vegan Short in green, for everyone who already has the other two.</div>
+  
+  <div class="prd tow"><span class="towE">W poscie oznaczamy:</span><a href="https://theneworchard.com/products/classic-vegan-short-green" target="_blank" rel="noopener">classic vegan short green</a><a href="https://theneworchard.com/products/classic-vegan-medium-green" target="_blank" rel="noopener">classic vegan medium green</a></div>
+  <div class="st">GOTOWE. Wszystkie kadry to Wasze wlasne zdjecia. Zero generowania.</div>
+  
+  
+  <div class="uw" data-id="q-09" data-tytul="pt 23.10 — Zielone">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<div class="wst" data-tytul="[wstawka] po pt 23.10">
+  <button class="wstB">+ dodaj cos tutaj</button>
+  <div class="wstP">
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
+  </div>
+</div></div><div class="sek" id="sek-stories" hidden><h2 class="dzial">Stories</h2><div class="jak" style="margin:0 0 16px">Stories nie zostaja na profilu, wiec nie ma ich w siatce.
+Tu sa gotowe plansze &mdash; dokladnie to, co zobacza ludzie. Kliknij w plansze, zeby otworzyc ja na caly ekran.</div>
+<section class="k" id="sp-05">
+  <div class="gl"><span class="dat">pon 28.09 (przeniesiona z 22.09)</span><h3>Ankieta: Short / Mid / Long</h3>
+    <span class="plansz">2 plansze</span></div>
+  <div class="met">STORIES, 2 plansze</div>
+  <div class="kadry pion"><img src="../kadry/p-05-1.jpg" alt="" loading="lazy"><img src="../kadry/p-05-2.jpg" alt="" loading="lazy"></div>
+  
+  <div class="uw" data-id="sp-05" data-tytul="[stories] pon 28.09 (przeniesiona z 22.09) — Ankieta: Short / Mid / Long">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="sp-12">
+  <div class="gl"><span class="dat">pon 28.09 (przeniesiony z 27.09)</span><h3>Pre-order: czerwona spódnica</h3>
+    <span class="plansz">2 plansze</span></div>
+  <div class="met">POST + STORIES + MAIL</div>
+  <div class="kadry pion"><img src="../kadry/st-p-12-1.jpg" alt="" loading="lazy"><img src="../kadry/st-p-12-2.jpg" alt="" loading="lazy"></div>
+  <div class="pod">Back. Five per size.</div>
+  <div class="uw" data-id="sp-12" data-tytul="[stories] pon 28.09 (przeniesiony z 27.09) — Pre-order: czerwona spódnica">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section></div><div class="sek" id="sek-reklama" hidden><h2 class="dzial">Reklama w Meta</h2>
+<div class="jak" style="margin:0 0 16px">Te kadry nie pojawiaja sie na profilu &mdash; widza je tylko ludzie,
+do ktorych kierujemy reklame. Kazdy kadr jest po angielsku (Szwajcaria) i po niemiecku (Niemcy i Austria).
+<b>Nic z tego nie zostalo jeszcze uruchomione</b> &mdash; czekamy na Twoje tak.<br><br>
+Budzet: <b>500 &euro; miesiecznie</b>. Pierwsze dziesiec dni to test po 25 &euro; dziennie, potem cala druga
+polowa idzie juz tylko na te kadry, ktore dowioza. Na koncie ustawiamy limit laczny, zeby nie dalo sie
+wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
+<section class="k" id="r-G2">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Bezowy dlugi i zielony krotki, martwa natura</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G2-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G2-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G2" data-tytul="[reklama] Bezowy dlugi i zielony krotki, martwa natura">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-G3">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Karmelowy na sniegu</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G3-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G3-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G3" data-tytul="[reklama] Karmelowy na sniegu">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-G4">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Dziewczyna na tle gor</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G4-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G4-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G4" data-tytul="[reklama] Dziewczyna na tle gor">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-G5">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Czarny krotki, kostka brukowa</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G5-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G5-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G5" data-tytul="[reklama] Czarny krotki, kostka brukowa">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-G6">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Para w kawiarni</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G6-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G6-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G6" data-tytul="[reklama] Para w kawiarni">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-G7">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Zielone na graffiti</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G7-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G7-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G7" data-tytul="[reklama] Zielone na graffiti">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-G8">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Bezowy dlugi, wnetrze</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G8-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G8-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G8" data-tytul="[reklama] Bezowy dlugi, wnetrze">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-G9">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Czarne w miescie</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-G9-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-G9-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-G9" data-tytul="[reklama] Czarne w miescie">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-F1">
+  <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Wkladka i but</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-F1-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-F1-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-F1" data-tytul="[reklama] Wkladka i but">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S1">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Krotki czarny, schody</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S1-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S1-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S1" data-tytul="[reklama] Krotki czarny, schody">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S2">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Dlugi bezowy, las</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S2-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S2-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S2" data-tytul="[reklama] Dlugi bezowy, las">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S3">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Sredni karmelowy</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S3-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S3-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S3" data-tytul="[reklama] Sredni karmelowy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S4">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Pies w plaszczu</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S4-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S4-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S4" data-tytul="[reklama] Pies w plaszczu">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S5">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Skarpety i but</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S5-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S5-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S5" data-tytul="[reklama] Skarpety i but">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S6">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Czarne na deszczu</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S6-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S6-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S6" data-tytul="[reklama] Czarne na deszczu">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S7">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Zielone na graffiti</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S7-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S7-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S7" data-tytul="[reklama] Zielone na graffiti">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S8">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Dziewczyna w gorach z psem</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S8-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S8-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S8" data-tytul="[reklama] Dziewczyna w gorach z psem">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="r-S9">
+  <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Dalmatynczyk lezy, jasne buty</h3></div>
+  <div class="kadry">
+    <img src="../kadry/r-S9-en.jpg" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="../kadry/r-S9-de.jpg" alt="" loading="lazy" title="DE — Niemcy i Austria">
+  </div>
+  <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
+  <div class="uw" data-id="r-S9" data-tytul="[reklama] Dalmatynczyk lezy, jasne buty">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section></div><div class="sek" id="sek-mailing" hidden><h2 class="dzial">Mailing</h2>
+<section class="k" id="m-01">
+  <div class="gl"><span class="dat">gotowe, czeka na Twoja zgode</span><h3>List pierwszy &mdash; czerwona spodnica</h3></div>
+  <div class="met">EN i DE &middot; jedna kampania, jezyk podstawia sie sam wedlug tego, jak ktos sie zapisal</div>
+  <div class="pod">Temat A: She&rsquo;s back &mdash; five per size
+Temat B (test): The red skirt goes back into production</div>
+  <p class="ekr">Zbudowany na Waszych wlasnych zdjeciach z tej samej jesiennej sesji, nic nie jest generowane.
+  Jedna rzecz, jeden przycisk, a cena stoi na samym przycisku. Na dole cztery pozostale kolory spodnicy.
+  Idzie na <b>Locale EN &mdash; 1205 osob</b> i <b>Locale DE &mdash; 179 osob</b>.
+  Przed wysylka dostajesz test na swoje Yahoo, tak jak zawsze.</p>
+  <div class="prd"><b>Zobacz gotowy list:</b><br>
+    <a href="mail-01-en.html" target="_blank" rel="noopener">wersja angielska</a><br>
+    <a href="mail-01-de.html" target="_blank" rel="noopener">wersja niemiecka</a></div>
+  <div class="st">Dlaczego tak: cztery ostatnie kampanie mialy 38&ndash;46 % otwarc, ale tylko 2 % klikniec
+  i zero zamowien. Otwieraja, wiec problem nie jest w temacie ani w nadawcy &mdash; problem jest w kliknieciu.
+  Dlatego jedna rzecz zamiast katalogu i prawdziwy powod, zeby kliknac dzisiaj: piec sztuk na rozmiar.</div>
+  <div class="uw" data-id="m-01" data-tytul="[mailing] List pierwszy — czerwona spodnica">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section></div><div class="sek" id="sek-strategia" hidden><h2 class="dzial">Strategia</h2><div class="jak" style="margin:0 0 16px">To sa ustalenia, na ktorych stoi caly plan.
+Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdash; dlatego warto zaczac wlasnie stad.</div>
+<section class="k" id="st-0">
+  <div class="gl"><h3>Po co to wszystko</h3></div>
+  <p class="co">Jeden cel na ten sezon: <b>sprzedac 600 par</b>. Wszystko, co nie pracuje na sprzedaz, odpada. Nie liczymy postow ani obserwujacych.</p>
+  <div class="uw" data-id="st-0" data-tytul="[strategia] Po co to wszystko">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-1">
+  <div class="gl"><h3>Kiedy publikujemy</h3></div>
+  <p class="co">Dwie pory: <b>14:30</b> albo <b>20:30</b>. Przejrzelismy Wasze posty z ostatnich miesiecy &mdash; wiekszosc tych, ktore poszly najlepiej, wychodzila wlasnie w tych godzinach.</p>
+  <div class="uw" data-id="st-1" data-tytul="[strategia] Kiedy publikujemy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-2">
+  <div class="gl"><h3>Jakim jezykiem</h3></div>
+  <p class="co">Profil po angielsku, bez hashtagow, tak jak prowadzicie go od zawsze. Niemiecki idzie wylacznie jako osobna kreacja w Meta i na profil nie trafia &mdash; Niemcy to 34 % zamowien, a tylko 8,7 % obserwujacych.</p>
+  <div class="uw" data-id="st-2" data-tytul="[strategia] Jakim jezykiem">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-3">
+  <div class="gl"><h3>O czym mowimy</h3></div>
+  <p class="co">Piec stalych tematow zamiast dwunastu: <b>wkladka i komfort</b>, <b>Italian handmade i europejskie materialy</b>, <b>ciepło i sucho do 2,5 h</b>, <b>psy i adopcje od 2021</b>, <b>Szwajcaria i nagrody</b>. Kazdy post nalezy do jednego z nich.</p>
+  <div class="uw" data-id="st-3" data-tytul="[strategia] O czym mowimy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-4">
+  <div class="gl"><h3>Czego nie robimy</h3></div>
+  <p class="co">Nie robimy reklamy porownawczej z UGG &mdash; w platnej reklamie w ogole, w organice tylko bez marki i bez cudzego buta w kadrze. Nie robimy wymiany starych butow na nowe. Nie oglaszamy programu przyjmowania starych butow do recyklingu &mdash; za niespelnione obietnice ekologiczne w UE i Szwajcarii sa kary.</p>
+  <div class="uw" data-id="st-4" data-tytul="[strategia] Czego nie robimy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-5">
+  <div class="gl"><h3>Produkt zawsze z Waszego zdjecia</h3></div>
+  <p class="co">Twoje slowa z 27.09: &bdquo;AI przerabia produkty tak, ze nie wygladaja jak nasze&rdquo;. Od teraz: but, spodnica czy kurtka zawsze z Waszej sesji albo z packshotu ze sklepu. Generacja moze byc najwyzej tlem.</p>
+  <div class="uw" data-id="st-5" data-tytul="[strategia] Produkt zawsze z Waszego zdjecia">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-6">
+  <div class="gl"><h3>Kazdy post linkuje produkt</h3></div>
+  <p class="co">Katalog Shopify jest podpiety, 88 pozycji zatwierdzonych, Instagram to aktywny kanal sprzedazy. Kazdy post, na ktorym widac produkt, idzie z oznaczonym produktem. Wczesniej tego nie robilismy i to byl nasz blad.</p>
+  <div class="uw" data-id="st-6" data-tytul="[strategia] Kazdy post linkuje produkt">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-7">
+  <div class="gl"><h3>Reklama</h3></div>
+  <p class="co">Traffic w 90 % przypadkow, engagement tylko tam, gdzie chodzi o zasieg a nie o sprzedaz. Posty informacyjne nie sa promowane. Szwajcaria w tym sezonie bez platnej reklamy, jedyny wyjatek to Blickfang 20&ndash;22.11 &mdash; Zurych i okolice, na engagement.</p>
+  <div class="uw" data-id="st-7" data-tytul="[strategia] Reklama">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-8">
+  <div class="gl"><h3>Mailing</h3></div>
+  <p class="co">Jedna kampania, jezyk podstawia sie sam wedlug tego, jak ktos sie zapisal. Przed kazda wysylka test na Twoje Yahoo. Baza idzie czesciami, zeby nie wpasc w spam. Locale EN 1205 osob, Locale DE 179.</p>
+  <div class="uw" data-id="st-8" data-tytul="[strategia] Mailing">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>
+<section class="k" id="st-9">
+  <div class="gl"><h3>Listopad trzymamy osobno</h3></div>
+  <p class="co">World Vegan Day 1.11, Wasze piate urodziny, World Vegan Month, 11.11 i Black Friday planujemy oddzielnie &mdash; listopad robi 36 % sprzedazy i zasluguje na wlasny plan.</p>
+  <div class="uw" data-id="st-9" data-tytul="[strategia] Listopad trzymamy osobno">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section></div><div class="sek" id="sek-wydatki" hidden><h2 class="dzial">Wydatki</h2>
+<section class="k" id="w-budzet">
+  <div class="gl"><h3>Ile wydane na reklame</h3></div>
+  <p class="co">Prosilas o to 23.09: &bdquo;zeby byl zawsze podglad, ile juz wydane&rdquo;. Aktualizujemy co dwa dni.</p>
+  <div class="tabOtocz"><table>
+    <tr><th>Miesiac</th><th>Plan</th><th>Wydane</th><th>Zostaje z sezonu</th><th>Co robimy</th></tr>
+    <tr class="gotowe"><td>wrzesien</td><td>0 &euro;</td><td><b>0 &euro;</b></td><td>2 500 &euro;</td><td>nic nie uruchomione, budzet zaoszczedzony</td></tr>
+    <tr class="robi"><td>pazdziernik</td><td>500 &euro;</td><td>0 &euro;</td><td>2 000 &euro;</td><td>start 28.09, dziesiec dni testu po 25 &euro;</td></tr>
+    <tr><td>listopad</td><td>900 &euro;</td><td>&mdash;</td><td>1 100 &euro;</td><td>World Vegan Day, urodziny, 11.11, Black Friday</td></tr>
+    <tr><td>grudzien</td><td>300 &euro;</td><td>&mdash;</td><td>800 &euro;</td><td>swieta, ostatnie wysylki</td></tr>
+    <tr><td>styczen</td><td>800 &euro;</td><td>&mdash;</td><td>0 &euro;</td><td>Veganuary, drugi najmocniejszy miesiac</td></tr>
+    <tr class="suma"><td><b>razem sezon</b></td><td><b>2 500 &euro;</b></td><td><b>0 &euro;</b></td><td><b>2 500 &euro;</b></td><td></td></tr>
+  </table></div>
+  <div class="tabOtocz"><table>
+    <tr><th>Data</th><th>Kampania</th><th>Wydane</th><th>Klikniecia</th><th>Sprzedaz</th></tr>
+    <tr><td colspan="5" style="color:var(--cichy)">Nic jeszcze nie uruchomione. Pierwszy wiersz pojawi sie tu we wtorek, po pierwszej dobie.</td></tr>
+  </table></div>
+  <p class="co">Budzet nie jest miesieczny, tylko <b>na caly sezon: 2 500 &euro;</b> &mdash; i to my decydujemy,
+  w ktorym miesiacu ile z niego idzie. Wrzesien konczymy z <b>zerem wydanym</b>, wiec cale 2 500 &euro;
+  jest wciaz do dyspozycji i mozemy je przesunac tam, gdzie naprawde sprzedaje.</p>
+  <p class="co">Ruszamy <b>w poniedzialek 28.09</b>. Pierwsze dziesiec dni to test po 25 &euro; dziennie,
+  potem reszta budzetu idzie juz tylko na te kreacje, ktore dowioza. Na koncie stoi limit laczny,
+  zeby nie dalo sie wydac wiecej nawet przez pomylke.</p>
+  <p class="co">Wazne z Waszych danych: <b>listopad i styczen daly 74 % zakupow</b> zeszlego sezonu,
+  a cena zakupu spadala tam z 200&ndash;400 &euro; do 56 &euro;. Dlatego nie rozkladamy budzetu po rowno
+  na piec miesiecy, tylko trzymamy wiekszosc na listopad i styczen.</p>
+  <div class="prd" style="margin-top:16px"><b>Panele, w ktorych to wszystko zyje</b> &mdash; wchodzi sie po zalogowaniu:<br>
+    <a href="https://business.facebook.com/adsmanager/manage/campaigns?business_id=1263389747480576" target="_blank" rel="noopener">Meta &mdash; Menedzer reklam</a><br>
+    <a href="https://business.facebook.com/latest/posts/published_posts?asset_id=100996139119897&business_id=1263389747480576" target="_blank" rel="noopener">Meta &mdash; opublikowane posty</a><br>
+    <a href="https://business.facebook.com/commerce/381850851471748/home/?business_id=1263389747480576" target="_blank" rel="noopener">Meta &mdash; Menedzer sprzedazy i katalog</a><br>
+    <a href="https://ads.google.com/aw/campaigns" target="_blank" rel="noopener">Google Ads</a><br>
+    <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a><br>
+    <a href="https://www.klaviyo.com/campaigns" target="_blank" rel="noopener">Klaviyo &mdash; kampanie mailowe</a>
+  </div>
+  <div class="uw" data-id="w-budzet" data-tytul="[wydatki] Budzet reklamowy">
+    <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
+    <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section></div>
+</div>
+
+<button id="koszyk" aria-label="Twoje uwagi">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h4l4 4 4-4h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 7h10M7 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+  <span>Twoje uwagi</span><b id="koszykLicz">0</b>
+</button>
+<div id="zaslona"></div>
+<aside id="szuflada" aria-hidden="true">
+  <header><h4>Twoje uwagi</h4><button id="zamknijSz" aria-label="Zamknij">&times;</button></header>
+  <div class="szTresc" id="tabUwag"><div class="ekr">Wczytuje...</div></div>
+</aside>
+<div id="lupa"><img src="" alt=""></div>
+<script>(function () {
+  var MOST = 'https://script.google.com/macros/s/AKfycbyLbLzV8xSBz_67Lk9igL_lnt-qzsZbGwgGUdjZ9oP-6dPc6hb93HGuG5BMnyzo54yD/exec';          // Apps Script: czyta i zapisuje do arkusza
+  var TOKEN = 'no2026';
+  var KLUCZ = 'no-strona';
+
+  var STATUSY = [
+    { id: 'nowa', nazwa: 'nie zrobione', klasa: 'nie' },
+    { id: 'poprawka', nazwa: 'do poprawki', klasa: 'popr' },
+    { id: 'w robocie', nazwa: 'w robocie', klasa: 'robi' },
+    { id: 'czeka', nazwa: 'czeka na Twoja zgode', klasa: 'czeka' },
+    { id: 'zrobione', nazwa: 'zatwierdzone', klasa: 'gotowe' },
+  ];
+  // do poprawki wraca na poczatek kolejki — to znaczy, ze robota jeszcze przed nami
+  var PORZ = { 'nowa': 0, '': 0, 'poprawka': 1, 'w robocie': 2, 'czeka': 3, 'zrobione': 4 };
+  var KOLEJ_ST = ['nowa', 'poprawka', 'w robocie', 'czeka', 'zrobione'];
+  function stanKlasa(s) {
+    var z = STATUSY.filter(function (x) { return x.id === s; })[0];
+    return z ? z.klasa : 'nie';
+  }
+  function stanNazwa(s) {
+    var z = STATUSY.filter(function (x) { return x.id === s; })[0];
+    return z ? z.nazwa : 'nie zrobione';
+  }
+
+  // ---- tryb zespolu: tylko my widzimy przyciski statusu ----
+  // O trybie decyduje SAM ADRES, nic nie jest zapamietywane w przegladarce:
+  //   neworchard.zovu.pl         — widok Ani
+  //   neworchard.zovu.pl/zespol  — widok nasz
+  // Wczesniej tryb siedzial w pamieci przegladarki, wiec oba adresy
+  // pokazywaly to samo i nie dalo sie sprawdzic, co widzi Ania.
+  var ZESPOL = true;
+  // stare linki z ?zespol=1 maja dalej dzialac
+  if (location.search.indexOf('zespol=1') >= 0) ZESPOL = true;
+  if (location.search.indexOf('zespol=0') >= 0) ZESPOL = false;
+  try { localStorage.removeItem(KLUCZ + ':zespol'); } catch (e) {}
+
+  // ---- rozmowa z arkuszem ----
+  var UWAGI = [];
+  // Nasze swieze klikniecie jest wazniejsze od odpowiedzi arkusza.
+  // Arkusz odpowiada z opoznieniem, wiec bez tego wybor sam by sie cofal.
+  var SWIEZE = {};
+  function zapamietajStan(nr, status) {
+    if (nr > 0) SWIEZE[nr] = { status: status, kiedy: Date.now() };
+  }
+  function nalozSwieze() {
+    var teraz = Date.now();
+    Object.keys(SWIEZE).forEach(function (nr) {
+      if (teraz - SWIEZE[nr].kiedy > 20000) { delete SWIEZE[nr]; return; }
+      var u = UWAGI.filter(function (x) { return x.nr === +nr; })[0];
+      if (u) u.status = SWIEZE[nr].status;
+    });
+  }
+
+  // Jedna kolejka zapisow do arkusza. Bez niej dwa szybkie klikniecia
+  // wysylaly sie rownolegle i do arkusza trafialo to, ktore wrocilo pozniej.
+  var KOLEJKA = [];
+  var JEDZIE = false;
+  var DOCELOWY = {};                 // nr wiersza -> stan, ktory ma tam finalnie byc
+  function doArkusza(dane, po) {
+    if (dane.akcja === 'status' && dane.nr > 0) {
+      DOCELOWY[dane.nr] = dane.status;
+      // starsze zadanie dla tego samego wiersza nie ma juz sensu
+      KOLEJKA = KOLEJKA.filter(function (z) {
+        return !(z.dane.akcja === 'status' && z.dane.nr === dane.nr);
+      });
+    }
+    KOLEJKA.push({ dane: dane, po: po });
+    ruszKolejke();
+  }
+  function ruszKolejke() {
+    if (JEDZIE) return;
+    if (!KOLEJKA.length) { sprawdzZapis(); return; }
+    JEDZIE = true;
+    var z = KOLEJKA.shift();
+    // jesli w miedzyczasie ten wiersz dostal nowszy stan, wysylamy ten nowszy
+    if (z.dane.akcja === 'status' && z.dane.nr > 0 && DOCELOWY[z.dane.nr] !== undefined) {
+      z.dane.status = DOCELOWY[z.dane.nr];
+    }
+    wyslijCicho(z.dane)
+      .then(function (j) { return z.po ? z.po(j) : null; })
+      ['catch'](function () {})
+      .then(function () { JEDZIE = false; ruszKolejke(); });
+  }
+  // po opróznieniu kolejki sprawdzamy, czy arkusz naprawde ma to, co ekran
+  var SPRAWDZANIE = null;
+  function sprawdzZapis() {
+    if (SPRAWDZANIE) clearTimeout(SPRAWDZANIE);
+    SPRAWDZANIE = setTimeout(function () {
+      SPRAWDZANIE = null;
+      if (JEDZIE || KOLEJKA.length) return;
+      var chce = DOCELOWY; DOCELOWY = {};
+      if (!Object.keys(chce).length) { pobierz().then(przerysuj); return; }
+      fetch(MOST, { method: 'GET' }).then(function (r) { return r.json(); }).then(function (j) {
+        if (!j || !j.ok) return;
+        var poprawki = 0;
+        (j.uwagi || []).forEach(function (u) {
+          if (chce[u.nr] !== undefined && u.status !== chce[u.nr]) {
+            poprawki++;
+            doArkusza({ akcja: 'status', nr: u.nr, status: chce[u.nr] });
+          }
+        });
+        if (!poprawki) { UWAGI = j.uwagi || []; INDEKS = null; nalozSwieze(); wyrownajWszystkie(); przerysuj(); }
+      })['catch'](function () {});
+    }, 900);
+  }
+
+  function pobierz() {
+    return fetch(MOST, { method: 'GET' }).then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.ok) { UWAGI = j.uwagi || []; INDEKS = null; nalozSwieze(); wyrownajWszystkie(); }
+        return UWAGI;
+      })
+      ['catch'](function () { return UWAGI; });
+  }
+  // cicho: zapisuje i oddaje odpowiedz, ale NIE przerysowuje ekranu.
+  // dzieki temu w srodku lancucha nikt nie zobaczy stanu posredniego.
+  function wyslijCicho(dane) {
+    dane.token = TOKEN;
+    return fetch(MOST, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(dane),
+    }).then(function (r) { return r.json(); });
+  }
+  function wyslij(dane) {
+    return wyslijCicho(dane).then(function (j) {
+      if (j && j.ok) { UWAGI = j.uwagi || []; INDEKS = null; nalozSwieze(); przerysuj(); }
+      return j;
+    });
+  }
+
+  // zmiana od razu widoczna, zapis leci w tle
+  function odRazu(nr, zmiany, dane) {
+    var u = UWAGI.filter(function (x) { return x.nr === nr; })[0];
+    if (u) { for (var k in zmiany) u[k] = zmiany[k]; if (zmiany.status) zapamietajStan(nr, zmiany.status); }
+    przerysuj();
+    return wyslij(dane)['catch'](function () {
+      pobierz().then(przerysuj);
+    });
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // ---- uwagi przy konkretnej pozycji ----
+  // stare uwagi przyszly z przedrostkiem [co i kiedy publikujemy] i ze stara data,
+  // a posty zdazyly sie przenumerowac — dlatego porownujemy po samym temacie.
+  var OGONKI = { 'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's', 'ż': 'z', 'ź': 'z' };
+  var PAMIEC_KLUCZY = {};
+  function klucz(s) {
+    var wejscie = String(s || '');
+    if (PAMIEC_KLUCZY[wejscie] !== undefined) return PAMIEC_KLUCZY[wejscie];
+    return (PAMIEC_KLUCZY[wejscie] = liczKlucz(wejscie));
+  }
+  function liczKlucz(s) {
+    return String(s || '')
+      .toLowerCase()
+      .replace(/\[[^\]]*\]/g, ' ')                  // [co i kiedy publikujemy]
+      .replace(/\([^)]*\)/g, ' ')                   // (przeniesiony z 27.09)
+      .replace(/[ąćęłńóśżź]/g, function (z) { return OGONKI[z] || z; })
+      .replace(/[a-zа-я]{2,4}\s*\d{1,2}\.\d{2}/g, ' ')  // pon 28.09
+      .replace(/[^a-z0-9а-я]/g, '');                // zostaja same litery i cyfry
+  }
+  // pozycje, ktore zmienily nazwe — tego zadna regula sama nie zgadnie
+  var ALIASY = {
+    'cisza': 'ankietashortmidlong',
+    'takbedziewygladalprofil': 'calasiatkaprofilu',
+  };
+  function pasuje(a, b) {
+    var x = klucz(a), y = klucz(b);
+    if (!x || !y) return false;
+    if (ALIASY[x]) x = ALIASY[x];
+    if (ALIASY[y]) y = ALIASY[y];
+    return x === y || x.indexOf(y) >= 0 || y.indexOf(x) >= 0;
+  }
+  var ZNACZNIK = 'STATUS POSTU';
+  function jestZnacznikiem(u) { return u.ocena === ZNACZNIK; }
+
+  // indeks budowany raz na przerysowanie — bez niego kazde klikniecie
+  // przemielalo wszystkie uwagi razy wszystkie posty i strona mulila
+  var INDEKS = null;
+  function przeliczIndeks() {
+    INDEKS = { uwagi: {}, znaczniki: {} };
+    UWAGI.forEach(function (u) {
+      if (u.status === 'cofnieta') return;
+      var k = klucz(u.pozycja);
+      if (ALIASY[k]) k = ALIASY[k];
+      var gdzie = jestZnacznikiem(u) ? INDEKS.znaczniki : INDEKS.uwagi;
+      (gdzie[k] = gdzie[k] || []).push(u);
+    });
+  }
+  function zIndeksu(zbior, tytul) {
+    if (!INDEKS) przeliczIndeks();
+    var k = klucz(tytul);
+    if (ALIASY[k]) k = ALIASY[k];
+    if (zbior[k]) return zbior[k];
+    var wynik = [];
+    for (var kk in zbior) {
+      if (kk.indexOf(k) >= 0 || k.indexOf(kk) >= 0) wynik = wynik.concat(zbior[kk]);
+    }
+    return wynik;
+  }
+  function dla(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.uwagi, tytul); }
+  function znacznikPostu(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.znaczniki, tytul)[0]; }
+
+  // Stan postu jest jeden. Prostujemy rozjazdy TYLKO po swiezym odczycie z arkusza
+  // i nigdy nie ruszamy tego, co przed chwila kliknelismy — inaczej wybor sam by sie cofal.
+  function wyrownajWszystkie() {
+    [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (el) {
+      var tytul = el.dataset.tytul;
+      var zn = znacznikPostu(tytul);
+      if (!zn || !zn.status || zn.status === 'cofnieta') return;
+      if (SWIEZE[zn.nr]) return;
+      dla(tytul).forEach(function (u) {
+        if (SWIEZE[u.nr] || u.status === zn.status) return;
+        u.status = zn.status;
+        if (u.nr > 0) doArkusza({ akcja: 'status', nr: u.nr, status: zn.status });
+      });
+    });
+  }
+
+  function wierszUwagi(u) {
+    var kl = stanKlasa(u.status);
+    var h = '<div class="uwEl ' + kl + '" data-nr="' + u.nr + '">' +
+      '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
+      
+      '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
+      '<div class="uwTxt">' + esc(u.uwaga).replace(/\n/g, '<br>') + '</div>' +
+      (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
+      // Przy samym poscie Ania juz tego nie widzi — poprawia i wycofuje
+      // w jednym miejscu, w koszyku. Tu ma czysto.
+      '<div class="uwAkc">' +
+        (ZESPOL ? '<button class="mini edy">Popraw</button>' +
+                  '<button class="mini cof">Wycofaj</button>' : '');
+    if (ZESPOL) {
+      h += '<span class="uwSep"></span>';
+      STATUSY.forEach(function (s) {
+        h += '<button class="mini st' + (u.status === s.id ? ' akt' : '') + '" data-st="' + s.id + '">' + s.nazwa + '</button>';
+      });
+      h += '<button class="mini odp">Odpowiedz</button>';
+    }
+    h += '</div></div>';
+    return h;
+  }
+
+  function rysujPrzyPostach() {
+    [].slice.call(document.querySelectorAll('.uw')).forEach(function (u) {
+      var tytul = u.dataset.tytul;
+      var lista = u.querySelector('.uwLista');
+      if (!lista) {
+        lista = document.createElement('div');
+        lista.className = 'uwLista';
+        u.insertBefore(lista, u.firstChild);
+      }
+      var moje = dla(tytul);
+      lista.innerHTML = moje.length ? moje.map(wierszUwagi).join('') : '';
+    });
+  }
+
+  // ---- ktory koszyk jest otwarty ----
+  var WYBRANA_SEKCJA = 'wszystkie';
+  try { WYBRANA_SEKCJA = localStorage.getItem(KLUCZ + ':koszyk') || 'wszystkie'; } catch (e) {}
+
+  // ---- kolejnosc w szufladzie: stala w trakcie pracy ----
+  var KOLEJNOSC = [];
+  function ustalKolejnosc(lista) {
+    KOLEJNOSC = lista.slice()
+      .sort(function (a, b) { return (PORZ[a.status] || 0) - (PORZ[b.status] || 0) || a.nr - b.nr; })
+      .map(function (u) { return u.nr; });
+  }
+  function przeliczKolejnosc() { KOLEJNOSC = []; }
+
+  // ---- tabela w zakladce Twoje uwagi ----
+  function rysujTabele() {
+    var cel = document.getElementById('tabUwag');
+    if (!cel) return;
+    var lista = UWAGI.filter(function (u) {
+      return u.status !== 'cofnieta' && !jestZnacznikiem(u) && (u.uwaga || u.ocena);
+    });
+    if (!lista.length) { cel.innerHTML = '<div class="ekr">Na razie nie ma zadnych uwag.</div>'; return; }
+
+    // grupujemy po poscie: jedna glowka z miniaturka, pod nia jej uwagi
+    var grupy = [], indeks = {};
+    lista.forEach(function (u) {
+      var g = miejsceDla(u.pozycja);
+      var k = g ? g.id : ('x' + klucz(u.pozycja));
+      if (!indeks[k]) {
+        indeks[k] = { miejsce: g, pozycja: u.pozycja, uwagi: [],
+                      sekcja: g ? g.sekcja : 'inne', sekNazwa: g ? g.sekNazwa : 'Inne',
+                      kolej: g ? g.kolej : 9999 };
+        grupy.push(indeks[k]);
+      }
+      indeks[k].uwagi.push(u);
+    });
+    // kolejnosc dokladnie taka, jak posty ida na stronie
+    grupy.sort(function (a, b) { return a.kolej - b.kolej; });
+    grupy.forEach(function (g) { g.uwagi.sort(function (a, b) { return a.nr - b.nr; }); });
+
+    // osobny koszyk na kazda sekcje
+    var licznikiSekcji = {}, kolejnoscSekcji = [];
+    grupy.forEach(function (g) {
+      if (!licznikiSekcji[g.sekcja]) { licznikiSekcji[g.sekcja] = { nazwa: g.sekNazwa, ile: 0, otwarte: 0 }; kolejnoscSekcji.push(g.sekcja); }
+      g.uwagi.forEach(function (u) {
+        licznikiSekcji[g.sekcja].ile++;
+        if (u.status !== 'zrobione') licznikiSekcji[g.sekcja].otwarte++;
+      });
+    });
+    if (WYBRANA_SEKCJA !== 'wszystkie' && !licznikiSekcji[WYBRANA_SEKCJA]) WYBRANA_SEKCJA = 'wszystkie';
+
+    var filtry = '<div class="szFiltry"><button class="szF' + (WYBRANA_SEKCJA === 'wszystkie' ? ' akt' : '') +
+      '" data-sekcja="wszystkie">Wszystkie <b>' + lista.length + '</b></button>';
+    kolejnoscSekcji.forEach(function (s) {
+      filtry += '<button class="szF' + (WYBRANA_SEKCJA === s ? ' akt' : '') + '" data-sekcja="' + s + '">' +
+        esc(licznikiSekcji[s].nazwa) + ' <b>' + licznikiSekcji[s].ile + '</b></button>';
+    });
+    filtry += '</div>';
+
+    if (WYBRANA_SEKCJA !== 'wszystkie') grupy = grupy.filter(function (g) { return g.sekcja === WYBRANA_SEKCJA; });
+
+    var h = filtry;
+    var ostatniaSekcja = null;
+    grupy.forEach(function (g) {
+      var m = g.miejsce;
+      var st = m ? statusPostu(m.tytul) : null;
+      if (WYBRANA_SEKCJA === 'wszystkie' && g.sekcja !== ostatniaSekcja) {
+        ostatniaSekcja = g.sekcja;
+        h += '<div class="szDzial">' + esc(g.sekNazwa) + '</div>';
+      }
+      h += '<div class="grupa' + (st ? ' ' + stanKlasa(st) : '') + '">' +
+        '<div class="grGl" data-idzie="' + esc(m ? m.tytul : g.pozycja) + '">' +
+          (m && m.obraz ? '<img src="' + m.obraz + '" alt="" loading="lazy">' : '<span class="grBrak"></span>') +
+          '<div class="grOpis"><b>' + esc(m ? m.nazwa : g.pozycja) + '</b>' +
+            (m && m.data ? '<span class="grData">' + esc(m.data) + '</span>' : '') +
+            (st ? '<span class="pStan ' + stanKlasa(st) + '"><i></i>' + stanNazwa(st) + '</span>' : '') +
+          '</div><span class="grStrz">&rarr;</span></div>';
+      g.uwagi.forEach(function (u) {
+        h += wierszSzuflady(u);
+      });
+      h += '</div>';
+    });
+
+    var otwarte = lista.filter(function (u) { return u.status !== 'zrobione'; }).length;
+    cel.innerHTML = h + '<div class="ekr" style="margin-top:14px">Razem ' + lista.length +
+      ' uwag przy ' + grupy.length + ' pozycjach, otwartych ' + otwarte + '.</div>';
+  }
+
+  // gdzie ta uwaga siedzi na stronie: karta, nazwa, data, kadr, sekcja i kolejnosc
+  function miejsceDla(pozycja) {
+    var wszystkie = [].slice.call(document.querySelectorAll('.uw[data-tytul], .wst[data-tytul]'));
+    var pole = wszystkie.filter(function (x) { return pasuje(x.dataset.tytul, pozycja); })[0];
+    if (!pole) return null;
+    var karta = pole.closest('.k') || pole;
+    var img = karta.querySelector ? karta.querySelector('.kadry img') : null;
+    var h3 = karta.querySelector ? karta.querySelector('.gl h3') : null;
+    var dat = karta.querySelector ? karta.querySelector('.gl .dat') : null;
+    var sek = pole.closest('.sek');
+    return {
+      id: karta.id || ('x' + wszystkie.indexOf(pole)),
+      tytul: pole.dataset.tytul,
+      nazwa: h3 ? h3.textContent : pole.dataset.tytul,
+      data: dat ? dat.textContent : '',
+      obraz: img ? img.getAttribute('src') : null,
+      sekcja: sek ? sek.id.replace('sek-', '') : 'inne',
+      sekNazwa: nazwaSekcji(sek),
+      kolej: wszystkie.indexOf(pole),   // dokladnie ta kolejnosc, co na stronie
+    };
+  }
+  function nazwaSekcji(sek) {
+    if (!sek) return 'Inne';
+    var id = sek.id.replace('sek-', '');
+    var przy = document.querySelector('.naw .zak[data-sek="' + id + '"]');
+    return przy ? przy.textContent.trim() : id;
+  }
+
+  function wierszSzuflady(u) {
+    return '<div class="uwEl ' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
+        '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
+        
+        '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
+        (u.uwaga
+          ? (u.uwaga.length > 90
+              ? '<details class="uwZwin"><summary>' + esc(u.uwaga.slice(0, 80)) + '…</summary>' +
+                '<div class="uwTxt">' + esc(u.uwaga).split('\n').join('<br>') + '</div></details>'
+              : '<div class="uwTxt">' + esc(u.uwaga).split('\n').join('<br>') + '</div>')
+          : '') +
+        (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
+        '<div class="uwAkc">' +
+          '<button class="mini edy">Popraw</button>' +
+          '<button class="mini cof">Wycofaj</button>' +
+          (ZESPOL ? '<span class="uwSep"></span>' +
+            STATUSY.map(function (st) {
+              return '<button class="mini st' + (u.status === st.id ? ' akt' : '') + '" data-st="' + st.id + '">' + st.nazwa + '</button>';
+            }).join('') + '<button class="mini odp">Odpowiedz</button>' : '') +
+        '</div></div>';
+  }
+
+  // status calego postu: najgorszy ze statusow jego uwag
+  function statusPostu(tytul) {
+    var zn = znacznikPostu(tytul);
+    if (zn && zn.status) return zn.status;
+    var moje = dla(tytul).filter(function (u) { return u.uwaga || u.ocena; });
+    if (!moje.length) return null;
+    var naj = 9;
+    moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
+    return KOLEJ_ST[naj] || 'nowa';
+  }
+
+  // karta ma miescic sie na ekranie: widac kadr, date, nazwe i stan.
+  // tekst, produkty, historia i stara wersja chowaja sie pod jedno rozwiniecie.
+  function zwinSzczegoly(karta) {
+    if (karta.dataset.zwinieteSzcz) return;
+    // produkty zostaja na wierzchu — to byla jej wyrazna prosba, zeby kazdy post linkowal towar
+    var doSchowania = [].slice.call(karta.querySelectorAll(':scope > .pod, :scope > .ekr, :scope > .st, :scope > .stara, :scope > .hist'));
+    if (!doSchowania.length) { karta.dataset.zwinieteSzcz = '1'; return; }
+    var d = document.createElement('details');
+    d.className = 'szcz';
+    var s = document.createElement('summary');
+    s.textContent = 'Tekst postu, historia uwag i poprzednie wersje';
+    d.appendChild(s);
+    karta.insertBefore(d, doSchowania[0]);
+    doSchowania.forEach(function (el) { d.appendChild(el); });
+    karta.dataset.zwinieteSzcz = '1';
+  }
+
+  // Porzadek na karcie — tak samo u nas i u Ani: szczegoly zwiniete,
+  // pole pisania na koncu i tez zwiniete. Wczesniej robilo sie to tylko
+  // w trybie zespolu, wiec ona dostawala cala sciane tekstu.
+  function uporzadkujKarte(karta) {
+    zwinSzczegoly(karta);
+    var pole = karta.querySelector('.uw');
+    if (pole) {
+      if (karta.lastElementChild !== pole) karta.appendChild(pole);
+      if (!pole.dataset.zwiniete) {
+        pole.dataset.zwiniete = '1';
+        pole.classList.add('zwin');
+        var otw = document.createElement('button');
+        otw.className = 'uwOtw';
+        otw.textContent = '+ napisz uwage do tego postu';
+        otw.addEventListener('click', function () {
+          pole.classList.toggle('zwin');
+          if (!pole.classList.contains('zwin')) pole.querySelector('textarea').focus();
+        });
+        pole.parentNode.insertBefore(otw, pole);
+      }
+    }
+  }
+
+  // przyciski gotowosci na samym poscie — dzialaja takze wtedy, gdy nie ma zadnej uwagi
+  function dodajPrzyciskiPostu(karta, tytul, teraz) {
+    var pas = null;
+    if (ZESPOL) {
+      pas = karta.querySelector('.pAkc');
+      if (!pas) {
+        pas = document.createElement('div');
+        pas.className = 'pAkc';
+        karta.appendChild(pas);   // najpierw czytasz post, potem decydujesz
+      }
+    }
+    uporzadkujKarte(karta);       // pole pisania zawsze ladujE na samym koncu
+    if (!ZESPOL) return;
+    pas.innerHTML = '<span class="pAkcE">ten post:</span>' + STATUSY.map(function (s) {
+      return '<button class="mini pst' + (teraz === s.id ? ' akt' : '') + '" data-st="' + s.id +
+        '" data-tytul="' + esc(tytul) + '">' + s.nazwa + '</button>';
+    }).join('');
+  }
+
+  // dla Ani: gdy cos czeka na jej tak, dostaje jeden duzy przycisk
+  function dodajPrzyciskAkceptu(karta, tytul, teraz) {
+    var stary = karta.querySelector('.pAkcept');
+    if (ZESPOL || teraz !== 'czeka') { if (stary) stary.remove(); return; }
+    if (stary) return;
+    var d = document.createElement('div');
+    d.className = 'pAkcept';
+    d.innerHTML = '<span>Poprawione. Pasuje tak?</span>' +
+      '<button class="zatw" data-tytul="' + esc(tytul) + '">Zatwierdzam</button>';
+    var uw = karta.querySelector('.uw');
+    if (uw) karta.insertBefore(d, uw); else karta.appendChild(d);
+  }
+
+  function rysujStatusyPostow() {
+    [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
+      var karta = u.closest('.k');
+      if (!karta) return;
+      var st = statusPostu(u.dataset.tytul);
+      karta.classList.remove('p-nie', 'p-robi', 'p-czeka', 'p-gotowe', 'p-popr');
+      var zn = karta.querySelector('.pStan');
+      if (!st) {
+        if (zn) zn.remove();
+        dodajPrzyciskiPostu(karta, u.dataset.tytul, null);
+        return;
+      }
+      karta.classList.add('p-' + stanKlasa(st));
+      if (!zn) {
+        zn = document.createElement('span');
+        zn.className = 'pStan';
+        var gl = karta.querySelector('.gl');
+        if (gl) gl.appendChild(zn); else karta.insertBefore(zn, karta.firstChild);
+      }
+      zn.className = 'pStan ' + stanKlasa(st);
+      zn.innerHTML = '<i></i>' + stanNazwa(st);
+      dodajPrzyciskiPostu(karta, u.dataset.tytul, st);
+      dodajPrzyciskAkceptu(karta, u.dataset.tytul, st);
+      // ten sam kolor na kafelku w siatce feedu
+      var kafel = document.querySelector('.siatka .sk[data-go="' + karta.id + '"]');
+      if (kafel) {
+        kafel.classList.remove('nie', 'robi', 'czeka', 'gotowe', 'popr');
+        kafel.classList.add(stanKlasa(st));
+      }
+    });
+  }
+
+  function rysujWszystko() { INDEKS = null; rysujPrzyPostach(); rysujTabele(); rysujStatusyPostow(); odswiezLicznik(); }
+  // pelne przerysowanie raz na klatke: klikniecie odpowiada natychmiast,
+  // a trzy kolejne wywolania z jednego lancucha zlewaja sie w jedno
+  var CZEKA_RYS = false;
+  function przerysuj() {
+    if (CZEKA_RYS) return;
+    CZEKA_RYS = true;
+    (window.requestAnimationFrame || function (f) { setTimeout(f, 16); })(function () {
+      CZEKA_RYS = false;
+      rysujWszystko();
+    });
+  }
+  // natychmiastowy slad klikniecia, zanim dojdzie do pelnego przerysowania
+  function odMaluj(b) {
+    var rodzic = b.parentNode;
+    if (!rodzic) return;
+    var bracia = rodzic.querySelectorAll("button.st, button.pst");
+    for (var i = 0; i < bracia.length; i++) bracia[i].classList.remove("akt");
+    b.classList.add("akt");
+  }
+
+  // ---- akcje na uwagach ----
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.mini') : null;
+    if (!b) return;
+    var el = b.closest('.uwEl');
+    if (!el) return;
+    var nr = +el.dataset.nr;
+    var u = UWAGI.filter(function (x) { return x.nr === nr; })[0];
+    if (!u) return;
+
+    if (b.classList.contains('edy')) {
+      // poprawianie wprost w koszyku, bez okienka przegladarki —
+      // okienko potrafi byc zablokowane i wtedy nic sie nie dzieje
+      if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
+      var boxE = document.createElement('div');
+      boxE.className = 'odpBox';
+      boxE.innerHTML = '<textarea placeholder="Popraw swoja uwage..."></textarea>' +
+        '<div class="odpAkc"><button class="mini zapE">Zapisz zmiane</button>' +
+        '<button class="mini anu">Anuluj</button></div>';
+      el.appendChild(boxE);
+      var taE = boxE.querySelector('textarea');
+      taE.value = u.uwaga || '';
+      taE.focus();
+      boxE.querySelector('.anu').addEventListener('click', function () { boxE.remove(); });
+      boxE.querySelector('.zapE').addEventListener('click', function () {
+        var nowy = taE.value.trim();
+        boxE.remove();
+        odRazu(nr, { uwaga: nowy }, { akcja: 'edytuj', nr: nr, ocena: u.ocena, uwaga: nowy });
+      });
+    } else if (b.classList.contains('cof')) {
+      if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
+      var boxC = document.createElement('div');
+      boxC.className = 'odpBox';
+      boxC.innerHTML = '<div class="pytanie">Na pewno wycofac te uwage?</div>' +
+        '<div class="odpAkc"><button class="mini cofT">Tak, wycofaj</button>' +
+        '<button class="mini anu">Zostaw</button></div>';
+      el.appendChild(boxC);
+      boxC.querySelector('.anu').addEventListener('click', function () { boxC.remove(); });
+      boxC.querySelector('.cofT').addEventListener('click', function () {
+        boxC.remove();
+        odRazu(nr, { status: 'cofnieta' }, { akcja: 'usun', nr: nr });
+      });
+    } else if (b.classList.contains('st')) {
+      // zmiana przy pojedynczej uwadze podciaga za soba stan calego postu
+      var nowyStan = b.dataset.st;
+      odMaluj(b);
+      var u2 = UWAGI.filter(function (x) { return x.nr === nr; })[0];
+      if (u2) u2.status = nowyStan;
+      zapamietajStan(nr, nowyStan);
+      // stan calego postu podciagamy OD RAZU, nie po odpowiedzi arkusza —
+      // dzieki temu koszyk i glowna lista zmieniaja sie w tej samej chwili
+      zgraj(u2 ? u2.pozycja : '', null);
+      doArkusza({ akcja: 'status', nr: nr, status: nowyStan });
+    } else if (b.classList.contains('odp')) {
+      if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
+      var box = document.createElement('div');
+      box.className = 'odpBox';
+      box.innerHTML = '<textarea placeholder="Napisz odpowiedz dla Ani..."></textarea>' +
+        '<div class="odpAkc"><button class="mini zap2">Zapisz odpowiedz</button>' +
+        '<button class="mini anu">Anuluj</button></div>';
+      el.appendChild(box);
+      var ta = box.querySelector('textarea');
+      ta.value = u.odpowiedz || '';
+      ta.focus();
+      box.querySelector('.anu').addEventListener('click', function () { box.remove(); });
+      box.querySelector('.zap2').addEventListener('click', function () {
+        var o = ta.value.trim();
+        var st = u.status === 'zrobione' ? 'zrobione' : (u.status || 'w robocie');
+        box.remove();
+        odRazu(nr, { odpowiedz: o, status: st }, { akcja: 'status', nr: nr, status: st, odpowiedz: o });
+      });
+    }
+  });
+
+  // Ania zatwierdza poprawiony post
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.zatw') : null;
+    if (!b) return;
+    var tytul = b.dataset.tytul;
+    b.disabled = true; b.textContent = 'Zapisuje...';
+    var zn = znacznikPostu(tytul);
+    if (zn) {
+      odRazu(zn.nr, { status: 'zrobione' }, { akcja: 'status', nr: zn.nr, status: 'zrobione' });
+    } else {
+      dla(tytul).forEach(function (u) {
+        odRazu(u.nr, { status: 'zrobione' }, { akcja: 'status', nr: u.nr, status: 'zrobione' });
+      });
+    }
+  });
+
+  // Jeden stan na post. Zmiana z gory schodzi na wszystkie jego uwagi,
+  // zmiana przy uwadze podnosi sie do postu. Zeby nigdy nie bylo dwoch roznych kolorow.
+  function zgraj(tytul, wymuszony) {
+    if (!tytul) { przerysuj(); return Promise.resolve(); }
+    var moje = dla(tytul);
+    var cel = wymuszony;
+    if (!cel) {                       // bez wymuszenia bierzemy najmniej zaawansowana uwage
+      var naj = 9;
+      moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
+      cel = moje.length ? KOLEJ_ST[naj] : null;
+    }
+    var kolejka = [];
+    if (wymuszony) {
+      moje.forEach(function (u) {
+        if (u.status !== cel) { u.status = cel; zapamietajStan(u.nr, cel); kolejka.push({ akcja: 'status', nr: u.nr, status: cel }); }
+      });
+    }
+    var zn = znacznikPostu(tytul);
+    if (cel) {
+      if (zn) {
+        if (zn.status !== cel) { zn.status = cel; zapamietajStan(zn.nr, cel); kolejka.push({ akcja: 'status', nr: zn.nr, status: cel }); }
+      } else {
+        UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, odpowiedz: '', kto: 'ZOVU' });
+        kolejka.push({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, kto: 'ZOVU', doStatusu: cel });
+      }
+    }
+    przerysuj();
+    kolejka.forEach(function (z) {
+      var doSt = z.doStatusu; delete z.doStatusu;
+      doArkusza(z, doSt ? function (j) {
+        // arkusz przy dodawaniu i tak zapisuje "nowa", wiec poprawiamy swiezy wiersz
+        if (!j || !j.ok) return;
+        var swiezy = (j.uwagi || []).filter(function (u) {
+          return u.ocena === ZNACZNIK && pasuje(u.pozycja, tytul) && u.status !== 'cofnieta';
+        }).pop();
+        if (swiezy && swiezy.status !== doSt) doArkusza({ akcja: 'status', nr: swiezy.nr, status: doSt });
+      } : null);
+    });
+    return Promise.resolve();
+  }
+
+  // klik w przycisk gotowosci calego postu
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.pst') : null;
+    if (!b) return;
+    var tytul = b.dataset.tytul, nowy = b.dataset.st;
+    odMaluj(b);
+    zgraj(tytul, nowy)['catch'](function () { pobierz().then(przerysuj); });
+    return;
+  });
+
+
+  // przelaczanie koszykow w szufladzie
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.szF[data-sekcja]') : null;
+    if (!b) return;
+    WYBRANA_SEKCJA = b.dataset.sekcja;
+    try { localStorage.setItem(KLUCZ + ':koszyk', WYBRANA_SEKCJA); } catch (err) {}
+    rysujTabele();
+  });
+
+  // klik w nazwe pozycji: zamykamy szuflade i skaczemy do tego miejsca
+  document.addEventListener('click', function (e) {
+    var g = e.target.closest ? e.target.closest('.uwGdzie[data-idzie], .grGl[data-idzie]') : null;
+    if (!g) return;
+    var tytul = g.dataset.idzie;
+    var cel = [].slice.call(document.querySelectorAll('.uw,.wst'))
+      .filter(function (x) { return x.dataset.tytul === tytul; })[0];
+    if (!cel) return;
+    otworzSz(false);
+    var sek = cel.closest('.sek');
+    if (sek) pokazSekcje(sek.id.replace('sek-', ''));
+    setTimeout(function () {
+      var karta = cel.closest('.k') || cel;
+      karta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      karta.classList.add('blysk');
+      setTimeout(function () { karta.classList.remove('blysk'); }, 1600);
+    }, 120);
+  });
+
+  // ---- zakladki ----
+  function pokazSekcje(id) {
+    [].slice.call(document.querySelectorAll('.sek')).forEach(function (s) { s.hidden = s.id !== 'sek-' + id; });
+    [].slice.call(document.querySelectorAll('.naw .zak')).forEach(function (b) {
+      b.classList.toggle('akt', b.dataset.sek === id);
+    });
+    try { localStorage.setItem(KLUCZ + ':zak', id); } catch (e) {}
+  }
+  [].slice.call(document.querySelectorAll('.naw .zak')).forEach(function (b) {
+    b.addEventListener('click', function () { pokazSekcje(b.dataset.sek); window.scrollTo(0, 0); });
+  });
+  try {
+    var z = localStorage.getItem(KLUCZ + ':zak');
+    if (z && document.getElementById('sek-' + z)) pokazSekcje(z);
+  } catch (e) {}
+
+  [].slice.call(document.querySelectorAll('.siatka .sk')).forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      pokazSekcje('posty');
+      var cel = document.getElementById(a.dataset.go);
+      if (cel) setTimeout(function () { cel.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 60);
+    });
+  });
+
+  function doKotwicy() {
+    var h = (location.hash || '').replace('#', '');
+    if (!h) return;
+    var cel = document.getElementById(h);
+    if (!cel) return;
+    var sek = cel.closest ? cel.closest('.sek') : null;
+    if (sek) pokazSekcje(sek.id.replace('sek-', ''));
+    setTimeout(function () { cel.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80);
+  }
+
+  // ---- pisanie nowej uwagi ----
+  var szkic = {};
+  try { szkic = JSON.parse(localStorage.getItem(KLUCZ + ':szkic') || '{}'); } catch (e) {}
+  function zapiszSzkic() { try { localStorage.setItem(KLUCZ + ':szkic', JSON.stringify(szkic)); } catch (e) {} }
+
+  var pola = [].slice.call(document.querySelectorAll('.uw')).concat([].slice.call(document.querySelectorAll('.wst')));
+  pola.forEach(function (u, n) {
+    if (!u.dataset.id) u.dataset.id = 'wst-' + n;
+    var id = u.dataset.id;
+    var ta = u.querySelector('textarea');
+    var s = szkic[id] || {};
+    if (s.tekst) { ta.value = s.tekst; if (u.classList.contains('wst')) u.classList.add('otw'); }
+    if (s.ocena) {
+      var bb = u.querySelector('button[data-st="' + s.ocena + '"]');
+      if (bb) bb.classList.add('akt');
+    }
+    u.querySelectorAll('.uwbtn button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var byl = b.classList.contains('akt');
+        u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
+        if (!byl) b.classList.add('akt');
+        szkic[id] = { ocena: byl ? '' : b.dataset.st, tekst: ta.value };
+        zapiszSzkic(); odswiezLicznik();
+      });
+    });
+    ta.addEventListener('input', function () {
+      var akt = u.querySelector('.uwbtn button.akt');
+      szkic[id] = { ocena: akt ? akt.dataset.st : '', tekst: ta.value };
+      zapiszSzkic(); odswiezLicznik();
+    });
+    var przyc = u.querySelector('.wstB');
+    if (przyc) przyc.addEventListener('click', function () { u.classList.toggle('otw'); if (u.classList.contains('otw')) ta.focus(); });
+  });
+
+  function odswiezLicznik() {
+    var otwarte = UWAGI.filter(function (u) {
+      return u.status !== 'cofnieta' && u.status !== 'zrobione' && !jestZnacznikiem(u) && (u.uwaga || u.ocena);
+    }).length;
+    var k = document.getElementById('koszykLicz');
+    if (k) { k.textContent = otwarte; k.classList.toggle('pusto', otwarte === 0); }
+  }
+
+  function etykieta(o) { return o === 'ok' ? 'Jest ok' : (o === 'zmiana' ? 'Do poprawki' : ''); }
+
+  // zapis jednej uwagi, od razu
+  [].slice.call(document.querySelectorAll('.zapisz')).forEach(function (b) {
+    b.addEventListener('click', function () {
+      var u = b.closest('.uw') || b.closest('.wst');
+      if (!u) return;
+      var ta = u.querySelector('textarea');
+      var akt = u.querySelector('.uwbtn button.akt');
+      var tekst = (ta.value || '').trim();
+      if (!akt && !tekst) { ta.focus(); return; }
+      var zap = u.querySelector('.zap');
+      b.disabled = true; b.textContent = 'Zapisuje...';
+      wyslij({
+        akcja: 'dodaj',
+        pozycja: u.dataset.tytul,
+        ocena: etykieta(akt ? akt.dataset.st : ''),
+        uwaga: tekst,
+        kto: ZESPOL ? 'ZOVU' : 'Ania',
+      }).then(function () {
+        ta.value = '';
+        u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
+        delete szkic[u.dataset.id]; zapiszSzkic();
+        if (zap) { zap.textContent = 'Zapisane ✓'; zap.classList.add('jest'); setTimeout(function () { zap.classList.remove('jest'); }, 4000); }
+        b.disabled = false; b.textContent = b.closest('.wst') ? 'Zapisz' : 'Zapisz uwage';
+      })['catch'](function () {
+        b.disabled = false; b.textContent = 'Sprobuj jeszcze raz';
+      });
+    });
+  });
+
+  // ---- szuflada z uwagami, jak koszyk ----
+  var szuf = document.getElementById('szuflada');
+  var zasl = document.getElementById('zaslona');
+  function otworzSz(tak) {
+    if (!szuf) return;
+    szuf.classList.toggle('otw', tak);
+    zasl.classList.toggle('otw', tak);
+    szuf.setAttribute('aria-hidden', tak ? 'false' : 'true');
+    document.body.style.overflow = tak ? 'hidden' : '';
+  }
+  var kosz = document.getElementById('koszyk');
+  if (kosz) kosz.addEventListener('click', function () { otworzSz(true); });
+  var zamk = document.getElementById('zamknijSz');
+  if (zamk) zamk.addEventListener('click', function () { otworzSz(false); });
+  if (zasl) zasl.addEventListener('click', function () { otworzSz(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') otworzSz(false); });
+
+  // ---- lupa ----
+  var lupa = document.getElementById('lupa');
+  document.addEventListener('click', function (e) {
+    var i = e.target;
+    if (i.tagName === 'IMG' && i.closest('.kadry')) {
+      lupa.querySelector('img').src = i.src; lupa.style.display = 'flex';
+    }
+  });
+  if (lupa) lupa.addEventListener('click', function () { lupa.style.display = 'none'; });
+
+  // ---- start ----
+  odswiezLicznik();
+  pobierz().then(function () { rysujWszystko(); doKotwicy(); });
+  setInterval(function () { pobierz().then(przerysuj); }, 45000);
+})();
+</script></body></html>

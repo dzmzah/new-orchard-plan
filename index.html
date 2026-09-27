@@ -1505,12 +1505,16 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
 
   // ---- tryb zespolu: tylko my widzimy przyciski statusu ----
+  // O trybie decyduje SAM ADRES, nic nie jest zapamietywane w przegladarce:
+  //   neworchard.zovu.pl         — widok Ani
+  //   neworchard.zovu.pl/zespol  — widok nasz
+  // Wczesniej tryb siedzial w pamieci przegladarki, wiec oba adresy
+  // pokazywaly to samo i nie dalo sie sprawdzic, co widzi Ania.
   var ZESPOL = false;
-  try {
-    if (location.search.indexOf('zespol=1') >= 0) localStorage.setItem(KLUCZ + ':zespol', '1');
-    if (location.search.indexOf('zespol=0') >= 0) localStorage.removeItem(KLUCZ + ':zespol');
-    ZESPOL = localStorage.getItem(KLUCZ + ':zespol') === '1';
-  } catch (e) {}
+  // stare linki z ?zespol=1 maja dalej dzialac
+  if (location.search.indexOf('zespol=1') >= 0) ZESPOL = true;
+  if (location.search.indexOf('zespol=0') >= 0) ZESPOL = false;
+  try { localStorage.removeItem(KLUCZ + ':zespol'); } catch (e) {}
 
   // ---- rozmowa z arkuszem ----
   var UWAGI = [];
