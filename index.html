@@ -227,6 +227,22 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   background:#2e6b9e;color:#fff;cursor:pointer}
 .pAkcept .zatw:disabled{opacity:.6}
 .pAkc{border-top:1px solid var(--ramka);padding-top:12px;margin:14px 0 0}
+.grupa{border:1px solid var(--ramka);border-left-width:4px;border-radius:5px;background:#fff;margin-bottom:14px;overflow:hidden}
+.grupa.nie{border-left-color:#c0392b}
+.grupa.robi{border-left-color:#d99a2b}
+.grupa.czeka{border-left-color:#2e6b9e}
+.grupa.gotowe{border-left-color:#3c5a46}
+.grGl{display:flex;align-items:center;gap:12px;padding:11px 13px;cursor:pointer;background:#fbfaf6;border-bottom:1px solid var(--ramka)}
+.grGl:hover{background:#f6f4ee}
+.grGl img{width:52px;height:65px;object-fit:cover;border-radius:3px;flex:none;background:#eee}
+.grBrak{width:52px;height:65px;border-radius:3px;background:#efece5;flex:none}
+.grOpis{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.grOpis b{font-size:15px;font-weight:500}
+.grData{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy)}
+.grOpis .pStan{align-self:flex-start;font-size:10px;padding:2px 9px}
+.grStrz{color:var(--cichy);font-size:18px;flex:none}
+.szTresc .grupa .uwEl{border:none;border-left:3px solid transparent;border-radius:0;margin:0;padding:12px 14px}
+.szTresc .grupa .uwEl + .uwEl{border-top:1px solid var(--ramka)}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1516,13 +1532,62 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       return ia - ib;
     });
     if (!lista.length) { cel.innerHTML = '<div class="ekr">Na razie nie ma zadnych uwag.</div>'; return; }
-    var h = '';
+
+    // grupujemy po poscie: jedna glowka z miniaturka, pod nia jej uwagi
+    var grupy = [], indeks = {};
     lista.forEach(function (u) {
-      h += '<div class="uwEl ' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
+      var g = miejsceDla(u.pozycja);
+      var k = g ? g.id : ('x' + klucz(u.pozycja));
+      if (!indeks[k]) { indeks[k] = { miejsce: g, pozycja: u.pozycja, uwagi: [] }; grupy.push(indeks[k]); }
+      indeks[k].uwagi.push(u);
+    });
+
+    var h = '';
+    grupy.forEach(function (g) {
+      var m = g.miejsce;
+      var st = m ? statusPostu(m.tytul) : null;
+      h += '<div class="grupa' + (st ? ' ' + stanKlasa(st) : '') + '">' +
+        '<div class="grGl" data-idzie="' + esc(m ? m.tytul : g.pozycja) + '">' +
+          (m && m.obraz ? '<img src="' + m.obraz + '" alt="" loading="lazy">' : '<span class="grBrak"></span>') +
+          '<div class="grOpis"><b>' + esc(m ? m.nazwa : g.pozycja) + '</b>' +
+            (m && m.data ? '<span class="grData">' + esc(m.data) + '</span>' : '') +
+            (st ? '<span class="pStan ' + stanKlasa(st) + '"><i></i>' + stanNazwa(st) + '</span>' : '') +
+          '</div><span class="grStrz">&rarr;</span></div>';
+      g.uwagi.forEach(function (u) {
+        h += wierszSzuflady(u);
+      });
+      h += '</div>';
+    });
+
+    var otwarte = lista.filter(function (u) { return u.status !== 'zrobione'; }).length;
+    cel.innerHTML = h + '<div class="ekr" style="margin-top:14px">Razem ' + lista.length +
+      ' uwag przy ' + grupy.length + ' pozycjach, otwartych ' + otwarte + '.</div>';
+  }
+
+  // gdzie ta uwaga siedzi na stronie: karta, nazwa, data i pierwszy kadr
+  function miejsceDla(pozycja) {
+    var pole = [].slice.call(document.querySelectorAll('.uw[data-tytul]'))
+      .filter(function (x) { return pasuje(x.dataset.tytul, pozycja); })[0];
+    if (!pole) return null;
+    var karta = pole.closest('.k');
+    if (!karta) return null;
+    var img = karta.querySelector('.kadry img');
+    var h3 = karta.querySelector('.gl h3');
+    var dat = karta.querySelector('.gl .dat');
+    return {
+      id: karta.id,
+      tytul: pole.dataset.tytul,
+      nazwa: h3 ? h3.textContent : pole.dataset.tytul,
+      data: dat ? dat.textContent : '',
+      obraz: img ? img.getAttribute('src') : null,
+    };
+  }
+
+  function wierszSzuflady(u) {
+    return '<div class="uwEl ' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
         '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
         (u.ocena ? '<span class="uwOc">' + esc(u.ocena) + '</span>' : '') +
         '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
-        '<div class="uwGdzie" data-idzie="' + esc(u.pozycja) + '">' + esc(u.pozycja) + ' →</div>' +
         '<div class="uwTxt">' + esc(u.uwaga).split('\n').join('<br>') + '</div>' +
         (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
         '<div class="uwAkc">' +
@@ -1533,10 +1598,6 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
               return '<button class="mini st' + (u.status === st.id ? ' akt' : '') + '" data-st="' + st.id + '">' + st.nazwa + '</button>';
             }).join('') + '<button class="mini odp">Odpowiedz</button>' : '') +
         '</div></div>';
-    });
-    var otwarte = lista.filter(function (u) { return u.status !== 'zrobione'; }).length;
-    cel.innerHTML = h + '<div class="ekr" style="margin-top:14px">Razem ' + lista.length +
-      ' uwag, otwartych ' + otwarte + '.</div>';
   }
 
   // status calego postu: najgorszy ze statusow jego uwag
@@ -1690,7 +1751,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 
   // klik w nazwe pozycji: zamykamy szuflade i skaczemy do tego miejsca
   document.addEventListener('click', function (e) {
-    var g = e.target.closest ? e.target.closest('.uwGdzie[data-idzie]') : null;
+    var g = e.target.closest ? e.target.closest('.uwGdzie[data-idzie], .grGl[data-idzie]') : null;
     if (!g) return;
     var tytul = g.dataset.idzie;
     var cel = [].slice.call(document.querySelectorAll('.uw,.wst'))
