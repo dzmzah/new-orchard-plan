@@ -109,6 +109,26 @@ h2.dzial{font-size:22px;font-weight:300;letter-spacing:.01em;text-transform:none
 table tr.gotowe td{background:#f4f9f5}
 table tr.robi td{background:#fdf8ee}
 table tr.suma td{background:#fffdf7;border-bottom:none}
+.uwLista{margin-bottom:12px}
+.uwEl{border-left:3px solid var(--ramka);padding:9px 0 9px 12px;margin-bottom:10px}
+.uwEl.nie{border-left-color:#c0392b}
+.uwEl.robi{border-left-color:#d99a2b}
+.uwEl.gotowe{border-left-color:#3c5a46}
+.uwGl{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.uwCzas{font-size:11px;color:var(--cichy);letter-spacing:.08em}
+.uwOc{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cichy);border:1px solid var(--ramka);border-radius:10px;padding:1px 8px}
+.uwSt{font-size:11px;letter-spacing:.06em;color:var(--cichy);display:inline-flex;align-items:center;gap:6px}
+.uwSt i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.uwEl.nie .uwSt i{background:#c0392b}
+.uwEl.robi .uwSt i{background:#d99a2b}
+.uwEl.gotowe .uwSt i{background:#3c5a46}
+.uwTxt{font-size:15px;white-space:pre-wrap}
+.uwOdp{font-size:14px;color:#4a463e;background:#fbfaf6;border-radius:4px;padding:8px 11px;margin-top:7px}
+.uwAkc{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.mini{font:12px inherit;padding:4px 11px;border-radius:14px;border:1px solid var(--ramka);background:#fff;color:var(--cichy);cursor:pointer}
+.mini:hover{border-color:var(--akcent);color:var(--akcent)}
+.mini.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.uwSep{width:1px;height:16px;background:var(--ramka);margin:0 3px}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1186,180 +1206,13 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     <div class="zap"></div>
   </div>
 </section></div><div class="sek" id="sek-uwagi" hidden><h2 class="dzial">Twoje uwagi</h2><div class="jak" style="margin:0 0 16px">
-  Wszystko, co nam powiedzialas, w jednym miejscu i z kolorem:
+  Wszystko, co nam napisalas, w jednym miejscu i z kolorem:
   <b class="kol nie">czerwone</b> jeszcze nie zrobione,
   <b class="kol robi">zolte</b> wzielismy do pracy,
   <b class="kol gotowe">zielone</b> zrobione.
-  Nic stad nie znika i nie trzeba tego szukac po czatach.</div>
-<div class="tabOtocz"><table class="rejT">
-  <tr><th>Kiedy</th><th>Czego dotyczy</th><th>Twoja uwaga</th><th>Co zrobilismy</th><th>Status</th></tr><tr class="nie">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">nd 27.09 — Pre-order czerwona spodnica</td>
-    <td><span class="oc">Do poprawki</span> Tutaj pierwotnie miala byc karuzela — wezcie te klatki z planu 15.10.</td>
-    <td class="na">Jeszcze nie zrobione. Karuzela z klatek z 15.10 jest w robocie.</td>
-    <td class="sta"><span class="kropka"></span>nie zrobione</td>
-  </tr><tr class="nie">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">Tak bedzie wygladal profil</td>
-    <td>Nie podoba mi sie ten z dn 2.10 — wczesniej cos innego bylo w planie, mozemy trzymac sie ustalonego wczesniej feedu?</td>
-    <td class="na">Jeszcze nie zrobione. Wracamy do wczesniejszej kolejnosci feedu i wymieniamy kadr z 02.10.</td>
-    <td class="sta"><span class="kropka"></span>nie zrobione</td>
-  </tr><tr class="nie">
-    <td class="ki">23.09 rozmowa</td>
-    <td class="cz">sob 03.10 — Cold feet</td>
-    <td><span class="oc">Do poprawki</span> Zupelnie inny but, do wymiany.</td>
-    <td class="na">Jeszcze nie zrobione. Podmieniamy na Wasz packshot ze sklepu.</td>
-    <td class="sta"><span class="kropka"></span>nie zrobione</td>
-  </tr><tr class="nie">
-    <td class="ki">23.09 rozmowa</td>
-    <td class="cz">nd 04.10 — World Animal Day</td>
-    <td><span class="oc">Do poprawki</span> Przod troche za dlugi, jakby modelka miala bardzo duzy rozmiar stopy.</td>
-    <td class="na">Jeszcze nie zrobione. Tak samo, podmiana na Wasz packshot.</td>
-    <td class="sta"><span class="kropka"></span>nie zrobione</td>
-  </tr><tr class="robi">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">sob 26.09 — One boot three heights</td>
-    <td><span class="oc">Jest ok</span> </td>
-    <td class="na">Kadr zmieniony na Wasz z przedpokoju, bo dzinsy zaburzaly feed. Post przeniesiony na wt 29.09 o 14:30.</td>
-    <td class="sta"><span class="kropka"></span>w robocie</td>
-  </tr><tr class="robi">
-    <td class="ki">27.09 wieczor</td>
-    <td class="cz">sr 30.09 — 39 czy 40</td>
-    <td>Mielismy probowac rozkrecic dyskusje pod postem, moderowana prawdopodobnie.</td>
-    <td class="na">Tak robimy: pierwszy komentarz nasz, a przez trzy godziny po publikacji odpowiadamy kazdemu w ciagu godziny.</td>
-    <td class="sta"><span class="kropka"></span>w robocie</td>
-  </tr><tr class="robi">
-    <td class="ki">27.09 czat</td>
-    <td class="cz">Mailing</td>
-    <td>Logo jest nie nasze, sprawdzcie fonty z brandbookiem. W Klaviyo sa gotowe templatey.</td>
-    <td class="na">Sprawdzone, masz racje: logo bylo zlozone z tekstu, a font nie byl ustawiony wcale. Przerabiamy na Wasz szablon z Klaviyo.</td>
-    <td class="sta"><span class="kropka"></span>w robocie</td>
-  </tr><tr class="robi">
-    <td class="ki">27.09 czat</td>
-    <td class="cz">Mailing</td>
-    <td>Najpierw newsletter powitalny z prosba o review, spodnica jako drugi, za tydzien.</td>
-    <td class="na">Przyjete. Czekamy na Twoj tekst do powitalnego.</td>
-    <td class="sta"><span class="kropka"></span>w robocie</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">pt 25.09 — Co jest w srodku</td>
-    <td><span class="oc">Jest ok</span> </td>
-    <td class="na">Dziekujemy. Post poszedl 25.09 o 17:00.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">pon 28.09 — Ankieta Short / Mid / Long</td>
-    <td><span class="oc">Jest ok</span> </td>
-    <td class="na">Plansze gotowe, sa w zakladce Stories.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">nd 27.09 — Pre-order czerwona spodnica</td>
-    <td><span class="oc">Do poprawki</span> Uzyjcie naszych zdjec z sesji, nie AI.</td>
-    <td class="na">Kadr jest juz Wasz, ze sklepu, z jesiennej sesji. Zero generowania.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">nd 27.09 — Pre-order czerwona spodnica</td>
-    <td><span class="oc">Do poprawki</span> COPY wole to co bylo we wczesniejszych propozycjach: She is back. Five per size. Missed her last time? Preorder now. The next batch is already in production.</td>
-    <td class="na">Wklejone doslownie, slowo w slowo.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">wt 29.09 — Removable insole</td>
-    <td><span class="oc">Do poprawki</span> Do tego juz dawalam poprawki do copy i nie sa tu uwzglednione.</td>
-    <td class="na">Masz racje, przeoczylismy. Chodzilo o punkt 6 z Twojego maila z 22.09: sa DWIE wymienne wkladki. Copy przepisane.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 20:16</td>
-    <td class="cz">sr 30.09 — 39 czy 40</td>
-    <td>Co ten text w ogole znaczy? Ten post mial byc o tym, ze jesli wahasz sie miedzy rozmiarami to pomozemy dobrac.</td>
-    <td class="na">Zgubilismy sens przy przepisywaniu. Twoje copy wklejone doslownie.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 czat</td>
-    <td class="cz">Posty</td>
-    <td>Musisz linkowac produkty w postach.</td>
-    <td class="na">Katalog jest podpiety, 88 pozycji zatwierdzonych, Instagram to aktywny kanal. Przy kazdym poscie sa juz konkretne produkty do oznaczenia.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 czat</td>
-    <td class="cz">Caly dokument</td>
-    <td>Musimy pracowac na JEDNYM dokumencie, nie chce kolejnych linkow.</td>
-    <td class="na">Ta strona. Adres sie nie zmienia, zaden plik wiecej nie idzie.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 czat</td>
-    <td class="cz">Copy</td>
-    <td>Nie podobaja mi sie copy, nie czuje tego. Wgrajcie posty z naszych ostatnich 2 miesiecy.</td>
-    <td class="na">Przeczytalismy Wasze podpisy z lipca i sierpnia i przepisalismy wszystkie teksty na Wasz jezyk.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">27.09 czat</td>
-    <td class="cz">Caly dokument</td>
-    <td>Powinna byc mozliwosc dodania czegos miedzy postami.</td>
-    <td class="na">Miedzy kazdymi dwoma postami jest przycisk „dodaj cos tutaj”.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">23.09 rozmowa</td>
-    <td class="cz">Caly dokument</td>
-    <td>Te uwagi co daje — znikaja. Musza byc w historii.</td>
-    <td class="na">Zrobione. Ta tabela jest ta historia i zostaje na stronie.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">23.09 rozmowa</td>
-    <td class="cz">Reklama</td>
-    <td>Zeby byl zawsze podglad, ile juz wydane.</td>
-    <td class="na">Zrobione, zakladka Wydatki.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr><tr class="gotowe">
-    <td class="ki">22.09 mail</td>
-    <td class="cz">pt 02.10 — Recznie szyte we Wloszech</td>
-    <td>Italian handmade mozemy pokazywac mocniej: materialy z Europy, nie z Chin, tradycje od pokolen.</td>
-    <td class="na">Copy przepisane na te fakty.</td>
-    <td class="sta"><span class="kropka"></span>zrobione</td>
-  </tr></table></div><div class="jak" style="margin:0 0 16px">Wszystko, co nam powiedzialas &mdash; z rozmowy, z czatu i z maila &mdash;
-i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div><div class="rej"><div class="hi ok">
-    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
-    <blockquote>Tam te uwagi co daje &mdash; znikaja. Jezeli mam dawac uwagi, to one musza byc w takiej historii.</blockquote><p>Zrobione. Teraz wszystko jest na tej stronie i zostaje przy poscie.</p></div><div class="hi ok">
-    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
-    <blockquote>Mozemy zrobic zakladke Kalendarz i ten podglad feedu chcialabym miec.</blockquote><p>Zrobione. Zakladka Feed pokazuje cala siatke profilu, a Posty ida po kolei po datach.</p></div><div class="hi ok">
-    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
-    <blockquote>Spodnice mozna juz dzisiaj wrzucac albo jutro.</blockquote><p>Nasz blad &mdash; stala w planie na 27.10, miesiac za pozno. Poprawione.</p></div><div class="hi ok">
-    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
-    <blockquote>Po prostu usuncie ten post adoption stories, chce pokazac prawdziwych ludzi w parku, z psami.</blockquote><p>Stary usuniety. Nowy zrobiony na Twoim materiale &mdash; Patricia i Oscar.</p></div><div class="hi ">
-    <div class="hk">23.09 rozmowa <span class="hs">jeszcze robimy</span></div>
-    <blockquote>Do podmiany te buty, co napisalam. (02.10 i 04.10)</blockquote><p>Jeszcze nie zamkniete. Podmieniamy na Wasze packshoty ze sklepu, nie przegenerowujemy.</p></div><div class="hi ok">
-    <div class="hk">23.09 rozmowa <span class="hs">zrobione</span></div>
-    <blockquote>Zeby byl zawsze podglad, ile juz wydane na reklame.</blockquote><p>Zrobione, zakladka Wydatki. Aktualizujemy co dwa dni.</p></div><div class="hi ok">
-    <div class="hk">24.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Wezcie nogi w butach z tego lookbooka.</blockquote><p>Zrobione, kadry z Waszego lookbooka.</p></div><div class="hi ok">
-    <div class="hk">26.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Zmienilabym kolejnosc klatek: krotki, sredni, wysoki.</blockquote><p>Zrobione, post otwiera krotki.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Ta spodnica zle wyglada &mdash; nie nasza.</blockquote><p>Post zdjety tego samego dnia. Kadr zastapiony Waszym zdjeciem ze sklepu.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>AI przerabia produkty tak, ze nie wygladaja jak nasze.</blockquote><p>Przyjete jako zasada, jest w zakladce Strategia.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Musisz linkowac produkty w postach.</blockquote><p>Przy kazdym poscie sa juz konkretne produkty do oznaczenia.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Musimy pracowac na JEDNYM dokumencie.</blockquote><p>Ta strona. Zaden plik wiecej nie idzie.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Nie podobaja mi sie copy, nie czuje tego. Wgrajcie posty z naszych ostatnich 2 miesiecy.</blockquote><p>Zrobione. Przeczytalismy Wasze podpisy z lipca i sierpnia i przepisalismy wszystkie teksty na Wasz jezyk.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Ankieta Short / Mid / Long wypadla z planu.</blockquote><p>Wraca na 28.09 w Stories razem z zaproszeniem na liste.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Macie w ogole gotowy email do mejlingu?</blockquote><p>Tak, EN i DE. Jest w zakladce Mailing, mozna go otworzyc i przeczytac.</p></div><div class="hi ">
-    <div class="hk">27.09 czat <span class="hs">jeszcze robimy</span></div>
-    <blockquote>Logo jest nie nasze, sprawdzcie fonty z brandbookiem.</blockquote><p>Masz racje &mdash; logo bylo zlozone z tekstu, a font nie byl ustawiony wcale. Przerabiamy list na Wasz szablon z Klaviyo.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Najpierw zatwierdzamy feed i plan publikacji, potem dopracowujemy szczegoly.</blockquote><p>Tak robimy. Zakladka Feed jest pierwsza i to od niej zaczynamy.</p></div><div class="hi ok">
-    <div class="hk">27.09 czat <span class="hs">zrobione</span></div>
-    <blockquote>Powinna byc mozliwosc dodania czegos miedzy postami.</blockquote><p>Zrobione. Miedzy kazdymi dwoma postami jest przycisk &bdquo;dodaj cos tutaj&rdquo;.</p></div><div class="hi ok">
-    <div class="hk">22.09 mail <span class="hs">zrobione</span></div>
-    <blockquote>Reklamy porownawczej z UGG raczej nie powinnismy robic.</blockquote><p>Zgoda, nie robimy w platnej reklamie.</p></div><div class="hi ok">
-    <div class="hk">22.09 mail <span class="hs">zrobione</span></div>
-    <blockquote>Sa dwie wymienne wkladki, klasyczna z futerkiem i cienka bez.</blockquote><p>Przeoczylismy to wczesniej. Copy do 29.09 przepisane.</p></div></div></div><div class="sek" id="sek-wydatki" hidden><h2 class="dzial">Wydatki</h2>
+  Uwage mozesz w kazdej chwili poprawic albo wycofac &mdash; przyciski sa przy niej, przy poscie.
+  Nic stad nie znika.</div>
+<div id="tabUwag"><div class="ekr">Wczytuje uwagi...</div></div></div><div class="sek" id="sek-wydatki" hidden><h2 class="dzial">Wydatki</h2>
 <section class="k" id="w-budzet">
   <div class="gl"><h3>Ile wydane na reklame</h3></div>
   <p class="co">Prosilas o to 23.09: &bdquo;zeby byl zawsze podglad, ile juz wydane&rdquo;. Aktualizujemy co dwa dni.</p>
@@ -1411,44 +1264,149 @@ i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div
   <textarea id="tresc" readonly></textarea>
   <div class="r"><button id="zamknij">Zamknij</button><button class="pr" id="kop2">Wyslij uwagi</button></div></div></div>
 <script>(function () {
-  var FORMULARZ = 'https://docs.google.com/forms/d/e/1FAIpQLSfXUDJxtEYE5RAiDyHYWxn-geG9OvXuQLmq-AbZs6R5tc2i8w/formResponse';
-  var POLA = { pozycja: 'entry.870198872', ocena: 'entry.1078469807', uwaga: 'entry.1887617065' };
+  var MOST = 'https://script.google.com/macros/s/AKfycbyLbLzV8xSBz_67Lk9igL_lnt-qzsZbGwgGUdjZ9oP-6dPc6hb93HGuG5BMnyzo54yD/exec';          // Apps Script: czyta i zapisuje do arkusza
+  var TOKEN = 'no2026';
   var KLUCZ = 'no-strona';
 
-  // ---- pamiec przegladarki: co juz zaznaczyla i co juz poszlo do nas ----
-  function czytaj(k) { try { return JSON.parse(localStorage.getItem(KLUCZ + ':' + k) || '{}'); } catch (e) { return {}; } }
-  function pisz(k, v) { try { localStorage.setItem(KLUCZ + ':' + k, JSON.stringify(v)); } catch (e) {} }
-  var stan = czytaj('stan');     // id -> {ocena, tekst}
-  var wyslane = czytaj('wyslane'); // id -> podpis tego, co juz poszlo
+  var STATUSY = [
+    { id: 'nowa', nazwa: 'nie zrobione', klasa: 'nie' },
+    { id: 'w robocie', nazwa: 'w robocie', klasa: 'robi' },
+    { id: 'zrobione', nazwa: 'zrobione', klasa: 'gotowe' },
+  ];
+  function stanKlasa(s) {
+    var z = STATUSY.filter(function (x) { return x.id === s; })[0];
+    return z ? z.klasa : 'nie';
+  }
+  function stanNazwa(s) {
+    var z = STATUSY.filter(function (x) { return x.id === s; })[0];
+    return z ? z.nazwa : 'nie zrobione';
+  }
 
-  // ---- wysylka do formularza ----
-  function przezRamke(p) {
-    var r = document.createElement('iframe');
-    r.name = 'r' + Date.now(); r.style.display = 'none';
-    document.body.appendChild(r);
-    var f = document.createElement('form');
-    f.action = FORMULARZ; f.method = 'POST'; f.target = r.name; f.style.display = 'none';
-    p.forEach(function (v, k) {
-      var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; f.appendChild(i);
+  // ---- tryb zespolu: tylko my widzimy przyciski statusu ----
+  var ZESPOL = false;
+  try {
+    if (location.search.indexOf('zespol=1') >= 0) localStorage.setItem(KLUCZ + ':zespol', '1');
+    if (location.search.indexOf('zespol=0') >= 0) localStorage.removeItem(KLUCZ + ':zespol');
+    ZESPOL = localStorage.getItem(KLUCZ + ':zespol') === '1';
+  } catch (e) {}
+
+  // ---- rozmowa z arkuszem ----
+  var UWAGI = [];
+  function pobierz() {
+    return fetch(MOST, { method: 'GET' }).then(function (r) { return r.json(); })
+      .then(function (j) { if (j && j.ok) { UWAGI = j.uwagi || []; } return UWAGI; })
+      ['catch'](function () { return UWAGI; });
+  }
+  function wyslij(dane) {
+    dane.token = TOKEN;
+    return fetch(MOST, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(dane),
+    }).then(function (r) { return r.json(); })
+      .then(function (j) { if (j && j.ok) { UWAGI = j.uwagi || []; rysujWszystko(); } return j; });
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // ---- uwagi przy konkretnej pozycji ----
+  function dla(tytul) {
+    return UWAGI.filter(function (u) { return u.pozycja === tytul && u.status !== 'cofnieta'; });
+  }
+
+  function wierszUwagi(u) {
+    var kl = stanKlasa(u.status);
+    var h = '<div class="uwEl ' + kl + '" data-nr="' + u.nr + '">' +
+      '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + '</span>' +
+      (u.ocena ? '<span class="uwOc">' + esc(u.ocena) + '</span>' : '') +
+      '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
+      '<div class="uwTxt">' + esc(u.uwaga).replace(/\n/g, '<br>') + '</div>' +
+      (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
+      '<div class="uwAkc">' +
+        '<button class="mini edy">Popraw</button>' +
+        '<button class="mini cof">Wycofaj</button>';
+    if (ZESPOL) {
+      h += '<span class="uwSep"></span>';
+      STATUSY.forEach(function (s) {
+        h += '<button class="mini st' + (u.status === s.id ? ' akt' : '') + '" data-st="' + s.id + '">' + s.nazwa + '</button>';
+      });
+      h += '<button class="mini odp">Odpowiedz</button>';
+    }
+    h += '</div></div>';
+    return h;
+  }
+
+  function rysujPrzyPostach() {
+    [].slice.call(document.querySelectorAll('.uw')).forEach(function (u) {
+      var tytul = u.dataset.tytul;
+      var lista = u.querySelector('.uwLista');
+      if (!lista) {
+        lista = document.createElement('div');
+        lista.className = 'uwLista';
+        u.insertBefore(lista, u.firstChild);
+      }
+      var moje = dla(tytul);
+      lista.innerHTML = moje.length ? moje.map(wierszUwagi).join('') : '';
     });
-    document.body.appendChild(f); f.submit();
-    setTimeout(function () { f.remove(); r.remove(); }, 4000);
   }
-  function slij(poz, ocena, uwaga) {
-    var p = new URLSearchParams();
-    p.append(POLA.pozycja, poz);
-    if (ocena) p.append(POLA.ocena, ocena);
-    if (uwaga) p.append(POLA.uwaga, uwaga);
-    try {
-      fetch(FORMULARZ, { method: 'POST', mode: 'no-cors', body: p })['catch'](function () { przezRamke(p); });
-    } catch (e) { przezRamke(p); }
+
+  // ---- tabela w zakladce Twoje uwagi ----
+  function rysujTabele() {
+    var cel = document.getElementById('tabUwag');
+    if (!cel) return;
+    var lista = UWAGI.filter(function (u) { return u.status !== 'cofnieta' && (u.uwaga || u.ocena); });
+    var porz = { 'nowa': 0, '': 0, 'w robocie': 1, 'zrobione': 2 };
+    lista.sort(function (a, b) { return (porz[a.status] || 0) - (porz[b.status] || 0); });
+    var h = '<table class="rejT"><tr><th>Kiedy</th><th>Czego dotyczy</th><th>Uwaga</th><th>Co zrobilismy</th><th>Status</th></tr>';
+    lista.forEach(function (u) {
+      h += '<tr class="' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
+        '<td class="ki">' + esc(u.czas) + '</td>' +
+        '<td class="cz">' + esc(u.pozycja) + '</td>' +
+        '<td>' + (u.ocena ? '<span class="oc">' + esc(u.ocena) + '</span> ' : '') + esc(u.uwaga) + '</td>' +
+        '<td class="na">' + esc(u.odpowiedz) + '</td>' +
+        '<td class="sta"><span class="kropka"></span>' + stanNazwa(u.status) + '</td></tr>';
+    });
+    h += '</table>';
+    var licz = lista.filter(function (u) { return u.status !== 'zrobione'; }).length;
+    cel.innerHTML = '<div class="tabOtocz">' + h + '</div>' +
+      '<div class="ekr" style="margin-top:10px">Razem ' + lista.length + ' uwag, otwartych ' + licz + '.</div>';
   }
+
+  function rysujWszystko() { rysujPrzyPostach(); rysujTabele(); odswiezLicznik(); }
+
+  // ---- akcje na uwagach ----
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.mini') : null;
+    if (!b) return;
+    var el = b.closest('.uwEl');
+    if (!el) return;
+    var nr = +el.dataset.nr;
+    var u = UWAGI.filter(function (x) { return x.nr === nr; })[0];
+    if (!u) return;
+
+    if (b.classList.contains('edy')) {
+      var nowy = prompt('Popraw swoja uwage:', u.uwaga);
+      if (nowy === null) return;
+      b.disabled = true;
+      wyslij({ akcja: 'edytuj', nr: nr, ocena: u.ocena, uwaga: nowy });
+    } else if (b.classList.contains('cof')) {
+      if (!confirm('Wycofac te uwage?')) return;
+      wyslij({ akcja: 'usun', nr: nr });
+    } else if (b.classList.contains('st')) {
+      wyslij({ akcja: 'status', nr: nr, status: b.dataset.st });
+    } else if (b.classList.contains('odp')) {
+      var o = prompt('Nasza odpowiedz:', u.odpowiedz || '');
+      if (o === null) return;
+      wyslij({ akcja: 'status', nr: nr, status: u.status || 'w robocie', odpowiedz: o });
+    }
+  });
 
   // ---- zakladki ----
   function pokazSekcje(id) {
-    [].slice.call(document.querySelectorAll('.sek')).forEach(function (s) {
-      s.hidden = s.id !== 'sek-' + id;
-    });
+    [].slice.call(document.querySelectorAll('.sek')).forEach(function (s) { s.hidden = s.id !== 'sek-' + id; });
     [].slice.call(document.querySelectorAll('.naw .zak')).forEach(function (b) {
       b.classList.toggle('akt', b.dataset.sek === id);
     });
@@ -1458,24 +1416,10 @@ i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div
     b.addEventListener('click', function () { pokazSekcje(b.dataset.sek); window.scrollTo(0, 0); });
   });
   try {
-    var zapZak = localStorage.getItem(KLUCZ + ':zak');
-    if (zapZak && document.getElementById('sek-' + zapZak)) pokazSekcje(zapZak);
+    var z = localStorage.getItem(KLUCZ + ':zak');
+    if (z && document.getElementById('sek-' + z)) pokazSekcje(z);
   } catch (e) {}
 
-  // link z kotwica, np. #p-05 — otwieramy zakladke, w ktorej ten element lezy, i przewijamy
-  function doKotwicy() {
-    var h = (location.hash || '').replace('#', '');
-    if (!h) return;
-    var cel = document.getElementById(h);
-    if (!cel) return;
-    var sek = cel.closest ? cel.closest('.sek') : null;
-    if (sek) pokazSekcje(sek.id.replace('sek-', ''));
-    setTimeout(function () { cel.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80);
-  }
-  doKotwicy();
-  window.addEventListener('hashchange', doKotwicy);
-
-  // z siatki feedu skok do konkretnego postu
   [].slice.call(document.querySelectorAll('.siatka .sk')).forEach(function (a) {
     a.addEventListener('click', function (e) {
       e.preventDefault();
@@ -1485,114 +1429,116 @@ i co z tym zrobilismy. Zielone to zamkniete, pomaranczowe to jeszcze u nas.</div
     });
   });
 
-  // ---- wstawki miedzy postami ----
-  [].slice.call(document.querySelectorAll('.wst')).forEach(function (w, n) {
-    var id = 'wst-' + n;
-    w.dataset.id = id;
-    var ta = w.querySelector('textarea');
-    var s = stan[id] || {};
-    if (s.tekst) { ta.value = s.tekst; w.classList.add('otw'); }
-    if (wyslane[id]) { var z = w.querySelector('.zap'); z.textContent = 'Zapisane u nas ✓'; z.classList.add('jest'); w.classList.add('otw'); }
-    w.querySelector('.wstB').addEventListener('click', function () { w.classList.toggle('otw'); if (w.classList.contains('otw')) ta.focus(); });
-    ta.addEventListener('input', function () {
-      stan[id] = { ocena: '', tekst: ta.value };
-      pisz('stan', stan); odswiezLicznik();
-    });
-  });
-
-  // ---- karty ----
-  var karty = [].slice.call(document.querySelectorAll('.uw')).concat([].slice.call(document.querySelectorAll('.wst')));
-
-  function odswiezLicznik() {
-    var n = karty.filter(function (u) { var s = stan[u.dataset.id]; return s && (s.ocena || (s.tekst || '').trim()); }).length;
-    var t = n === 0 ? 'Nic jeszcze nie zaznaczone' : n + (n === 1 ? ' uwaga gotowa do wyslania' : (n < 5 ? ' uwagi gotowe do wyslania' : ' uwag gotowych do wyslania'));
-    var l = document.getElementById('licz'); if (l) l.textContent = t;
+  function doKotwicy() {
+    var h = (location.hash || '').replace('#', '');
+    if (!h) return;
+    var cel = document.getElementById(h);
+    if (!cel) return;
+    var sek = cel.closest ? cel.closest('.sek') : null;
+    if (sek) pokazSekcje(sek.id.replace('sek-', ''));
+    setTimeout(function () { cel.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 80);
   }
 
-  karty.forEach(function (u) {
+  // ---- pisanie nowej uwagi ----
+  var szkic = {};
+  try { szkic = JSON.parse(localStorage.getItem(KLUCZ + ':szkic') || '{}'); } catch (e) {}
+  function zapiszSzkic() { try { localStorage.setItem(KLUCZ + ':szkic', JSON.stringify(szkic)); } catch (e) {} }
+
+  var pola = [].slice.call(document.querySelectorAll('.uw')).concat([].slice.call(document.querySelectorAll('.wst')));
+  pola.forEach(function (u, n) {
+    if (!u.dataset.id) u.dataset.id = 'wst-' + n;
     var id = u.dataset.id;
     var ta = u.querySelector('textarea');
-    var zap = u.querySelector('.zap');
-    var s = stan[id] || {};
-    if (s.tekst) ta.value = s.tekst;
+    var s = szkic[id] || {};
+    if (s.tekst) { ta.value = s.tekst; if (u.classList.contains('wst')) u.classList.add('otw'); }
     if (s.ocena) {
-      var b = u.querySelector('button[data-st="' + s.ocena + '"]');
-      if (b) b.classList.add('akt');
+      var bb = u.querySelector('button[data-st="' + s.ocena + '"]');
+      if (bb) bb.classList.add('akt');
     }
-    if (wyslane[id]) { zap.textContent = 'Zapisane u nas ✓'; zap.classList.add('jest'); }
-
     u.querySelectorAll('.uwbtn button').forEach(function (b) {
       b.addEventListener('click', function () {
         var byl = b.classList.contains('akt');
         u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
         if (!byl) b.classList.add('akt');
-        stan[id] = { ocena: byl ? '' : b.dataset.st, tekst: ta.value };
-        pisz('stan', stan); odswiezLicznik();
+        szkic[id] = { ocena: byl ? '' : b.dataset.st, tekst: ta.value };
+        zapiszSzkic(); odswiezLicznik();
       });
     });
     ta.addEventListener('input', function () {
       var akt = u.querySelector('.uwbtn button.akt');
-      stan[id] = { ocena: akt ? akt.dataset.st : '', tekst: ta.value };
-      pisz('stan', stan); odswiezLicznik();
+      szkic[id] = { ocena: akt ? akt.dataset.st : '', tekst: ta.value };
+      zapiszSzkic(); odswiezLicznik();
     });
+    var przyc = u.querySelector('.wstB');
+    if (przyc) przyc.addEventListener('click', function () { u.classList.toggle('otw'); if (u.classList.contains('otw')) ta.focus(); });
   });
-  odswiezLicznik();
 
-  // ---- wyslij wszystko ----
+  function odswiezLicznik() {
+    var n = pola.filter(function (u) {
+      var s = szkic[u.dataset.id];
+      return s && (s.ocena || (s.tekst || '').trim());
+    }).length;
+    var l = document.getElementById('licz');
+    if (!l) return;
+    l.textContent = n === 0 ? 'Nic nowego nie napisane'
+      : n + (n === 1 ? ' uwaga gotowa do wyslania' : ' uwag gotowych do wyslania');
+  }
+
   function etykieta(o) { return o === 'ok' ? 'Jest ok' : (o === 'zmiana' ? 'Do poprawki' : ''); }
 
   function wyslijWszystko() {
-    var ile = 0;
-    karty.forEach(function (u) {
-      var id = u.dataset.id;
-      var s = stan[id] || {};
-      var txt = (s.tekst || '').trim();
-      if (!s.ocena && !txt) return;
-      var podpis = (s.ocena || '') + '|' + txt;
-      if (wyslane[id] === podpis) return;       // juz poszlo, nie dublujemy
-      slij(u.dataset.tytul, etykieta(s.ocena), txt);
-      wyslane[id] = podpis;
-      var zap = u.querySelector('.zap');
-      zap.textContent = 'Zapisane u nas ✓'; zap.classList.add('jest');
-      ile++;
+    var doWyslania = pola.filter(function (u) {
+      var s = szkic[u.dataset.id] || {};
+      return s.ocena || (s.tekst || '').trim();
     });
-    pisz('wyslane', wyslane);
+    if (!doWyslania.length) return;
     var l = document.getElementById('licz');
-    if (l) l.textContent = ile ? 'Wyslane, dziekujemy ✓' : 'Wszystko juz u nas ✓';
-    setTimeout(odswiezLicznik, 4000);
+    if (l) l.textContent = 'Wysylam...';
+    var kolejka = doWyslania.map(function (u) {
+      var s = szkic[u.dataset.id] || {};
+      return { akcja: 'dodaj', pozycja: u.dataset.tytul, ocena: etykieta(s.ocena), uwaga: (s.tekst || '').trim(), kto: ZESPOL ? 'ZOVU' : 'Ania' };
+    });
+    (function nastepna(i) {
+      if (i >= kolejka.length) {
+        doWyslania.forEach(function (u) {
+          delete szkic[u.dataset.id];
+          u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
+          u.querySelector('textarea').value = '';
+          var zap = u.querySelector('.zap');
+          if (zap) { zap.textContent = 'Zapisane na stronie ✓'; zap.classList.add('jest'); }
+        });
+        zapiszSzkic();
+        if (l) l.textContent = 'Zapisane ✓';
+        setTimeout(odswiezLicznik, 3000);
+        return;
+      }
+      wyslij(kolejka[i]).then(function () { nastepna(i + 1); })
+        ['catch'](function () { if (l) l.textContent = 'Nie udalo sie wyslac, sprobuj jeszcze raz'; });
+    })(0);
   }
 
-  document.getElementById('kop').addEventListener('click', wyslijWszystko);
+  var kop = document.getElementById('kop');
+  if (kop) kop.addEventListener('click', wyslijWszystko);
   [].slice.call(document.querySelectorAll('.duzy.kop')).forEach(function (b) {
     b.addEventListener('click', wyslijWszystko);
   });
 
-  // ---- podglad wszystkich uwag ----
-  function zbierz() {
-    var cz = [];
-    karty.forEach(function (u) {
-      var s = stan[u.dataset.id] || {};
-      var txt = (s.tekst || '').trim();
-      if (!s.ocena && !txt) return;
-      cz.push(u.dataset.tytul + '\n  ' + (etykieta(s.ocena) || '(bez oceny)') + (txt ? '\n  ' + txt : ''));
-    });
-    return cz.length ? cz.join('\n\n') : 'Nic jeszcze nie zaznaczone.';
-  }
-  var okno = document.getElementById('okno');
-  document.getElementById('pob').addEventListener('click', function () {
-    document.getElementById('tresc').value = zbierz();
-    okno.style.display = 'flex';
-  });
-  document.getElementById('zamknij').addEventListener('click', function () { okno.style.display = 'none'; });
-  document.getElementById('kop2').addEventListener('click', function () { wyslijWszystko(); okno.style.display = 'none'; });
+  var pob = document.getElementById('pob');
+  if (pob) pob.addEventListener('click', function () { pokazSekcje('uwagi'); window.scrollTo(0, 0); });
 
-  // ---- lupa na kadry ----
+  // ---- lupa ----
   var lupa = document.getElementById('lupa');
-  document.querySelectorAll('.kadry img').forEach(function (i) {
-    i.addEventListener('click', function () {
+  document.addEventListener('click', function (e) {
+    var i = e.target;
+    if (i.tagName === 'IMG' && i.closest('.kadry')) {
       lupa.querySelector('img').src = i.src; lupa.style.display = 'flex';
-    });
+    }
   });
-  lupa.addEventListener('click', function () { lupa.style.display = 'none'; });
+  if (lupa) lupa.addEventListener('click', function () { lupa.style.display = 'none'; });
+
+  // ---- start ----
+  odswiezLicznik();
+  pobierz().then(function () { rysujWszystko(); doKotwicy(); });
+  setInterval(function () { pobierz().then(rysujWszystko); }, 45000);
 })();
 </script></body></html>
