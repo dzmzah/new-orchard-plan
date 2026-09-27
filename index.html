@@ -1719,13 +1719,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       '<div class="uwAkc">' +
         (ZESPOL ? '<button class="mini edy">Popraw</button>' +
                   '<button class="mini cof">Wycofaj</button>' : '');
-    if (ZESPOL) {
-      h += '<span class="uwSep"></span>';
-      STATUSY.forEach(function (s) {
-        h += '<button class="mini st' + (u.status === s.id ? ' akt' : '') + '" data-st="' + s.id + '">' + s.nazwa + '</button>';
-      });
-      h += '<button class="mini odp">Odpowiedz</button>';
-    }
+    // Stany stoja raz, w pasku "ten post" nad karta. Powtarzanie ich przy
+    // kazdej uwadze dawalo te sama liste dwa razy pod rzad.
+    if (ZESPOL) h += '<button class="mini odp">Odpowiedz</button>';
     h += '</div></div>';
     return h;
   }
