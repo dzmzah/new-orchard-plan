@@ -169,7 +169,7 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .k.p-nie{border-left:4px solid #c0392b}
 .k.p-robi{border-left:4px solid #d99a2b}
 .k.p-gotowe{border-left:4px solid #3c5a46}
-.siatka .sk.nie::after,.siatka .sk.robi::after,.siatka .sk.gotowe::after{
+.siatka .sk.nie::after,.siatka .sk.robi::after,.siatka .sk.czeka::after,.siatka .sk.gotowe::after,.siatka .sk.popr::after{
   content:'';position:absolute;top:7px;right:7px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
 .siatka .sk.nie::after{background:#c0392b}
 .siatka .sk.robi::after{background:#d99a2b}
@@ -297,6 +297,42 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 
 /* napis na zalanym przycisku musi byc bialy — inaczej znika w tle */
 .mini.st.akt,.mini.pst.akt,.mini.st.akt:hover,.mini.pst.akt:hover{color:#fff!important}
+
+/* zatwierdzone — salatowy zamiast ciemnej zieleni.
+   Na tak jasnym tle bialy napis znika, wiec tekst jest ciemny (kontrast 6,2). */
+.pStan.gotowe{background:#6ac52c;color:#12300a}   .pStan.gotowe i{background:#12300a}
+.mini.st[data-st="zrobione"].akt,.mini.pst[data-st="zrobione"].akt{
+  background:#6ac52c;border-color:#6ac52c;color:#12300a!important}
+.mini.st[data-st="zrobione"]:not(.akt),.mini.pst[data-st="zrobione"]:not(.akt){color:#3f7d18}
+.k.p-gotowe{border-left-color:#6ac52c;background:#fbfef6}
+.k.p-gotowe .gl h3,.k.p-gotowe .dat{color:#3f7d18}
+.uwEl.gotowe{border-left-color:#6ac52c}
+.uwEl.gotowe .uwSt{color:#3f7d18}   .uwEl.gotowe .uwSt i{background:#6ac52c}
+.uwEl.gotowe .uwGdzie{color:#3f7d18}
+.siatka .sk.gotowe::after{background:#6ac52c}
+.siatka .sk.gotowe span{background:rgba(74,150,26,.88)}
+.grupa.gotowe{border-left-color:#6ac52c}
+.rejT tr.gotowe .kropka{background:#6ac52c}
+.rejT tr.gotowe td,table tr.gotowe td{background:#f5fdec}
+.kol.gotowe{background:#f5fdec;color:#3f7d18}
+
+/* piaty stan: do poprawki — Ania oddaje post z powrotem do nas */
+.pStan.popr{background:#b4552e;color:#fff}   .pStan.popr i{background:#fff}
+.mini.st[data-st="poprawka"].akt,.mini.pst[data-st="poprawka"].akt{
+  background:#b4552e;border-color:#b4552e;color:#fff!important}
+.mini.st[data-st="poprawka"]:not(.akt),.mini.pst[data-st="poprawka"]:not(.akt){color:#b4552e}
+.k.p-popr{border-left:6px solid #b4552e;background:#fffaf6}
+.k.p-popr .gl h3,.k.p-popr .dat{color:#b4552e}
+.k.p-popr .gl h3{font-weight:600}
+.uwEl.popr{border-left-color:#b4552e}
+.uwEl.popr .uwSt{color:#b4552e}   .uwEl.popr .uwSt i{background:#b4552e}
+.uwEl.popr .uwGdzie{color:#b4552e}
+.siatka .sk.popr::after{background:#b4552e}
+.siatka .sk.popr span{background:rgba(180,85,46,.88)}
+.grupa.popr{border-left-color:#b4552e}
+.rejT tr.popr .kropka{background:#b4552e}
+.rejT tr.popr td,table tr.popr td{background:#fff8f4}
+.kol.popr{background:#fff8f4;color:#b4552e}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1387,8 +1423,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     { id: 'w robocie', nazwa: 'w robocie', klasa: 'robi' },
     { id: 'czeka', nazwa: 'czeka na Twoja zgode', klasa: 'czeka' },
     { id: 'zrobione', nazwa: 'zatwierdzone', klasa: 'gotowe' },
+    { id: 'poprawka', nazwa: 'do poprawki', klasa: 'popr' },
   ];
-  var PORZ = { 'nowa': 0, '': 0, 'w robocie': 1, 'czeka': 2, 'zrobione': 3 };
+  // do poprawki wraca na poczatek kolejki — to znaczy, ze robota jeszcze przed nami
+  var PORZ = { 'nowa': 0, '': 0, 'poprawka': 1, 'w robocie': 2, 'czeka': 3, 'zrobione': 4 };
+  var KOLEJ_ST = ['nowa', 'poprawka', 'w robocie', 'czeka', 'zrobione'];
   function stanKlasa(s) {
     var z = STATUSY.filter(function (x) { return x.id === s; })[0];
     return z ? z.klasa : 'nie';
@@ -1687,7 +1726,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (!moje.length) return null;
     var naj = 9;
     moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
-    return ['nowa', 'w robocie', 'czeka', 'zrobione'][naj] || 'nowa';
+    return KOLEJ_ST[naj] || 'nowa';
   }
 
   // karta ma miescic sie na ekranie: widac kadr, date, nazwe i stan.
@@ -1753,12 +1792,33 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (uw) karta.insertBefore(d, uw); else karta.appendChild(d);
   }
 
+  // Stan postu jest jeden. Jesli w arkuszu uwaga zostala z innym stanem niz post
+  // (np. zapis nie doszedl), strona sama to prostuje przy najblizszym rysowaniu.
+  function wyrownajDoPostu(tytul) {
+    var zn = znacznikPostu(tytul);
+    if (!zn || !zn.status || zn.status === 'cofnieta') return false;
+    var zmienione = false;
+    dla(tytul).forEach(function (u) {
+      if (u.status !== zn.status) {
+        u.status = zn.status;
+        if (u.nr > 0) wyslijCicho({ akcja: 'status', nr: u.nr, status: zn.status })['catch'](function () {});
+        zmienione = true;
+      }
+    });
+    return zmienione;
+  }
+
   function rysujStatusyPostow() {
+    var trzebaJeszczeRaz = false;
+    [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
+      if (wyrownajDoPostu(u.dataset.tytul)) trzebaJeszczeRaz = true;
+    });
+    if (trzebaJeszczeRaz) przerysuj();
     [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
       var karta = u.closest('.k');
       if (!karta) return;
       var st = statusPostu(u.dataset.tytul);
-      karta.classList.remove('p-nie', 'p-robi', 'p-czeka', 'p-gotowe');
+      karta.classList.remove('p-nie', 'p-robi', 'p-czeka', 'p-gotowe', 'p-popr');
       var zn = karta.querySelector('.pStan');
       if (!st) {
         if (zn) zn.remove();
@@ -1779,7 +1839,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       // ten sam kolor na kafelku w siatce feedu
       var kafel = document.querySelector('.siatka .sk[data-go="' + karta.id + '"]');
       if (kafel) {
-        kafel.classList.remove('nie', 'robi', 'czeka', 'gotowe');
+        kafel.classList.remove('nie', 'robi', 'czeka', 'gotowe', 'popr');
         kafel.classList.add(stanKlasa(st));
       }
     });
@@ -1879,7 +1939,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (!cel) {                       // bez wymuszenia bierzemy najmniej zaawansowana uwage
       var naj = 9;
       moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
-      cel = moje.length ? ['nowa', 'w robocie', 'czeka', 'zrobione'][naj] : null;
+      cel = moje.length ? KOLEJ_ST[naj] : null;
     }
     var kolejka = [];
     if (wymuszony) {
