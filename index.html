@@ -1524,6 +1524,59 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     });
   }
 
+  // Jedna kolejka zapisow do arkusza. Bez niej dwa szybkie klikniecia
+  // wysylaly sie rownolegle i do arkusza trafialo to, ktore wrocilo pozniej.
+  var KOLEJKA = [];
+  var JEDZIE = false;
+  var DOCELOWY = {};                 // nr wiersza -> stan, ktory ma tam finalnie byc
+  function doArkusza(dane, po) {
+    if (dane.akcja === 'status' && dane.nr > 0) {
+      DOCELOWY[dane.nr] = dane.status;
+      // starsze zadanie dla tego samego wiersza nie ma juz sensu
+      KOLEJKA = KOLEJKA.filter(function (z) {
+        return !(z.dane.akcja === 'status' && z.dane.nr === dane.nr);
+      });
+    }
+    KOLEJKA.push({ dane: dane, po: po });
+    ruszKolejke();
+  }
+  function ruszKolejke() {
+    if (JEDZIE) return;
+    if (!KOLEJKA.length) { sprawdzZapis(); return; }
+    JEDZIE = true;
+    var z = KOLEJKA.shift();
+    // jesli w miedzyczasie ten wiersz dostal nowszy stan, wysylamy ten nowszy
+    if (z.dane.akcja === 'status' && z.dane.nr > 0 && DOCELOWY[z.dane.nr] !== undefined) {
+      z.dane.status = DOCELOWY[z.dane.nr];
+    }
+    wyslijCicho(z.dane)
+      .then(function (j) { return z.po ? z.po(j) : null; })
+      ['catch'](function () {})
+      .then(function () { JEDZIE = false; ruszKolejke(); });
+  }
+  // po opróznieniu kolejki sprawdzamy, czy arkusz naprawde ma to, co ekran
+  var SPRAWDZANIE = null;
+  function sprawdzZapis() {
+    if (SPRAWDZANIE) clearTimeout(SPRAWDZANIE);
+    SPRAWDZANIE = setTimeout(function () {
+      SPRAWDZANIE = null;
+      if (JEDZIE || KOLEJKA.length) return;
+      var chce = DOCELOWY; DOCELOWY = {};
+      if (!Object.keys(chce).length) { pobierz().then(przerysuj); return; }
+      fetch(MOST, { method: 'GET' }).then(function (r) { return r.json(); }).then(function (j) {
+        if (!j || !j.ok) return;
+        var poprawki = 0;
+        (j.uwagi || []).forEach(function (u) {
+          if (chce[u.nr] !== undefined && u.status !== chce[u.nr]) {
+            poprawki++;
+            doArkusza({ akcja: 'status', nr: u.nr, status: chce[u.nr] });
+          }
+        });
+        if (!poprawki) { UWAGI = j.uwagi || []; INDEKS = null; nalozSwieze(); wyrownajWszystkie(); przerysuj(); }
+      })['catch'](function () {});
+    }, 900);
+  }
+
   function pobierz() {
     return fetch(MOST, { method: 'GET' }).then(function (r) { return r.json(); })
       .then(function (j) {
@@ -1636,7 +1689,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       dla(tytul).forEach(function (u) {
         if (SWIEZE[u.nr] || u.status === zn.status) return;
         u.status = zn.status;
-        if (u.nr > 0) wyslijCicho({ akcja: 'status', nr: u.nr, status: zn.status })['catch'](function () {});
+        if (u.nr > 0) doArkusza({ akcja: 'status', nr: u.nr, status: zn.status });
       });
     });
   }
@@ -1968,8 +2021,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       // stan calego postu podciagamy OD RAZU, nie po odpowiedzi arkusza —
       // dzieki temu koszyk i glowna lista zmieniaja sie w tej samej chwili
       zgraj(u2 ? u2.pozycja : '', null);
-      wyslijCicho({ akcja: 'status', nr: nr, status: nowyStan })
-        ['catch'](function () { pobierz().then(przerysuj); });
+      doArkusza({ akcja: 'status', nr: nr, status: nowyStan });
     } else if (b.classList.contains('odp')) {
       if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
       var box = document.createElement('div');
@@ -2034,21 +2086,18 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       }
     }
     przerysuj();
-    return kolejka.reduce(function (p, z) {
-      return p.then(function () {
-        var doSt = z.doStatusu; delete z.doStatusu;
-        return wyslijCicho(z).then(function (j) {
-          if (doSt && j && j.ok) {
-            var swiezy = (j.uwagi || []).filter(function (u) {
-              return u.ocena === ZNACZNIK && pasuje(u.pozycja, tytul) && u.status !== 'cofnieta';
-            }).pop();
-            if (swiezy && swiezy.status !== doSt) return wyslijCicho({ akcja: 'status', nr: swiezy.nr, status: doSt });
-          }
-        });
-      });
-    }, Promise.resolve()).then(function () {
-      return pobierz().then(przerysuj);
+    kolejka.forEach(function (z) {
+      var doSt = z.doStatusu; delete z.doStatusu;
+      doArkusza(z, doSt ? function (j) {
+        // arkusz przy dodawaniu i tak zapisuje "nowa", wiec poprawiamy swiezy wiersz
+        if (!j || !j.ok) return;
+        var swiezy = (j.uwagi || []).filter(function (u) {
+          return u.ocena === ZNACZNIK && pasuje(u.pozycja, tytul) && u.status !== 'cofnieta';
+        }).pop();
+        if (swiezy && swiezy.status !== doSt) doArkusza({ akcja: 'status', nr: swiezy.nr, status: doSt });
+      } : null);
     });
+    return Promise.resolve();
   }
 
   // klik w przycisk gotowosci calego postu
