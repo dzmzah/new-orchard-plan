@@ -206,6 +206,9 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .uwEl.nie .uwSt{color:#c0392b}
 .uwEl.robi .uwSt{color:#a9741d}
 .uwEl.gotowe .uwSt{color:#3c5a46}
+.pAkc{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 2px}
+.pAkcE{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);margin-right:3px}
+.mini.pst.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1418,10 +1421,18 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (ALIASY[y]) y = ALIASY[y];
     return x === y || x.indexOf(y) >= 0 || y.indexOf(x) >= 0;
   }
+  var ZNACZNIK = 'STATUS POSTU';
+  function jestZnacznikiem(u) { return u.ocena === ZNACZNIK; }
+
   function dla(tytul) {
     return UWAGI.filter(function (u) {
-      return u.status !== 'cofnieta' && pasuje(u.pozycja, tytul);
+      return u.status !== 'cofnieta' && !jestZnacznikiem(u) && pasuje(u.pozycja, tytul);
     });
+  }
+  function znacznikPostu(tytul) {
+    return UWAGI.filter(function (u) {
+      return u.status !== 'cofnieta' && jestZnacznikiem(u) && pasuje(u.pozycja, tytul);
+    })[0];
   }
 
   function wierszUwagi(u) {
@@ -1474,7 +1485,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   function rysujTabele() {
     var cel = document.getElementById('tabUwag');
     if (!cel) return;
-    var lista = UWAGI.filter(function (u) { return u.status !== 'cofnieta' && (u.uwaga || u.ocena); });
+    var lista = UWAGI.filter(function (u) {
+      return u.status !== 'cofnieta' && !jestZnacznikiem(u) && (u.uwaga || u.ocena);
+    });
     // kolejnosc ustalamy RAZ, przy pobraniu z serwera. Zmiana statusu ma zmieniac kolor,
     // a nie przerzucac pozycji w inne miejsce listy — inaczej klika sie w ruchomy cel.
     if (!KOLEJNOSC.length) ustalKolejnosc(lista);
@@ -1509,11 +1522,30 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 
   // status calego postu: najgorszy ze statusow jego uwag
   function statusPostu(tytul) {
+    var zn = znacznikPostu(tytul);
+    if (zn && zn.status) return zn.status;
     var moje = dla(tytul).filter(function (u) { return u.uwaga || u.ocena; });
     if (!moje.length) return null;
     if (moje.some(function (u) { return !u.status || u.status === 'nowa'; })) return 'nowa';
     if (moje.some(function (u) { return u.status === 'w robocie'; })) return 'w robocie';
     return 'zrobione';
+  }
+
+  // przyciski gotowosci na samym poscie — dzialaja takze wtedy, gdy nie ma zadnej uwagi
+  function dodajPrzyciskiPostu(karta, tytul, teraz) {
+    if (!ZESPOL) return;
+    var pas = karta.querySelector('.pAkc');
+    if (!pas) {
+      pas = document.createElement('div');
+      pas.className = 'pAkc';
+      var gl = karta.querySelector('.gl');
+      if (gl && gl.parentNode) gl.parentNode.insertBefore(pas, gl.nextSibling);
+      else karta.insertBefore(pas, karta.firstChild);
+    }
+    pas.innerHTML = '<span class="pAkcE">ten post:</span>' + STATUSY.map(function (s) {
+      return '<button class="mini pst' + (teraz === s.id ? ' akt' : '') + '" data-st="' + s.id +
+        '" data-tytul="' + esc(tytul) + '">' + s.nazwa + '</button>';
+    }).join('');
   }
 
   function rysujStatusyPostow() {
@@ -1523,7 +1555,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       var st = statusPostu(u.dataset.tytul);
       karta.classList.remove('p-nie', 'p-robi', 'p-gotowe');
       var zn = karta.querySelector('.pStan');
-      if (!st) { if (zn) zn.remove(); return; }
+      if (!st) {
+        if (zn) zn.remove();
+        dodajPrzyciskiPostu(karta, u.dataset.tytul, null);
+        return;
+      }
       karta.classList.add('p-' + stanKlasa(st));
       if (!zn) {
         zn = document.createElement('span');
@@ -1533,6 +1569,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       }
       zn.className = 'pStan ' + stanKlasa(st);
       zn.innerHTML = '<i></i>' + stanNazwa(st);
+      dodajPrzyciskiPostu(karta, u.dataset.tytul, st);
       // ten sam kolor na kafelku w siatce feedu
       var kafel = document.querySelector('.siatka .sk[data-go="' + karta.id + '"]');
       if (kafel) {
@@ -1581,6 +1618,26 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         box.remove();
         odRazu(nr, { odpowiedz: o, status: st }, { akcja: 'status', nr: nr, status: st, odpowiedz: o });
       });
+    }
+  });
+
+  // klik w przycisk gotowosci calego postu
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.pst') : null;
+    if (!b) return;
+    var tytul = b.dataset.tytul, nowy = b.dataset.st;
+    var zn = znacznikPostu(tytul);
+    if (zn) {
+      odRazu(zn.nr, { status: nowy }, { akcja: 'status', nr: zn.nr, status: nowy });
+    } else {
+      // znacznika jeszcze nie ma — dokladamy wiersz i od razu pokazujemy wynik
+      UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, odpowiedz: '', kto: 'ZOVU' });
+      rysujWszystko();
+      wyslij({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', kto: 'ZOVU' })
+        .then(function () {
+          var swiezy = znacznikPostu(tytul);
+          if (swiezy) wyslij({ akcja: 'status', nr: swiezy.nr, status: nowy });
+        });
     }
   });
 
