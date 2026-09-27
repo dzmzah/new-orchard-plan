@@ -1912,7 +1912,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     var zn = znacznikPostu(tytul);
     if (zn && zn.status) return zn.status;
     var moje = dla(tytul).filter(function (u) { return u.uwaga || u.ocena; });
-    if (!moje.length) return null;
+    // pozycja, ktorej nikt jeszcze nie tknal, tez ma pokazywac stan —
+    // inaczej wyglada jak martwa i nie widac, ze czeka na robote
+    if (!moje.length) return 'nowa';
     var naj = 9;
     moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
     return KOLEJ_ST[naj] || 'nowa';
@@ -2473,7 +2475,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790552281002';
+  var MOJA_WERSJA = '1790552505605';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
