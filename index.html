@@ -1651,7 +1651,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 
   // Przy kazdej uwadze widac, od kogo jest, a jesli ktos pozniej cos przy niej
   // ruszyl — kiedy i kto. Zeby nie trzeba bylo zgadywac, czyja to ostatnia reka.
-  function ktoTo(k) { return k === 'ZOVU' ? 'my' : (k === 'Ania' ? 'Ania' : k); }
+  function ktoTo(k) { return k === 'ZOVU' ? 'ZOVU' : (k === 'Ania' ? 'Ania' : k); }
   function kto(u) {
     var h = u.kto ? ' &middot; ' + (u.kto === 'ZOVU' ? 'od nas' : 'od Ani') : '';
     if (u.zmieniono && u.zmieniono !== u.czas) {
@@ -1710,7 +1710,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       dla(tytul).forEach(function (u) {
         if (SWIEZE[u.nr] || u.status === zn.status) return;
         u.status = zn.status;
-        if (u.nr > 0) doArkusza({ akcja: 'status', nr: u.nr, status: zn.status });
+        // puste kto: to porzadkowanie robi sama strona, a nie osoba przy niej —
+        // inaczej nasza zmiana ladowala w arkuszu podpisana jej imieniem
+        if (u.nr > 0) doArkusza({ akcja: 'status', nr: u.nr, status: zn.status, kto: '' });
       });
     });
   }
@@ -2460,7 +2462,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790550721569';
+  var MOJA_WERSJA = '1790551444286';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
