@@ -129,6 +129,29 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .mini:hover{border-color:var(--akcent);color:var(--akcent)}
 .mini.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
 .uwSep{width:1px;height:16px;background:var(--ramka);margin:0 3px}
+#koszyk{position:fixed;right:18px;bottom:18px;z-index:30;display:inline-flex;align-items:center;gap:9px;
+  font:14px inherit;padding:12px 18px;border-radius:26px;border:1px solid var(--akcent);background:var(--akcent);
+  color:#fff;cursor:pointer;box-shadow:0 6px 20px rgba(28,27,24,.18)}
+#koszyk svg{width:18px;height:18px}
+#koszyk b{min-width:22px;height:22px;border-radius:11px;background:#fff;color:var(--akcent);font-size:12px;
+  display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+#koszyk b.pusto{background:rgba(255,255,255,.28);color:#fff}
+#zaslona{position:fixed;inset:0;background:rgba(20,19,17,.45);opacity:0;pointer-events:none;transition:opacity .22s;z-index:40}
+#zaslona.otw{opacity:1;pointer-events:auto}
+#szuflada{position:fixed;top:0;right:0;bottom:0;width:min(620px,94vw);background:var(--tlo);z-index:50;
+  transform:translateX(102%);transition:transform .26s ease;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(28,27,24,.18)}
+#szuflada.otw{transform:none}
+#szuflada header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--ramka);background:#fffdf7}
+#szuflada header h4{font-size:19px;font-weight:400}
+#zamknijSz{font-size:26px;line-height:1;background:none;border:none;color:var(--cichy);cursor:pointer;padding:0 4px}
+#zamknijSz:hover{color:var(--tekst)}
+.szTresc{padding:18px 20px 40px;overflow-y:auto;flex:1}
+.uwStopka{display:flex;align-items:center;gap:12px;margin-top:9px}
+.zapisz{font:14px inherit;padding:8px 18px;border-radius:20px;border:1px solid var(--akcent);background:var(--akcent);color:#fff;cursor:pointer}
+.zapisz:disabled{opacity:.6;cursor:default}
+.zap{font-size:12px;color:var(--ok);opacity:0;transition:opacity .2s}
+.zap.jest{opacity:1}
+@media(max-width:620px){#koszyk span{display:none}#koszyk{padding:12px 14px}}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -171,7 +194,7 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
     Twoje wczesniejsze uwagi i nasza odpowiedz zostaja przy poscie, wiec nie musisz niczego szukac
     ani poprawiac dwa razy tego samego.
   </div>
-  <nav class="naw"><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="uwagi">Twoje uwagi</button><button class="zak" data-sek="wydatki">Wydatki</button></nav>
+  <nav class="naw"><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="wydatki">Wydatki</button></nav>
   <div class="sek" id="sek-feed"><h2 class="dzial">Feed</h2><div class="jak" style="margin:0 0 16px">
   <b>Tak ulozy sie Wasz profil.</b> Czytamy od gory &mdash; na Instagramie nowy post wskakuje w lewy gorny rog
   i spycha reszte w dol, wiec na dole siatki jest zawsze najstarszy. Stories w siatce nie ma, bo nie zostaja na profilu.<br><br>
@@ -206,14 +229,14 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   <div class="uw" data-id="f-siatka" data-tytul="[feed] Cala siatka profilu">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Co zmienic w kolejnosci albo w kadrach?"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section></div><div class="sek" id="sek-posty" hidden><h2 class="dzial">Posty</h2><h2>wrzesien i poczatek pazdziernika</h2>
 <div class="wst" data-tytul="[wstawka] przed pt 25.09">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-01">
@@ -236,14 +259,14 @@ No compromise. No animals involved.</div>
   <div class="uw" data-id="p-01" data-tytul="pt 25.09 — Co jest w srodku">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy pt 25.09 a pt 02.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-03">
@@ -266,14 +289,14 @@ All our materials come from Europe. None from China. 🤍</div>
   <div class="uw" data-id="p-03" data-tytul="pt 02.10 — Recznie szyte we Wloszech">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy pt 02.10 a wt 29.09 (przeniesiony z 26.09)">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-04">
@@ -307,14 +330,14 @@ Short for the city, mid for most days, long for the days that mean it.</div>
   <div class="uw" data-id="p-04" data-tytul="wt 29.09 (przeniesiony z 26.09) — One boot, three heights">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy wt 29.09 (przeniesiony z 26.09) a pon 28.09 (przeniesiona z 22.09)">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-05">
@@ -337,14 +360,14 @@ Tap to vote — and we will write to you first when your size is back.</div>
   <div class="uw" data-id="p-05" data-tytul="pon 28.09 (przeniesiona z 22.09) — Ankieta: Short / Mid / Long">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy pon 28.09 (przeniesiona z 22.09) a wt 29.09">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-06">
@@ -374,14 +397,14 @@ Need a different size? Exchanges are always free. 🤍</div>
   <div class="uw" data-id="p-06" data-tytul="wt 29.09 — Removable insole">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy wt 29.09 a sr 30.09">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-07">
@@ -416,14 +439,14 @@ Need a different size? Exchanges are always free. 🤍</div>
   <div class="uw" data-id="p-07" data-tytul="sr 30.09 — 39 czy 40">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy sr 30.09 a czw 01.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-08">
@@ -441,14 +464,14 @@ No speech from us today — just our Oat Milk tee, which we would wear anyway. �
   <div class="uw" data-id="p-08" data-tytul="czw 01.10 — Oat Milk Tee / World Vegetarian Day">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy czw 01.10 a sob 03.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-09">
@@ -471,14 +494,14 @@ Ours keep water out for up to 2.5 hours in snow and rain — warm and dry is wha
   <div class="uw" data-id="p-09" data-tytul="sob 03.10 — Cold feet">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy sob 03.10 a pon 05.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-10">
@@ -496,14 +519,14 @@ Spare insoles, care spray, and scrunchies sewn from what is left after the boots
   <div class="uw" data-id="p-10" data-tytul="pon 05.10 — Akcesoria">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy pon 05.10 a nd 04.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-11">
@@ -526,14 +549,14 @@ Nothing to sell today — just a thank you to every animal that never had to be 
   <div class="uw" data-id="p-11" data-tytul="nd 04.10 — World Animal Day">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy nd 04.10 a pon 28.09 (przeniesiony z 27.09)">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="p-12">
@@ -568,14 +591,14 @@ Pre-order now, shipping after 15 October.</div>
   <div class="uw" data-id="p-12" data-tytul="pon 28.09 (przeniesiony z 27.09) — Pre-order: czerwona spódnica">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section><h2>pazdziernik, od trzeciego tygodnia</h2>
 <div class="wst" data-tytul="[wstawka] miedzy pon 28.09 (przeniesiony z 27.09) a pazdziernik, data po zdjeciach od Ani">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-00">
@@ -594,14 +617,14 @@ We have supported adoption since 2021. 🤍</div>
   <div class="uw" data-id="q-00" data-tytul="pazdziernik, data po zdjeciach od Ani — Adoption Story 1 — Patricia i Oscar">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy pazdziernik, data po zdjeciach od Ani a sr 07.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-01">
@@ -619,14 +642,14 @@ Our Classic Vegan Medium in the colour that already goes with everything you own
   <div class="uw" data-id="q-01" data-tytul="sr 07.10 — Navy, nie czarny">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy sr 07.10 a pt 09.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-02">
@@ -644,14 +667,14 @@ Our vegan dog hoodie and our boots — perfect match in style, human &amp; hound
   <div class="uw" data-id="q-02" data-tytul="pt 09.10 — Psy">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy pt 09.10 a nd 11.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-03">
@@ -669,14 +692,14 @@ That is the part that keeps you steady on wet cobblestones from November to Marc
   <div class="uw" data-id="q-03" data-tytul="nd 11.10 — Podeszwa">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy nd 11.10 a wt 13.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-04">
@@ -694,14 +717,14 @@ Swiss hills, real weather, no studio. 🤍</div>
   <div class="uw" data-id="q-04" data-tytul="wt 13.10 — Wzgorza">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy wt 13.10 a czw 15.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-05">
@@ -719,14 +742,14 @@ Our Winter Vegan Skirt in red — five per size, then that is it.</div>
   <div class="uw" data-id="q-05" data-tytul="czw 15.10 — Czerwona spodnica — rusza wysylka">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy czw 15.10 a sob 17.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-06">
@@ -744,14 +767,14 @@ Our Classic Vegan Short in the city, from the first coffee to the last tram.</di
   <div class="uw" data-id="q-06" data-tytul="sob 17.10 — Czern w miescie">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy sob 17.10 a pon 19.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-07">
@@ -769,14 +792,14 @@ Soft, warm and made to live inside our boots. 🤍</div>
   <div class="uw" data-id="q-07" data-tytul="pon 19.10 — Skarpety">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy pon 19.10 a sr 21.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-08">
@@ -794,14 +817,14 @@ Because warm feet should not depend on how big they are.</div>
   <div class="uw" data-id="q-08" data-tytul="sr 21.10 — Do rozmiaru 46">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] miedzy sr 21.10 a pt 23.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div>
 <section class="k" id="q-09">
@@ -819,14 +842,14 @@ Our Classic Vegan Short in green, for everyone who already has the other two.</d
   <div class="uw" data-id="q-09" data-tytul="pt 23.10 — Zielone">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <div class="wst" data-tytul="[wstawka] po pt 23.10">
   <button class="wstB">+ dodaj cos tutaj</button>
   <div class="wstP">
-    <textarea placeholder="Co ma tu wejsc? Napisz i wyslij razem z reszta uwag."></textarea>
-    <div class="zap"></div>
+    <textarea placeholder="Co ma tu wejsc?"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz</button><span class="zap"></span></div>
   </div>
 </div></div><div class="sek" id="sek-stories" hidden><h2 class="dzial">Stories</h2><div class="jak" style="margin:0 0 16px">Stories nie zostaja na profilu, wiec nie ma ich w siatce.
 Tu sa gotowe plansze &mdash; dokladnie to, co zobacza ludzie. Kliknij w plansze, zeby otworzyc ja na caly ekran.</div>
@@ -839,7 +862,7 @@ Tu sa gotowe plansze &mdash; dokladnie to, co zobacza ludzie. Kliknij w plansze,
   <div class="uw" data-id="sp-05" data-tytul="[stories] pon 28.09 (przeniesiona z 22.09) — Ankieta: Short / Mid / Long">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="sp-12">
@@ -851,7 +874,7 @@ Tu sa gotowe plansze &mdash; dokladnie to, co zobacza ludzie. Kliknij w plansze,
   <div class="uw" data-id="sp-12" data-tytul="[stories] pon 28.09 (przeniesiony z 27.09) — Pre-order: czerwona spódnica">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section></div><div class="sek" id="sek-reklama" hidden><h2 class="dzial">Reklama w Meta</h2>
 <div class="jak" style="margin:0 0 16px">Te kadry nie pojawiaja sie na profilu &mdash; widza je tylko ludzie,
@@ -870,7 +893,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G2" data-tytul="[reklama] Bezowy dlugi i zielony krotki, martwa natura">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-G3">
@@ -883,7 +906,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G3" data-tytul="[reklama] Karmelowy na sniegu">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-G4">
@@ -896,7 +919,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G4" data-tytul="[reklama] Dziewczyna na tle gor">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-G5">
@@ -909,7 +932,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G5" data-tytul="[reklama] Czarny krotki, kostka brukowa">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-G6">
@@ -922,7 +945,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G6" data-tytul="[reklama] Para w kawiarni">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-G7">
@@ -935,7 +958,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G7" data-tytul="[reklama] Zielone na graffiti">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-G8">
@@ -948,7 +971,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G8" data-tytul="[reklama] Bezowy dlugi, wnetrze">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-G9">
@@ -961,7 +984,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-G9" data-tytul="[reklama] Czarne w miescie">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-F1">
@@ -974,7 +997,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-F1" data-tytul="[reklama] Wkladka i but">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S1">
@@ -987,7 +1010,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S1" data-tytul="[reklama] Krotki czarny, schody">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S2">
@@ -1000,7 +1023,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S2" data-tytul="[reklama] Dlugi bezowy, las">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S3">
@@ -1013,7 +1036,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S3" data-tytul="[reklama] Sredni karmelowy">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S4">
@@ -1026,7 +1049,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S4" data-tytul="[reklama] Pies w plaszczu">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S5">
@@ -1039,7 +1062,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S5" data-tytul="[reklama] Skarpety i but">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S6">
@@ -1052,7 +1075,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S6" data-tytul="[reklama] Czarne na deszczu">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S7">
@@ -1065,7 +1088,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S7" data-tytul="[reklama] Zielone na graffiti">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S8">
@@ -1078,7 +1101,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S8" data-tytul="[reklama] Dziewczyna w gorach z psem">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="r-S9">
@@ -1091,7 +1114,7 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
   <div class="uw" data-id="r-S9" data-tytul="[reklama] Dalmatynczyk lezy, jasne buty">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section></div><div class="sek" id="sek-mailing" hidden><h2 class="dzial">Mailing</h2>
 <section class="k" id="m-01">
@@ -1112,7 +1135,7 @@ Temat B (test): The red skirt goes back into production</div>
   <div class="uw" data-id="m-01" data-tytul="[mailing] List pierwszy — czerwona spodnica">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section></div><div class="sek" id="sek-strategia" hidden><h2 class="dzial">Strategia</h2><div class="jak" style="margin:0 0 16px">To sa ustalenia, na ktorych stoi caly plan.
 Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdash; dlatego warto zaczac wlasnie stad.</div>
@@ -1122,7 +1145,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-0" data-tytul="[strategia] Po co to wszystko">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-1">
@@ -1131,7 +1154,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-1" data-tytul="[strategia] Kiedy publikujemy">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-2">
@@ -1140,7 +1163,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-2" data-tytul="[strategia] Jakim jezykiem">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-3">
@@ -1149,7 +1172,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-3" data-tytul="[strategia] O czym mowimy">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-4">
@@ -1158,7 +1181,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-4" data-tytul="[strategia] Czego nie robimy">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-5">
@@ -1167,7 +1190,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-5" data-tytul="[strategia] Produkt zawsze z Waszego zdjecia">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-6">
@@ -1176,7 +1199,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-6" data-tytul="[strategia] Kazdy post linkuje produkt">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-7">
@@ -1185,7 +1208,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-7" data-tytul="[strategia] Reklama">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-8">
@@ -1194,7 +1217,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-8" data-tytul="[strategia] Mailing">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section>
 <section class="k" id="st-9">
@@ -1203,16 +1226,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="st-9" data-tytul="[strategia] Listopad trzymamy osobno">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
-</section></div><div class="sek" id="sek-uwagi" hidden><h2 class="dzial">Twoje uwagi</h2><div class="jak" style="margin:0 0 16px">
-  Wszystko, co nam napisalas, w jednym miejscu i z kolorem:
-  <b class="kol nie">czerwone</b> jeszcze nie zrobione,
-  <b class="kol robi">zolte</b> wzielismy do pracy,
-  <b class="kol gotowe">zielone</b> zrobione.
-  Uwage mozesz w kazdej chwili poprawic albo wycofac &mdash; przyciski sa przy niej, przy poscie.
-  Nic stad nie znika.</div>
-<div id="tabUwag"><div class="ekr">Wczytuje uwagi...</div></div></div><div class="sek" id="sek-wydatki" hidden><h2 class="dzial">Wydatki</h2>
+</section></div><div class="sek" id="sek-wydatki" hidden><h2 class="dzial">Wydatki</h2>
 <section class="k" id="w-budzet">
   <div class="gl"><h3>Ile wydane na reklame</h3></div>
   <p class="co">Prosilas o to 23.09: &bdquo;zeby byl zawsze podglad, ile juz wydane&rdquo;. Aktualizujemy co dwa dni.</p>
@@ -1249,20 +1265,21 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   <div class="uw" data-id="w-budzet" data-tytul="[wydatki] Budzet reklamowy">
     <div class="uwbtn"><button data-st="ok">Jest ok</button><button data-st="zmiana">Do poprawki</button></div>
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
-    <div class="zap"></div>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
   </div>
 </section></div>
-  <div class="jak" style="text-align:center;margin-top:34px"><b>To wszystko.</b><br>
-    Kliknij ponizej &mdash; Twoje uwagi trafia do nas od razu.
-    <div style="margin-top:12px"><button class="duzy kop">Wyslij uwagi</button></div>
-  </div>
 </div>
-<div id="pasek"><div class="licz" id="licz">Nic jeszcze nie zaznaczone</div>
-  <button id="kop">Wyslij uwagi</button><button class="d" id="pob">Zobacz wszystkie uwagi</button></div>
+
+<button id="koszyk" aria-label="Twoje uwagi">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h4l4 4 4-4h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 7h10M7 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+  <span>Twoje uwagi</span><b id="koszykLicz">0</b>
+</button>
+<div id="zaslona"></div>
+<aside id="szuflada" aria-hidden="true">
+  <header><h4>Twoje uwagi</h4><button id="zamknijSz" aria-label="Zamknij">&times;</button></header>
+  <div class="szTresc" id="tabUwag"><div class="ekr">Wczytuje...</div></div>
+</aside>
 <div id="lupa"><img src="" alt=""></div>
-<div id="okno"><div class="p"><h4>Twoje uwagi &mdash; wszystko w jednym miejscu</h4>
-  <textarea id="tresc" readonly></textarea>
-  <div class="r"><button id="zamknij">Zamknij</button><button class="pr" id="kop2">Wyslij uwagi</button></div></div></div>
 <script>(function () {
   var MOST = 'https://script.google.com/macros/s/AKfycbyLbLzV8xSBz_67Lk9igL_lnt-qzsZbGwgGUdjZ9oP-6dPc6hb93HGuG5BMnyzo54yD/exec';          // Apps Script: czyta i zapisuje do arkusza
   var TOKEN = 'no2026';
@@ -1474,57 +1491,60 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   });
 
   function odswiezLicznik() {
-    var n = pola.filter(function (u) {
-      var s = szkic[u.dataset.id];
-      return s && (s.ocena || (s.tekst || '').trim());
+    var otwarte = UWAGI.filter(function (u) {
+      return u.status !== 'cofnieta' && u.status !== 'zrobione' && (u.uwaga || u.ocena);
     }).length;
-    var l = document.getElementById('licz');
-    if (!l) return;
-    l.textContent = n === 0 ? 'Nic nowego nie napisane'
-      : n + (n === 1 ? ' uwaga gotowa do wyslania' : ' uwag gotowych do wyslania');
+    var k = document.getElementById('koszykLicz');
+    if (k) { k.textContent = otwarte; k.classList.toggle('pusto', otwarte === 0); }
   }
 
   function etykieta(o) { return o === 'ok' ? 'Jest ok' : (o === 'zmiana' ? 'Do poprawki' : ''); }
 
-  function wyslijWszystko() {
-    var doWyslania = pola.filter(function (u) {
-      var s = szkic[u.dataset.id] || {};
-      return s.ocena || (s.tekst || '').trim();
+  // zapis jednej uwagi, od razu
+  [].slice.call(document.querySelectorAll('.zapisz')).forEach(function (b) {
+    b.addEventListener('click', function () {
+      var u = b.closest('.uw') || b.closest('.wst');
+      if (!u) return;
+      var ta = u.querySelector('textarea');
+      var akt = u.querySelector('.uwbtn button.akt');
+      var tekst = (ta.value || '').trim();
+      if (!akt && !tekst) { ta.focus(); return; }
+      var zap = u.querySelector('.zap');
+      b.disabled = true; b.textContent = 'Zapisuje...';
+      wyslij({
+        akcja: 'dodaj',
+        pozycja: u.dataset.tytul,
+        ocena: etykieta(akt ? akt.dataset.st : ''),
+        uwaga: tekst,
+        kto: ZESPOL ? 'ZOVU' : 'Ania',
+      }).then(function () {
+        ta.value = '';
+        u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
+        delete szkic[u.dataset.id]; zapiszSzkic();
+        if (zap) { zap.textContent = 'Zapisane ✓'; zap.classList.add('jest'); setTimeout(function () { zap.classList.remove('jest'); }, 4000); }
+        b.disabled = false; b.textContent = b.closest('.wst') ? 'Zapisz' : 'Zapisz uwage';
+      })['catch'](function () {
+        b.disabled = false; b.textContent = 'Sprobuj jeszcze raz';
+      });
     });
-    if (!doWyslania.length) return;
-    var l = document.getElementById('licz');
-    if (l) l.textContent = 'Wysylam...';
-    var kolejka = doWyslania.map(function (u) {
-      var s = szkic[u.dataset.id] || {};
-      return { akcja: 'dodaj', pozycja: u.dataset.tytul, ocena: etykieta(s.ocena), uwaga: (s.tekst || '').trim(), kto: ZESPOL ? 'ZOVU' : 'Ania' };
-    });
-    (function nastepna(i) {
-      if (i >= kolejka.length) {
-        doWyslania.forEach(function (u) {
-          delete szkic[u.dataset.id];
-          u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
-          u.querySelector('textarea').value = '';
-          var zap = u.querySelector('.zap');
-          if (zap) { zap.textContent = 'Zapisane na stronie ✓'; zap.classList.add('jest'); }
-        });
-        zapiszSzkic();
-        if (l) l.textContent = 'Zapisane ✓';
-        setTimeout(odswiezLicznik, 3000);
-        return;
-      }
-      wyslij(kolejka[i]).then(function () { nastepna(i + 1); })
-        ['catch'](function () { if (l) l.textContent = 'Nie udalo sie wyslac, sprobuj jeszcze raz'; });
-    })(0);
-  }
-
-  var kop = document.getElementById('kop');
-  if (kop) kop.addEventListener('click', wyslijWszystko);
-  [].slice.call(document.querySelectorAll('.duzy.kop')).forEach(function (b) {
-    b.addEventListener('click', wyslijWszystko);
   });
 
-  var pob = document.getElementById('pob');
-  if (pob) pob.addEventListener('click', function () { pokazSekcje('uwagi'); window.scrollTo(0, 0); });
+  // ---- szuflada z uwagami, jak koszyk ----
+  var szuf = document.getElementById('szuflada');
+  var zasl = document.getElementById('zaslona');
+  function otworzSz(tak) {
+    if (!szuf) return;
+    szuf.classList.toggle('otw', tak);
+    zasl.classList.toggle('otw', tak);
+    szuf.setAttribute('aria-hidden', tak ? 'false' : 'true');
+    document.body.style.overflow = tak ? 'hidden' : '';
+  }
+  var kosz = document.getElementById('koszyk');
+  if (kosz) kosz.addEventListener('click', function () { otworzSz(true); });
+  var zamk = document.getElementById('zamknijSz');
+  if (zamk) zamk.addEventListener('click', function () { otworzSz(false); });
+  if (zasl) zasl.addEventListener('click', function () { otworzSz(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') otworzSz(false); });
 
   // ---- lupa ----
   var lupa = document.getElementById('lupa');
