@@ -289,11 +289,14 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .mini.st[data-st="czeka"].akt,.mini.pst[data-st="czeka"].akt{background:#2e6b9e;border-color:#2e6b9e}
 .mini.st[data-st="zrobione"].akt,.mini.pst[data-st="zrobione"].akt{background:#3c5a46;border-color:#3c5a46}
 /* niewybrane maja tylko delikatny slad swojego koloru */
-.mini.st[data-st="nowa"],.mini.pst[data-st="nowa"]{color:#c0392b}
-.mini.st[data-st="w robocie"],.mini.pst[data-st="w robocie"]{color:#a9741d}
-.mini.st[data-st="czeka"],.mini.pst[data-st="czeka"]{color:#2e6b9e}
-.mini.st[data-st="zrobione"],.mini.pst[data-st="zrobione"]{color:#3c5a46}
+.mini.st[data-st="nowa"]:not(.akt),.mini.pst[data-st="nowa"]:not(.akt){color:#c0392b}
+.mini.st[data-st="w robocie"]:not(.akt),.mini.pst[data-st="w robocie"]:not(.akt){color:#a9741d}
+.mini.st[data-st="czeka"]:not(.akt),.mini.pst[data-st="czeka"]:not(.akt){color:#2e6b9e}
+.mini.st[data-st="zrobione"]:not(.akt),.mini.pst[data-st="zrobione"]:not(.akt){color:#3c5a46}
 .mini.st:hover,.mini.pst:hover{border-color:currentColor}
+
+/* napis na zalanym przycisku musi byc bialy — inaczej znika w tle */
+.mini.st.akt,.mini.pst.akt,.mini.st.akt:hover,.mini.pst.akt:hover{color:#fff!important}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1422,7 +1425,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
   function wyslij(dane) {
     return wyslijCicho(dane).then(function (j) {
-      if (j && j.ok) { UWAGI = j.uwagi || []; rysujWszystko(); }
+      if (j && j.ok) { UWAGI = j.uwagi || []; przerysuj(); }
       return j;
     });
   }
@@ -1431,9 +1434,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   function odRazu(nr, zmiany, dane) {
     var u = UWAGI.filter(function (x) { return x.nr === nr; })[0];
     if (u) { for (var k in zmiany) u[k] = zmiany[k]; }
-    rysujWszystko();
+    przerysuj();
     return wyslij(dane)['catch'](function () {
-      pobierz().then(rysujWszystko);
+      pobierz().then(przerysuj);
     });
   }
 
@@ -1446,7 +1449,13 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // stare uwagi przyszly z przedrostkiem [co i kiedy publikujemy] i ze stara data,
   // a posty zdazyly sie przenumerowac — dlatego porownujemy po samym temacie.
   var OGONKI = { 'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's', 'ż': 'z', 'ź': 'z' };
+  var PAMIEC_KLUCZY = {};
   function klucz(s) {
+    var wejscie = String(s || '');
+    if (PAMIEC_KLUCZY[wejscie] !== undefined) return PAMIEC_KLUCZY[wejscie];
+    return (PAMIEC_KLUCZY[wejscie] = liczKlucz(wejscie));
+  }
+  function liczKlucz(s) {
     return String(s || '')
       .toLowerCase()
       .replace(/\[[^\]]*\]/g, ' ')                  // [co i kiedy publikujemy]
@@ -1470,16 +1479,32 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   var ZNACZNIK = 'STATUS POSTU';
   function jestZnacznikiem(u) { return u.ocena === ZNACZNIK; }
 
-  function dla(tytul) {
-    return UWAGI.filter(function (u) {
-      return u.status !== 'cofnieta' && !jestZnacznikiem(u) && pasuje(u.pozycja, tytul);
+  // indeks budowany raz na przerysowanie — bez niego kazde klikniecie
+  // przemielalo wszystkie uwagi razy wszystkie posty i strona mulila
+  var INDEKS = null;
+  function przeliczIndeks() {
+    INDEKS = { uwagi: {}, znaczniki: {} };
+    UWAGI.forEach(function (u) {
+      if (u.status === 'cofnieta') return;
+      var k = klucz(u.pozycja);
+      if (ALIASY[k]) k = ALIASY[k];
+      var gdzie = jestZnacznikiem(u) ? INDEKS.znaczniki : INDEKS.uwagi;
+      (gdzie[k] = gdzie[k] || []).push(u);
     });
   }
-  function znacznikPostu(tytul) {
-    return UWAGI.filter(function (u) {
-      return u.status !== 'cofnieta' && jestZnacznikiem(u) && pasuje(u.pozycja, tytul);
-    })[0];
+  function zIndeksu(zbior, tytul) {
+    if (!INDEKS) przeliczIndeks();
+    var k = klucz(tytul);
+    if (ALIASY[k]) k = ALIASY[k];
+    if (zbior[k]) return zbior[k];
+    var wynik = [];
+    for (var kk in zbior) {
+      if (kk.indexOf(k) >= 0 || k.indexOf(kk) >= 0) wynik = wynik.concat(zbior[kk]);
+    }
+    return wynik;
   }
+  function dla(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.uwagi, tytul); }
+  function znacznikPostu(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.znaczniki, tytul)[0]; }
 
   function wierszUwagi(u) {
     var kl = stanKlasa(u.status);
@@ -1760,7 +1785,26 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     });
   }
 
-  function rysujWszystko() { rysujPrzyPostach(); rysujTabele(); rysujStatusyPostow(); odswiezLicznik(); }
+  function rysujWszystko() { INDEKS = null; rysujPrzyPostach(); rysujTabele(); rysujStatusyPostow(); odswiezLicznik(); }
+  // pelne przerysowanie raz na klatke: klikniecie odpowiada natychmiast,
+  // a trzy kolejne wywolania z jednego lancucha zlewaja sie w jedno
+  var CZEKA_RYS = false;
+  function przerysuj() {
+    if (CZEKA_RYS) return;
+    CZEKA_RYS = true;
+    (window.requestAnimationFrame || function (f) { setTimeout(f, 16); })(function () {
+      CZEKA_RYS = false;
+      rysujWszystko();
+    });
+  }
+  // natychmiastowy slad klikniecia, zanim dojdzie do pelnego przerysowania
+  function odMaluj(b) {
+    var rodzic = b.parentNode;
+    if (!rodzic) return;
+    var bracia = rodzic.querySelectorAll("button.st, button.pst");
+    for (var i = 0; i < bracia.length; i++) bracia[i].classList.remove("akt");
+    b.classList.add("akt");
+  }
 
   // ---- akcje na uwagach ----
   document.addEventListener('click', function (e) {
@@ -1782,12 +1826,13 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     } else if (b.classList.contains('st')) {
       // zmiana przy pojedynczej uwadze podciaga za soba stan calego postu
       var nowyStan = b.dataset.st;
+      odMaluj(b);
       var u2 = UWAGI.filter(function (x) { return x.nr === nr; })[0];
       if (u2) u2.status = nowyStan;
-      rysujWszystko();
+      przerysuj();
       wyslijCicho({ akcja: 'status', nr: nr, status: nowyStan })
         .then(function () { return zgraj(u2 ? u2.pozycja : '', null); })
-        ['catch'](function () { pobierz().then(rysujWszystko); });
+        ['catch'](function () { pobierz().then(przerysuj); });
     } else if (b.classList.contains('odp')) {
       if (el.querySelector('.odpBox')) { el.querySelector('.odpBox').remove(); return; }
       var box = document.createElement('div');
@@ -1828,7 +1873,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Jeden stan na post. Zmiana z gory schodzi na wszystkie jego uwagi,
   // zmiana przy uwadze podnosi sie do postu. Zeby nigdy nie bylo dwoch roznych kolorow.
   function zgraj(tytul, wymuszony) {
-    if (!tytul) { rysujWszystko(); return Promise.resolve(); }
+    if (!tytul) { przerysuj(); return Promise.resolve(); }
     var moje = dla(tytul);
     var cel = wymuszony;
     if (!cel) {                       // bez wymuszenia bierzemy najmniej zaawansowana uwage
@@ -1851,7 +1896,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         kolejka.push({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, kto: 'ZOVU', doStatusu: cel });
       }
     }
-    rysujWszystko();
+    przerysuj();
     return kolejka.reduce(function (p, z) {
       return p.then(function () {
         var doSt = z.doStatusu; delete z.doStatusu;
@@ -1865,7 +1910,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         });
       });
     }, Promise.resolve()).then(function () {
-      return pobierz().then(rysujWszystko);
+      return pobierz().then(przerysuj);
     });
   }
 
@@ -1874,7 +1919,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     var b = e.target.closest ? e.target.closest('button.pst') : null;
     if (!b) return;
     var tytul = b.dataset.tytul, nowy = b.dataset.st;
-    zgraj(tytul, nowy)['catch'](function () { pobierz().then(rysujWszystko); });
+    odMaluj(b);
+    zgraj(tytul, nowy)['catch'](function () { pobierz().then(przerysuj); });
     return;
   });
 
@@ -2045,6 +2091,6 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // ---- start ----
   odswiezLicznik();
   pobierz().then(function () { rysujWszystko(); doKotwicy(); });
-  setInterval(function () { pobierz().then(rysujWszystko); }, 45000);
+  setInterval(function () { pobierz().then(przerysuj); }, 45000);
 })();
 </script></body></html>
