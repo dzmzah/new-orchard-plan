@@ -349,6 +349,17 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .odpBox .pytanie{font-size:14px;color:var(--tekst);margin-bottom:8px}
 .mini.cofT{color:#b4552e;border-color:#b4552e}
 .mini.cofT:hover{background:#b4552e;color:#fff}
+
+/* decyzja Ani: zatwierdzam albo do poprawki, zawsze pod kazdym postem */
+.pAkcept{background:#faf9f5;border-color:var(--ramka)}
+.pAkcept span{color:var(--cichy);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.pAkcept .zatw,.pAkcept .dopop{font:15px inherit;padding:9px 20px;border-radius:20px;cursor:pointer;background:#fff}
+.pAkcept .zatw{border:1px solid #3f7d18;color:#3f7d18}
+.pAkcept .zatw:hover{background:#6ac52c;border-color:#6ac52c;color:#12300a}
+.pAkcept .zatw.akt{background:#6ac52c;border-color:#6ac52c;color:#12300a;font-weight:600}
+.pAkcept .dopop{border:1px solid #b4552e;color:#b4552e}
+.pAkcept .dopop:hover{background:#b4552e;color:#fff}
+.pAkcept .dopop.akt{background:#b4552e;border-color:#b4552e;color:#fff;font-weight:600}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1951,18 +1962,46 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     }).join('');
   }
 
-  // dla Ani: gdy cos czeka na jej tak, dostaje jeden duzy przycisk
+  // Dla Ani: decyzja przy KAZDYM poscie i zawsze dostepna. Nawet jesli cos juz
+  // zatwierdzila, moze to cofnac do poprawki i napisac, co konkretnie zmienic.
   function dodajPrzyciskAkceptu(karta, tytul, teraz) {
     var stary = karta.querySelector('.pAkcept');
-    if (ZESPOL || teraz !== 'czeka') { if (stary) stary.remove(); return; }
-    if (stary) return;
-    var d = document.createElement('div');
-    d.className = 'pAkcept';
-    d.innerHTML = '<span>Poprawione. Pasuje tak?</span>' +
-      '<button class="zatw" data-tytul="' + esc(tytul) + '">Zatwierdzam</button>';
-    var uw = karta.querySelector('.uw');
-    if (uw) karta.insertBefore(d, uw); else karta.appendChild(d);
+    if (ZESPOL) { if (stary) stary.remove(); return; }
+    var d = stary;
+    if (!d) {
+      d = document.createElement('div');
+      d.className = 'pAkcept';
+      var uw = karta.querySelector('.uw');
+      var otw = karta.querySelector('.uwOtw');
+      if (otw) karta.insertBefore(d, otw);
+      else if (uw) karta.insertBefore(d, uw);
+      else karta.appendChild(d);
+    }
+    var napis = teraz === 'czeka' ? 'Poprawione. Pasuje tak?' : 'Twoja decyzja:';
+    var nowy = '<span>' + napis + '</span>' +
+      '<button class="zatw' + (teraz === 'zrobione' ? ' akt' : '') + '" data-tytul="' + esc(tytul) + '">Zatwierdzam</button>' +
+      '<button class="dopop' + (teraz === 'poprawka' ? ' akt' : '') + '" data-tytul="' + esc(tytul) + '">Do poprawki</button>';
+    if (d.innerHTML !== nowy) d.innerHTML = nowy;
   }
+
+  // "Do poprawki" od Ani: post wraca do nas i od razu otwiera sie pole,
+  // zeby mogla napisac, co konkretnie ma byc inaczej
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.dopop') : null;
+    if (!b) return;
+    var tytul = b.dataset.tytul;
+    zgraj(tytul, 'poprawka');
+    var karta = b.closest('.k');
+    if (!karta) return;
+    var pole = karta.querySelector('.uw');
+    if (pole) {
+      pole.classList.remove('zwin');
+      var ta = pole.querySelector('textarea');
+      if (ta) { ta.focus(); ta.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+      var dop = pole.querySelector('.uwbtn button[data-st="zmiana"]');
+      if (dop && !dop.classList.contains('akt')) dop.click();
+    }
+  });
 
   function rysujStatusyPostow() {
     [].slice.call(document.querySelectorAll('.uw[data-tytul]')).forEach(function (u) {
@@ -2095,16 +2134,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   document.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('button.zatw') : null;
     if (!b) return;
-    var tytul = b.dataset.tytul;
-    b.disabled = true; b.textContent = 'Zapisuje...';
-    var zn = znacznikPostu(tytul);
-    if (zn) {
-      odRazu(zn.nr, { status: 'zrobione' }, { akcja: 'status', nr: zn.nr, status: 'zrobione' });
-    } else {
-      dla(tytul).forEach(function (u) {
-        odRazu(u.nr, { status: 'zrobione' }, { akcja: 'status', nr: u.nr, status: 'zrobione' });
-      });
-    }
+    // zawsze klikalne — moze zatwierdzic, potem sie rozmyslic i znow zatwierdzic
+    zgraj(b.dataset.tytul, 'zrobione');
   });
 
   // Jeden stan na post. Zmiana z gory schodzi na wszystkie jego uwagi,
