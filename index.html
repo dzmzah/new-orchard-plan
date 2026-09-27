@@ -360,6 +360,10 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .pAkcept .dopop{border:1px solid #b4552e;color:#b4552e}
 .pAkcept .dopop:hover{background:#b4552e;color:#fff}
 .pAkcept .dopop.akt{background:#b4552e;border-color:#b4552e;color:#fff;font-weight:600}
+
+/* pasek "to jeszcze szkic" pod polem pisania */
+.szkicI{font-size:12px;color:#a9741d;background:#fdf8ec;border:1px solid #f0e2c4;
+  border-radius:4px;padding:6px 10px;margin-top:7px}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1699,7 +1703,18 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     return wynik;
   }
   function dla(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.uwagi, tytul); }
-  function znacznikPostu(tytul) { if (!INDEKS) przeliczIndeks(); return zIndeksu(INDEKS.znaczniki, tytul)[0]; }
+  // W arkuszu potrafi lezec wiecej niz jeden znacznik tego samego postu
+  // (post zmienil nazwe i doszedl nowy wiersz). Prawda jest zawsze NAJNOWSZY,
+  // czyli ten o najwyzszym numerze wiersza — inaczej strona czytala jeden,
+  // a zapisywala drugi i stan "nie chcial sie zmienic".
+  function znacznikiPostu(tytul) {
+    if (!INDEKS) przeliczIndeks();
+    return zIndeksu(INDEKS.znaczniki, tytul).slice().sort(function (a, b) { return a.nr - b.nr; });
+  }
+  function znacznikPostu(tytul) {
+    var w = znacznikiPostu(tytul);
+    return w[w.length - 1];
+  }
 
   // Stan postu jest jeden. Prostujemy rozjazdy TYLKO po swiezym odczycie z arkusza
   // i nigdy nie ruszamy tego, co przed chwila kliknelismy — inaczej wybor sam by sie cofal.
@@ -2155,10 +2170,15 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         if (u.status !== cel) { u.status = cel; zapamietajStan(u.nr, cel); kolejka.push({ akcja: 'status', nr: u.nr, status: cel }); }
       });
     }
-    var zn = znacznikPostu(tytul);
+    var wszystkieZn = znacznikiPostu(tytul);
+    var zn = wszystkieZn[wszystkieZn.length - 1];
     if (cel) {
       if (zn) {
-        if (zn.status !== cel) { zn.status = cel; zapamietajStan(zn.nr, cel); kolejka.push({ akcja: 'status', nr: zn.nr, status: cel }); }
+        // wszystkie znaczniki tego postu ida na ten sam stan, zeby dublet
+        // z arkusza nie ciagnal posta z powrotem
+        wszystkieZn.forEach(function (z) {
+          if (z.status !== cel) { z.status = cel; zapamietajStan(z.nr, cel); kolejka.push({ akcja: 'status', nr: z.nr, status: cel }); }
+        });
       } else {
         UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, odpowiedz: '', kto: 'ZOVU' });
         kolejka.push({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: cel, kto: 'ZOVU', doStatusu: cel });
@@ -2258,6 +2278,32 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   try { szkic = JSON.parse(localStorage.getItem(KLUCZ + ':szkic') || '{}'); } catch (e) {}
   function zapiszSzkic() { try { localStorage.setItem(KLUCZ + ':szkic', JSON.stringify(szkic)); } catch (e) {} }
 
+  // Niedokonczony tekst lezy w tej przegladarce i przezywa zamkniecie karty
+  // czy zgasniecie komputera. Ale dopiero "Zapisz uwage" wysyla go do nas,
+  // wiec musi byc widac, ze to jeszcze szkic.
+  function pokazSzkic(u) {
+    var ta = u.querySelector('textarea');
+    if (!ta) return;
+    var pasek = u.querySelector('.szkicI');
+    var jest = !!(ta.value || '').trim();
+    if (!jest) { if (pasek) pasek.remove(); return; }
+    if (!pasek) {
+      pasek = document.createElement('div');
+      pasek.className = 'szkicI';
+      var stopka = u.querySelector('.uwStopka');
+      if (stopka) u.insertBefore(pasek, stopka); else u.appendChild(pasek);
+    }
+    pasek.textContent = 'Niezapisany szkic — trzyma sie na tym urzadzeniu. Kliknij Zapisz, zeby trafil do nas.';
+  }
+
+  // ostrzezenie przy zamykaniu karty, gdy cos jest napisane a niezapisane
+  window.addEventListener('beforeunload', function (e) {
+    var cos = Object.keys(szkic).some(function (k) { return (szkic[k].tekst || '').trim() || szkic[k].ocena; });
+    if (!cos) return;
+    e.preventDefault();
+    e.returnValue = '';
+  });
+
   var pola = [].slice.call(document.querySelectorAll('.uw')).concat([].slice.call(document.querySelectorAll('.wst')));
   pola.forEach(function (u, n) {
     if (!u.dataset.id) u.dataset.id = 'wst-' + n;
@@ -2281,8 +2327,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     ta.addEventListener('input', function () {
       var akt = u.querySelector('.uwbtn button.akt');
       szkic[id] = { ocena: akt ? akt.dataset.st : '', tekst: ta.value };
-      zapiszSzkic(); odswiezLicznik();
+      zapiszSzkic(); odswiezLicznik(); pokazSzkic(u);
     });
+    pokazSzkic(u);
     var przyc = u.querySelector('.wstB');
     if (przyc) przyc.addEventListener('click', function () { u.classList.toggle('otw'); if (u.classList.contains('otw')) ta.focus(); });
   });
@@ -2317,7 +2364,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       }).then(function () {
         ta.value = '';
         u.querySelectorAll('.uwbtn button').forEach(function (x) { x.classList.remove('akt'); });
-        delete szkic[u.dataset.id]; zapiszSzkic();
+        delete szkic[u.dataset.id]; zapiszSzkic(); pokazSzkic(u);
         if (zap) { zap.textContent = 'Zapisane ✓'; zap.classList.add('jest'); setTimeout(function () { zap.classList.remove('jest'); }, 4000); }
         b.disabled = false; b.textContent = b.closest('.wst') ? 'Zapisz' : 'Zapisz uwage';
       })['catch'](function () {
