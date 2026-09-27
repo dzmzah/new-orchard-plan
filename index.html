@@ -1387,8 +1387,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         (u.ocena ? '<span class="uwOc">' + esc(u.ocena) + '</span>' : '') +
         '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
         '<div class="uwGdzie">' + esc(u.pozycja) + '</div>' +
-        '<div class="uwTxt">' + esc(u.uwaga).replace(/
-/g, '<br>') + '</div>' +
+        '<div class="uwTxt">' + esc(u.uwaga).split('\n').join('<br>') + '</div>' +
         (u.odpowiedz ? '<div class="uwOdp"><b>Nasza odpowiedz:</b> ' + esc(u.odpowiedz) + '</div>' : '') +
         '<div class="uwAkc">' +
           '<button class="mini edy">Popraw</button>' +
