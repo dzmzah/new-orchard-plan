@@ -1381,14 +1381,21 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       .then(function (j) { if (j && j.ok) { UWAGI = j.uwagi || []; } return UWAGI; })
       ['catch'](function () { return UWAGI; });
   }
-  function wyslij(dane) {
+  // cicho: zapisuje i oddaje odpowiedz, ale NIE przerysowuje ekranu.
+  // dzieki temu w srodku lancucha nikt nie zobaczy stanu posredniego.
+  function wyslijCicho(dane) {
     dane.token = TOKEN;
     return fetch(MOST, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(dane),
-    }).then(function (r) { return r.json(); })
-      .then(function (j) { if (j && j.ok) { UWAGI = j.uwagi || []; rysujWszystko(); } return j; });
+    }).then(function (r) { return r.json(); });
+  }
+  function wyslij(dane) {
+    return wyslijCicho(dane).then(function (j) {
+      if (j && j.ok) { UWAGI = j.uwagi || []; rysujWszystko(); }
+      return j;
+    });
   }
 
   // zmiana od razu widoczna, zapis leci w tle
@@ -1754,7 +1761,18 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       // znacznika jeszcze nie ma — jedno zadanie, od razu z wlasciwym stanem
       UWAGI.push({ nr: -1, czas: '', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, odpowiedz: '', kto: 'ZOVU' });
       rysujWszystko();
-      wyslij({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, kto: 'ZOVU' })
+      // tworzymy wiersz i dopiero po ustawieniu stanu odswiezamy widok — bez migania
+      wyslijCicho({ akcja: 'dodaj', pozycja: tytul, ocena: ZNACZNIK, uwaga: '', status: nowy, kto: 'ZOVU' })
+        .then(function (j) {
+          if (!j || !j.ok) throw new Error('brak zapisu');
+          var swiezy = (j.uwagi || []).filter(function (u) {
+            return u.ocena === ZNACZNIK && pasuje(u.pozycja, tytul) && u.status !== 'cofnieta';
+          }).pop();
+          if (swiezy && swiezy.status !== nowy) {
+            return wyslij({ akcja: 'status', nr: swiezy.nr, status: nowy });
+          }
+          UWAGI = j.uwagi || []; rysujWszystko();
+        })
         ['catch'](function () { pobierz().then(rysujWszystko); });
     }
   });
