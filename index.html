@@ -282,6 +282,18 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .szF.akt b{color:#fff}
 .szDzial{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy);margin:18px 0 8px}
 .szDzial:first-of-type{margin-top:2px}
+/* wybrany stan swieci swoim kolorem, nie zawsze zielonym */
+.mini.st.akt,.mini.pst.akt{color:#fff}
+.mini.st[data-st="nowa"].akt,.mini.pst[data-st="nowa"].akt{background:#c0392b;border-color:#c0392b}
+.mini.st[data-st="w robocie"].akt,.mini.pst[data-st="w robocie"].akt{background:#d99a2b;border-color:#d99a2b}
+.mini.st[data-st="czeka"].akt,.mini.pst[data-st="czeka"].akt{background:#2e6b9e;border-color:#2e6b9e}
+.mini.st[data-st="zrobione"].akt,.mini.pst[data-st="zrobione"].akt{background:#3c5a46;border-color:#3c5a46}
+/* niewybrane maja tylko delikatny slad swojego koloru */
+.mini.st[data-st="nowa"],.mini.pst[data-st="nowa"]{color:#c0392b}
+.mini.st[data-st="w robocie"],.mini.pst[data-st="w robocie"]{color:#a9741d}
+.mini.st[data-st="czeka"],.mini.pst[data-st="czeka"]{color:#2e6b9e}
+.mini.st[data-st="zrobione"],.mini.pst[data-st="zrobione"]{color:#3c5a46}
+.mini.st:hover,.mini.pst:hover{border-color:currentColor}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
