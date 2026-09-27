@@ -274,6 +274,14 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .prd.tow a:hover{background:var(--akcent);color:#fff;border-color:var(--akcent)}
 .prd.tow i{font-size:13px;color:var(--cichy)}
 .brakTow{opacity:.75}
+.szFiltry{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;position:sticky;top:0;background:var(--tlo);padding-bottom:10px;z-index:2}
+.szF{font:13px inherit;padding:6px 13px;border-radius:16px;border:1px solid var(--ramka);background:#fff;color:var(--cichy);cursor:pointer}
+.szF b{font-weight:600;color:var(--tekst)}
+.szF:hover{border-color:var(--akcent);color:var(--akcent)}
+.szF.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.szF.akt b{color:#fff}
+.szDzial{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy);margin:18px 0 8px}
+.szDzial:first-of-type{margin-top:2px}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1497,6 +1505,10 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     });
   }
 
+  // ---- ktory koszyk jest otwarty ----
+  var WYBRANA_SEKCJA = 'wszystkie';
+  try { WYBRANA_SEKCJA = localStorage.getItem(KLUCZ + ':koszyk') || 'wszystkie'; } catch (e) {}
+
   // ---- kolejnosc w szufladzie: stala w trakcie pracy ----
   var KOLEJNOSC = [];
   function ustalKolejnosc(lista) {
@@ -1513,14 +1525,6 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     var lista = UWAGI.filter(function (u) {
       return u.status !== 'cofnieta' && !jestZnacznikiem(u) && (u.uwaga || u.ocena);
     });
-    // kolejnosc ustalamy RAZ, przy pobraniu z serwera. Zmiana statusu ma zmieniac kolor,
-    // a nie przerzucac pozycji w inne miejsce listy — inaczej klika sie w ruchomy cel.
-    if (!KOLEJNOSC.length) ustalKolejnosc(lista);
-    lista.sort(function (a, b) {
-      var ia = KOLEJNOSC.indexOf(a.nr), ib = KOLEJNOSC.indexOf(b.nr);
-      if (ia < 0) ia = 9999; if (ib < 0) ib = 9999;
-      return ia - ib;
-    });
     if (!lista.length) { cel.innerHTML = '<div class="ekr">Na razie nie ma zadnych uwag.</div>'; return; }
 
     // grupujemy po poscie: jedna glowka z miniaturka, pod nia jej uwagi
@@ -1528,14 +1532,48 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     lista.forEach(function (u) {
       var g = miejsceDla(u.pozycja);
       var k = g ? g.id : ('x' + klucz(u.pozycja));
-      if (!indeks[k]) { indeks[k] = { miejsce: g, pozycja: u.pozycja, uwagi: [] }; grupy.push(indeks[k]); }
+      if (!indeks[k]) {
+        indeks[k] = { miejsce: g, pozycja: u.pozycja, uwagi: [],
+                      sekcja: g ? g.sekcja : 'inne', sekNazwa: g ? g.sekNazwa : 'Inne',
+                      kolej: g ? g.kolej : 9999 };
+        grupy.push(indeks[k]);
+      }
       indeks[k].uwagi.push(u);
     });
+    // kolejnosc dokladnie taka, jak posty ida na stronie
+    grupy.sort(function (a, b) { return a.kolej - b.kolej; });
+    grupy.forEach(function (g) { g.uwagi.sort(function (a, b) { return a.nr - b.nr; }); });
 
-    var h = '';
+    // osobny koszyk na kazda sekcje
+    var licznikiSekcji = {}, kolejnoscSekcji = [];
+    grupy.forEach(function (g) {
+      if (!licznikiSekcji[g.sekcja]) { licznikiSekcji[g.sekcja] = { nazwa: g.sekNazwa, ile: 0, otwarte: 0 }; kolejnoscSekcji.push(g.sekcja); }
+      g.uwagi.forEach(function (u) {
+        licznikiSekcji[g.sekcja].ile++;
+        if (u.status !== 'zrobione') licznikiSekcji[g.sekcja].otwarte++;
+      });
+    });
+    if (WYBRANA_SEKCJA !== 'wszystkie' && !licznikiSekcji[WYBRANA_SEKCJA]) WYBRANA_SEKCJA = 'wszystkie';
+
+    var filtry = '<div class="szFiltry"><button class="szF' + (WYBRANA_SEKCJA === 'wszystkie' ? ' akt' : '') +
+      '" data-sekcja="wszystkie">Wszystkie <b>' + lista.length + '</b></button>';
+    kolejnoscSekcji.forEach(function (s) {
+      filtry += '<button class="szF' + (WYBRANA_SEKCJA === s ? ' akt' : '') + '" data-sekcja="' + s + '">' +
+        esc(licznikiSekcji[s].nazwa) + ' <b>' + licznikiSekcji[s].ile + '</b></button>';
+    });
+    filtry += '</div>';
+
+    if (WYBRANA_SEKCJA !== 'wszystkie') grupy = grupy.filter(function (g) { return g.sekcja === WYBRANA_SEKCJA; });
+
+    var h = filtry;
+    var ostatniaSekcja = null;
     grupy.forEach(function (g) {
       var m = g.miejsce;
       var st = m ? statusPostu(m.tytul) : null;
+      if (WYBRANA_SEKCJA === 'wszystkie' && g.sekcja !== ostatniaSekcja) {
+        ostatniaSekcja = g.sekcja;
+        h += '<div class="szDzial">' + esc(g.sekNazwa) + '</div>';
+      }
       h += '<div class="grupa' + (st ? ' ' + stanKlasa(st) : '') + '">' +
         '<div class="grGl" data-idzie="' + esc(m ? m.tytul : g.pozycja) + '">' +
           (m && m.obraz ? '<img src="' + m.obraz + '" alt="" loading="lazy">' : '<span class="grBrak"></span>') +
@@ -1554,23 +1592,32 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       ' uwag przy ' + grupy.length + ' pozycjach, otwartych ' + otwarte + '.</div>';
   }
 
-  // gdzie ta uwaga siedzi na stronie: karta, nazwa, data i pierwszy kadr
+  // gdzie ta uwaga siedzi na stronie: karta, nazwa, data, kadr, sekcja i kolejnosc
   function miejsceDla(pozycja) {
-    var pole = [].slice.call(document.querySelectorAll('.uw[data-tytul]'))
-      .filter(function (x) { return pasuje(x.dataset.tytul, pozycja); })[0];
+    var wszystkie = [].slice.call(document.querySelectorAll('.uw[data-tytul], .wst[data-tytul]'));
+    var pole = wszystkie.filter(function (x) { return pasuje(x.dataset.tytul, pozycja); })[0];
     if (!pole) return null;
-    var karta = pole.closest('.k');
-    if (!karta) return null;
-    var img = karta.querySelector('.kadry img');
-    var h3 = karta.querySelector('.gl h3');
-    var dat = karta.querySelector('.gl .dat');
+    var karta = pole.closest('.k') || pole;
+    var img = karta.querySelector ? karta.querySelector('.kadry img') : null;
+    var h3 = karta.querySelector ? karta.querySelector('.gl h3') : null;
+    var dat = karta.querySelector ? karta.querySelector('.gl .dat') : null;
+    var sek = pole.closest('.sek');
     return {
-      id: karta.id,
+      id: karta.id || ('x' + wszystkie.indexOf(pole)),
       tytul: pole.dataset.tytul,
       nazwa: h3 ? h3.textContent : pole.dataset.tytul,
       data: dat ? dat.textContent : '',
       obraz: img ? img.getAttribute('src') : null,
+      sekcja: sek ? sek.id.replace('sek-', '') : 'inne',
+      sekNazwa: nazwaSekcji(sek),
+      kolej: wszystkie.indexOf(pole),   // dokladnie ta kolejnosc, co na stronie
     };
+  }
+  function nazwaSekcji(sek) {
+    if (!sek) return 'Inne';
+    var id = sek.id.replace('sek-', '');
+    var przy = document.querySelector('.naw .zak[data-sek="' + id + '"]');
+    return przy ? przy.textContent.trim() : id;
   }
 
   function wierszSzuflady(u) {
@@ -1819,6 +1866,15 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     return;
   });
 
+
+  // przelaczanie koszykow w szufladzie
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.szF[data-sekcja]') : null;
+    if (!b) return;
+    WYBRANA_SEKCJA = b.dataset.sekcja;
+    try { localStorage.setItem(KLUCZ + ':koszyk', WYBRANA_SEKCJA); } catch (err) {}
+    rysujTabele();
+  });
 
   // klik w nazwe pozycji: zamykamy szuflade i skaczemy do tego miejsca
   document.addEventListener('click', function (e) {
