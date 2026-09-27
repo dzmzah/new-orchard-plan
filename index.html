@@ -226,6 +226,7 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .pAkcept .zatw{font:15px inherit;padding:9px 20px;border-radius:20px;border:1px solid #2e6b9e;
   background:#2e6b9e;color:#fff;cursor:pointer}
 .pAkcept .zatw:disabled{opacity:.6}
+.pAkc{border-top:1px solid var(--ramka);padding-top:12px;margin:14px 0 0}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1556,9 +1557,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (!pas) {
       pas = document.createElement('div');
       pas.className = 'pAkc';
-      var gl = karta.querySelector('.gl');
-      if (gl && gl.parentNode) gl.parentNode.insertBefore(pas, gl.nextSibling);
-      else karta.insertBefore(pas, karta.firstChild);
+      karta.appendChild(pas);   // na samym dole: najpierw czytasz post, potem decydujesz
     }
     pas.innerHTML = '<span class="pAkcE">ten post:</span>' + STATUSY.map(function (s) {
       return '<button class="mini pst' + (teraz === s.id ? ' akt' : '') + '" data-st="' + s.id +
