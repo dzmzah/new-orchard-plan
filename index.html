@@ -1855,7 +1855,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         ostatniaSekcja = g.sekcja;
         h += '<div class="szDzial">' + esc(g.sekNazwa) + '</div>';
       }
-      var swiezaGrupa = g.uwagi.some(function (x) { return NOWE_POKAZ[x.nr]; });
+      var swiezaGrupa = g.uwagi.some(jestNowa);
       h += '<div class="grupa' + (st ? ' ' + stanKlasa(st) : '') + (swiezaGrupa ? ' swiezaGr' : '') + '">' +
         '<div class="grGl" data-idzie="' + esc(m ? m.tytul : g.pozycja) + '">' +
           (m && m.obraz ? '<img src="' + m.obraz + '" alt="" loading="lazy">' : '<span class="grBrak"></span>') +
@@ -1919,7 +1919,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
 
   function wierszSzuflady(u) {
-    var swieza = NOWE_POKAZ[u.nr];
+    var swieza = jestNowa(u);
     return '<div class="uwEl ' + stanKlasa(u.status) + (swieza ? ' swieza' : '') + '" data-nr="' + u.nr + '">' +
         '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + kto(u) +
         (swieza ? '<span class="nowaEt">NOWE</span>' : '') + '</span>' +
@@ -2429,12 +2429,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   function zapiszWidziane() {
     try { localStorage.setItem(KLUCZ + ':widziane', JSON.stringify(WIDZIANE)); } catch (e) {}
   }
-  function noweOdNich() {
-    return UWAGI.filter(function (u) {
-      return u.status !== 'cofnieta' && u.ktoZmienil === OBCY &&
-        u.zmieniono && WIDZIANE[u.nr] !== u.zmieniono;
-    });
+  function jestNowa(u) {
+    return u.status !== 'cofnieta' && u.ktoZmienil === OBCY &&
+      !!u.zmieniono && WIDZIANE[u.nr] !== u.zmieniono;
   }
+  function noweOdNich() { return UWAGI.filter(jestNowa); }
   function odswiezNowosci() {
     var ile = noweOdNich().length;
     var kropka = document.getElementById('nowosci');
@@ -2451,11 +2450,11 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (kosz2) kosz2.classList.toggle('maNowe', ile > 0);
     kropka.title = ile ? ile + ' nowych zmian od drugiej strony' : '';
   }
-  var NOWE_POKAZ = {};
   function odhaczNowosci() {
-    noweOdNich().forEach(function (u) { NOWE_POKAZ[u.nr] = true; WIDZIANE[u.nr] = u.zmieniono; });
+    noweOdNich().forEach(function (u) { WIDZIANE[u.nr] = u.zmieniono; });
     zapiszWidziane();
     odswiezNowosci();
+    przerysuj();
   }
 
   function odswiezLicznik() {
@@ -2517,8 +2516,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     szuf.setAttribute('aria-hidden', tak ? 'false' : 'true');
     document.body.style.overflow = tak ? 'hidden' : '';
     // zajrzeliśmy do koszyka — czerwona kropka gasnie
-    if (tak) { odhaczNowosci(); przerysuj(); }
-    else { NOWE_POKAZ = {}; przerysuj(); }
+    if (!tak) odhaczNowosci();
   }
   var kosz = document.getElementById('koszyk');
   if (kosz) kosz.addEventListener('click', function () { otworzSz(true); });
@@ -2589,7 +2587,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790553978719';
+  var MOJA_WERSJA = '1790554077780';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
