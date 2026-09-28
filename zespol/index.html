@@ -497,7 +497,8 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
 .oklada img{display:block;width:100%;height:clamp(190px,26vw,340px);object-fit:cover;opacity:.92}
 .okladaT{position:absolute;left:0;right:0;bottom:0;padding:22px;
   background:linear-gradient(to top,rgba(20,30,15,.82),rgba(20,30,15,0));color:#fff}
-.okladaT>*{display:block;max-width:980px;margin-left:auto;margin-right:auto;padding:0 6px}
+.okladaIn{max-width:980px;margin:0 auto;padding:0 6px}
+.okladaIn>*{display:block}
 .okladaE{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)}
 .okladaT strong{font-size:clamp(26px,3.4vw,40px);font-weight:400;letter-spacing:-.01em;margin:4px 0 5px}
 .okladaI{font-size:13px;color:rgba(255,255,255,.8)}
@@ -530,7 +531,7 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
 </header>
-<div class="oklada"><img src="../oklada.jpg" alt=""><div class="okladaT"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div>
+<div class="oklada"><img src="../oklada.jpg" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
 <div class="w">
   <div class="linki">
   <a class="lnk gl" href="https://theneworchard.com/" target="_blank" rel="noopener">
@@ -2718,7 +2719,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790555475348';
+  var MOJA_WERSJA = '1790555562710';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
