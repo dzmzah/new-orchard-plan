@@ -444,6 +444,12 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   border:2px solid rgba(224,49,39,.55);animation:fala 2s ease-out infinite;pointer-events:none}
 @keyframes fala{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.18)}}
 @media (prefers-reduced-motion: reduce){#nowosci,#koszyk.maNowe::after{animation:none}}
+
+/* w koszyku widac, co dokladnie jest nowe od drugiej strony */
+.nowaEt{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:9px;
+  background:#e03127;color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;vertical-align:middle}
+.uwEl.swieza{background:#fff6f5}
+.grupa.swiezaGr{box-shadow:0 0 0 2px rgba(224,49,39,.45)}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1849,7 +1855,8 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
         ostatniaSekcja = g.sekcja;
         h += '<div class="szDzial">' + esc(g.sekNazwa) + '</div>';
       }
-      h += '<div class="grupa' + (st ? ' ' + stanKlasa(st) : '') + '">' +
+      var swiezaGrupa = g.uwagi.some(function (x) { return NOWE_POKAZ[x.nr]; });
+      h += '<div class="grupa' + (st ? ' ' + stanKlasa(st) : '') + (swiezaGrupa ? ' swiezaGr' : '') + '">' +
         '<div class="grGl" data-idzie="' + esc(m ? m.tytul : g.pozycja) + '">' +
           (m && m.obraz ? '<img src="' + m.obraz + '" alt="" loading="lazy">' : '<span class="grBrak"></span>') +
           '<div class="grOpis"><b>' + esc(m ? m.nazwa : g.pozycja) + '</b>' +
@@ -1912,8 +1919,10 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
 
   function wierszSzuflady(u) {
-    return '<div class="uwEl ' + stanKlasa(u.status) + '" data-nr="' + u.nr + '">' +
-        '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + kto(u) + '</span>' +
+    var swieza = NOWE_POKAZ[u.nr];
+    return '<div class="uwEl ' + stanKlasa(u.status) + (swieza ? ' swieza' : '') + '" data-nr="' + u.nr + '">' +
+        '<div class="uwGl"><span class="uwCzas">' + esc(u.czas) + kto(u) +
+        (swieza ? '<span class="nowaEt">NOWE</span>' : '') + '</span>' +
         
         '<span class="uwSt"><i></i>' + stanNazwa(u.status) + '</span></div>' +
         (u.uwaga
@@ -2442,8 +2451,10 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     if (kosz2) kosz2.classList.toggle('maNowe', ile > 0);
     kropka.title = ile ? ile + ' nowych zmian od drugiej strony' : '';
   }
+  var NOWE_POKAZ = {};
   function odhaczNowosci() {
-    noweOdNich().forEach(function (u) { WIDZIANE[u.nr] = u.zmieniono; });
+    NOWE_POKAZ = {};
+    noweOdNich().forEach(function (u) { NOWE_POKAZ[u.nr] = true; WIDZIANE[u.nr] = u.zmieniono; });
     zapiszWidziane();
     odswiezNowosci();
   }
@@ -2578,7 +2589,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790553608635';
+  var MOJA_WERSJA = '1790553665390';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
