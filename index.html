@@ -4,9 +4,9 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>New Orchard — plan i uwagi</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg?w=1790556169531">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon.png?w=1790556169531">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?w=1790556169531">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?w=1790556273997">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon.png?w=1790556273997">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?w=1790556273997">
 <meta name="theme-color" content="#2c4d23">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -537,16 +537,47 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
 #naGore:hover{transform:translateY(-2px);border-color:var(--zielen)}
 #naGore[hidden]{display:none!important}
 @media(max-width:560px){#naGore{left:14px;bottom:14px;width:40px;height:40px}}
+
+/* ---------- ramka na kanaly ---------- */
+.kanaly{border:1px solid var(--ramka);border-radius:6px;background:#fff;padding:14px 16px 16px;margin:18px 0 0}
+.kanalyGl{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.kanalyE{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--zielen);font-weight:600}
+.kanalyP{font-size:12px;color:var(--cichy)}
+.kanaly .linki{margin:8px 0 0}
+
+/* ---------- instrukcja, ktora widac ---------- */
+.start{border:1px solid #d6e0d2;border-radius:8px;background:linear-gradient(180deg,#f6faf3,#fff 60%);
+  padding:22px 24px;margin:16px 0 30px}
+.startGl{border-bottom:1px solid #e4ece0;padding-bottom:14px;margin-bottom:16px}
+.startZnak{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:var(--zielen);border-radius:10px;padding:3px 10px}
+.start h2{font-size:22px;font-weight:500;margin:9px 0 6px;color:var(--tekst)}
+.startLead{font-size:15px;color:#4a463e;margin:0;max-width:62ch}
+.kroki{list-style:none;counter-reset:krok;margin:0;padding:0;display:grid;gap:12px}
+.kroki li{counter-increment:krok;position:relative;padding-left:40px;font-size:14px;color:#4a463e}
+.kroki li::before{content:counter(krok);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:13px;
+  background:var(--zielen);color:#fff;font:600 13px 'Jost',sans-serif;display:flex;align-items:center;justify-content:center}
+.kroki li b{display:block;color:var(--tekst);font-size:15px;font-weight:600;margin-bottom:2px}
+.kroki li span b{display:inline;font-size:inherit}
+.legenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin:18px 0 0;padding-top:15px;border-top:1px solid #e4ece0}
+.lg{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:#4a463e}
+.lgK{width:11px;height:11px;border-radius:50%;flex:none}
+.lgK.nie{background:#c0392b}.lgK.popr{background:#b4552e}.lgK.robi{background:#d99a2b}
+.lgK.czeka{background:#2e6b9e}.lgK.gotowe{background:#6ac52c}
+.startStopka{font-size:13px;color:var(--cichy);margin:14px 0 0}
+@media(max-width:560px){.start{padding:18px 16px}.kroki li{padding-left:34px}}
 </style></head><body>
 <header class="belka">
   <div class="belkaW">
-    <img class="znak" src="logo-bialy.png?w=1790556169531" alt="New Orchard" width="34" height="30">
+    <img class="znak" src="logo-bialy.png?w=1790556273997" alt="New Orchard" width="34" height="30">
     <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="belkaPod">plan i uwagi</span></div>
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
 </header>
-<div class="oklada"><img src="oklada.jpg?w=1790556169531" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
+<div class="oklada"><img src="oklada.jpg?w=1790556273997" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
 <div class="w">
+  <section class="kanaly">
+  <div class="kanalyGl"><span class="kanalyE">Wasze kanaly</span><span class="kanalyP">klikasz i jestes na miejscu</span></div>
   <div class="linki">
   <a class="lnk gl" href="https://theneworchard.com/" target="_blank" rel="noopener">
      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h12l1.6 4.3a1 1 0 0 1-.94 1.35H5.34a1 1 0 0 1-.94-1.35L6 2.5z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 9.5v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 13.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Sklep</span></a>
@@ -577,21 +608,28 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Akcesoria</span></a>
   <a class="lnk" href="https://theneworchard.com/collections/bestsellers" target="_blank" rel="noopener">
      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2V4.2a.7.7 0 0 1 .7-.7h7l9.3 9.3a1.4 1.4 0 0 1 0 2l-6.3 6.3a1.4 1.4 0 0 1-2 0L3.5 11.2z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7.6" cy="7.6" r="1.3"/></svg><span>Bestsellery</span></a>
-</div>
-  <div class="jak">
-    <b>To jest jedno miejsce na wszystko.</b> Ten adres sie nie zmienia &mdash; zawsze wchodzisz tutaj
-    i zawsze widzisz aktualna wersje. Zadnych nowych plikow i linkow.<br><br>
-    Na dole kazdego postu jest <b>+ napisz uwage do tego postu</b>. Piszesz i zapisujesz &mdash;
-    uwaga zostaje na stronie od razu, widzimy ja u siebie w tej samej chwili.
-    Mozesz ja pozniej poprawic albo wycofac, przyciski sa przy niej.<br><br>
-    Kolor mowi, na czyim boku jest pilka:
-    <b class="kol nie">czerwone</b> jeszcze nie zrobione,
-    <b class="kol robi">zolte</b> wzielismy do pracy,
-    <b class="kol czeka">niebieskie</b> poprawione i czeka na Twoja zgode,
-    <b class="kol gotowe">zielone</b> zatwierdzone przez Ciebie.
-    Przy niebieskich dostajesz przycisk <b>Zatwierdzam</b>.<br><br>
-    Wszystkie uwagi razem sa pod przyciskiem <b>Twoje uwagi</b> w prawym dolnym rogu.
   </div>
+</section>
+  <section class="start">
+    <div class="startGl">
+      <span class="startZnak">1 miejsce</span>
+      <h2>Jak to dziala</h2>
+      <p class="startLead">Ten adres sie nie zmienia. Zawsze wchodzisz tutaj i zawsze widzisz aktualna wersje &mdash; zadnych nowych plikow ani linkow.</p>
+    </div>
+    <ol class="kroki">
+      <li><b>Ogladasz plan</b><span>Zakladki na gorze: siatka profilu, posty, stories, reklama, mailing. Kadr klikasz, zeby zobaczyc go duzo wiekszy.</span></li>
+      <li><b>Piszesz uwage</b><span>Pod kazdym postem jest <b>+ napisz uwage do tego postu</b>. Zapisuje sie sama, widzimy ja w tej samej chwili. Mozesz ja pozniej poprawic albo wycofac.</span></li>
+      <li><b>Decydujesz</b><span>Pod kazdym postem trzy przyciski: <b>Zatwierdzam</b>, <b>Do poprawki</b> albo <b>Nie, rezygnujemy</b>. Mozesz zmienic zdanie w kazdej chwili.</span></li>
+    </ol>
+    <div class="legenda">
+      <span class="lg"><i class="lgK nie"></i>jeszcze nie zrobione</span>
+      <span class="lg"><i class="lgK popr"></i>do poprawki</span>
+      <span class="lg"><i class="lgK robi"></i>wzielismy do pracy</span>
+      <span class="lg"><i class="lgK czeka"></i>czeka na Twoja zgode</span>
+      <span class="lg"><i class="lgK gotowe"></i>zatwierdzone przez Ciebie</span>
+    </div>
+    <p class="startStopka">Wszystkie uwagi razem sa pod przyciskiem <b>Twoje uwagi</b> w prawym dolnym rogu. Czerwona liczba na nim mowi, ile nowego czeka.</p>
+  </section>
   <nav class="naw"><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="wydatki">Wydatki</button><span id="zywo">na zywo</span></nav>
   <div class="sek" id="sek-feed"><h2 class="dzial">Feed</h2><div class="jak" style="margin:0 0 16px">
   <b>Tak ulozy sie Wasz profil.</b> Czytamy od gory &mdash; na Instagramie nowy post wskakuje w lewy gorny rog
@@ -2736,7 +2774,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790556169531';
+  var MOJA_WERSJA = '1790556273997';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
