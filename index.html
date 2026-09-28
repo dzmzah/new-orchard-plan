@@ -2453,7 +2453,6 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
   var NOWE_POKAZ = {};
   function odhaczNowosci() {
-    NOWE_POKAZ = {};
     noweOdNich().forEach(function (u) { NOWE_POKAZ[u.nr] = true; WIDZIANE[u.nr] = u.zmieniono; });
     zapiszWidziane();
     odswiezNowosci();
@@ -2519,6 +2518,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     document.body.style.overflow = tak ? 'hidden' : '';
     // zajrzeliśmy do koszyka — czerwona kropka gasnie
     if (tak) { odhaczNowosci(); przerysuj(); }
+    else { NOWE_POKAZ = {}; przerysuj(); }
   }
   var kosz = document.getElementById('koszyk');
   if (kosz) kosz.addEventListener('click', function () { otworzSz(true); });
@@ -2589,7 +2589,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790553807921';
+  var MOJA_WERSJA = '1790553978719';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
