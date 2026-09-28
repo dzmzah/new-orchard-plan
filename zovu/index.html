@@ -4,7 +4,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>New Orchard — plan i uwagi</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="../favicon.png">
 <style>:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--ramka:#e3dfd5;--ok:#3c5a46;--zm:#b4552e}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--tlo);color:var(--tekst);font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;padding:32px 16px 150px;-webkit-text-size-adjust:100%}
@@ -483,7 +483,7 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 </style></head><body>
 <header class="belka">
   <div class="belkaW">
-    <img class="znak" src="logo-bialy.png" alt="New Orchard" width="34" height="30">
+    <img class="znak" src="../logo-bialy.png" alt="New Orchard" width="34" height="30">
     <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="pod">plan i uwagi</span></div>
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
@@ -2675,7 +2675,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790555176629';
+  var MOJA_WERSJA = '1790555219556';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
