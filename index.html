@@ -4,9 +4,9 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>New Orchard — plan i uwagi</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg?w=1790628489492">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon.png?w=1790628489492">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?w=1790628489492">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?w=1790629504117">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon.png?w=1790629504117">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?w=1790629504117">
 <meta name="theme-color" content="#2c4d23">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -773,15 +773,55 @@ details.start[open] .startRozwin::before{font-size:13px}
 .k > .uwLista:empty{display:none}
 .k > .uwLista .uwEl{background:#fffdf7;border:1px solid var(--ramka);border-left-width:3px;border-radius:4px;padding:11px 13px;margin-bottom:9px}
 @media(max-width:620px){.k > .uwLista{margin:0 16px 10px}}
+
+/* ================= PANEL ZOVU ================= */
+/* Nasza wersja ma wygladac inaczej niz widok Ani, nie tylko miec inny adres. */
+body.panel .belka{background:#241f1b}
+.belkaPanel{display:inline-flex;align-items:center;margin-left:10px;padding:3px 10px;border-radius:12px;
+  background:#b4552e;color:#fff;font-size:10px;letter-spacing:.14em;font-weight:600}
+body.panel .belkaZovu{color:rgba(255,255,255,.66)}
+body.panel .belkaZovu b{color:#ffb38a}
+body.panel .oklada::after{content:'PANEL ZESPOLU';position:absolute;top:14px;left:14px;z-index:3;
+  background:#b4552e;color:#fff;font-size:11px;letter-spacing:.14em;padding:5px 12px;border-radius:13px}
+body.panel .oklada{position:relative}
+
+/* pulpit */
+.pulpit{background:#241f1b;color:#f4f2ec;border-radius:8px;padding:20px 22px;margin:0 0 20px}
+.pGl{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
+.pGl h2{margin:0;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#ffb38a}
+.pDzis{font-size:12px;color:rgba(244,242,236,.5)}
+.pKafle{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.pKafel{flex:1 1 150px;background:rgba(255,255,255,.06);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.pKafel.pilne{background:rgba(180,85,46,.22);box-shadow:inset 0 0 0 1px rgba(255,140,90,.45)}
+.pLiczba{font-size:26px;line-height:1.1;font-weight:300}
+.pTytul{font-size:12px;letter-spacing:.06em;color:rgba(244,242,236,.82)}
+.pOpis{font-size:11px;color:rgba(244,242,236,.45)}
+.pKol{display:flex;gap:18px;flex-wrap:wrap}
+.pBlok{flex:1 1 300px;min-width:0}
+.pBlok h3{margin:0 0 9px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,242,236,.55);font-weight:600}
+.pLista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pSkok{width:100%;text-align:left;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:rgba(255,255,255,.05);border:none;border-radius:5px;padding:9px 12px;color:#f4f2ec;
+  font:14px inherit;cursor:pointer}
+.pSkok:hover{background:rgba(255,255,255,.12)}
+.pData{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,242,236,.5);white-space:nowrap}
+.pNazwa{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pStanMini{font-size:11px;display:inline-flex;align-items:center;gap:5px;color:rgba(244,242,236,.7);white-space:nowrap}
+.pStanMini i{width:7px;height:7px;border-radius:50%;background:#999;display:inline-block}
+.pStanMini.nie i{background:#e0604a}.pStanMini.popr i{background:#ff8c5a}
+.pStanMini.robi i{background:#e8b33f}.pStanMini.czeka i{background:#63a6e0}
+.pStanMini.gotowe i{background:#6fc08a}.pStanMini.odrz i{background:#9a948c}
+.pPusto{margin:0;font-size:13px;color:rgba(244,242,236,.42)}
+@media(max-width:620px){.pulpit{padding:16px}.pKafel{flex:1 1 120px}.pLiczba{font-size:22px}}
 </style></head><body>
 <header class="belka">
   <div class="belkaW">
-    <img class="znak" src="logo-bialy.png?w=1790628489492" alt="New Orchard" width="34" height="30">
+    <img class="znak" src="logo-bialy.png?w=1790629504117" alt="New Orchard" width="34" height="30">
     <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="belkaPod">plan i uwagi</span></div>
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
 </header>
-<div class="oklada"><img src="oklada.jpg?w=1790628489492" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
+<div class="oklada"><img src="oklada.jpg?w=1790629504117" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
 <div class="w">
   <section class="kanaly">
   <div class="kanalyGl"><span class="kanalyE">Wasze kanaly</span><span class="kanalyP">klikasz i jestes na miejscu</span></div>
@@ -857,6 +897,7 @@ details.start[open] .startRozwin::before{font-size:13px}
     <p class="startStopka">Przy kazdej pozycji widac, kiedy ostatnio ktos przy niej cos ruszyl i czy byla to Twoja reka, czy nasza.
       Stan pozycji jest tam tylko do czytania &mdash; zmienia go Twoja decyzja pod postem.</p>
   </details>
+  <section id="pulpit" class="pulpit" hidden></section>
   <nav class="naw"><button class="zak" data-sek="wszystko">Wszystko</button><button class="zak akt" data-sek="feed">Feed</button><button class="zak" data-sek="posty">Posty</button><button class="zak" data-sek="stories">Stories</button><button class="zak" data-sek="reklama">Reklama w Meta</button><button class="zak" data-sek="mailing">Mailing</button><button class="zak" data-sek="strategia">Strategia</button><button class="zak" data-sek="wydatki">Wydatki</button><button class="zak" data-sek="pomysly">Pomysly</button><span id="zywo">na zywo</span></nav>
   <div id="stanyPasek" class="stanyPasek" hidden></div>
   <div class="sek" id="sek-feed"><h2 class="dzial">Feed</h2><div class="jak" style="margin:0 0 16px">
@@ -867,26 +908,26 @@ details.start[open] .startRozwin::before{font-size:13px}
   Kliknij w kadr, zeby przejsc do tego postu.</div>
 <div class="gora">&uarr; gora profilu &middot; najnowszy</div>
 <div class="siatka"><a href="#q-09" class="sk" data-go="q-09">
-    <img src="kadry/q-09-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pt 23.10</span></a><a href="#q-08" class="sk" data-go="q-08">
-    <img src="kadry/q-08-1.jpg?w=1790628489492" alt="" loading="lazy"><span>sr 21.10</span></a><a href="#q-07" class="sk" data-go="q-07">
-    <img src="kadry/q-07-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pon 19.10</span></a><a href="#q-06" class="sk" data-go="q-06">
-    <img src="kadry/q-06-1.jpg?w=1790628489492" alt="" loading="lazy"><span>sob 17.10</span></a><a href="#q-05" class="sk" data-go="q-05">
-    <img src="kadry/q-05-1.jpg?w=1790628489492" alt="" loading="lazy"><span>czw 15.10</span></a><a href="#q-04" class="sk" data-go="q-04">
-    <img src="kadry/q-04-1.jpg?w=1790628489492" alt="" loading="lazy"><span>wt 13.10</span></a><a href="#q-03" class="sk" data-go="q-03">
-    <img src="kadry/q-03-1.jpg?w=1790628489492" alt="" loading="lazy"><span>nd 11.10</span></a><a href="#q-02" class="sk" data-go="q-02">
-    <img src="kadry/q-02-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pt 09.10</span></a><a href="#q-01" class="sk" data-go="q-01">
-    <img src="kadry/q-01-1.jpg?w=1790628489492" alt="" loading="lazy"><span>sr 07.10</span></a><a href="#p-11" class="sk" data-go="p-11">
-    <img src="kadry/p-11-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pon 05.10</span></a><a href="#p-10" class="sk" data-go="p-10">
-    <img src="kadry/p-10-1.jpg?w=1790628489492" alt="" loading="lazy"><span>nd 04.10</span></a><a href="#p-09" class="sk" data-go="p-09">
-    <img src="kadry/p-09-1.jpg?w=1790628489492" alt="" loading="lazy"><span>sob 03.10</span></a><a href="#p-03" class="sk" data-go="p-03">
-    <img src="kadry/p-03-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pt 02.10</span></a><a href="#p-08" class="sk" data-go="p-08">
-    <img src="kadry/p-08-1.jpg?w=1790628489492" alt="" loading="lazy"><span>czw 01.10</span></a><a href="#p-07" class="sk" data-go="p-07">
-    <img src="kadry/p-07-1.jpg?w=1790628489492" alt="" loading="lazy"><span>sr 30.09</span></a><a href="#p-13" class="sk" data-go="p-13">
-    <img src="kadry/p-13-1.jpg?w=1790628489492" alt="" loading="lazy"><span>wt 29.09 (wraca z 06.10)</span></a><a href="#p-12" class="sk" data-go="p-12">
-    <img src="kadry/p-12-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pon 28.09 (przeniesiony z 27.09)</span></a><a href="#p-04" class="sk" data-go="p-04">
-    <img src="kadry/p-04-1.jpg?w=1790628489492" alt="" loading="lazy"><span>sob 26.09</span></a><a href="#p-01" class="sk" data-go="p-01">
-    <img src="kadry/p-01-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pt 25.09</span></a><a href="#q-00" class="sk" data-go="q-00">
-    <img src="kadry/q-00-1.jpg?w=1790628489492" alt="" loading="lazy"><span>pazdziernik, data po zdjeciach od Ani</span></a></div><div class="gora">&darr; dol profilu &middot; najstarszy</div>
+    <img src="kadry/q-09-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pt 23.10</span></a><a href="#q-08" class="sk" data-go="q-08">
+    <img src="kadry/q-08-1.jpg?w=1790629504117" alt="" loading="lazy"><span>sr 21.10</span></a><a href="#q-07" class="sk" data-go="q-07">
+    <img src="kadry/q-07-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pon 19.10</span></a><a href="#q-06" class="sk" data-go="q-06">
+    <img src="kadry/q-06-1.jpg?w=1790629504117" alt="" loading="lazy"><span>sob 17.10</span></a><a href="#q-05" class="sk" data-go="q-05">
+    <img src="kadry/q-05-1.jpg?w=1790629504117" alt="" loading="lazy"><span>czw 15.10</span></a><a href="#q-04" class="sk" data-go="q-04">
+    <img src="kadry/q-04-1.jpg?w=1790629504117" alt="" loading="lazy"><span>wt 13.10</span></a><a href="#q-03" class="sk" data-go="q-03">
+    <img src="kadry/q-03-1.jpg?w=1790629504117" alt="" loading="lazy"><span>nd 11.10</span></a><a href="#q-02" class="sk" data-go="q-02">
+    <img src="kadry/q-02-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pt 09.10</span></a><a href="#q-01" class="sk" data-go="q-01">
+    <img src="kadry/q-01-1.jpg?w=1790629504117" alt="" loading="lazy"><span>sr 07.10</span></a><a href="#p-11" class="sk" data-go="p-11">
+    <img src="kadry/p-11-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pon 05.10</span></a><a href="#p-10" class="sk" data-go="p-10">
+    <img src="kadry/p-10-1.jpg?w=1790629504117" alt="" loading="lazy"><span>nd 04.10</span></a><a href="#p-09" class="sk" data-go="p-09">
+    <img src="kadry/p-09-1.jpg?w=1790629504117" alt="" loading="lazy"><span>sob 03.10</span></a><a href="#p-03" class="sk" data-go="p-03">
+    <img src="kadry/p-03-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pt 02.10</span></a><a href="#p-08" class="sk" data-go="p-08">
+    <img src="kadry/p-08-1.jpg?w=1790629504117" alt="" loading="lazy"><span>czw 01.10</span></a><a href="#p-07" class="sk" data-go="p-07">
+    <img src="kadry/p-07-1.jpg?w=1790629504117" alt="" loading="lazy"><span>sr 30.09</span></a><a href="#p-13" class="sk" data-go="p-13">
+    <img src="kadry/p-13-1.jpg?w=1790629504117" alt="" loading="lazy"><span>wt 29.09 (wraca z 06.10)</span></a><a href="#p-12" class="sk" data-go="p-12">
+    <img src="kadry/p-12-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pon 28.09 (przeniesiony z 27.09)</span></a><a href="#p-04" class="sk" data-go="p-04">
+    <img src="kadry/p-04-1.jpg?w=1790629504117" alt="" loading="lazy"><span>sob 26.09</span></a><a href="#p-01" class="sk" data-go="p-01">
+    <img src="kadry/p-01-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pt 25.09</span></a><a href="#q-00" class="sk" data-go="q-00">
+    <img src="kadry/q-00-1.jpg?w=1790629504117" alt="" loading="lazy"><span>pazdziernik, data po zdjeciach od Ani</span></a></div><div class="gora">&darr; dol profilu &middot; najstarszy</div>
 <section class="k" id="f-siatka">
   <div class="gl"><h3>Cala siatka profilu</h3></div>
   <p class="ekr">To jest pierwsza rzecz do zatwierdzenia &mdash; dopiero po niej dopracowujemy szczegoly pojedynczych postow.</p>
@@ -906,7 +947,7 @@ details.start[open] .startRozwin::before{font-size:13px}
   <div class="gl"><span class="dat">pt 25.09</span><h3>Co jest w srodku</h3>
     </div>
   <div class="met">POST, 1 kadr, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-p-01-1.jpg?w=1790628489492" data-duzy="kadry/p-01-1.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-01-1.jpg?w=1790629504117" data-duzy="kadry/p-01-1.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Inside our Classic Vegan Short. Soft faux fur that keeps its shape all winter.
 No compromise. No animals involved.</div>
   
@@ -935,7 +976,7 @@ No compromise. No animals involved.</div>
   <div class="gl"><span class="dat">sob 26.09</span><h3>One boot, three heights</h3>
     </div>
   <div class="met">KARUZELA, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-p-04-1.jpg?w=1790628489492" data-duzy="kadry/p-04-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-04-2.jpg?w=1790628489492" data-duzy="kadry/p-04-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-04-3.jpg?w=1790628489492" data-duzy="kadry/p-04-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-04-1.jpg?w=1790629504117" data-duzy="kadry/p-04-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-04-2.jpg?w=1790629504117" data-duzy="kadry/p-04-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-04-3.jpg?w=1790629504117" data-duzy="kadry/p-04-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Our Classic Vegan boot comes in three heights.
 Short for the city, mid for most days, long for the days that really mean it.</div>
   <div class="ekr"><b>Na ekranie / Stories:</b><br>One boot. Three winters.</div>
@@ -943,7 +984,7 @@ Short for the city, mid for most days, long for the days that really mean it.</d
   <div class="st">OPUBLIKOWANY 26.09 o 20:30. W planie stal na 29.09 i ta data zostala</div>
   <details class="stara"><summary>Jak ten post wygladal wczesniej</summary>
     <div class="staraT">wersja opublikowana 26.09 o 20:30</div>
-    <div class="kadry male"><img src="kadry/stare-p-04-1.jpg?w=1790628489492" alt="" loading="lazy"><img src="kadry/stare-p-04-2.jpg?w=1790628489492" alt="" loading="lazy"><img src="kadry/stare-p-04-3.jpg?w=1790628489492" alt="" loading="lazy"></div>
+    <div class="kadry male"><img src="kadry/stare-p-04-1.jpg?w=1790629504117" alt="" loading="lazy"><img src="kadry/stare-p-04-2.jpg?w=1790629504117" alt="" loading="lazy"><img src="kadry/stare-p-04-3.jpg?w=1790629504117" alt="" loading="lazy"></div>
     <div class="pod">One boot, three winters.
 Short for the city, mid for most days, long for the days that mean it.</div>
     <p class="ekr">Kadry byly z lookbooka w studio, w dzinsach. Twoja uwaga: „te spodnie jeansowe nam to zaburzyly”. Nowa wersja stoi na Waszym kadrze z przedpokoju.</p>
@@ -975,7 +1016,7 @@ Short for the city, mid for most days, long for the days that mean it.</div>
   <div class="gl"><span class="dat">pon 28.09 (przeniesiony z 27.09)</span><h3>Pre-order: czerwona spódnica</h3>
     </div>
   <div class="met">POST + STORIES + MAIL</div>
-  <div class="kadry"><img src="kadry/m-p-12-1.jpg?w=1790628489492" data-duzy="kadry/p-12-1.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-12-1.jpg?w=1790629504117" data-duzy="kadry/p-12-1.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">She is back. Five per size.
 Missed her last time? Preorder now.❤️
 The next batch is already in production.</div>
@@ -984,7 +1025,7 @@ The next batch is already in production.</div>
   <div class="st">ZATWIERDZONY DO PUBLIKACJI 28.09 o 14:30 (zmiana slotu z 20:30, decyzja Zahara 28.09). Ania 28.09: &quot;wszystko sie zgadza, mozna publikowac&quot;.</div>
   <details class="stara"><summary>Jak ten post wygladal wczesniej</summary>
     <div class="staraT">wersja opublikowana i zdjeta 27.09</div>
-    <div class="kadry male"><img src="kadry/stare-p-12-1.jpg?w=1790628489492" alt="" loading="lazy"></div>
+    <div class="kadry male"><img src="kadry/stare-p-12-1.jpg?w=1790629504117" alt="" loading="lazy"></div>
     <div class="pod">Back. Five per size, then that is it.
 Pre-order now, shipping after 15 October.</div>
     <p class="ekr">Spodnica w kadrze byla wygenerowana i nie wygladala jak Wasza. Twoje slowa: „ta spodnica zle wyglada, nie nasza”. Teraz jest Wasze zdjecie ze sklepu, a copy jest Twoje.</p>
@@ -1016,7 +1057,7 @@ Pre-order now, shipping after 15 October.</div>
   <div class="gl"><span class="dat">wt 29.09 (wraca z 06.10)</span><h3>Removable insole</h3>
     </div>
   <div class="met">POST, 1 kadr, 1080x1350 — tego dnia o 20:30</div>
-  <div class="kadry"><img src="kadry/m-p-13-1.jpg?w=1790628489492" data-duzy="kadry/p-13-1.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-13-1.jpg?w=1790629504117" data-duzy="kadry/p-13-1.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Two insoles, one pair of boots.
 The classic one with faux fur for real winter, the thin one for milder days — swap them depending on the weather.
 
@@ -1052,7 +1093,7 @@ Need a different size? Exchanges are always free. 🤍</div>
   <div class="gl"><span class="dat">sr 30.09</span><h3>Akcesoria</h3>
     </div>
   <div class="met">POST</div>
-  <div class="kadry"><img src="kadry/m-p-07-1.jpg?w=1790628489492" data-duzy="kadry/p-07-1.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-07-1.jpg?w=1790629504117" data-duzy="kadry/p-07-1.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Small things that go with everything.
 Spare insoles, care spray, and scrunchies sewn from what is left after the boots. Nothing wasted. 🤍</div>
   <div class="ekr"><b>Na ekranie / Stories:</b><br>Small things that go with everything.</div>
@@ -1076,7 +1117,7 @@ Spare insoles, care spray, and scrunchies sewn from what is left after the boots
   <div class="gl"><span class="dat">czw 01.10</span><h3>Oat Milk Tee / World Vegetarian Day</h3>
     </div>
   <div class="met">POST</div>
-  <div class="kadry"><img src="kadry/m-p-08-1.jpg?w=1790628489492" data-duzy="kadry/p-08-1.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-08-1.jpg?w=1790629504117" data-duzy="kadry/p-08-1.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Happy World Vegetarian Day.
 No speech from us today — just our Oat Milk tee, which we would wear anyway. 💚</div>
   <div class="ekr"><b>Na ekranie / Stories:</b><br>Oat milk, please.</div>
@@ -1100,7 +1141,7 @@ No speech from us today — just our Oat Milk tee, which we would wear anyway. �
   <div class="gl"><span class="dat">pt 02.10</span><h3>Recznie szyte we Wloszech</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-p-03-1.jpg?w=1790628489492" data-duzy="kadry/p-03-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-03-2.jpg?w=1790628489492" data-duzy="kadry/p-03-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-03-3.jpg?w=1790628489492" data-duzy="kadry/p-03-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-03-1.jpg?w=1790629504117" data-duzy="kadry/p-03-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-03-2.jpg?w=1790629504117" data-duzy="kadry/p-03-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-03-3.jpg?w=1790629504117" data-duzy="kadry/p-03-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Every pair is hand-sewn in Italy, by people whose families have been making shoes for generations.
 All our materials come from Europe. None from China. 🤍</div>
   
@@ -1129,7 +1170,7 @@ All our materials come from Europe. None from China. 🤍</div>
   <div class="gl"><span class="dat">sob 03.10</span><h3>Cold feet</h3>
     </div>
   <div class="met">REEL, 6 s, trzy ujecia, kamera stoi &middot; jest tez gotowy film</div>
-  <div class="kadry"><img src="kadry/m-p-09-1.jpg?w=1790628489492" data-duzy="kadry/p-09-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-09-2.jpg?w=1790628489492" data-duzy="kadry/p-09-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-09-3.jpg?w=1790628489492" data-duzy="kadry/p-09-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-09-1.jpg?w=1790629504117" data-duzy="kadry/p-09-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-09-2.jpg?w=1790629504117" data-duzy="kadry/p-09-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-09-3.jpg?w=1790629504117" data-duzy="kadry/p-09-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Cold feet are rarely the shoe alone.
 Ours keep water out for up to 2.5 hours in snow and rain — warm and dry is what you tell us most.</div>
   <div class="ekr"><b>Na ekranie / Stories:</b><br>Cold feet? Rarely the shoe alone.</div>
@@ -1158,7 +1199,7 @@ Ours keep water out for up to 2.5 hours in snow and rain — warm and dry is wha
   <div class="gl"><span class="dat">nd 04.10</span><h3>World Animal Day</h3>
     </div>
   <div class="met">POST, 1 kadr</div>
-  <div class="kadry"><img src="kadry/m-p-10-1.jpg?w=1790628489492" data-duzy="kadry/p-10-1.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-10-1.jpg?w=1790629504117" data-duzy="kadry/p-10-1.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">World Animal Day.
 Nothing to sell today — just a thank you to every animal that never had to be part of what we make. 💚</div>
   <div class="ekr"><b>Na ekranie / Stories:</b><br>Nothing to sell today.</div>
@@ -1187,7 +1228,7 @@ Nothing to sell today — just a thank you to every animal that never had to be 
   <div class="gl"><span class="dat">pon 05.10</span><h3>39 czy 40</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-p-11-1.jpg?w=1790628489492" data-duzy="kadry/p-11-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-11-2.jpg?w=1790628489492" data-duzy="kadry/p-11-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-11-3.jpg?w=1790628489492" data-duzy="kadry/p-11-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-p-11-1.jpg?w=1790629504117" data-duzy="kadry/p-11-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-11-2.jpg?w=1790629504117" data-duzy="kadry/p-11-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-p-11-3.jpg?w=1790629504117" data-duzy="kadry/p-11-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">39 or 40? Between sizes?
 Tell us the sizes you’re between. We are here to help you choose.
 
@@ -1228,7 +1269,7 @@ Need a different size? Exchanges are always free. 🤍</div>
   <div class="gl"><span class="dat">sr 07.10</span><h3>Navy, nie czarny</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-01-1.jpg?w=1790628489492" data-duzy="kadry/q-01-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-01-2.jpg?w=1790628489492" data-duzy="kadry/q-01-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-01-3.jpg?w=1790628489492" data-duzy="kadry/q-01-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-01-1.jpg?w=1790629504117" data-duzy="kadry/q-01-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-01-2.jpg?w=1790629504117" data-duzy="kadry/q-01-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-01-3.jpg?w=1790629504117" data-duzy="kadry/q-01-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Navy, not black.
 Our Classic Vegan Medium in the colour that already goes with everything you own.</div>
   
@@ -1252,7 +1293,7 @@ Our Classic Vegan Medium in the colour that already goes with everything you own
   <div class="gl"><span class="dat">pt 09.10</span><h3>Psy</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-02-1.jpg?w=1790628489492" data-duzy="kadry/q-02-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-02-2.jpg?w=1790628489492" data-duzy="kadry/q-02-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-02-3.jpg?w=1790628489492" data-duzy="kadry/q-02-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-02-1.jpg?w=1790629504117" data-duzy="kadry/q-02-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-02-2.jpg?w=1790629504117" data-duzy="kadry/q-02-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-02-3.jpg?w=1790629504117" data-duzy="kadry/q-02-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Same walk. Warmer.
 Our vegan dog hoodie and our boots — perfect match in style, human &amp; hound. 🤍</div>
   
@@ -1276,7 +1317,7 @@ Our vegan dog hoodie and our boots — perfect match in style, human &amp; hound
   <div class="gl"><span class="dat">nd 11.10</span><h3>Podeszwa</h3>
     </div>
   <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-03-1.jpg?w=1790628489492" data-duzy="kadry/q-03-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-03-2.jpg?w=1790628489492" data-duzy="kadry/q-03-2.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-03-1.jpg?w=1790629504117" data-duzy="kadry/q-03-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-03-2.jpg?w=1790629504117" data-duzy="kadry/q-03-2.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Look down.
 That is the part that keeps you steady on wet cobblestones from November to March.</div>
   
@@ -1300,7 +1341,7 @@ That is the part that keeps you steady on wet cobblestones from November to Marc
   <div class="gl"><span class="dat">wt 13.10</span><h3>Wzgorza</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-04-1.jpg?w=1790628489492" data-duzy="kadry/q-04-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-04-2.jpg?w=1790628489492" data-duzy="kadry/q-04-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-04-3.jpg?w=1790628489492" data-duzy="kadry/q-04-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-04-1.jpg?w=1790629504117" data-duzy="kadry/q-04-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-04-2.jpg?w=1790629504117" data-duzy="kadry/q-04-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-04-3.jpg?w=1790629504117" data-duzy="kadry/q-04-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Where we test them.
 Swiss hills, real weather, no studio. 🤍</div>
   
@@ -1324,7 +1365,7 @@ Swiss hills, real weather, no studio. 🤍</div>
   <div class="gl"><span class="dat">czw 15.10</span><h3>Czerwona spodnica — rusza wysylka</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-05-1.jpg?w=1790628489492" data-duzy="kadry/q-05-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-05-2.jpg?w=1790628489492" data-duzy="kadry/q-05-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-05-3.jpg?w=1790628489492" data-duzy="kadry/q-05-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-05-1.jpg?w=1790629504117" data-duzy="kadry/q-05-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-05-2.jpg?w=1790629504117" data-duzy="kadry/q-05-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-05-3.jpg?w=1790629504117" data-duzy="kadry/q-05-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">She is back, and she ships today.
 Our Winter Vegan Skirt in red — five per size, then that is it.</div>
   
@@ -1348,7 +1389,7 @@ Our Winter Vegan Skirt in red — five per size, then that is it.</div>
   <div class="gl"><span class="dat">sob 17.10</span><h3>Czern w miescie</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-06-1.jpg?w=1790628489492" data-duzy="kadry/q-06-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-06-2.jpg?w=1790628489492" data-duzy="kadry/q-06-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-06-3.jpg?w=1790628489492" data-duzy="kadry/q-06-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-06-1.jpg?w=1790629504117" data-duzy="kadry/q-06-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-06-2.jpg?w=1790629504117" data-duzy="kadry/q-06-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-06-3.jpg?w=1790629504117" data-duzy="kadry/q-06-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Black goes everywhere.
 Our Classic Vegan Short in the city, from the first coffee to the last tram.</div>
   
@@ -1372,7 +1413,7 @@ Our Classic Vegan Short in the city, from the first coffee to the last tram.</di
   <div class="gl"><span class="dat">pon 19.10</span><h3>Skarpety</h3>
     </div>
   <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-07-1.jpg?w=1790628489492" data-duzy="kadry/q-07-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-07-2.jpg?w=1790628489492" data-duzy="kadry/q-07-2.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-07-1.jpg?w=1790629504117" data-duzy="kadry/q-07-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-07-2.jpg?w=1790629504117" data-duzy="kadry/q-07-2.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Socks by us, too.
 Soft, warm and made to live inside our boots. 🤍</div>
   
@@ -1396,7 +1437,7 @@ Soft, warm and made to live inside our boots. 🤍</div>
   <div class="gl"><span class="dat">sr 21.10</span><h3>Do rozmiaru 46</h3>
     </div>
   <div class="met">KARUZELA, 2 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-08-1.jpg?w=1790628489492" data-duzy="kadry/q-08-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-08-2.jpg?w=1790628489492" data-duzy="kadry/q-08-2.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-08-1.jpg?w=1790629504117" data-duzy="kadry/q-08-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-08-2.jpg?w=1790629504117" data-duzy="kadry/q-08-2.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Up to size 46.
 Because warm feet should not depend on how big they are.</div>
   
@@ -1420,7 +1461,7 @@ Because warm feet should not depend on how big they are.</div>
   <div class="gl"><span class="dat">pt 23.10</span><h3>Zielone</h3>
     </div>
   <div class="met">KARUZELA, 3 kadry, 1080x1350</div>
-  <div class="kadry"><img src="kadry/m-q-09-1.jpg?w=1790628489492" data-duzy="kadry/q-09-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-09-2.jpg?w=1790628489492" data-duzy="kadry/q-09-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-09-3.jpg?w=1790628489492" data-duzy="kadry/q-09-3.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-09-1.jpg?w=1790629504117" data-duzy="kadry/q-09-1.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-09-2.jpg?w=1790629504117" data-duzy="kadry/q-09-2.jpg" alt="" loading="lazy" decoding="async"><img src="kadry/m-q-09-3.jpg?w=1790629504117" data-duzy="kadry/q-09-3.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Not black. Not beige.
 Our Classic Vegan Short in green, for everyone who already has the other two.</div>
   
@@ -1444,7 +1485,7 @@ Our Classic Vegan Short in green, for everyone who already has the other two.</d
   <div class="gl"><span class="dat">pazdziernik, data po zdjeciach od Ani</span><h3>Adoption Story 1 — Patricia i Oscar</h3>
     </div>
   <div class="met">REEL + karuzela</div>
-  <div class="kadry"><img src="kadry/m-q-00-1.jpg?w=1790628489492" data-duzy="kadry/q-00-1.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kadry"><img src="kadry/m-q-00-1.jpg?w=1790629504117" data-duzy="kadry/q-00-1.jpg" alt="" loading="lazy" decoding="async"></div>
   <div class="pod">Oscar is almost 14. Old, black and big — the three things that make a dog hardest to adopt.
 That is exactly why Patricia chose him. Two and a half years later they walk ten kilometres a day.
 We have supported adoption since 2021. 🤍</div>
@@ -1470,7 +1511,7 @@ Tu sa gotowe plansze &mdash; dokladnie to, co zobacza ludzie. Kliknij w plansze,
   <div class="gl"><span class="dat">pon 28.09 (przeniesiony z 27.09)</span><h3>Pre-order: czerwona spódnica</h3>
     <span class="plansz">2 plansze</span></div>
   <div class="met">POST + STORIES + MAIL</div>
-  <div class="kadry pion"><img src="kadry/st-p-12-1.jpg?w=1790628489492" alt="" loading="lazy"><img src="kadry/st-p-12-2.jpg?w=1790628489492" alt="" loading="lazy"></div>
+  <div class="kadry pion"><img src="kadry/st-p-12-1.jpg?w=1790629504117" alt="" loading="lazy"><img src="kadry/st-p-12-2.jpg?w=1790629504117" alt="" loading="lazy"></div>
   <div class="pod">Back. Five per size.</div>
   <div class="uw" data-id="sp-12" data-tytul="[stories] pon 28.09 (przeniesiony z 27.09) — Pre-order: czerwona spódnica">
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
@@ -1481,7 +1522,7 @@ Tu sa gotowe plansze &mdash; dokladnie to, co zobacza ludzie. Kliknij w plansze,
   <div class="gl"><span class="dat">sr 30.09 (przeniesiona z 22.09, potem z 28.09)</span><h3>Ankieta: Short / Mid / Long</h3>
     <span class="plansz">1 plansza</span></div>
   <div class="met">STORIES, 1 plansza, 941x1672</div>
-  <div class="kadry pion"><img src="kadry/p-05-1.jpg?w=1790628489492" alt="" loading="lazy"></div>
+  <div class="kadry pion"><img src="kadry/p-05-1.jpg?w=1790629504117" alt="" loading="lazy"></div>
   
   <div class="uw" data-id="sp-05" data-tytul="[stories] sr 30.09 (przeniesiona z 22.09, potem z 28.09) — Ankieta: Short / Mid / Long">
     <textarea placeholder="Napisz, co zmienic (nieobowiazkowo)"></textarea>
@@ -1497,8 +1538,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G2">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Bezowy dlugi i zielony krotki, martwa natura</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G2-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G2-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G2-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G2-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G2" data-tytul="[reklama] Bezowy dlugi i zielony krotki, martwa natura">
@@ -1509,8 +1550,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G3">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Karmelowy na sniegu</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G3-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G3-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G3-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G3-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G3" data-tytul="[reklama] Karmelowy na sniegu">
@@ -1521,8 +1562,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G4">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Dziewczyna na tle gor</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G4-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G4-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G4-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G4-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G4" data-tytul="[reklama] Dziewczyna na tle gor">
@@ -1533,8 +1574,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G5">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Czarny krotki, kostka brukowa</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G5-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G5-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G5-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G5-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G5" data-tytul="[reklama] Czarny krotki, kostka brukowa">
@@ -1545,8 +1586,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G6">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Para w kawiarni</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G6-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G6-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G6-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G6-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G6" data-tytul="[reklama] Para w kawiarni">
@@ -1557,8 +1598,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G7">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Zielone na graffiti</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G7-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G7-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G7-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G7-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G7" data-tytul="[reklama] Zielone na graffiti">
@@ -1569,8 +1610,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G8">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Bezowy dlugi, wnetrze</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G8-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G8-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G8-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G8-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G8" data-tytul="[reklama] Bezowy dlugi, wnetrze">
@@ -1581,8 +1622,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-G9">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Czarne w miescie</h3></div>
   <div class="kadry">
-    <img src="kadry/r-G9-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-G9-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-G9-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-G9-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-G9" data-tytul="[reklama] Czarne w miescie">
@@ -1593,8 +1634,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-F1">
   <div class="gl"><span class="dat">Feed 1080×1350</span><h3>Wkladka i but</h3></div>
   <div class="kadry">
-    <img src="kadry/r-F1-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-F1-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-F1-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-F1-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-F1" data-tytul="[reklama] Wkladka i but">
@@ -1605,8 +1646,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S1">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Krotki czarny, schody</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S1-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S1-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S1-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S1-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S1" data-tytul="[reklama] Krotki czarny, schody">
@@ -1617,8 +1658,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S2">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Dlugi bezowy, las</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S2-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S2-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S2-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S2-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S2" data-tytul="[reklama] Dlugi bezowy, las">
@@ -1629,8 +1670,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S3">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Sredni karmelowy</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S3-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S3-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S3-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S3-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S3" data-tytul="[reklama] Sredni karmelowy">
@@ -1641,8 +1682,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S4">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Pies w plaszczu</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S4-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S4-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S4-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S4-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S4" data-tytul="[reklama] Pies w plaszczu">
@@ -1653,8 +1694,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S5">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Skarpety i but</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S5-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S5-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S5-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S5-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S5" data-tytul="[reklama] Skarpety i but">
@@ -1665,8 +1706,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S6">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Czarne na deszczu</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S6-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S6-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S6-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S6-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S6" data-tytul="[reklama] Czarne na deszczu">
@@ -1677,8 +1718,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S7">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Zielone na graffiti</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S7-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S7-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S7-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S7-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S7" data-tytul="[reklama] Zielone na graffiti">
@@ -1689,8 +1730,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S8">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Dziewczyna w gorach z psem</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S8-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S8-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S8-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S8-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S8" data-tytul="[reklama] Dziewczyna w gorach z psem">
@@ -1701,8 +1742,8 @@ wydac wiecej nawet przez pomylke. Raport co dwa dni.</div>
 <section class="k" id="r-S9">
   <div class="gl"><span class="dat">Stories 1080×1920</span><h3>Dalmatynczyk lezy, jasne buty</h3></div>
   <div class="kadry">
-    <img src="kadry/r-S9-en.jpg?w=1790628489492" alt="" loading="lazy" title="EN — Szwajcaria">
-    <img src="kadry/r-S9-de.jpg?w=1790628489492" alt="" loading="lazy" title="DE — Niemcy i Austria">
+    <img src="kadry/r-S9-en.jpg?w=1790629504117" alt="" loading="lazy" title="EN — Szwajcaria">
+    <img src="kadry/r-S9-de.jpg?w=1790629504117" alt="" loading="lazy" title="DE — Niemcy i Austria">
   </div>
   <div class="ekr">Po lewej wersja angielska, po prawej niemiecka.</div>
   <div class="uw" data-id="r-S9" data-tytul="[reklama] Dalmatynczyk lezy, jasne buty">
@@ -2780,7 +2821,95 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     rysujWszystko();
   });
 
-  function rysujWszystko() { INDEKS = null; rysujPrzyPostach(); rysujTabele(); rysujStatusyPostow(); odswiezLicznik(); rysujPasekStanow(); posprzatajPoFiltrze(); }
+  // ---- pulpit: tylko nasza wersja ----
+  // Jedno miejsce, z ktorego widac, co sie pali: co wychodzi najblizej, co ona
+  // odeslala do poprawki, co czeka na jej slowo i co napisala od ostatniego razu.
+  function dataZDnia(d) {
+    var m = String(d || '').match(/(\d{1,2})\.(\d{2})/);
+    if (!m) return null;
+    var dzien = +m[1], mies = +m[2];
+    return new Date(2026, mies - 1, dzien);
+  }
+  function rysujPulpit() {
+    var cel = document.getElementById('pulpit');
+    if (!cel || !ZESPOL) return;
+    var dzis = new Date(); dzis.setHours(0, 0, 0, 0);
+    var pozycje = [].slice.call(document.querySelectorAll('.uw[data-tytul]'))
+      .filter(function (u) { return !u.closest('.bezFiltru'); })
+      .map(function (u) {
+        var karta = u.closest('.k');
+        var m = miejsceZPola(u);
+        return {
+          tytul: u.dataset.tytul,
+          nazwa: m ? m.nazwa : u.dataset.tytul,
+          data: m ? m.data : '',
+          kiedy: dataZDnia(m ? m.data : ''),
+          stan: statusPostu(u.dataset.tytul) || 'nowa',
+          karta: karta,
+        };
+      });
+    var licz = {};
+    pozycje.forEach(function (p) { licz[p.stan] = (licz[p.stan] || 0) + 1; });
+
+    // najblizsze publikacje, ktore jeszcze nie sa zatwierdzone
+    var najblizsze = pozycje.filter(function (p) { return p.kiedy && p.kiedy >= dzis; })
+      .sort(function (a, b) { return a.kiedy - b.kiedy; }).slice(0, 4);
+    // przeterminowane: data minela, a stan nie jest zamkniety
+    var spoznione = pozycje.filter(function (p) {
+      return p.kiedy && p.kiedy < dzis && p.stan !== 'zrobione' && p.stan !== 'odrzucone';
+    }).sort(function (a, b) { return a.kiedy - b.kiedy; });
+    // co napisala od ostatniego zajrzenia
+    var nowe = UWAGI.filter(jestNowa).filter(function (u) { return !jestZnacznikiem(u); });
+
+    function kafel(tytul, wartosc, opis, klasa) {
+      return '<div class="pKafel ' + (klasa || '') + '"><span class="pLiczba">' + wartosc + '</span>' +
+        '<span class="pTytul">' + tytul + '</span>' +
+        (opis ? '<span class="pOpis">' + opis + '</span>' : '') + '</div>';
+    }
+    function lista(poz, pusto) {
+      if (!poz.length) return '<p class="pPusto">' + pusto + '</p>';
+      return '<ul class="pLista">' + poz.map(function (p) {
+        return '<li><button class="pSkok" data-idzie="' + esc(p.tytul) + '">' +
+          '<span class="pData">' + esc(p.data || '') + '</span>' +
+          '<span class="pNazwa">' + esc(p.nazwa) + '</span>' +
+          '<span class="pStanMini ' + stanKlasa(p.stan) + '"><i></i>' + stanNazwa(p.stan) + '</span>' +
+          '</button></li>';
+      }).join('') + '</ul>';
+    }
+
+    cel.hidden = false;
+    cel.innerHTML =
+      '<div class="pGl"><h2>Pulpit</h2><span class="pDzis">' +
+        dzis.toLocaleDateString('pl-PL', { weekday: 'long', day: '2-digit', month: 'long' }) + '</span></div>' +
+      '<div class="pKafle">' +
+        kafel('do poprawki', licz['poprawka'] || 0, 'ona odeslala', (licz['poprawka'] ? 'pilne' : '')) +
+        kafel('czeka na jej zgode', licz['czeka'] || 0, 'po naszej stronie nic') +
+        kafel('w robocie', licz['w robocie'] || 0, 'robimy teraz') +
+        kafel('zatwierdzone', licz['zrobione'] || 0, 'mozna publikowac') +
+        kafel('nowe od Ani', nowe.length, 'od ostatniego razu', (nowe.length ? 'pilne' : '')) +
+      '</div>' +
+      '<div class="pKol">' +
+        '<div class="pBlok"><h3>Najblizsze publikacje</h3>' + lista(najblizsze, 'Nic nie stoi w kalendarzu.') + '</div>' +
+        '<div class="pBlok"><h3>Termin minal, a pozycja otwarta</h3>' + lista(spoznione, 'Nic nie wisi.') + '</div>' +
+      '</div>';
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.pSkok') : null;
+    if (!b) return;
+    var cel = [].slice.call(document.querySelectorAll('.uw,.wst'))
+      .filter(function (x) { return x.dataset.tytul === b.dataset.idzie; })[0];
+    if (!cel) return;
+    var sek = cel.closest('.sek');
+    if (sek) pokazSekcje(sek.id.replace('sek-', ''));
+    setTimeout(function () {
+      var karta = cel.closest('.k') || cel;
+      karta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      karta.classList.add('blysk');
+      setTimeout(function () { karta.classList.remove('blysk'); }, 1600);
+    }, 120);
+  });
+
+  function rysujWszystko() { INDEKS = null; rysujPrzyPostach(); rysujTabele(); rysujStatusyPostow(); odswiezLicznik(); rysujPasekStanow(); posprzatajPoFiltrze(); rysujPulpit(); }
   // pelne przerysowanie raz na klatke: klikniecie odpowiada natychmiast,
   // a trzy kolejne wywolania z jednego lancucha zlewaja sie w jedno
   var CZEKA_RYS = false;
@@ -3389,7 +3518,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790628489492';
+  var MOJA_WERSJA = '1790629504117';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
