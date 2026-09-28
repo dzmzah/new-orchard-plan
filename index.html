@@ -2518,7 +2518,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     szuf.setAttribute('aria-hidden', tak ? 'false' : 'true');
     document.body.style.overflow = tak ? 'hidden' : '';
     // zajrzeliśmy do koszyka — czerwona kropka gasnie
-    if (tak) odhaczNowosci();
+    if (tak) { odhaczNowosci(); przerysuj(); }
   }
   var kosz = document.getElementById('koszyk');
   if (kosz) kosz.addEventListener('click', function () { otworzSz(true); });
@@ -2589,7 +2589,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790553742367';
+  var MOJA_WERSJA = '1790553807921';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
