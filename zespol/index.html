@@ -4,9 +4,9 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>New Orchard — plan i uwagi</title>
-<link rel="icon" type="image/svg+xml" href="../favicon.svg?w=1790557836824">
-<link rel="icon" type="image/png" sizes="96x96" href="../favicon.png?w=1790557836824">
-<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?w=1790557836824">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?w=1790558789206">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon.png?w=1790558789206">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png?w=1790558789206">
 <meta name="theme-color" content="#2c4d23">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -569,12 +569,12 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
 </style></head><body>
 <header class="belka">
   <div class="belkaW">
-    <img class="znak" src="../logo-bialy.png?w=1790557836824" alt="New Orchard" width="34" height="30">
+    <img class="znak" src="../logo-bialy.png?w=1790558789206" alt="New Orchard" width="34" height="30">
     <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="belkaPod">plan i uwagi</span></div>
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
 </header>
-<div class="oklada"><img src="../oklada.jpg?w=1790557836824" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
+<div class="oklada"><img src="../oklada.jpg?w=1790558789206" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
 <div class="w">
   <section class="kanaly">
   <div class="kanalyGl"><span class="kanalyE">Wasze kanaly</span><span class="kanalyP">klikasz i jestes na miejscu</span></div>
@@ -2113,9 +2113,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     var zn = znacznikPostu(tytul);
     if (zn && zn.status) return zn.status;
     var moje = dla(tytul).filter(function (u) { return u.uwaga || u.ocena; });
-    // pozycja, ktorej nikt jeszcze nie tknal, tez ma pokazywac stan —
-    // inaczej wyglada jak martwa i nie widac, ze czeka na robote
-    if (!moje.length) return 'nowa';
+    // pozycja, ktorej jeszcze nikt nie tknal, czeka na jej slowo —
+    // caly plan ma byc przez nia przejrzany, nie tylko to, co juz poprawialismy
+    if (!moje.length) return 'czeka';
     var naj = 9;
     moje.forEach(function (u) { naj = Math.min(naj, PORZ[u.status] || 0); });
     return KOLEJ_ST[naj] || 'nowa';
@@ -2785,7 +2785,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790557836824';
+  var MOJA_WERSJA = '1790558789206';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
