@@ -424,6 +424,26 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
   padding:0 6px;margin-left:-4px;box-shadow:0 0 0 2px #fff}
 #nowosci[hidden]{display:none!important}
+
+/* Powiadomienie: czerwona liczba w rogu koszyka, widoczna z drugiego konca pokoju */
+#koszyk{position:fixed}
+#nowosci{position:absolute;top:-9px;right:-7px;margin:0;
+  min-width:26px;height:26px;border-radius:13px;background:#e03127;color:#fff;
+  font-size:13px;font-weight:700;line-height:1;display:inline-flex;align-items:center;justify-content:center;
+  padding:0 7px;box-shadow:0 0 0 3px #f4f2ec, 0 3px 10px rgba(224,49,39,.5);
+  animation:puk 1.8s ease-out infinite}
+@keyframes puk{
+  0%{transform:scale(1)}
+  8%{transform:scale(1.22)}
+  16%{transform:scale(1)}
+  24%{transform:scale(1.14)}
+  34%{transform:scale(1)}
+  100%{transform:scale(1)}}
+#koszyk.maNowe{border-color:#e03127;box-shadow:0 6px 20px rgba(224,49,39,.35)}
+#koszyk.maNowe::after{content:'';position:absolute;inset:-4px;border-radius:30px;
+  border:2px solid rgba(224,49,39,.55);animation:fala 2s ease-out infinite;pointer-events:none}
+@keyframes fala{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.18)}}
+@media (prefers-reduced-motion: reduce){#nowosci,#koszyk.maNowe::after{animation:none}}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -2416,8 +2436,10 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
       kropka.id = 'nowosci';
       kosz.appendChild(kropka);
     }
-    kropka.textContent = ile;
+    kropka.textContent = ile > 99 ? '99+' : ile;
     kropka.hidden = ile === 0;
+    var kosz2 = document.getElementById('koszyk');
+    if (kosz2) kosz2.classList.toggle('maNowe', ile > 0);
     kropka.title = ile ? ile + ' nowych zmian od drugiej strony' : '';
   }
   function odhaczNowosci() {
@@ -2556,7 +2578,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790553313403';
+  var MOJA_WERSJA = '1790553608635';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
