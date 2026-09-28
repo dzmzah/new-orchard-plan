@@ -4,9 +4,9 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>New Orchard — plan i uwagi</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg?w=1790555867588">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon.png?w=1790555867588">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?w=1790555867588">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?w=1790556169531">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon.png?w=1790556169531">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?w=1790556169531">
 <meta name="theme-color" content="#2c4d23">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -497,9 +497,10 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
 
 /* ---------- oklada ---------- */
 .oklada{position:relative;max-width:1600px;margin:0 auto;overflow:hidden;background:#20331a}
-.oklada img{display:block;width:100%;height:clamp(190px,26vw,340px);object-fit:cover;opacity:.92}
-.okladaT{position:absolute;left:0;right:0;bottom:0;padding:22px;
-  background:linear-gradient(to top,rgba(20,30,15,.82),rgba(20,30,15,0));color:#fff}
+.oklada img{display:block;width:100%;height:clamp(210px,28vw,380px);object-fit:cover}
+.okladaT{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px;color:#fff;
+  background:linear-gradient(to top,rgba(14,22,10,.9) 0%,rgba(14,22,10,.62) 45%,rgba(14,22,10,0) 100%)}
+.okladaT strong,.okladaE,.okladaI{text-shadow:0 1px 14px rgba(0,0,0,.45)}
 .okladaIn{max-width:980px;margin:0 auto;padding:0 6px}
 .okladaIn>*{display:block}
 .okladaE{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)}
@@ -539,12 +540,12 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
 </style></head><body>
 <header class="belka">
   <div class="belkaW">
-    <img class="znak" src="logo-bialy.png?w=1790555867588" alt="New Orchard" width="34" height="30">
+    <img class="znak" src="logo-bialy.png?w=1790556169531" alt="New Orchard" width="34" height="30">
     <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="belkaPod">plan i uwagi</span></div>
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
 </header>
-<div class="oklada"><img src="oklada.jpg?w=1790555867588" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
+<div class="oklada"><img src="oklada.jpg?w=1790556169531" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
 <div class="w">
   <div class="linki">
   <a class="lnk gl" href="https://theneworchard.com/" target="_blank" rel="noopener">
@@ -2735,7 +2736,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790555867588';
+  var MOJA_WERSJA = '1790556169531';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
