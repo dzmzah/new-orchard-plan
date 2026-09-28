@@ -472,7 +472,7 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 .belka .znak{width:34px;height:30px;object-fit:contain;flex:none}
 .belkaT{display:flex;flex-direction:column;line-height:1.15}
 .belkaT .marka{font-size:15px;letter-spacing:.22em;font-weight:600}
-.belkaT .pod{font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.72);margin-top:3px}
+.belkaT .belkaPod{font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.72);margin-top:3px}
 .belkaZovu{margin-left:auto;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
   color:rgba(255,255,255,.66);white-space:nowrap}
 .belkaZovu b{color:#fff;font-weight:600;letter-spacing:.16em}
@@ -484,7 +484,7 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
 <header class="belka">
   <div class="belkaW">
     <img class="znak" src="logo-bialy.png" alt="New Orchard" width="34" height="30">
-    <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="pod">plan i uwagi</span></div>
+    <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="belkaPod">plan i uwagi</span></div>
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
 </header>
@@ -2675,7 +2675,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790555219556';
+  var MOJA_WERSJA = '1790555271406';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
