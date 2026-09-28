@@ -457,6 +457,12 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   min-width:18px;height:18px;border-radius:9px;background:#e03127;color:#fff;
   font-size:11px;font-weight:700;line-height:1;padding:0 5px;margin-left:7px;vertical-align:middle}
 .naw .zak.akt .zakNowe{background:#fff;color:#c0392b}
+
+/* druga linia filtrow w koszyku: wszystkie / nowe / przeczytane */
+.szCzyt{margin-top:-4px;padding-bottom:4px;border-bottom:1px solid var(--ramka)}
+.szF.nowe b{background:#e03127;color:#fff;border-radius:8px;padding:1px 6px}
+.szF.nowe.akt{background:#e03127;border-color:#e03127;color:#fff}
+.szF.nowe.akt b{background:#fff;color:#e03127}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -1796,6 +1802,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // ---- ktory koszyk jest otwarty ----
   var WYBRANA_SEKCJA = 'wszystkie';
   try { WYBRANA_SEKCJA = localStorage.getItem(KLUCZ + ':koszyk') || 'wszystkie'; } catch (e) {}
+  // wszystkie / nowe / przeczytane
+  var CZYTANIE = 'wszystkie';
+  try { CZYTANIE = localStorage.getItem(KLUCZ + ':czytanie') || 'wszystkie'; } catch (e) {}
 
   // ---- kolejnosc w szufladzie: stala w trakcie pracy ----
   var KOLEJNOSC = [];
@@ -1851,7 +1860,24 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     });
     filtry += '</div>';
 
+    // druga linia: nowe od drugiej strony albo juz przeczytane
+    var ileNowych = lista.filter(jestNowa).length;
+    filtry += '<div class="szFiltry szCzyt">' +
+      '<button class="szF' + (CZYTANIE === 'wszystkie' ? ' akt' : '') + '" data-czyt="wszystkie">Wszystkie <b>' + lista.length + '</b></button>' +
+      '<button class="szF nowe' + (CZYTANIE === 'nowe' ? ' akt' : '') + '" data-czyt="nowe">Nowe <b>' + ileNowych + '</b></button>' +
+      '<button class="szF' + (CZYTANIE === 'przeczytane' ? ' akt' : '') + '" data-czyt="przeczytane">Przeczytane <b>' + (lista.length - ileNowych) + '</b></button>' +
+      '</div>';
+
     if (WYBRANA_SEKCJA !== 'wszystkie') grupy = grupy.filter(function (g) { return g.sekcja === WYBRANA_SEKCJA; });
+    if (CZYTANIE !== 'wszystkie') {
+      var chceNowe = CZYTANIE === 'nowe';
+      grupy = grupy.map(function (g) {
+        var kopia = {};
+        for (var k in g) kopia[k] = g[k];
+        kopia.uwagi = g.uwagi.filter(function (u) { return jestNowa(u) === chceNowe; });
+        return kopia;
+      }).filter(function (g) { return g.uwagi.length; });
+    }
 
     var h = filtry;
     var ostatniaSekcja = null;
@@ -2274,6 +2300,15 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     rysujTabele();
   });
 
+  // przelaczanie: wszystkie / nowe / przeczytane
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.szF[data-czyt]') : null;
+    if (!b) return;
+    CZYTANIE = b.dataset.czyt;
+    try { localStorage.setItem(KLUCZ + ':czytanie', CZYTANIE); } catch (err) {}
+    rysujTabele();
+  });
+
   // klik w nazwe pozycji: zamykamy szuflade i skaczemy do tego miejsca
   document.addEventListener('click', function (e) {
     var g = e.target.closest ? e.target.closest('.uwGdzie[data-idzie], .grGl[data-idzie]') : null;
@@ -2617,7 +2652,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790554379629';
+  var MOJA_WERSJA = '1790554687651';
   function czyNowaWersja() {
     fetch('wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
