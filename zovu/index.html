@@ -450,6 +450,13 @@ table tr.suma td{background:#fffdf7;border-bottom:none}
   background:#e03127;color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;vertical-align:middle}
 .uwEl.swieza{background:#fff6f5}
 .grupa.swiezaGr{box-shadow:0 0 0 2px rgba(224,49,39,.45)}
+
+/* ile nowego czeka w kazdej zakladce */
+.naw .zak{position:relative}
+.naw .zak .zakNowe{display:inline-flex;align-items:center;justify-content:center;
+  min-width:18px;height:18px;border-radius:9px;background:#e03127;color:#fff;
+  font-size:11px;font-weight:700;line-height:1;padding:0 5px;margin-left:7px;vertical-align:middle}
+.naw .zak.akt .zakNowe{background:#fff;color:#c0392b}
 </style></head><body>
 <div class="w">
   <h1>New Orchard &mdash; plan i uwagi</h1>
@@ -2457,8 +2464,31 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
     przerysuj();
   }
 
+  // Czerwone liczby przy zakladkach: ile nowego czeka w Feedzie, w Postach,
+  // w Stories i tak dalej — zeby nie trzeba bylo chodzic po wszystkich.
+  function odswiezZakladki() {
+    var ile = {};
+    noweOdNich().forEach(function (u) {
+      var m = miejsceDla(u.pozycja);
+      var s = m ? m.sekcja : 'inne';
+      ile[s] = (ile[s] || 0) + 1;
+    });
+    [].slice.call(document.querySelectorAll('.naw .zak[data-sek]')).forEach(function (z) {
+      var n = ile[z.dataset.sek] || 0;
+      var b = z.querySelector('.zakNowe');
+      if (!n) { if (b) b.remove(); return; }
+      if (!b) {
+        b = document.createElement('span');
+        b.className = 'zakNowe';
+        z.appendChild(b);
+      }
+      b.textContent = n;
+    });
+  }
+
   function odswiezLicznik() {
     odswiezNowosci();
+    odswiezZakladki();
     var otwarte = UWAGI.filter(function (u) {
       return u.status !== 'cofnieta' && u.status !== 'zrobione' && !jestZnacznikiem(u) && (u.uwaga || u.ocena);
     }).length;
@@ -2587,7 +2617,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790554077780';
+  var MOJA_WERSJA = '1790554379629';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
