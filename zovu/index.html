@@ -523,15 +523,25 @@ h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
   .k>.gl,.k>.met,.k>.prd,.k>.pod,.k>.ekr,.k>.st,.k>.uw,.k>.pAkc,.k>.pAkcept,.k>.hist,.k>.stara,
   .k>details.szcz,.k>.uwOtw{margin-left:16px;margin-right:16px}
 }
+
+/* strzalka na gore — po lewej, zeby nie bila sie z koszykiem */
+#naGore{position:fixed;left:18px;bottom:18px;z-index:30;width:44px;height:44px;border-radius:22px;
+  border:1px solid var(--ramka);background:#fff;color:var(--zielen);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(28,27,24,.14);transition:transform .15s ease}
+#naGore svg{width:20px;height:20px}
+#naGore:hover{transform:translateY(-2px);border-color:var(--zielen)}
+#naGore[hidden]{display:none!important}
+@media(max-width:560px){#naGore{left:14px;bottom:14px;width:40px;height:40px}}
 </style></head><body>
 <header class="belka">
   <div class="belkaW">
-    <img class="znak" src="../logo-bialy.png?w=1790555713591" alt="New Orchard" width="34" height="30">
+    <img class="znak" src="../logo-bialy.png?w=1790555803281" alt="New Orchard" width="34" height="30">
     <div class="belkaT"><span class="marka">NEW ORCHARD</span><span class="belkaPod">plan i uwagi</span></div>
     <span class="belkaZovu">prowadzi <b>ZOVU</b></span>
   </div>
 </header>
-<div class="oklada"><img src="../oklada.jpg?w=1790555713591" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
+<div class="oklada"><img src="../oklada.jpg?w=1790555803281" alt=""><div class="okladaT"><div class="okladaIn"><span class="okladaE">wrzesien &mdash; pazdziernik 2026</span><strong>Plan tresci</strong><span class="okladaI">21 pozycji &middot; 20 w siatce profilu</span></div></div></div>
 <div class="w">
   <div class="linki">
   <a class="lnk gl" href="https://theneworchard.com/" target="_blank" rel="noopener">
@@ -1574,6 +1584,9 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
 <button id="koszyk" aria-label="Twoje uwagi">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h4l4 4 4-4h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 7h10M7 11h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
   <span>Twoje uwagi</span><b id="koszykLicz">0</b>
+</button>
+<button id="naGore" aria-label="Na gore" hidden>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 <div id="zaslona"></div>
 <aside id="szuflada" aria-hidden="true">
@@ -2719,7 +2732,7 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   // Sam plan (posty, kadry, teksty) jest wpieczony w strone przy budowaniu.
   // Zeby nikt nie siedzial na starej wersji, strona pilnuje znacznika wersji
   // i sama sie przeladowuje — ale nigdy w trakcie pisania uwagi.
-  var MOJA_WERSJA = '1790555713591';
+  var MOJA_WERSJA = '1790555803281';
   function czyNowaWersja() {
     fetch('../wersja.txt?t=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { return r.text(); })
@@ -2744,6 +2757,18 @@ Jesli cos tu sie nie zgadza, to zmiana tutaj zmienia wszystkie posty nizej &mdas
   }
   setInterval(czyNowaWersja, 60000);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) czyNowaWersja(); });
+
+  // ---- strzalka na gore ----
+  // Strony sa dlugie, a zakladki siedza na samej gorze.
+  var gora = document.getElementById('naGore');
+  if (gora) {
+    gora.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    var pokazGore = function () { gora.hidden = window.scrollY < 600; };
+    window.addEventListener('scroll', pokazGore, { passive: true });
+    pokazGore();
+  }
 
   naZywo();
 })();
