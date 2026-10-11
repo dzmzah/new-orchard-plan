@@ -76,7 +76,15 @@ h2{font-size:24px;font-weight:400;margin:52px 0 6px}
 .lista{display:grid;gap:8px}
 .lista a{display:flex;justify-content:space-between;gap:12px;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:12px 16px;text-decoration:none;color:inherit;font-size:15px}
 .lista a span{color:var(--cichy);font-size:13px}
-.stopka{margin-top:50px;font-size:13px;color:var(--cichy)}
+.zam{display:grid;gap:8px}
+.zw{display:grid;grid-template-columns:150px 1fr auto;gap:10px 16px;align-items:center;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:10px 14px}
+.zw .kto{font-size:13px;color:var(--cichy);line-height:1.35}.zw .kto b{display:block;color:var(--tekst);font-size:14px;font-weight:600}
+.zw .rz{display:flex;flex-wrap:wrap;gap:6px}
+.zw .rz span{display:inline-flex;align-items:center;gap:6px;background:#f7f5f0;border-radius:8px;padding:3px 8px 3px 3px;font-size:12.5px;line-height:1.2}
+.zw .rz img{width:34px;height:34px;border-radius:6px;object-fit:cover;background:#eee}
+.zw .kw{font:500 17px 'Jost',sans-serif;color:var(--zielen);white-space:nowrap;text-align:right}
+.zw .kw small{display:block;font:400 11.5px 'Figtree',sans-serif;color:var(--cichy)}
+@media (max-width:760px){.zw{grid-template-columns:1fr auto}.zw .rz{grid-column:1/-1;grid-row:2}}.stopka{margin-top:50px;font-size:13px;color:var(--cichy)}
 @media (max-width:760px){.kafle{grid-template-columns:repeat(2,1fr)}.siatka{grid-template-columns:repeat(2,1fr)}.rrW{grid-template-columns:1fr}.rrW .nz{margin-top:8px;font-weight:500}}
 @media (max-width:420px){main{padding:24px 16px 60px}.belkaW{padding:13px 16px}.kafel .liczba{font-size:26px}.prop .karta{padding-left:54px}.prop .karta::before{left:16px}}
 </style></head><body>
@@ -108,6 +116,17 @@ h2{font-size:24px;font-weight:400;margin:52px 0 6px}
 <h2>Sprzedaż tydzień po tygodniu</h2>
 <p class="pod">Ostatnie 5 tygodni w sklepie. Reklamy ruszyły w poniedziałek 5.10.</p>
 <div class="karta wykres" id="w1"></div>
+
+<h3 style="font-weight:400;font-size:19px;margin:28px 0 6px">Co kupiono</h3>
+<p class="pod">Wszystkie 5 zamówień tygodnia. Razem 7 par butów i kapci, 7 koszulek i akcesoria.</p>
+<div class="zam">
+  <div class="zw"><div class="kto"><b>#1496 · 6.10</b>Niemcy · Avocadostore</div><div class="rz"><span><img src="img/p_14904873648504.jpg" alt="">Rękawiczki Black</span></div><div class="kw">68 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1497 · 8.10</b>Niemcy · stały klient</div><div class="rz"><span><img src="img/p_14904739299704.jpg" alt="">2× Short Black</span><span><img src="img/p_14904846090616.jpg" alt="">2× kapcie Sabbia</span><span><img src="img/p_8602309132542.jpg" alt="">2× T-shirt Oat Milk</span><span><img src="img/p_8602271383806.jpg" alt="">2× Avocado Toast</span><span><img src="img/p_8602311819518.jpg" alt="">2× Vegan Chocolate</span></div><div class="kw">1 529 €<small>po mailu sezonowym</small></div></div>
+  <div class="zw"><div class="kto"><b>#1498 · 8.10</b>Niemcy · ten sam klient</div><div class="rz"><span><img src="img/p_14904733794680.jpg" alt="">Long Beige</span><span><img src="img/p_14904741527928.jpg" alt="">Short Grey −30 %</span></div><div class="kw">456 €<small>po mailu sezonowym</small></div></div>
+  <div class="zw"><div class="kto"><b>#1499 · 8.10</b>Austria · nowa osoba</div><div class="rz"><span><img src="img/p_8602309132542.jpg" alt="">T-shirt Oat Milk</span><span><img src="img/p_14978586607992.jpg" alt="">Kaptur Brown</span><span><img src="img/p_14904816566648.jpg" alt="">Czapka Black</span><span><img src="img/p_14979874226552.jpg" alt="">Saszetka Red</span></div><div class="kw">184 €<small>kod −10 % z pop-upu</small></div></div>
+  <div class="zw"><div class="kto"><b>#1500 · 11.10</b>USA</div><div class="rz"><span><img src="img/p_14904768987512.jpg" alt="">Medium Green −33 %</span></div><div class="kw">254 €<small>po mailu Medium Green</small></div></div>
+</div>
+<p class="pod" style="margin-top:12px">Wnioski: największe zamówienie zrobił stały klient po mailu, a nowa osoba z Austrii kupiła z kodem z pop-upu. Przeceny działają: 2 pary były z outletu (Short Grey, Medium Green).</p>
 
 <h2>Co zrobiliśmy</h2>
 <p class="pod">Dzień po dniu, w skrócie.</p>
