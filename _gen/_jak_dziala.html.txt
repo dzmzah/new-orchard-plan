@@ -1,0 +1,45 @@
+  <details class="start" id="jakDziala">
+    <summary class="startGl">
+      <span class="startZnak">1 miejsce</span>
+      <h2>Jak to dziala</h2>
+      <p class="startLead">Ten adres sie nie zmienia. Zawsze wchodzisz tutaj i zawsze widzisz aktualna wersje &mdash; zadnych nowych plikow ani linkow.</p>
+      <span class="startRozwin">kliknij, zeby przeczytac instrukcje</span>
+    </summary>
+    <ol class="kroki">
+      <li><b>Ogladasz plan</b><span>Zakladki na gorze: siatka profilu, posty, stories, reklama w Meta, mailing, strategia, wydatki i pomysly.
+        Kadr klikasz, zeby zobaczyc go duzo wiekszy. Posty ustawione sa po dacie publikacji, nie po numerze &mdash; a tam, gdzie zaczyna sie
+        nastepny etap, stoi naglowek <b>pazdziernik, od trzeciego tygodnia</b>.</span></li>
+      <li><b>Piszesz uwage</b><span>Pod kazdym postem jest <b>+ napisz uwage do tego postu</b>. Zapisuje sie sama, widzimy ja w tej samej chwili
+        i odwrotnie &mdash; to, co zmieniamy my, masz u siebie w kilkanascie sekund, bez odswiezania.
+        Post, przy ktorym cos napiszesz, sam wraca na <b>do poprawki</b> &mdash; takze taki, ktory byl juz zatwierdzony.
+        Nie musisz tego klikac osobno.</span></li>
+      <li><b>Dokladasz zdjecie</b><span>W polu uwagi, obok <b>Zapisz uwage</b>, jest <b>+ dodaj plik</b>. Wybierasz zdjecie z telefonu
+        albo z komputera &mdash; zrzut ekranu, zaznaczony kadr, cokolwiek, co latwiej pokazac niz opisac. Zdjecie wchodzi wprost
+        do uwagi i po zapisaniu widac je jako obrazek; klikniete otwiera sie na caly ekran.</span></li>
+      <li><b>Decydujesz</b><span>Pod kazdym postem trzy przyciski: <b>Zatwierdzam</b>, <b>Do poprawki</b> albo <b>Nie, rezygnujemy</b>.
+        Mozesz zmienic zdanie w kazdej chwili. Kolorowa kropka przy pozycji zmienia sie sama po Twoim kliknieciu &mdash; nie trzeba jej ustawiac recznie.</span></li>
+      <li><b>Pokazujesz tylko to, czego szukasz</b><span>Przycisk <b>Filtry</b> pod zakladkami, a w <b>Twoich uwagach</b> w naglowku
+        obok krzyzyka. Po rozwinieciu sa stany: <b>do poprawki</b>, <b>czeka</b>, <b>zatwierdzone</b>, <b>odrzucone</b>.
+        Klikasz jeden i widzisz wylacznie jego, klikasz go drugi raz albo <b>Wszystkie</b> i wraca caly plan.
+        Przy kazdym stanie stoi liczba pozycji, a stan, w ktorym nic nie stoi, w ogole sie nie pokazuje.
+        Wybor zapamietuje sie u Ciebie w przegladarce i dziala w obu miejscach naraz. Jesli nic nie pasuje,
+        strona napisze to wprost i da przycisk <b>Pokaz wszystkie</b>.</span></li>
+      <li><b>Dopisujesz cos miedzy postami</b><span>Miedzy kazdymi dwoma postami jest <b>+ dodaj cos tutaj</b>. Jesli cos ma wskoczyc
+        nieoczekiwanie &mdash; piszesz w tym miejscu, a my wiemy dokladnie, gdzie to ma trafic w kalendarzu.</span></li>
+      <li><b>Zapisujesz pomysl</b><span>Zakladka <b>Pomysly</b> to wspolny zeszyt na luzne mysli, ktore jeszcze nie sa pozycja planu &mdash;
+        temat na post, produkt do pokazania, akcja na swieta. Nie musi byc dopracowane, zapisujemy, zeby nie ucieklo.</span></li>
+    </ol>
+    <div class="legenda">
+      <span class="lg"><i class="lgK nie"></i>jeszcze nie zrobione</span>
+      <span class="lg"><i class="lgK popr"></i>do poprawki</span>
+      <span class="lg"><i class="lgK robi"></i>wzielismy do pracy</span>
+      <span class="lg"><i class="lgK czeka"></i>czeka na Twoja zgode</span>
+      <span class="lg"><i class="lgK gotowe"></i>zatwierdzone przez Ciebie</span>
+      <span class="lg"><i class="lgK odrz"></i>odrzucone</span>
+    </div>
+    <p class="startStopka">Wszystkie uwagi razem sa pod przyciskiem <b>Twoje uwagi</b> w prawym dolnym rogu. Czerwona liczba na nim mowi,
+      ile nowego czeka. W naglowku sa male pigulki <b>nowe / przeczytane</b> i przycisk <b>Filtry</b>, w srodku filtr po zakladkach, a przy kazdej uwadze
+      <b>Popraw</b> oraz <b>Wycofaj</b> &mdash; stamtad poprawiasz i cofasz to, co napisalas.</p>
+    <p class="startStopka">Przy kazdej pozycji widac, kiedy ostatnio ktos przy niej cos ruszyl i czy byla to Twoja reka, czy nasza.
+      Stan pozycji jest tam tylko do czytania &mdash; zmienia go Twoja decyzja pod postem.</p>
+  </details>

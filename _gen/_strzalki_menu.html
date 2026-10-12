@@ -1,0 +1,26 @@
+<!-- ZOVU: strzałki przewijania menu (11.10) -->
+<style>
+.naw a.nawRap{white-space:nowrap;flex:0 0 auto;font-size:14px;padding:8px 16px;font-family:'Jost','Figtree',sans-serif}
+.nawOtocz{position:relative}
+.nawOtocz .naw{scroll-behavior:smooth}
+.nawStrz{position:absolute;top:0;bottom:4px;width:54px;border:0;padding:0;cursor:pointer;z-index:3;display:flex;align-items:center;color:#3c5a46;font:600 22px/1 'Jost',sans-serif}
+.nawStrz span{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid #e3dfd5;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.nawStrz:hover span{background:#3c5a46;color:#fff;border-color:#3c5a46}
+.nawStrz.p{right:0;justify-content:flex-end;background:linear-gradient(to right,rgba(244,242,236,0),#f4f2ec 55%)}
+.nawStrz.l{left:0;justify-content:flex-start;background:linear-gradient(to left,rgba(244,242,236,0),#f4f2ec 55%)}
+.nawStrz[hidden]{display:none!important}
+</style>
+<script>
+(function(){
+  var n=document.querySelector('.naw'); if(!n||n.parentNode.classList.contains('nawOtocz')) return;
+  var o=document.createElement('div'); o.className='nawOtocz'; n.parentNode.insertBefore(o,n); o.appendChild(n);
+  function b(k,z){var e=document.createElement('button');e.type='button';e.className='nawStrz '+k;e.setAttribute('aria-label',k==='p'?'dalej':'wstecz');e.innerHTML='<span>'+z+'</span>';o.appendChild(e);return e;}
+  var L=b('l','&lsaquo;'),P=b('p','&rsaquo;');
+  function st(){L.hidden=n.scrollLeft<=4;P.hidden=n.scrollLeft+n.clientWidth>=n.scrollWidth-4;}
+  L.onclick=function(){n.scrollLeft-=n.clientWidth*0.7;};
+  P.onclick=function(){n.scrollLeft+=n.clientWidth*0.7;};
+  n.addEventListener('scroll',st,{passive:true}); window.addEventListener('resize',st); setTimeout(st,300); st();
+  n.addEventListener('wheel',function(e){if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&n.scrollWidth>n.clientWidth){n.scrollLeft+=e.deltaY;e.preventDefault();}},{passive:false});
+})();
+</script>
+<!-- /ZOVU strzałki -->

@@ -1,0 +1,74 @@
+DZIEN:    pon 28.09 (przeniesiony z 27.09)
+FORMAT:   POST + STORIES + MAIL
+TEMAT:    Pre-order: czerwona spódnica
+JEZYK:    EN
+STATUS:   ZATWIERDZONY DO PUBLIKACJI 28.09 o 14:30 (zmiana slotu z 20:30, decyzja Zahara 28.09). Ania 28.09: "wszystko sie zgadza, mozna publikowac".
+          Oznaczenia produktow robimy z katalogu w kreatorze posta, spodnica pierwsza.
+          Wczesniej: PRZENIESIONY. Mial wyjsc 27.09, zostal opublikowany i zdjety na Twoja prosbe - spodnica w kadrze nie byla Wasza. Kadr jest juz Wasz, ze sklepu, copy Twoje. Nowy termin: poniedzialek 28.09 o 20:30. Tego dnia rano nic nie wychodzi, wiec slot jest wolny. Mail ze spodnica idzie osobno, za tydzien.
+          - jest juz na stronie, wysylka po 15.10".
+          25.09 wpisana data: niedziela 27.09 — to najblizszy wolny dzien w planie
+          (24, 25, 26, 28, 29, 30.09 sa zajete). Temat jest pilny, bo wysylka
+          rusza po 15.10 i jest po piec sztuk na rozmiar.
+
+--- TEKST NA EKRANIE ---
+Back. Five per size.
+
+--- PODPIS DO WKLEJENIA ---
+She is back. Five per size.
+Missed her last time? Preorder now.❤️
+The next batch is already in production.
+
+--- PRODUKTY DO OZNACZENIA ---
+  https://theneworchard.com/products/winter-vegan-skirt-red-limited-edition
+  Katalog jest podpiety (Shopify, 88 pozycji zatwierdzonych), Instagram to aktywny
+  kanal sprzedazy. Kazdy produkt widoczny w kadrze oznaczamy przy publikacji.
+
+--- HASHTAGI ---
+ŻADNYCH. New Orchard nie używa hashtagów — sprawdzone na wszystkich pięciu postach
+opublikowanych w ostatnich 90 dniach (9.09, 16.09, 17.09, 18.09 ×2). Ani jednego.
+
+Propozycja: zostawiamy ich styl. Na dwóch postach testowo po 3-4 precyzyjne tagi
+i mierzymy różnicę w zasięgu od nieobserwujących.
+
+--- UWAGI ---
+ODBLOKOWANE 23.09. Data wysylki potwierdzona: po 15.10. Stock z jej dokumentu: 5 sztuk per rozmiar, 3 w PL i 2 w ZH.
+
+UWAGA O MAILINGU: w planie przy tym poscie stal mailing. Ania: "widze ze w planach tam jest mailing - a to jest nieprzygotowane w ogole". SPRAWDZONE: dostep do Klaviyo MAMY - dane logowania sa w jej mailu z 09.09 "kody i hasla NO" (konto anna.nowosad@theneworchard.com). Mailing nie jest zablokowany dostepem, po prostu nie zostal przygotowany. Post i Stories ida teraz, mailing przygotowujemy osobno jako przypomnienie przed 15.10.
+
+Stan na teraz: spódnica jest już w sklepie na preorder, wysyłka po 15.10, jedna sztuka sprzedana.
+Z dokumentu Ani 19.09: stock to 5 sztuk per rozmiar — 3 w PL i 2 w ZH. Jej słowa: "TO MOZNA ASAP".
+
+KADR POPRAWIONY 23.09: wordmark NEW ORCHARD leżał w poprzek czerwonej spódnicy, czyli zasłaniał sam produkt. Wymieniony na wersję bez wordmarku. Do sprawdzenia z Anią: buty na modelce nie wyglądają na wasze — to zwykłe czarne sztyblety, nie Classic Vegan.
+
+SPRAWDZONE: "she is back" odpada. Chicago Manual of Style nie stosuje rodzaju zenskiego do rzeczy. Wazniejsze: w 88 opisach produktow na ich stronie "she/her" pada RAZ i dotyczy artystki Sary, czyli czlowieka. Marka nigdy nie mowi o rzeczy w rodzaju zenskim. Dlatego bez zaimka w ogole.
+
+--- JEJ PRAWKA 28.09, 13:2x ---
+"tylko oznacz produkty - wszystkie (long black boots, red skirt, navy capuche i black bag)
+i podlinkuj karte produktu czerwonej spodnicy"
+
+Oznaczamy cztery produkty, W TEJ KOLEJNOSCI (spodnica pierwsza):
+  1. https://theneworchard.com/products/winter-vegan-skirt-red-limited-edition
+  2. https://theneworchard.com/products/classic-vegan-long-black
+  3. https://theneworchard.com/products/winter-vegan-capuche-navy-blue
+  4. https://theneworchard.com/products/shoulder-vegan-bag-black
+
+Linki do wszystkich czterech produktow ida TAKZE W PODPISIE, w tej samej
+kolejnosci, spodnica pierwsza. Oznaczenia na zdjeciu tak samo.
+Zamyka sie tym punkt z 23.09 o butach: sa nasze, Classic Vegan Long Black.
+
+
+--- DECYZJA 28.09, po pierwszej probie publikacji ---
+Podpis idzie BEZ linkow, same trzy linie. Produkty pokazujemy wylacznie
+oznaczeniami na zdjeciu (spodnica, long black boots, navy capuche, black bag).
+
+Pierwsza publikacja o 14:44 zostala USUNIETA: wklejalem tekst automatycznie
+i podpis wyszedl podwojony, a ostatni link powtorzyl sie kilkanascie razy.
+Na przyszlosc tekst wchodzi TYLKO przez schowek i Ctrl+V, nigdy przez pisanie
+znak po znaku ani przez execCommand - to wlasnie sie naklada na stara tresc.
+
+--- OPUBLIKOWANE 28.09.2026 ---
+https://www.instagram.com/p/Dd1Osv_CEig/
+Podpis na zywo sprawdzony: trzy linie, bez linkow, bez dubli.
+Zostaje do zrobienia: OZNACZENIA PRODUKTOW z telefonu, kolejnosc
+spodnica, long black boots, navy capuche, black bag. Czekamy na kod
+weryfikacyjny od Ani, bo kod z logowania idzie na ich numer.

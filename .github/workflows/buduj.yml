@@ -1,0 +1,27 @@
+# Przebudowa strony po kazdej zmianie zrodel (_src) albo generatora (_gen) — np. z edytora /zovu/edytor.
+name: Buduj strone
+on:
+  push:
+    branches: [main]
+    paths: ['_src/**', '_gen/**']
+  workflow_dispatch:
+concurrency: { group: buduj, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  buduj:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: cd _gen && npm install --no-audit --no-fund
+      - run: node _gen/strona.mjs
+      - name: Zapisz zbudowana strone
+        run: |
+          git config user.name "zovu-edytor"
+          git config user.email "zovu.pl@gmail.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Przebudowa strony (automat)"
+          git pull --rebase -q origin ${{ github.ref_name }}
+          git push -q origin HEAD:${{ github.ref_name }}

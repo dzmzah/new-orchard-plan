@@ -1,0 +1,873 @@
+:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--ramka:#e3dfd5;--ok:#3c5a46;--zm:#b4552e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--tlo);color:var(--tekst);font:16px/1.6 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;padding:32px 16px 150px;-webkit-text-size-adjust:100%}
+.w{max-width:1120px;margin:0 auto}
+h1{font-size:28px;font-weight:300;letter-spacing:.01em}
+h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--akcent);margin:40px 0 14px;font-weight:600}
+.jak{background:#fffdf7;border:1px solid var(--ramka);border-left:3px solid var(--akcent);border-radius:4px;padding:16px 18px;margin:18px 0 34px;font-size:15px;color:#4a463e}
+.jak b{color:var(--tekst)}
+.k{background:var(--karta);border:1px solid var(--ramka);border-radius:5px;padding:20px 22px 18px;margin-bottom:16px}
+.gl{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.dat{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);white-space:nowrap}
+.gl h3{font-size:19px;font-weight:400}
+.met{font-size:13px;color:var(--cichy);margin-top:4px}
+.kadry{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+.kadry img{height:280px;width:auto;border-radius:3px;border:1px solid var(--ramka);cursor:zoom-in;background:#eee}
+.pod{white-space:pre-wrap;background:#fbfaf6;border:1px solid var(--ramka);border-radius:4px;padding:13px 15px;margin-top:14px;font-size:15px}
+.ekr,.prd,.st{font-size:13px;color:var(--cichy);margin-top:10px}
+.prd a{color:var(--akcent)}
+.st{font-size:12px;letter-spacing:.04em;color:#8a8478;border-top:1px dashed var(--ramka);padding-top:9px}
+.hist{margin-top:14px;border-left:3px solid var(--ramka);padding-left:14px}
+.histT{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);margin-bottom:8px}
+.hi{margin-bottom:12px}
+.hi blockquote{font-style:italic;color:#4a463e;font-size:14px;margin-bottom:4px}
+.hi p{font-size:14px;color:var(--cichy)}
+.hk{font-size:11px;color:var(--cichy);letter-spacing:.08em}
+.hs{color:var(--zm);margin-left:6px}
+.hi.ok .hs{color:var(--ok)}
+.uw{margin-top:16px;border-top:1px solid var(--ramka);padding-top:14px}
+.uwbtn{display:flex;gap:8px;flex-wrap:wrap}
+.uwbtn button{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px solid var(--ramka);background:#fff;cursor:pointer;color:var(--tekst)}
+.uwbtn button[data-st="ok"].akt{background:var(--ok);border-color:var(--ok);color:#fff}
+.uwbtn button[data-st="zmiana"].akt{background:var(--zm);border-color:var(--zm);color:#fff}
+.uw textarea{width:100%;margin-top:9px;min-height:64px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--ramka);border-radius:4px;background:#fffdf7;resize:vertical}
+.zap{font-size:12px;color:var(--ok);margin-top:6px;min-height:15px;opacity:0;transition:opacity .2s}
+.zap.jest{opacity:1}
+#pasek{position:fixed;left:0;right:0;bottom:0;background:#fffdf7;border-top:1px solid var(--ramka);padding:11px 16px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;z-index:20}
+#pasek .licz{font-size:13px;color:var(--cichy)}
+#pasek button,.duzy{font:15px inherit;padding:10px 22px;border-radius:22px;border:1px solid var(--akcent);background:var(--akcent);color:#fff;cursor:pointer}
+#pasek button.d,.duzy.d{background:#fff;color:var(--akcent)}
+#lupa{position:fixed;inset:0;background:rgba(20,19,17,.9);display:none;align-items:center;justify-content:center;z-index:40;cursor:zoom-out}
+#lupa img{max-width:94vw;max-height:94vh}
+#okno{position:fixed;inset:0;background:rgba(20,19,17,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:18px}
+#okno .p{background:#fff;border-radius:6px;padding:20px;max-width:720px;width:100%}
+#okno h4{font-weight:400;margin-bottom:10px}
+#okno textarea{width:100%;min-height:300px;font:13px/1.5 ui-monospace,Menlo,monospace;padding:10px;border:1px solid var(--ramka);border-radius:4px}
+#okno .r{display:flex;gap:10px;margin-top:12px;justify-content:flex-end}
+#okno button{font:15px inherit;padding:9px 18px;border-radius:20px;border:1px solid var(--ramka);background:#fff;cursor:pointer}
+#okno button.pr{background:var(--akcent);border-color:var(--akcent);color:#fff}
+@media(max-width:620px){.kadry img{height:200px}h1{font-size:23px}}
+.naw{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.naw a{font-size:13px;text-decoration:none;color:var(--akcent);background:#fffdf7;border:1px solid var(--ramka);border-radius:20px;padding:7px 14px}
+.naw a:hover{background:var(--akcent);color:#fff;border-color:var(--akcent)}
+h2.dzial{font-size:22px;font-weight:300;letter-spacing:.01em;text-transform:none;color:var(--tekst);margin:52px 0 10px;padding-top:14px;border-top:2px solid var(--akcent)}
+.naw button.zak{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px solid var(--ramka);background:#fffdf7;color:var(--akcent);cursor:pointer}
+.naw button.zak.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.siatka{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:520px;margin:0 0 6px}
+.siatka .sk{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#eee;text-decoration:none}
+.siatka .sk img{width:100%;height:100%;object-fit:cover;display:block}
+.siatka .sk span{position:absolute;left:0;right:0;bottom:0;background:rgba(20,19,17,.62);color:#fff;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 5px;text-align:center}
+.gora{max-width:520px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cichy);margin:6px 0}
+.wst{margin:6px 0 10px}
+.wstB{font:13px inherit;padding:5px 13px;border-radius:16px;border:1px dashed var(--ramka);background:transparent;color:var(--cichy);cursor:pointer}
+.wstB:hover{border-color:var(--akcent);color:var(--akcent)}
+.wstP{display:none;margin-top:8px}
+.wstP textarea{width:100%;min-height:56px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--ramka);border-radius:4px;background:#fffdf7;resize:vertical}
+.wst.otw .wstP{display:block}
+.rej .hi{background:var(--karta);border:1px solid var(--ramka);border-left:3px solid var(--zm);border-radius:4px;padding:13px 15px;margin-bottom:10px}
+.rej .hi.ok{border-left-color:var(--ok)}
+.co{font-size:15px;margin-top:8px;color:#4a463e}
+.przen{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--zm);border-radius:12px;padding:3px 10px}
+.stara{margin-top:14px;border:1px solid var(--ramka);border-radius:4px;background:#fbfaf6;padding:10px 14px}
+.stara summary{cursor:pointer;font-size:13px;letter-spacing:.06em;color:var(--cichy)}
+.stara summary:hover{color:var(--akcent)}
+.staraT{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);margin:10px 0 4px}
+.kadry.male img{height:170px}
+.linki{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0 4px}
+.linki .lnk{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:13px;letter-spacing:.02em;
+  color:var(--cichy);background:#fffdf7;border:1px solid var(--ramka);border-radius:20px;padding:7px 14px;transition:.15s}
+.linki .lnk svg{width:15px;height:15px;fill:currentColor;flex:none}
+.linki .lnk.gl{color:var(--akcent);border-color:#cfd8cf;background:#fff}
+.linki .lnk:hover{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.lnkPrzerwa{width:1px;height:22px;background:var(--ramka);margin:0 5px}
+@media(max-width:620px){.lnkPrzerwa{display:none}.linki .lnk{font-size:12px;padding:6px 11px}}
+.kadry.pion img{height:430px}
+.plansz{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ok);border-radius:12px;padding:3px 10px}
+.tabOtocz{overflow-x:auto;margin-top:12px}
+.rejT{width:100%;border-collapse:collapse;font-size:14px}
+.rejT th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--ramka)}
+.rejT td{padding:11px 10px;vertical-align:top;border-bottom:1px solid var(--ramka);background:#fff}
+.rejT tr.nie td{background:#fdf3f0}
+.rejT tr.robi td{background:#fdf8ee}
+.rejT tr.gotowe td{background:#f4f9f5}
+.rejT td.ki{white-space:nowrap;font-size:12px;color:var(--cichy)}
+.rejT td.cz{font-weight:500;min-width:170px}
+.rejT td.na{color:#4a463e}
+.rejT td.sta{white-space:nowrap;font-size:12px;letter-spacing:.04em}
+.rejT .kropka{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.rejT tr.nie .kropka{background:#c0392b}
+.rejT tr.robi .kropka{background:#d99a2b}
+.rejT tr.gotowe .kropka{background:#3c5a46}
+.rejT .oc{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cichy)}
+.kol{padding:1px 7px;border-radius:10px}
+.kol.nie{background:#fdf3f0;color:#c0392b}
+.kol.robi{background:#fdf8ee;color:#a9741d}
+.kol.gotowe{background:#f4f9f5;color:#3c5a46}
+table tr.gotowe td{background:#f4f9f5}
+table tr.robi td{background:#fdf8ee}
+table tr.suma td{background:#fffdf7;border-bottom:none}
+.uwLista{margin-bottom:12px}
+.uwEl{border-left:3px solid var(--ramka);padding:9px 0 9px 12px;margin-bottom:10px}
+.uwEl.nie{border-left-color:#c0392b}
+.uwEl.robi{border-left-color:#d99a2b}
+.uwEl.gotowe{border-left-color:#3c5a46}
+.uwGl{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.uwCzas{font-size:11px;color:var(--cichy);letter-spacing:.08em}
+.uwOc{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cichy);border:1px solid var(--ramka);border-radius:10px;padding:1px 8px}
+.uwSt{font-size:11px;letter-spacing:.06em;color:var(--cichy);display:inline-flex;align-items:center;gap:6px}
+.uwSt i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.uwEl.nie .uwSt i{background:#c0392b}
+.uwEl.robi .uwSt i{background:#d99a2b}
+.uwEl.gotowe .uwSt i{background:#3c5a46}
+.uwTxt{font-size:15px;white-space:pre-wrap}
+.uwOdp{font-size:14px;color:#4a463e;background:#fbfaf6;border-radius:4px;padding:8px 11px;margin-top:7px}
+.uwAkc{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.mini{font:12px inherit;padding:4px 11px;border-radius:14px;border:1px solid var(--ramka);background:#fff;color:var(--cichy);cursor:pointer}
+.mini:hover{border-color:var(--akcent);color:var(--akcent)}
+.mini.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.uwSep{width:1px;height:16px;background:var(--ramka);margin:0 3px}
+#koszyk{position:fixed;right:18px;bottom:18px;z-index:30;display:inline-flex;align-items:center;gap:9px;
+  font:14px inherit;padding:12px 18px;border-radius:26px;border:1px solid var(--akcent);background:var(--akcent);
+  color:#fff;cursor:pointer;box-shadow:0 6px 20px rgba(28,27,24,.18)}
+#koszyk svg{width:18px;height:18px}
+#koszyk b{min-width:22px;height:22px;border-radius:11px;background:#fff;color:var(--akcent);font-size:12px;
+  display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+#koszyk b.pusto{background:rgba(255,255,255,.28);color:#fff}
+#zaslona{position:fixed;inset:0;background:rgba(20,19,17,.45);opacity:0;pointer-events:none;transition:opacity .22s;z-index:40}
+#zaslona.otw{opacity:1;pointer-events:auto}
+#szuflada{position:fixed;top:0;right:0;bottom:0;width:min(620px,94vw);background:var(--tlo);z-index:50;
+  transform:translateX(102%);transition:transform .26s ease;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(28,27,24,.18)}
+#szuflada.otw{transform:none}
+#szuflada header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--ramka);background:#fffdf7}
+#szuflada header h4{font-size:19px;font-weight:400}
+#zamknijSz{font-size:26px;line-height:1;background:none;border:none;color:var(--cichy);cursor:pointer;padding:0 4px}
+#zamknijSz:hover{color:var(--tekst)}
+.szTresc{padding:18px 20px 40px;overflow-y:auto;flex:1}
+.uwStopka{display:flex;align-items:center;gap:12px;margin-top:9px}
+.zapisz{font:14px inherit;padding:8px 18px;border-radius:20px;border:1px solid var(--akcent);background:var(--akcent);color:#fff;cursor:pointer}
+.zapisz:disabled{opacity:.6;cursor:default}
+.zap{font-size:12px;color:var(--ok);opacity:0;transition:opacity .2s}
+.zap.jest{opacity:1}
+@media(max-width:620px){#koszyk span{display:none}#koszyk{padding:12px 14px}}
+.uwGdzie{font-size:12px;letter-spacing:.04em;color:var(--akcent);margin-bottom:5px}
+.szTresc .uwEl{background:#fff;border:1px solid var(--ramka);border-left-width:3px;border-radius:4px;padding:12px 14px;margin-bottom:11px}
+.odpBox{margin-top:10px}
+.odpBox textarea{width:100%;min-height:80px;font:15px/1.5 inherit;padding:10px 12px;border:1px solid var(--akcent);border-radius:4px;background:#fffdf7;resize:vertical}
+.odpAkc{display:flex;gap:7px;margin-top:7px}
+.odpAkc .zap2{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.uwGdzie[data-idzie]{cursor:pointer;display:inline-block}
+.uwGdzie[data-idzie]:hover{text-decoration:underline}
+.pStan{font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;
+  border-radius:12px;padding:3px 11px;white-space:nowrap}
+.pStan i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.pStan.nie{background:#fdf3f0;color:#c0392b}      .pStan.nie i{background:#c0392b}
+.pStan.robi{background:#fdf8ee;color:#a9741d}     .pStan.robi i{background:#d99a2b}
+.pStan.gotowe{background:#f4f9f5;color:#3c5a46}   .pStan.gotowe i{background:#3c5a46}
+.k.p-nie{border-left:4px solid #c0392b}
+.k.p-robi{border-left:4px solid #d99a2b}
+.k.p-gotowe{border-left:4px solid #3c5a46}
+.siatka .sk.nie::after,.siatka .sk.robi::after,.siatka .sk.czeka::after,.siatka .sk.gotowe::after,.siatka .sk.popr::after,.siatka .sk.odrz::after{
+  content:'';position:absolute;top:7px;right:7px;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.siatka .sk.nie::after{background:#c0392b}
+.siatka .sk.robi::after{background:#d99a2b}
+.siatka .sk.gotowe::after{background:#3c5a46}
+.k.blysk{animation:blysk 1.6s ease}
+@keyframes blysk{0%{box-shadow:0 0 0 4px rgba(60,90,70,.45)}100%{box-shadow:0 0 0 0 rgba(60,90,70,0)}}
+/* nazwa postu sama swieci kolorem — widac od razu, bez czytania plakietki */
+.k.p-nie .gl h3{color:#c0392b}
+.k.p-robi .gl h3{color:#a9741d}
+.k.p-gotowe .gl h3{color:#3c5a46}
+.k.p-nie .dat{color:#c0392b}
+.k.p-robi .dat{color:#a9741d}
+.k.p-gotowe .dat{color:#3c5a46}
+.k.p-nie{background:#fffcfb}
+.k.p-robi{background:#fffdf9}
+.k.p-gotowe{background:#fcfefc}
+/* to samo w szufladzie: nazwa pozycji w kolorze statusu */
+.uwEl.nie .uwGdzie{color:#c0392b}
+.uwEl.robi .uwGdzie{color:#a9741d}
+.uwEl.gotowe .uwGdzie{color:#3c5a46}
+.siatka .sk.nie span{background:rgba(192,57,43,.85)}
+.siatka .sk.robi span{background:rgba(217,154,43,.88)}
+.siatka .sk.gotowe span{background:rgba(60,90,70,.85)}
+/* stan ma bic po oczach, a nie szeptac */
+.pStan{font-weight:600;font-size:12px;padding:4px 13px}
+.pStan.nie{background:#c0392b;color:#fff}      .pStan.nie i{background:#fff}
+.pStan.robi{background:#d99a2b;color:#fff}     .pStan.robi i{background:#fff}
+.pStan.gotowe{background:#3c5a46;color:#fff}   .pStan.gotowe i{background:#fff}
+.k.p-nie{border-left-width:6px}
+.k.p-robi{border-left-width:6px}
+.k.p-gotowe{border-left-width:6px}
+.k.p-nie .gl h3,.k.p-robi .gl h3,.k.p-gotowe .gl h3{font-weight:600}
+.uwSt{font-weight:600}
+.uwEl.nie .uwSt{color:#c0392b}
+.uwEl.robi .uwSt{color:#a9741d}
+.uwEl.gotowe .uwSt{color:#3c5a46}
+.pAkc{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 2px}
+.pAkcE{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy);margin-right:3px}
+.mini.pst.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+/* czwarty stan: zrobione u nas, czeka na jej tak */
+.pStan.czeka{background:#2e6b9e;color:#fff}   .pStan.czeka i{background:#fff}
+.k.p-czeka{border-left:6px solid #2e6b9e;background:#fbfdff}
+.k.p-czeka .gl h3,.k.p-czeka .dat{color:#2e6b9e}
+.uwEl.czeka{border-left-color:#2e6b9e}
+.uwEl.czeka .uwSt{color:#2e6b9e}
+.uwEl.czeka .uwSt i{background:#2e6b9e}
+.uwEl.czeka .uwGdzie{color:#2e6b9e}
+.siatka .sk.czeka::after{background:#2e6b9e}
+.siatka .sk.czeka span{background:rgba(46,107,158,.88)}
+.kol.czeka{background:#eef5fb;color:#2e6b9e}
+.pAkcept{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#eef5fb;border:1px solid #cfe0ee;
+  border-radius:5px;padding:12px 15px;margin-top:14px}
+.pAkcept span{font-size:15px;color:#2e6b9e}
+.pAkcept .zatw{font:15px inherit;padding:9px 20px;border-radius:20px;border:1px solid #2e6b9e;
+  background:#2e6b9e;color:#fff;cursor:pointer}
+.pAkcept .zatw:disabled{opacity:.6}
+.pAkc{border-top:1px solid var(--ramka);padding-top:12px;margin:14px 0 0}
+.grupa{border:1px solid var(--ramka);border-left-width:4px;border-radius:5px;background:#fff;margin-bottom:14px;overflow:hidden}
+.grupa.nie{border-left-color:#c0392b}
+.grupa.robi{border-left-color:#d99a2b}
+.grupa.czeka{border-left-color:#2e6b9e}
+.grupa.gotowe{border-left-color:#3c5a46}
+.grGl{display:flex;align-items:center;gap:12px;padding:11px 13px;cursor:pointer;background:#fbfaf6;border-bottom:1px solid var(--ramka)}
+.grGl:hover{background:#f6f4ee}
+.grGl img{width:52px;height:65px;object-fit:cover;border-radius:3px;flex:none;background:#eee}
+.grBrak{width:52px;height:65px;border-radius:3px;background:#efece5;flex:none}
+.grOpis{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.grOpis b{font-size:15px;font-weight:500}
+.grData{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy)}
+.grOpis .pStan{align-self:flex-start;font-size:10px;padding:2px 9px}
+.grStrz{color:var(--cichy);font-size:18px;flex:none}
+.szTresc .grupa .uwEl{border:none;border-left:3px solid transparent;border-radius:0;margin:0;padding:12px 14px}
+.szTresc .grupa .uwEl + .uwEl{border-top:1px solid var(--ramka)}
+/* karta ma byc krotka: kadry w rzedzie z przewijaniem, pisanie zwiniete */
+.kadry{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}
+.kadry img{height:210px;flex:none}
+.kadry.pion img{height:300px}
+.kadry.male img{height:150px}
+.uwOtw{font:14px inherit;padding:8px 16px;border-radius:20px;border:1px dashed var(--ramka);background:transparent;
+  color:var(--cichy);cursor:pointer;margin-top:12px}
+.uwOtw:hover{border-color:var(--akcent);color:var(--akcent)}
+.uw.zwin{display:none}
+.uwZwin summary{cursor:pointer;font-size:15px;color:#4a463e}
+.uwZwin summary:hover{color:var(--akcent)}
+.uwZwin .uwTxt{margin-top:7px}
+.stara summary{padding:2px 0}
+.szcz{margin-top:12px;border-top:1px solid var(--ramka);padding-top:10px}
+.szcz summary{cursor:pointer;font-size:13px;letter-spacing:.04em;color:var(--cichy);list-style:none}
+.szcz summary::-webkit-details-marker{display:none}
+.szcz summary::before{content:'▸ ';color:var(--akcent)}
+.szcz[open] summary::before{content:'▾ '}
+.szcz summary:hover{color:var(--akcent)}
+.szcz > .pod{margin-top:12px}
+.k{padding-bottom:14px}
+.kadry img{height:190px}
+/* linki do towarow zostaja na wierzchu — jej wyrazna prosba */
+.prd.tow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:12px}
+.towE{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cichy)}
+.prd.tow a{display:inline-flex;align-items:center;gap:5px;font-size:13px;text-decoration:none;color:var(--akcent);
+  background:#f4f9f5;border:1px solid #cfe0d4;border-radius:14px;padding:4px 12px}
+.prd.tow a::before{content:'\1F517';font-size:11px;filter:grayscale(1)}
+.prd.tow a:hover{background:var(--akcent);color:#fff;border-color:var(--akcent)}
+.prd.tow i{font-size:13px;color:var(--cichy)}
+.brakTow{opacity:.75}
+.szFiltry{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;position:sticky;top:0;background:var(--tlo);padding-bottom:10px;z-index:2}
+.szF{font:13px inherit;padding:6px 13px;border-radius:16px;border:1px solid var(--ramka);background:#fff;color:var(--cichy);cursor:pointer}
+.szF b{font-weight:600;color:var(--tekst)}
+.szF:hover{border-color:var(--akcent);color:var(--akcent)}
+.szF.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.szF.akt b{color:#fff}
+.szDzial{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy);margin:18px 0 8px}
+.szDzial:first-of-type{margin-top:2px}
+/* wybrany stan swieci swoim kolorem, nie zawsze zielonym */
+.mini.st.akt,.mini.pst.akt{color:#fff}
+.mini.st[data-st="nowa"].akt,.mini.pst[data-st="nowa"].akt{background:#c0392b;border-color:#c0392b}
+.mini.st[data-st="w robocie"].akt,.mini.pst[data-st="w robocie"].akt{background:#d99a2b;border-color:#d99a2b}
+.mini.st[data-st="czeka"].akt,.mini.pst[data-st="czeka"].akt{background:#2e6b9e;border-color:#2e6b9e}
+.mini.st[data-st="zrobione"].akt,.mini.pst[data-st="zrobione"].akt{background:#3c5a46;border-color:#3c5a46}
+/* niewybrane maja tylko delikatny slad swojego koloru */
+.mini.st[data-st="nowa"]:not(.akt),.mini.pst[data-st="nowa"]:not(.akt){color:#c0392b}
+.mini.st[data-st="w robocie"]:not(.akt),.mini.pst[data-st="w robocie"]:not(.akt){color:#a9741d}
+.mini.st[data-st="czeka"]:not(.akt),.mini.pst[data-st="czeka"]:not(.akt){color:#2e6b9e}
+.mini.st[data-st="zrobione"]:not(.akt),.mini.pst[data-st="zrobione"]:not(.akt){color:#3c5a46}
+.mini.st:hover,.mini.pst:hover{border-color:currentColor}
+
+/* napis na zalanym przycisku musi byc bialy — inaczej znika w tle */
+.mini.st.akt,.mini.pst.akt,.mini.st.akt:hover,.mini.pst.akt:hover{color:#fff!important}
+
+/* zatwierdzone — salatowy zamiast ciemnej zieleni.
+   Na tak jasnym tle bialy napis znika, wiec tekst jest ciemny (kontrast 6,2). */
+.pStan.gotowe{background:#6ac52c;color:#12300a}   .pStan.gotowe i{background:#12300a}
+.mini.st[data-st="zrobione"].akt,.mini.pst[data-st="zrobione"].akt{
+  background:#6ac52c;border-color:#6ac52c;color:#12300a!important}
+.mini.st[data-st="zrobione"]:not(.akt),.mini.pst[data-st="zrobione"]:not(.akt){color:#3f7d18}
+.k.p-gotowe{border-left-color:#6ac52c;background:#fbfef6}
+.k.p-gotowe .gl h3,.k.p-gotowe .dat{color:#3f7d18}
+.uwEl.gotowe{border-left-color:#6ac52c}
+.uwEl.gotowe .uwSt{color:#3f7d18}   .uwEl.gotowe .uwSt i{background:#6ac52c}
+.uwEl.gotowe .uwGdzie{color:#3f7d18}
+.siatka .sk.gotowe::after{background:#6ac52c}
+.siatka .sk.gotowe span{background:rgba(74,150,26,.88)}
+.grupa.gotowe{border-left-color:#6ac52c}
+.rejT tr.gotowe .kropka{background:#6ac52c}
+.rejT tr.gotowe td,table tr.gotowe td{background:#f5fdec}
+.kol.gotowe{background:#f5fdec;color:#3f7d18}
+
+/* piaty stan: do poprawki — Ania oddaje post z powrotem do nas */
+.pStan.popr{background:#b4552e;color:#fff}   .pStan.popr i{background:#fff}
+.mini.st[data-st="poprawka"].akt,.mini.pst[data-st="poprawka"].akt{
+  background:#b4552e;border-color:#b4552e;color:#fff!important}
+.mini.st[data-st="poprawka"]:not(.akt),.mini.pst[data-st="poprawka"]:not(.akt){color:#b4552e}
+.k.p-popr{border-left:6px solid #b4552e;background:#fffaf6}
+.k.p-popr .gl h3,.k.p-popr .dat{color:#b4552e}
+.k.p-popr .gl h3{font-weight:600}
+.uwEl.popr{border-left-color:#b4552e}
+.uwEl.popr .uwSt{color:#b4552e}   .uwEl.popr .uwSt i{background:#b4552e}
+.uwEl.popr .uwGdzie{color:#b4552e}
+.siatka .sk.popr::after{background:#b4552e}
+.siatka .sk.popr span{background:rgba(180,85,46,.88)}
+.grupa.popr{border-left-color:#b4552e}
+.rejT tr.popr .kropka{background:#b4552e}
+.rejT tr.popr td,table tr.popr td{background:#fff8f4}
+.kol.popr{background:#fff8f4;color:#b4552e}
+
+/* wybor przy pisaniu uwagi — ten sam jezyk kolorow co stany postu */
+.uwbtn{margin-top:2px}
+.uwbtn button[data-st="ok"].akt{background:#6ac52c;border-color:#6ac52c;color:#12300a}
+.uwbtn button[data-st="zmiana"].akt{background:#b4552e;border-color:#b4552e;color:#fff}
+.uwbtn button:hover{border-color:var(--akcent)}
+.uwbtn button[data-st="ok"]:not(.akt){color:#3f7d18}
+.uwbtn button[data-st="zmiana"]:not(.akt){color:#b4552e}
+
+/* pytanie przy wycofywaniu uwagi — zamiast okienka przegladarki */
+.odpBox .pytanie{font-size:14px;color:var(--tekst);margin-bottom:8px}
+.mini.cofT{color:#b4552e;border-color:#b4552e}
+.mini.cofT:hover{background:#b4552e;color:#fff}
+
+/* decyzja Ani: zatwierdzam albo do poprawki, zawsze pod kazdym postem */
+.pAkcept{background:#faf9f5;border-color:var(--ramka)}
+.pAkcept span{color:var(--cichy);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.pAkcept .zatw,.pAkcept .dopop{font:15px inherit;padding:9px 20px;border-radius:20px;cursor:pointer;background:#fff}
+.pAkcept .zatw{border:1px solid #3f7d18;color:#3f7d18}
+.pAkcept .zatw:hover{background:#6ac52c;border-color:#6ac52c;color:#12300a}
+.pAkcept .zatw.akt{background:#6ac52c;border-color:#6ac52c;color:#12300a;font-weight:600}
+.pAkcept .dopop{border:1px solid #b4552e;color:#b4552e}
+.pAkcept .dopop:hover{background:#b4552e;color:#fff}
+.pAkcept .dopop.akt{background:#b4552e;border-color:#b4552e;color:#fff;font-weight:600}
+
+/* pasek "to jeszcze szkic" pod polem pisania */
+.szkicI{font-size:12px;color:#a9741d;background:#fdf8ec;border:1px solid #f0e2c4;
+  border-radius:4px;padding:6px 10px;margin-top:7px}
+
+/* kategoryczne nie: tego postu w ogole nie robimy */
+.pAkcept .odrzuc{font:15px inherit;padding:9px 20px;border-radius:20px;cursor:pointer;
+  background:#fff;border:1px solid #7a1f1a;color:#7a1f1a}
+.pAkcept .odrzuc:hover{background:#7a1f1a;color:#fff}
+.pAkcept .odrzuc.akt{background:#7a1f1a;border-color:#7a1f1a;color:#fff;font-weight:600}
+.pStan.odrz{background:#7a1f1a;color:#fff}   .pStan.odrz i{background:#fff}
+.mini.st[data-st="odrzucone"].akt,.mini.pst[data-st="odrzucone"].akt{
+  background:#7a1f1a;border-color:#7a1f1a;color:#fff!important}
+.mini.st[data-st="odrzucone"]:not(.akt),.mini.pst[data-st="odrzucone"]:not(.akt){color:#7a1f1a}
+.k.p-odrz{border-left:6px solid #7a1f1a;background:#fbf7f6;opacity:.75}
+.k.p-odrz .gl h3,.k.p-odrz .dat{color:#7a1f1a}
+.k.p-odrz .gl h3{font-weight:600;text-decoration:line-through}
+.uwEl.odrz{border-left-color:#7a1f1a}
+.uwEl.odrz .uwSt{color:#7a1f1a}   .uwEl.odrz .uwSt i{background:#7a1f1a}
+.siatka .sk.odrz::after{background:#7a1f1a}
+.siatka .sk.odrz span{background:rgba(122,31,26,.88)}
+.grupa.odrz{border-left-color:#7a1f1a}
+.rejT tr.odrz .kropka{background:#7a1f1a}
+.rejT tr.odrz td,table tr.odrz td{background:#fbf6f5}
+.kol.odrz{background:#fbf6f5;color:#7a1f1a}
+
+/* znacznik, ze strona sama dociaga zmiany */
+#zywo{margin-left:auto;align-self:center;font-size:11px;color:var(--cichy);white-space:nowrap;
+  display:inline-flex;align-items:center;gap:6px}
+#zywo::before{content:'';width:7px;height:7px;border-radius:50%;background:#6ac52c;
+  box-shadow:0 0 0 0 rgba(106,197,44,.7);animation:tetno 2.4s ease-out infinite}
+@keyframes tetno{0%{box-shadow:0 0 0 0 rgba(106,197,44,.65)}70%{box-shadow:0 0 0 7px rgba(106,197,44,0)}100%{box-shadow:0 0 0 0 rgba(106,197,44,0)}}
+@media (prefers-reduced-motion: reduce){#zywo::before{animation:none}}
+
+/* pasek: jest nowsza wersja planu */
+#nowaW{position:fixed;left:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:10px;
+  font:13px inherit;padding:11px 15px;border-radius:8px;background:var(--tekst);color:#fff;
+  box-shadow:0 6px 20px rgba(28,27,24,.25)}
+#nowaW button{font:13px inherit;padding:6px 13px;border-radius:14px;border:0;cursor:pointer;
+  background:#6ac52c;color:#12300a;font-weight:600}
+
+/* decyzja Ani wprost w koszyku, przy grupie uwag danego postu */
+.grDecyzja{display:flex;gap:7px;flex-wrap:wrap;padding:10px 13px 13px;border-top:1px solid var(--ramka);background:#faf9f5}
+.grDecyzja button{font:13px inherit;padding:7px 14px;border-radius:16px;cursor:pointer;background:#fff}
+.grDecyzja .zatw{border:1px solid #3f7d18;color:#3f7d18}
+.grDecyzja .zatw:hover,.grDecyzja .zatw.akt{background:#6ac52c;border-color:#6ac52c;color:#12300a}
+.grDecyzja .dopop{border:1px solid #b4552e;color:#b4552e}
+.grDecyzja .dopop:hover,.grDecyzja .dopop.akt{background:#b4552e;border-color:#b4552e;color:#fff}
+.grDecyzja .odrzuc{border:1px solid #7a1f1a;color:#7a1f1a}
+.grDecyzja .odrzuc:hover,.grDecyzja .odrzuc.akt{background:#7a1f1a;border-color:#7a1f1a;color:#fff}
+.grDecyzja .akt{font-weight:600}
+
+/* slad ostatniej zmiany: kiedy i czyja reka */
+.uwZm{display:block;font-size:11px;color:var(--cichy);margin-top:2px}
+.stZm{font-size:11px;color:var(--cichy);margin-left:8px;white-space:nowrap}
+
+/* slad zmiany w koszyku, przy naglowku grupy */
+.grOpis .stZm{display:block;margin:3px 0 0;white-space:normal}
+
+/* czerwona kropka z liczba nowych zmian od drugiej strony */
+#nowosci{min-width:20px;height:20px;border-radius:10px;background:#c0392b;color:#fff;
+  font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
+  padding:0 6px;margin-left:-4px;box-shadow:0 0 0 2px #fff}
+#koszyk #nowosci[hidden]{display:none!important}
+
+/* Powiadomienie: czerwona liczba w rogu koszyka, widoczna z drugiego konca pokoju */
+#koszyk{position:fixed}
+#koszyk #nowosci{position:absolute;top:-9px;right:-7px;margin:0;
+  min-width:26px;height:26px;border-radius:13px;background:#e03127;color:#fff;
+  font-size:13px;font-weight:700;line-height:1;display:inline-flex;align-items:center;justify-content:center;
+  padding:0 7px;box-shadow:0 0 0 3px #f4f2ec, 0 3px 10px rgba(224,49,39,.5);
+  animation:puk 1.8s ease-out infinite}
+@keyframes puk{
+  0%{transform:scale(1)}
+  8%{transform:scale(1.22)}
+  16%{transform:scale(1)}
+  24%{transform:scale(1.14)}
+  34%{transform:scale(1)}
+  100%{transform:scale(1)}}
+#koszyk.maNowe{border-color:#e03127;box-shadow:0 6px 20px rgba(224,49,39,.35)}
+#koszyk.maNowe::after{content:'';position:absolute;inset:-4px;border-radius:30px;
+  border:2px solid rgba(224,49,39,.55);animation:fala 2s ease-out infinite;pointer-events:none}
+@keyframes fala{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.18)}}
+@media (prefers-reduced-motion: reduce){#nowosci,#koszyk.maNowe::after{animation:none}}
+
+/* w koszyku widac, co dokladnie jest nowe od drugiej strony */
+.nowaEt{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:9px;
+  background:#e03127;color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;vertical-align:middle}
+.uwEl.swieza{background:#fff6f5}
+.grupa.swiezaGr{box-shadow:0 0 0 2px rgba(224,49,39,.45)}
+
+/* ile nowego czeka w kazdej zakladce */
+.naw .zak{position:relative}
+.naw .zak .zakNowe{display:inline-flex;align-items:center;justify-content:center;
+  min-width:18px;height:18px;border-radius:9px;background:#e03127;color:#fff;
+  font-size:11px;font-weight:700;line-height:1;padding:0 5px;margin-left:7px;vertical-align:middle}
+.naw .zak.akt .zakNowe{background:#fff;color:#c0392b}
+
+/* druga linia filtrow w koszyku: wszystkie / nowe / przeczytane */
+.szCzyt{margin-top:-4px;padding-bottom:4px;border-bottom:1px solid var(--ramka)}
+.szF.nowe b{background:#e03127;color:#fff;border-radius:8px;padding:1px 6px}
+.szF.nowe.akt{background:#e03127;border-color:#e03127;color:#fff}
+.szF.nowe.akt b{background:#fff;color:#e03127}
+
+/* ---------- marka na stronie ---------- */
+:root{--zielen:#2c4d23}
+.belka{background:var(--zielen);color:#fff;padding:0 0 1px}
+.belkaW{max-width:980px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:14px}
+.belka .znak{width:34px;height:30px;object-fit:contain;flex:none}
+.belkaT{display:flex;flex-direction:column;line-height:1.15}
+.belkaT .marka{font-size:15px;letter-spacing:.22em;font-weight:600}
+.belkaT .belkaPod{font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.72);margin-top:3px}
+.belkaZovu{margin-left:auto;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.66);white-space:nowrap}
+.belkaZovu b{color:#fff;font-weight:600;letter-spacing:.16em}
+@media (max-width:560px){
+  .belkaW{padding:13px 16px;gap:11px}
+  .belkaZovu{display:inline;font-size:9px;letter-spacing:.08em}
+}
+
+/* ---------- typografia marki ---------- */
+body{font-family:'Figtree',-apple-system,'Segoe UI',Roboto,sans-serif}
+h1,h2,h3,.dzial,.belkaT .marka,.naw .zak,.okladaT strong,.pStan,.mini,.szF,.zak{
+  font-family:'Jost','Figtree',-apple-system,'Segoe UI',sans-serif}
+.gl h3{font-size:21px;font-weight:400;letter-spacing:-.01em}
+.dzial{font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.02em}
+.belkaT .marka{font-weight:500}
+
+/* ---------- oklada ---------- */
+.oklada{position:relative;max-width:1600px;margin:0 auto;overflow:hidden;background:#20331a}
+.oklada img{display:block;width:100%;height:clamp(210px,28vw,380px);object-fit:cover}
+.okladaT{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 22px;color:#fff;
+  background:linear-gradient(to top,rgba(14,22,10,.9) 0%,rgba(14,22,10,.62) 45%,rgba(14,22,10,0) 100%)}
+.okladaT strong,.okladaE,.okladaI{text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.okladaIn{max-width:980px;margin:0 auto;padding:0 6px}
+.okladaIn>*{display:block}
+.okladaE{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.okladaT strong{font-size:clamp(26px,3.4vw,40px);font-weight:400;letter-spacing:-.01em;margin:4px 0 5px}
+.okladaI{font-size:13px;color:rgba(255,255,255,.8)}
+
+/* ---------- karta postu: kadr gra pierwsze skrzypce ---------- */
+.k{padding:0;overflow:hidden}
+.k>.gl,.k>.met,.k>.prd,.k>.pod,.k>.ekr,.k>.st,.k>.uw,.k>.pAkc,.k>.pAkcept,.k>.hist,.k>.stara,
+.k>details.szcz,.k>.uwOtw,.k>.uw.zwin{margin-left:22px;margin-right:22px}
+.k>.gl{padding-top:18px}
+.k>.kadry{margin:16px 0 4px;padding:0 22px}
+.kadry img{height:min(52vw,420px);border-radius:4px}
+.kadry.male img{height:min(34vw,220px)}
+.kadry.pion img{height:min(64vw,500px)}
+.k>.uw,.k>.uwOtw{margin-bottom:16px}
+.k>.pAkc{padding-bottom:4px}
+
+/* ---------- siatka profilu ---------- */
+.siatka{max-width:680px;gap:6px}
+@media(max-width:620px){
+  .kadry img{height:auto;width:100%;max-height:none}
+  .k>.kadry{flex-direction:column;padding:0 16px}
+  .k>.gl,.k>.met,.k>.prd,.k>.pod,.k>.ekr,.k>.st,.k>.uw,.k>.pAkc,.k>.pAkcept,.k>.hist,.k>.stara,
+  .k>details.szcz,.k>.uwOtw{margin-left:16px;margin-right:16px}
+}
+
+/* strzalka na gore — po lewej, zeby nie bila sie z koszykiem */
+#naGore{position:fixed;left:18px;bottom:18px;z-index:30;width:44px;height:44px;border-radius:22px;
+  border:1px solid var(--ramka);background:#fff;color:var(--zielen);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(28,27,24,.14);transition:transform .15s ease}
+#naGore svg{width:20px;height:20px}
+#naGore:hover{transform:translateY(-2px);border-color:var(--zielen)}
+#naGore[hidden]{display:none!important}
+@media(max-width:560px){#naGore{left:14px;bottom:14px;width:40px;height:40px}}
+
+/* ---------- ramka na kanaly ---------- */
+.kanaly{border:1px solid var(--ramka);border-radius:6px;background:#fff;padding:14px 16px 16px;margin:18px 0 0}
+.kanalyGl{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.kanalyE{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--zielen);font-weight:600}
+.kanalyP{font-size:12px;color:var(--cichy)}
+.kanaly .linki{margin:8px 0 0}
+
+/* ---------- instrukcja, ktora widac ---------- */
+.start{border:1px solid #d6e0d2;border-radius:8px;background:linear-gradient(180deg,#f6faf3,#fff 60%);
+  padding:22px 24px;margin:16px 0 30px}
+.startGl{border-bottom:1px solid #e4ece0;padding-bottom:14px;margin-bottom:16px}
+.startZnak{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:#fff;background:var(--zielen);border-radius:10px;padding:3px 10px}
+.start h2{font-size:22px;font-weight:500;margin:9px 0 6px;color:var(--tekst)}
+.startLead{font-size:15px;color:#4a463e;margin:0;max-width:62ch}
+.kroki{list-style:none;counter-reset:krok;margin:0;padding:0;display:grid;gap:12px}
+.kroki li{counter-increment:krok;position:relative;padding-left:40px;font-size:14px;color:#4a463e}
+.kroki li::before{content:counter(krok);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:13px;
+  background:var(--zielen);color:#fff;font:600 13px 'Jost',sans-serif;display:flex;align-items:center;justify-content:center}
+.kroki li b{display:block;color:var(--tekst);font-size:15px;font-weight:600;margin-bottom:2px}
+.kroki li span b{display:inline;font-size:inherit}
+.legenda{display:flex;flex-wrap:wrap;gap:8px 16px;margin:18px 0 0;padding-top:15px;border-top:1px solid #e4ece0}
+.lg{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:#4a463e}
+.lgK{width:11px;height:11px;border-radius:50%;flex:none}
+.lgK.nie{background:#c0392b}.lgK.popr{background:#b4552e}.lgK.robi{background:#d99a2b}
+.lgK.czeka{background:#2e6b9e}.lgK.gotowe{background:#6ac52c}.lgK.odrz{background:#7b766c}
+.startStopka{font-size:13px;color:var(--cichy);margin:14px 0 0}
+@media(max-width:560px){.start{padding:18px 16px}.kroki li{padding-left:34px}}
+
+/* nasze stany przy grupie w koszyku */
+.grStan{gap:6px}
+.grStan .mini{font-size:12px;padding:5px 11px}
+
+/* ---------- pasek filtrow w koszyku: jedno przyklejone pudelko ---------- */
+/* Bylo tak, ze obie linie mialy osobno position:sticky top:0, wiec druga lapala
+   to samo miejsce co pierwsza i na nia wchodzila, a tlo konczylo sie na wlasnym
+   pudelku i przy przewijaniu tresc przeswitywala po bokach i nad paskiem. */
+/* Pasek stoi tuz pod naglowkiem szuflady, bez pustego pasa nad soba.
+   Wczesniej mial 18 px wlasnego paddingu u gory i przy przewijaniu ten pas
+   byl widoczny jako pusty pas nad przyciskami. */
+.szTresc{padding-top:0}
+.szTresc .szGora{position:sticky;top:0;z-index:6;background:var(--tlo);
+  margin:0 -20px 14px;padding:12px 20px 0}
+.szTresc .szGora::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ramka)}
+.szTresc .szFiltry{position:static;background:transparent;padding:0;margin:0 0 7px;z-index:auto}
+.szTresc .szCzyt{margin:0;padding:0 0 9px;border-bottom:none}
+
+/* lista rozwijana stanu przy uwadze w koszyku (tylko nasza wersja) */
+select.mini.stSel{font:12px inherit;padding:4px 8px;border-radius:14px;border:1px solid var(--ramka);
+  background:#fff;color:var(--cichy);cursor:pointer;max-width:170px}
+select.mini.stSel:hover{border-color:var(--akcent);color:var(--akcent)}
+
+/* nic nie przeswituje nad przyklejonym paskiem filtrow */
+.szTresc .szGora::before{content:'';position:absolute;left:0;right:0;bottom:100%;height:26px;background:var(--tlo)}
+/* stan calej pozycji: jedno pole wyboru zamiast szesciu przyciskow */
+.grStan{display:flex;align-items:center;gap:9px}
+.grStanEt{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cichy)}
+.grStanWart{font-size:12px;letter-spacing:.04em;font-weight:600;display:inline-flex;align-items:center;gap:6px;color:var(--cichy)}
+.grStanWart i{width:8px;height:8px;border-radius:50%;background:var(--cichy);display:inline-block}
+.grStanWart.nie{color:#c0392b}.grStanWart.nie i{background:#c0392b}
+.grStanWart.popr{color:#b4552e}.grStanWart.popr i{background:#b4552e}
+.grStanWart.robi{color:#a9741d}.grStanWart.robi i{background:#d99a2b}
+.grStanWart.czeka{color:#2e6b9e}.grStanWart.czeka i{background:#2e6b9e}
+.grStanWart.gotowe{color:#3c5a46}.grStanWart.gotowe i{background:#3c5a46}
+.grStanWart.odrz{color:#7b766c}.grStanWart.odrz i{background:#7b766c}
+
+/* ---------- naglowek szuflady ---------- */
+/* Bylo: goly napis "Twoje uwagi" i krzyzyk, a zaraz pod nim sciana pigulek.
+   Teraz naglowek jest ciemny jak belka na gorze strony, ma podpis z liczbami
+   i wyraznie oddziela sie od filtrow. */
+#szuflada header{background:var(--zielen);border-bottom:none;padding:16px 20px;align-items:flex-start}
+#szuflada header h4{font-size:20px;font-weight:400;color:#fff;letter-spacing:.01em;line-height:1.2}
+.szNag{display:flex;flex-direction:column;gap:3px}
+.szPod{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.62);margin:0}
+#zamknijSz{font-size:22px;line-height:1;width:32px;height:32px;border-radius:50%;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);
+  border:none;color:rgba(255,255,255,.85);cursor:pointer;padding:0;transition:background .15s,color .15s}
+#zamknijSz:hover{background:rgba(255,255,255,.22);color:#fff}
+
+/* druga linia filtrow jako jeden przelacznik, nie kolejna sciana pigulek */
+.szTresc .szCzyt{display:inline-flex;gap:0;background:#ebe8e0;border-radius:16px;padding:3px;width:auto}
+.szTresc .szCzyt .szF{border:none;background:transparent;border-radius:13px;padding:4px 13px}
+.szTresc .szCzyt .szF.akt{background:#fff;color:var(--tekst);box-shadow:0 1px 2px rgba(28,27,24,.12)}
+.szTresc .szCzyt .szF b{margin-left:5px}
+.szTresc .szCzyt .szF.akt b{color:var(--tekst)}
+
+/* ---------- filtr po stanie: glowny ekran i koszyk ---------- */
+.stanyPasek{margin:0 0 18px}
+.stanyPasek .szFiltrBtn{max-width:520px}
+.stanyPasek .szRozwin{display:none;flex-wrap:wrap;gap:6px;align-items:center}
+.stanyPasek .szRozwin.otw{display:flex}
+.stanyEt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--cichy);margin-right:4px}
+.szTresc .szStany{margin:0;padding:0 0 9px}
+.stanF{display:inline-flex;align-items:center;gap:6px}
+.stanF i{width:8px;height:8px;border-radius:50%;background:var(--cichy);display:inline-block}
+.stanF.nie i{background:#c0392b}
+.stanF.popr i{background:#b4552e}
+.stanF.robi i{background:#d99a2b}
+.stanF.czeka i{background:#2e6b9e}
+.stanF.gotowe i{background:#3c5a46}
+.stanF.odrz i{background:#7b766c}
+.stanF.wyl{opacity:.42;text-decoration:line-through;text-decoration-thickness:1px}
+.stanF.wyl i{background:var(--ramka)}
+.stanF.wl{border-color:var(--ramka)}
+.k.ukryty{display:none}
+@media(max-width:620px){.stanyPasek{gap:5px}.stanF{font-size:12px;padding:5px 10px}}
+.wst.ukryty,h2.ukryty{display:none}
+.pustoFiltr{font-size:15px;color:var(--cichy);background:#fffdf7;border:1px dashed var(--ramka);
+  border-radius:5px;padding:18px 20px;margin:4px 0 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.wrocStany{font:14px inherit;padding:6px 14px;border-radius:16px;border:1px solid var(--akcent);
+  background:#fff;color:var(--akcent);cursor:pointer}
+.wrocStany:hover{background:var(--akcent);color:#fff}
+
+/* ---------- filtry w koszyku zwiniete pod jednym przyciskiem ---------- */
+.szFiltrBtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:13px inherit;
+  padding:9px 12px;border:1px solid var(--ramka);border-radius:18px;background:#fff;color:var(--tekst);
+  cursor:pointer;margin-bottom:10px}
+.szFiltrBtn:hover{border-color:var(--akcent)}
+.szFiltrBtn span{font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:11px;color:var(--akcent);flex:none}
+.szFiltrBtn em{font-style:normal;color:var(--cichy);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.szFiltrBtn i{flex:none;width:8px;height:8px;border-right:1.5px solid var(--cichy);border-bottom:1.5px solid var(--cichy);
+  transform:rotate(45deg);margin:-3px 2px 0 0;transition:transform .15s}
+.szFiltrBtn.otw i{transform:rotate(-135deg);margin-top:2px}
+.szRozwin{display:none}
+.szRozwin.otw{display:block}
+
+/* przycisk filtrow siedzi w ciemnym naglowku szuflady — zwiniety nie zabiera
+   ani jednego piksela wysokosci nad lista uwag */
+#szuflada header .szFiltrBtn{margin:0;flex:0 1 auto;max-width:300px;padding:6px 12px;
+  background:rgba(255,255,255,.12);border:none;border-radius:16px;color:rgba(255,255,255,.9)}
+#szuflada header .szFiltrBtn:hover{background:rgba(255,255,255,.22)}
+#szuflada header .szFiltrBtn span{color:#fff}
+#szuflada header .szFiltrBtn em{color:rgba(255,255,255,.62);font-size:12px}
+#szuflada header .szFiltrBtn i{border-color:rgba(255,255,255,.7)}
+#szuflada header{gap:12px}
+/* zwinieta gora nie zostawia po sobie paska */
+.szTresc .szGora{padding:0 20px;margin:0 -20px}
+.szTresc .szGora.otw{padding:12px 20px 0;margin:0 -20px 14px}
+.szTresc .szGora::after{display:none}
+.szTresc .szGora.otw::after{display:block}
+@media(max-width:620px){#szuflada header .szFiltrBtn em{display:none}}
+
+/* nowe / przeczytane jako male pigulki w naglowku, w miejscu podpisu */
+.szPod{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0}
+.szPodIle{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-right:2px}
+.szCzytB{font:11px inherit;letter-spacing:.04em;padding:3px 9px;border-radius:12px;border:1px solid rgba(255,255,255,.22);
+  background:transparent;color:rgba(255,255,255,.72);cursor:pointer}
+.szCzytB:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.szCzytB.akt{background:rgba(255,255,255,.92);border-color:transparent;color:#1c1b18}
+.szCzytB b{margin-left:4px}
+.szCzytB.nowe b{color:#e03127}
+.szCzytB.nowe.akt b{color:#e03127}
+/* wybor zakladki zostaje widoczny zawsze, to najczestszy ruch */
+.szTresc .szGora{padding:12px 20px 0;margin:0 -20px 12px}
+.szTresc .szGora::after{display:block}
+.szTresc .szSekcje{margin:0 0 4px}
+.szTresc .szRozwin{display:none;padding-top:4px}
+.szTresc .szRozwin.otw{display:block}
+
+/* pigulki stanow ciasniej, zeby caly pasek szedl w jednej linii */
+.stanF{font-size:12px;padding:5px 10px;gap:5px}
+.stanF i{width:7px;height:7px}
+.stanF b{margin-left:3px}
+
+/* wybor stanu dziala jak zakladka: podswietlony jest wybrany, nic sie nie skresla */
+.stanF.akt{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.stanF.akt b{color:#fff}
+.stanF.akt i{box-shadow:0 0 0 2px rgba(255,255,255,.55)}
+
+/* Rozwiniete szczegoly nie mowily, ze da sie je zamknac tym samym napisem —
+   dopisujemy to wprost i robimy z napisu wyrazny przycisk. */
+.szcz summary{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border:1px solid var(--ramka);
+  border-radius:16px;background:#fff;color:var(--cichy)}
+.szcz summary:hover{border-color:var(--akcent);color:var(--akcent)}
+.szcz[open] summary{background:var(--akcent);border-color:var(--akcent);color:#fff}
+.szcz[open] summary::before{color:#fff}
+.szcz[open] summary::after{content:' (kliknij, zeby zwinac)'}
+.uwZwin summary{display:inline-block;padding:2px 0;border-bottom:1px dotted var(--ramka)}
+.uwZwin[open] summary::after{content:' (zwin)';color:var(--akcent);font-size:13px}
+
+/* Pasek stanow stoi zawsze, bez chowania — przycisk "Sortuj" zdjety.
+   Na telefonie pigulki zawijaja sie do kolejnej linii, nic nie wystaje. */
+.szRozwin,.szTresc .szRozwin{display:block !important;padding:0}
+#szuflada header .szFiltrBtn{display:none}
+.stanyPasek{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.stanyPasek .szFiltrBtn{display:none}
+.szTresc .szStany{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0 0 9px}
+.szTresc .szGora{padding:12px 20px 0;margin:0 -20px 12px}
+@media(max-width:620px){
+  .stanyPasek,.szTresc .szStany{gap:5px}
+  .stanF{font-size:11px;padding:4px 9px}
+  #szuflada header{gap:8px;padding:12px 16px}
+  #szuflada header h4{font-size:18px}
+  .szPod{gap:5px}
+  .szCzytB{font-size:10px;padding:3px 8px}
+  .szTresc .szGora{padding:10px 16px 0;margin:0 -16px 10px}
+}
+
+/* zdjecie na pelnym ekranie: strona pod spodem stoi, jest krzyzyk */
+body.bezScrolla{position:fixed;left:0;right:0;width:100%;overflow:hidden}
+#zamknijLupe{position:absolute;top:16px;right:18px;width:44px;height:44px;border-radius:50%;
+  border:none;background:rgba(255,255,255,.14);color:#fff;font-size:26px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:2;transition:background .15s}
+#zamknijLupe:hover{background:rgba(255,255,255,.3)}
+#lupa img{cursor:default}
+@media(max-width:620px){#zamknijLupe{top:10px;right:10px;width:40px;height:40px;font-size:24px}}
+
+/* wybierak stanu przy pozycji, pod ktora nie ma jeszcze zadnej uwagi */
+select.mini.pstSel{font:12px inherit;padding:5px 9px;border-radius:14px;border:1px solid var(--ramka);
+  background:#fff;color:var(--tekst);cursor:pointer;max-width:210px}
+select.mini.pstSel:hover{border-color:var(--akcent)}
+
+/* Instrukcja zajmowala cale pierwsze okno. Domyslnie zwinieta, rozwija sie klikiem. */
+details.start > summary.startGl{cursor:pointer;list-style:none;display:block}
+details.start > summary.startGl::-webkit-details-marker{display:none}
+.startRozwin{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:13px;
+  letter-spacing:.04em;color:var(--akcent);border:1px solid var(--ramka);border-radius:16px;padding:6px 14px;background:#fff}
+details.start > summary.startGl:hover .startRozwin{border-color:var(--akcent)}
+.startRozwin::after{content:'';width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-top:-3px}
+details.start[open] .startRozwin::after{transform:rotate(-135deg);margin-top:2px}
+details.start[open] .startRozwin{color:var(--cichy)}
+details.start[open] .startRozwin::before{content:'zwin instrukcje'}
+details.start[open] .startRozwin{font-size:0}
+details.start[open] .startRozwin::before{font-size:13px}
+
+/* usuwanie uwagi wyroznione, zeby nie mylilo sie z poprawianiem */
+.mini.usun:hover{border-color:#c0392b;color:#c0392b}
+.mini.cofT{border-color:#c0392b;color:#c0392b}
+.mini.cofT:hover{background:#c0392b;color:#fff}
+
+/* uwagi widac przy poscie zawsze, tak jak rozmowe — nie chowaja sie z polem pisania */
+.k > .uwLista{margin:0 22px 10px}
+.k > .uwLista:empty{display:none}
+.k > .uwLista .uwEl{background:#fffdf7;border:1px solid var(--ramka);border-left-width:3px;border-radius:4px;padding:11px 13px;margin-bottom:9px}
+@media(max-width:620px){.k > .uwLista{margin:0 16px 10px}}
+
+/* ================= PANEL ZOVU ================= */
+/* Nasza wersja ma wygladac inaczej niz widok Ani, nie tylko miec inny adres. */
+body.panel .belka{background:#241f1b}
+.belkaPanel{display:inline-flex;align-items:center;margin-left:10px;padding:3px 10px;border-radius:12px;
+  background:#b4552e;color:#fff;font-size:10px;letter-spacing:.14em;font-weight:600}
+body.panel .belkaZovu{color:rgba(255,255,255,.66)}
+body.panel .belkaZovu b{color:#ffb38a}
+body.panel .oklada::after{content:'PANEL ZESPOLU';position:absolute;top:14px;left:14px;z-index:3;
+  background:#b4552e;color:#fff;font-size:11px;letter-spacing:.14em;padding:5px 12px;border-radius:13px}
+body.panel .oklada{position:relative}
+
+/* pulpit */
+.pulpit{background:#241f1b;color:#f4f2ec;border-radius:8px;padding:20px 22px;margin:0 0 20px}
+.pGl{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
+.pGl h2{margin:0;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#ffb38a}
+.pDzis{font-size:12px;color:rgba(244,242,236,.5)}
+.pKafle{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.pKafel{flex:1 1 150px;background:rgba(255,255,255,.06);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.pKafel.pilne{background:rgba(180,85,46,.22);box-shadow:inset 0 0 0 1px rgba(255,140,90,.45)}
+.pLiczba{font-size:26px;line-height:1.1;font-weight:300}
+.pTytul{font-size:12px;letter-spacing:.06em;color:rgba(244,242,236,.82)}
+.pOpis{font-size:11px;color:rgba(244,242,236,.45)}
+.pKol{display:flex;gap:18px;flex-wrap:wrap}
+.pBlok{flex:1 1 300px;min-width:0}
+.pBlok h3{margin:0 0 9px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,242,236,.55);font-weight:600}
+.pLista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pSkok{width:100%;text-align:left;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:rgba(255,255,255,.05);border:none;border-radius:5px;padding:9px 12px;color:#f4f2ec;
+  font:14px inherit;cursor:pointer}
+.pSkok:hover{background:rgba(255,255,255,.12)}
+.pData{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,242,236,.5);white-space:nowrap}
+.pNazwa{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pStanMini{font-size:11px;display:inline-flex;align-items:center;gap:5px;color:rgba(244,242,236,.7);white-space:nowrap}
+.pStanMini i{width:7px;height:7px;border-radius:50%;background:#999;display:inline-block}
+.pStanMini.nie i{background:#e0604a}.pStanMini.popr i{background:#ff8c5a}
+.pStanMini.robi i{background:#e8b33f}.pStanMini.czeka i{background:#63a6e0}
+.pStanMini.gotowe i{background:#6fc08a}.pStanMini.odrz i{background:#9a948c}
+.pPusto{margin:0;font-size:13px;color:rgba(244,242,236,.42)}
+@media(max-width:620px){.pulpit{padding:16px}.pKafel{flex:1 1 120px}.pLiczba{font-size:22px}}
+
+
+/* ---------- uwaga dopisana miedzy postami ---------- */
+/* Ma czytac sie jak karteczka wpieta w kalendarz, a nie jak tekst zgubiony
+   na tle. Wezsza od kart postow, zeby bylo widac, ze to nie jest pozycja planu. */
+.wst:has(.uwLista .uwEl){background:#fffdf7;border:1px solid var(--ramka);border-left:3px solid var(--zm);
+  border-radius:6px;padding:14px 16px 12px;margin:14px auto;max-width:640px;text-align:left}
+.wst:has(.uwLista .uwEl)::before{content:'dopisane miedzy postami';display:block;margin-bottom:9px;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--zm);font-weight:600}
+.wst > .uwLista{margin:0;text-align:left}
+.wst > .uwLista:empty{display:none}
+.wst > .uwLista .uwEl{background:transparent;border:none;border-left:none;padding:0;margin:0 0 10px}
+.wst > .uwLista .uwEl:last-child{margin-bottom:4px}
+.wst:has(.uwLista .uwEl) .wstB{border-color:var(--ramka);background:#fff;margin-top:2px}
+.wst:has(.uwLista .uwEl) .wstB:hover{border-color:var(--akcent);color:var(--akcent)}
+@media(max-width:620px){.wst:has(.uwLista .uwEl){margin:12px 16px;padding:12px 13px 10px}}
+
+/* Zalacznik do uwagi: Ania pokazuje palcem zamiast opisywac slowami. */
+.plikB{font-size:12px;color:var(--akcent);border:1px solid var(--ramka);border-radius:14px;
+  padding:5px 11px;background:#fff;cursor:pointer;white-space:nowrap}
+.plikB:hover{border-color:var(--akcent);background:#fffdf7}
+.uwTxt img.zal{display:block;max-width:min(100%,420px);margin:8px 0 2px;border-radius:5px;
+  border:1px solid var(--ramka);cursor:zoom-in}
+
+/* copy i CTA pod kazdym kadrem reklamy — Ania musi to przeczytac i zatwierdzic,
+   wiec pola sa podpisane tak, jak nazywaja sie w Menedzerze reklam */
+.rekCopyGrupa{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.rekCopy{flex:1 1 320px;min-width:0;background:#fbfaf6;border:1px solid var(--ramka);
+  border-radius:4px;padding:12px 14px}
+.rekJez{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--cichy);
+  margin-bottom:9px}
+.rekPole{font-size:14.5px;line-height:1.45;margin-top:9px}
+.rekPole:first-of-type{margin-top:0}
+.rekPole span{display:block;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--cichy);margin-bottom:2px}
+.rekPole a{color:var(--akcent)}
+@media(max-width:620px){.rekCopyGrupa{flex-direction:column}}
+
+/* ---- telefon (05.10) ---- */
+html,body{overflow-x:hidden;max-width:100%}
+.naw{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+.naw::-webkit-scrollbar{display:none}
+.naw button.zak{white-space:nowrap;flex:0 0 auto}
+.k.zw > .gl{cursor:pointer;position:relative;padding-right:34px}
+.k.zw > .gl::after{content:'';position:absolute;right:14px;top:50%;width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);opacity:.45;transition:transform .2s}
+.k.zw.otw > .gl::after{transform:translateY(-30%) rotate(225deg)}
+.k.zw:not(.otw) > :not(.gl){display:none !important}
+.skrot{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 22px}
+.skrB{background:var(--karta);border:1px solid var(--ramka);border-radius:6px;padding:12px 14px}
+.skrT{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--akcent);margin:0 0 6px;font-weight:600}
+.skrT b{background:var(--akcent);color:#fff;border-radius:10px;padding:1px 7px;margin-left:6px;font-size:11px}
+.rz{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--ramka);text-decoration:none;color:inherit;font-size:14px}
+.rz:first-of-type{border-top:0}
+.rzD{flex:0 0 74px;color:#8a8478;font-size:13px}
+.rzT{flex:1}
+.rzP{font-size:13px;color:#8a8478;padding:6px 0}
+@media(max-width:620px){
+  .skrot{grid-template-columns:1fr}
+  .oklada img{height:120px}
+  .w{padding-left:12px;padding-right:12px}
+  .kadry img{height:170px}
+  .siatka{max-width:100%}
+}
+/* wybor widoczny tez na zwinietej karcie; wyrazne naglowki linii reklamy (05.10) */
+.k.zw:not(.otw) > .pAkc,.k.zw:not(.otw) > .pAkcept{display:flex !important;flex-wrap:wrap}
+.k.zw:not(.otw) > .gl{padding-bottom:4px}
+.sek h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--akcent);border-radius:6px;padding:10px 14px;margin:26px 0 14px;font-weight:500}
+.sek h2.dzial{background:none;color:inherit;font-size:26px;letter-spacing:0;text-transform:none;padding:0;margin:0 0 16px}
+.pliki{display:inline-flex;align-items:center;gap:8px;margin:12px 0 4px;padding:9px 16px;border-radius:20px;background:#1f6feb;color:#fff !important;text-decoration:none;font-size:14px}
+.pliki::before{content:'';width:16px;height:13px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath d='M2 2h8l2 3h10v13H2z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath d='M2 2h8l2 3h10v13H2z'/%3E%3C/svg%3E") center/contain no-repeat}
+.opubl{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:#2c4d23;color:#fff;border-radius:12px;padding:3px 10px;font-weight:600}
