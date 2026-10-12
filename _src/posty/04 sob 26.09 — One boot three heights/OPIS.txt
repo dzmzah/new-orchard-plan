@@ -1,0 +1,86 @@
+DZIEN:    sob 26.09
+FORMAT:   KARUZELA, 1080x1350
+TEMAT:    One boot, three heights
+JEZYK:    EN
+STATUS:   OPUBLIKOWANY 26.09 o 20:30. W planie stal na 29.09 i ta data zostala
+          w papierach, chociaz post juz wyszedl - poprawione 28.09, zeby plan
+          zgadzal sie z profilem. Wtorek 29.09 jest przez to WOLNY.
+          Wersja zatwierdzona przez Anie. Kadry to jej lookbook na modelce,
+          ktory wyszedl 26.09 o 20:30 i ktory 27.09 skwitowala slowem "Jest ok".
+          poprawione po uwagach z 26.09.
+
+--- CO SIE ZMIENILO I DLACZEGO ---
+26.09, uwaga Ani: "Ja bym tylko zmienila kolejnosc klatek: krotki but, sredni
+i wysoki". Kolejnosc zmieniona, post otwiera KROTKI.
+
+26.09, uwaga Zahara: sredni ma miec CZARNA podeszwe. W lookbooku na nodze istnieje
+tylko wersja z zielona podeszwa (to ich limitowana edycja), a post mowi o JEDNYM
+bucie w trzech wysokosciach - zielona podeszwa posrodku czytala sie jak inny towar.
+Czarny sredni naprawde istnieje: Classic Vegan Medium All Black (limited edition),
+259 EUR, na stanie 37, 38, 40, 41, 42. Kadr z nogami zostal przerobiony tak, zeby
+podeszwa byla czarna. Wersja sprzed poprawki lezy w podfolderze.
+
+Wczesniej, 24.09, Ania: "wezcie nogi w butach z tego lookbooka" - stad kadry
+z ich wlasnego sklepu zamiast generacji:
+  krotki  - Classic Vegan Short Black (Unisex), zdjecie 2
+  sredni  - Classic Vegan Medium, zdjecie 2, podeszwa poprawiona na czarna
+  dlugi   - Classic Vegan Long Black, zdjecie 2
+Jeden lookbook: te same dzinsy, to samo studio, ten sam kadr i ta sama modelka.
+Ziemia ustawiona na tej samej wysokosci, zeby roznica cholewek czytala sie od razu.
+
+--- TEKST NA EKRANIE ---
+One boot. Three winters.
+
+--- PODPIS DO WKLEJENIA ---
+Our Classic Vegan boot comes in three heights.
+Short for the city, mid for most days, long for the days that really mean it.
+
+
+--- PRODUKTY DO OZNACZENIA ---
+  https://theneworchard.com/products/classic-vegan-short-black-unisex
+  https://theneworchard.com/products/classic-vegan-medium-all-black-limited-edition
+  https://theneworchard.com/products/classic-vegan-long-black
+  Katalog jest podpiety (Shopify, 88 pozycji zatwierdzonych), Instagram to aktywny
+  kanal sprzedazy. Kazdy produkt widoczny w kadrze oznaczamy przy publikacji.
+
+--- HASHTAGI ---
+ZADNYCH. New Orchard nie uzywa hashtagow - sprawdzone na wszystkich pieciu postach
+opublikowanych w ostatnich 90 dniach (9.09, 16.09, 17.09, 18.09 x2). Ani jednego.
+
+--- PLIKI ---
+kadr1.jpg  krotki  — otwiera post   (lookbook na modelce, dzinsy)
+kadr2.jpg  sredni  — podeszwa poprawiona na czarna
+kadr3.jpg  dlugi
+
+TO JEST WERSJA ZATWIERDZONA PRZEZ ANIE 27.09.
+Kadry sa z ich wlasnego lookbooka: te same dzinsy, to samo studio, ta sama modelka,
+ziemia na jednej wysokosci. Kolejnosc krotki-sredni-dlugi wedlug jej uwagi z 26.09.
+
+_oryginal/przedpokoj_oryginal.png
+  Kadr z przedpokoju, 941x1672, odzyskany z ChatGPT. NIE uzywamy go tutaj:
+  ta sama fotografia jest juz tlem ankiety w poscie Cisza, a dwa razy to samo
+  zdjecie w Stories czyta sie jak powtorka. Lezy na przyszlosc.
+
+_wersja pakszotowa (moja podmiana, nieuzgodniona)/
+  Trzy pakszoty 1300x1300 ze sklepu, zlozone 28.09 w nocy. Ostrzejsze, ale to byla
+  MOJA decyzja, nie jej — podmienilem kadry juz po tym, jak je zatwierdzila.
+  Lezy tu na wypadek, gdyby Ania sama poprosila o wersje bez dzinsow.
+
+
+REEL - wersja odlozona/  film 6 s i klatki 9x16. Zrobiony, ale odlozony:
+trzy studyjne zdjecia nie robia reela, nogi stoja w kazdym ujeciu troche inaczej
+i ciecia nie czytaja sie jak jeden kadr. Karuzela pokazuje roznice wysokosci
+lepiej i od razu.
+
+WERSJA A - ulica (wygenerowana)/  stary pomysl pod reel: kamera stoi, jedna scena,
+zmienia sie tylko cholewka. Buty tam sa generowane, a dlugi czyta sie jako ~45 cm
+zamiast 40,8. Lezy na wszelki wypadek.
+--- BRAK OZNACZEN PO PUBLIKACJI, 28.09 ---
+Ania zauwazyla, ze post wyszedl BEZ oznaczonych produktow: "Tutaj nie podlinkowales produktow?"
+Dodajemy po fakcie: Edytuj informacje -> Add products, oraz linki do opisu.
+Kolejnosc jak w karuzeli: short, mid, long.
+  1. https://theneworchard.com/products/classic-vegan-short-black-unisex
+  2. https://theneworchard.com/products/classic-vegan-medium-all-black-limited-edition
+  3. https://theneworchard.com/products/classic-vegan-long-black
+ZAMKNIETE 28.09: Ania sama dodala oznaczenia w tym poscie ("i oznaczylam produkty w poscie z czarnymi butami").
+Na przyszlosc: oznaczenia robimy ZAWSZE przy dodawaniu postu, nie po.

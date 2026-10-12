@@ -1,0 +1,13 @@
+DZIEN: wt 13.10
+FORMAT: STORIES, 5 plansz 1080x1920
+TEMAT: Stories dnia
+JEZYK: EN
+STATUS: DO ZATWIERDZENIA — propozycja 12.10
+
+--- TEKST NA EKRANIE ---
+Godziny plansz:
+1. 11:00
+2. 13:00 — ankieta (naklejkę dodajemy w aplikacji przy publikacji)
+3. 16:00
+4. 18:00
+5. 20:30

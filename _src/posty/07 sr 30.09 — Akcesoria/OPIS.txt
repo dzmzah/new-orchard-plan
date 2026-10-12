@@ -1,0 +1,91 @@
+DZIEN:    sr 30.09
+FORMAT:   POST
+TEMAT:    Akcesoria
+JEZYK:    EN
+STATUS:   ZAMIENIONE MIEJSCAMI z postem 39 czy 40 — bylo pon 05.10, jest sr 30.09.
+          GOTOWE DO PUBLIKACJI. Blokada zdjeta 23.09 - produkty SA w sklepie.
+          Przesuniete o dzien, zeby zrobic miejsce dla World Animal Day w jego wlasnej dacie.
+
+--- TEKST NA EKRANIE ---
+Small things that go with everything.
+
+--- PODPIS DO WKLEJENIA (TEKST ANI, uwaga nr 108) ---
+A little care. A little comfort. A few extras we love.
+Cosy socks, shoe care spray, a snack pouch and scrunchies made of leftover fabrics. 🤍
+
+--- PODPIS POPRZEDNI, NASZ ---
+Small things that go with everything.
+Spare insoles, care spray, and scrunchies sewn from what is left after the boots. Nothing wasted. 🤍
+--- PRODUKTY DO OZNACZENIA ---
+Ania: oznaczamy WSZYSTKO, co widac w kadrze, glowny produkt pierwszy.
+W kadrze stoja skarpety, spray, saszetka i gumka — wkladki tu nie ma, wiec
+wypada z listy (wczesniej byla, to byl blad).
+  https://theneworchard.com/products/knee-high-vegan-socks-green            19.00  dostepne
+  https://theneworchard.com/products/water-repellent-vegan-spray            19.90  dostepne
+  https://theneworchard.com/products/snack-pouche-red                       15.00  dostepne
+  https://theneworchard.com/products/upcycled-vegan-scrunchies-deep-green   15.90  dostepne
+Katalog jest podpiety (Shopify), Instagram to aktywny kanal sprzedazy.
+Ceny i dostepnosc sprawdzone 29.09 w products.json sklepu.
+
+--- HASHTAGI ---
+ŻADNYCH. New Orchard nie używa hashtagów — sprawdzone na wszystkich pięciu postach
+opublikowanych w ostatnich 90 dniach (9.09, 16.09, 17.09, 18.09 ×2). Ani jednego.
+
+Propozycja: zostawiamy ich styl. Na dwóch postach testowo po 3-4 precyzyjne tagi
+i mierzymy różnicę w zasięgu od nieobserwujących.
+
+--- UWAGI ---
+Scrunchies z resztek materiału potwierdzone przez Anię w mailu 22.09 — to jedna z niewielu rzeczy o obiegu zamkniętym, które naprawdę istnieją.
+
+SPRAWDZONE 23.09 w katalogu sklepu - wszystko ZYWE i dostepne:
+- Water Repellent Vegan Spray 19,90 EUR
+- Classic Vegan Insole Faux Fur Black 19,90 EUR (9 rozmiarow z 10)
+- Classic Vegan Insole Faux Fur White 19,90 EUR (6 z 6)
+- Upcycled Vegan Scrunchie 12,72-15,90 EUR (4 kolory)
+- Knee-high Vegan Socks Green 19,00 EUR
+- Snack Pouche Red 14,90 EUR
+
+Czyli to, co Ania mowila o archiwum, dotyczy innych pozycji. Post nie prowadzi donikad, wszystkie cztery rzeczy z kadru sa do kupienia.
+
+PRZY OKAZJI dla zestawow: wkladki 19,90 + spray 19,90 = 39,80 - dokladnie te liczby, o ktore pytala.
+
+
+--- KADR, WERSJA TRZECIA 29.09 rano ---
+Zahar odrzucil dwa podejscia z doklejaniem naklejki: "спрей говно".
+Przyczyna byla zawsze ta sama — nadruk doklejany do wygenerowanej butelki
+nigdy nie wyglada jak nadruk na butelce.
+
+Wiec nie doklejamy nic. Pusta butelka wypada z kadru, a naklejke pokazujemy
+tam, gdzie jest prawdziwa: na ich wlasnym packshocie.
+  kadr1-PROPOZYCJA.jpg        — kadr bez butelki: skarpety, saszetka, gumka
+  kadr2-PROPOZYCJA-spray.jpg  — ich packshot spraya, naklejka czytelna
+Jej prosba "wezcie z packshotow, lub ze strony" jest spelniona doslownie.
+
+--- KADR, PODEJSCIE DRUGIE (odrzucone) ---
+Ania: "Spray ma naklejke, wezcie z packshotow, lub ze strony".
+W kadrze butelka stala pusta, bez nadruku. Naklejka przeniesiona z ich wlasnego
+zdjecia produktowego ze sklepu (Water Repellent Vegan Spray), polozona na butelce
+pod katem, w ktorym butelka lezy. Nic wiecej w kadrze nie ruszane.
+  kadr1-PROPOZYCJA.jpg      — z naklejka
+  _kadr1-przed-naklejka.jpg — jak bylo
+
+
+--- KADR, WERSJA KONCOWA 29.09 po poludniu ---
+Cztery podejscia, dzialajace jest czwarte.
+
+1. naklejka doklejona do starej butelki — plasko, odrzucone
+2. to samo mocniej — nadal widac, ze doklejone, odrzucone
+3. kadr wygenerowany z butelka odwrocona etykieta od kamery — Zahar: "спрей
+   опять без наклейки", odrzucone
+4. DZIALA: scena wygenerowana, ale butelka stoi w niej PROSTO i przodem,
+   wiec ich prawdziwy nadruk z packshotu sadza sie na niej uczciwie.
+   Rozmiar i miejsce policzone z proporcji ich packshotu: nadruk ma 88 %
+   szerokosci butelki, srodek na 66 % jej wysokosci. Zawiniety wokol walca,
+   swiatlo dopasowane do sceny (pada z lewej).
+   Sprawdzone obok ich packshotu — zgadza sie co do ukladu:
+   Water Proof 536, znak, NEW ORCHARD pionowo, drobny tekst, 100 ml.
+
+W kadrze sa cztery rzeczy z jej tekstu: skarpety, saszetka, gumka i spray.
+Bez dloni, bez twarzy, bez napisow.
+→ kadr1-PROPOZYCJA.jpg
+Porownanie: _spray — przed i po.jpg

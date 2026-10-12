@@ -1,0 +1,23 @@
+NEW ORCHARD — reklama, linia 2 (styl · komfort · jakość) — teksty pod reklamą
+Wersja po uwagach Ani z 06.10. Jeden tekst dla wszystkich kreacji (tak jak w linii 1).
+
+EN (Szwajcaria)
+  Tekst główny: You know these boots. Ours keep you warm and dry, every day, from the city to the mountains. Timeless style. Handmade in Italy.
+  Nagłówek:     Style. Comfort. Quality.
+  Opis:         Zurich-born. European-made.
+  Przycisk:     Shop now
+
+DE (Niemcy i Austria)
+  Tekst główny: Du kennst diese Boots. Unsere halten dich warm und trocken, Tag für Tag, von der Stadt bis in die Berge. Zeitloser Style. Handgefertigt in Italien.
+  Nagłówek:     Style. Komfort. Qualität.
+  Opis:         In Zürich geboren. In Europa gefertigt.
+  Przycisk:     Jetzt shoppen
+
+Linki: kreacja 1 → classic-vegan-short-black-unisex, kreacja 2 i 3 → classic-vegan-long-black (utm_campaign=styl-1025)
+
+STATUS KREACJI
+1 Karteczka „Warm. Trocken. Lässig.” — poprawiona 2x wg Ani (06.10: logo bez 100% VEGAN, „100% VEGAN” dopisane na końcu linii STYLE · COMFORT · QUALITY), czeka na jej ok
+2 „Warm und trocken” — ZAAKCEPTOWANA przez Anię 06.10 — można startować
+3 Karuzela „1 Boot. 3 Looks.” — pomysł ok, potrzebne inne zdjęcia (para — brak praw), Ania szuka w bibliotece, inaczej AI
+4 „Z wybiegu na ulicę” — odrzucona przez Anię (folder _odrzucone_przez_Anie)
+Start: po ok Ani — Mat, 1 i 2 razem obok linii vegan.
