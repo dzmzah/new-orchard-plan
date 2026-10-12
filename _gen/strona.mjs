@@ -921,3 +921,4 @@ fs.writeFileSync(OUT + '/wersja.txt', WERSJA, 'utf8');
 console.log('postow:', posty.length);
 console.log('kadrow:', fs.readdirSync(OUT + '/kadry').length);
 console.log('index.html:', (fs.statSync(OUT + '/index.html').size / 1024).toFixed(0), 'kB');
+// test CI

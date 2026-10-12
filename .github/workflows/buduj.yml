@@ -2,7 +2,7 @@
 name: Buduj strone
 on:
   push:
-    branches: [main]
+    branches: [main, feature/edytor-online]
     paths: ['_src/**', '_gen/**']
   workflow_dispatch:
 concurrency: { group: buduj, cancel-in-progress: false }
@@ -23,5 +23,5 @@ jobs:
           git config user.email "zovu.pl@gmail.com"
           git add -A
           git diff --cached --quiet || git commit -m "Przebudowa strony (automat)"
-          git pull --rebase -q origin main
-          git push -q origin HEAD:main
+          git pull --rebase -q origin ${{ github.ref_name }}
+          git push -q origin HEAD:${{ github.ref_name }}
