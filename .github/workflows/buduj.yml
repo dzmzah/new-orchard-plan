@@ -10,11 +10,12 @@ permissions: { contents: write }
 jobs:
   buduj:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: ffmpeg -version | head -1
       - run: cd _gen && npm install --no-audit --no-fund
       - run: node _gen/strona.mjs
       - name: Zapisz zbudowana strone
