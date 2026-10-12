@@ -2,7 +2,7 @@
 name: Buduj strone
 on:
   push:
-    branches: [main, feature/edytor-online]
+    branches: [main]
     paths: ['_src/**', '_gen/**']
   workflow_dispatch:
 concurrency: { group: buduj, cancel-in-progress: false }
