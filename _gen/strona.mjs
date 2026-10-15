@@ -568,6 +568,61 @@ for (const [kl, nazwa, opis, teksty] of URO_LISTA) {
 </section>`;
 }
 
+// ---------- 15.10: nowe propozycje urodzin (12.10) + Green Week — Ania prosila, zeby byly tu, nie w czacie ----------
+async function kadrKr(dir, plik, pref) {
+  const zr = `${dir}/${plik}`;
+  if (!fs.existsSync(zr)) return null;
+  const nazwa = `${pref}-${plik}`.toLowerCase().replace(/[^a-z0-9._-]/g, '_');
+  await sharp(zr).resize(760, 1100, { fit: 'inside' }).jpeg({ quality: 78 }).toFile(OUT + '/kadry/' + nazwa);
+  return 'kadry/' + nazwa;
+}
+async function sekcjaKr(rid, daty, tytul, opis, dir, pliki, pref, tag) {
+  const out = [];
+  for (const f of pliki) { const k = await kadrKr(dir, f, pref); if (k) out.push(`<img src="${k}" alt="" loading="lazy">`); }
+  return `
+<section class="k zw" id="${rid}">
+  <div class="gl"><span class="dat">${daty}</span><h3>${tytul}</h3></div>
+  <div class="ekr">${opis}</div>
+  <div class="kadry">${out.join('')}</div>
+  <div class="uw" data-id="${rid}" data-tytul="[${tag}] ${tytul.replace(/&[a-z]+;/g, '')}">
+    <textarea placeholder="Napisz, co zmienic albo ktory wybierasz (nieobowiazkowo)"></textarea>
+    <div class="uwStopka"><button class="zapisz">Zapisz uwage</button><span class="zap"></span></div>
+  </div>
+</section>`;
+}
+const URO2 = URO + '/v2_40_i_5_lat', URO3 = URO + '/v3_nowe_3';
+const URO_NOWE = [
+  ['u2-1', '1 &mdash; &bdquo;5 years. 5 days. &minus;40%&ldquo;', 'Zielony pas z tekstem po lewej, Wasze zdjecie po prawej. Wersja na 5 dni: 28.10 &ndash; 01.11.', URO2, ['1_5lat_5dni_EN_4x5.jpg']],
+  ['u2-2', '2 &mdash; &bdquo;8% for every year we&rsquo;ve been around&ldquo;', '5 lat &times; 8 % = &minus;40 %. Karta z wyliczeniem na Waszym zdjeciu z gor.', URO2, ['2_8proc_za_rok_EN_4x5.jpg']],
+  ['u2-3', '3 &mdash; &bdquo;5 winters of warm feet.&ldquo;', 'Duze zdjecie z psem, jedna linijka na dole.', URO2, ['3_5_zim_EN_4x5.jpg']],
+  ['u2-4', '4 &mdash; &bdquo;Born on World Vegan Day.&ldquo;', 'Polaroid z podpisem &bdquo;since 1.11.2021&ldquo;.', URO2, ['4_world_vegan_day_EN_4x5.jpg']],
+  ['u2-5', '5 &mdash; Zaproszenie', 'Kadr-zaproszenie na urodziny.', URO2, ['5_zaproszenie_EN_4x5.jpg']],
+  ['u3-a', 'A &mdash; &bdquo;5 years. &minus;40%&ldquo; &mdash; piec par', 'Piec kolorow obok siebie, kazdy &bdquo;rok&ldquo; to inna para.', URO3, ['A_5lat_5par_EN_4x5.jpg']],
+  ['u3-b', 'B &mdash; &bdquo;Made to last.&ldquo; &mdash; nowa para i ta sama po 5 zimach', 'Po prawej potrzebne Wasze zdjecie tej samej pary po pieciu zimach.', URO3, ['B_5_zim_pozniej_EN_4x5.jpg']],
+  ['u3-c', 'C &mdash; List od Ciebie', 'Krotki liscik podpisany &bdquo;Ania&ldquo; na Waszym zdjeciu z gor. Tekst do Twojej poprawki.', URO3, ['C_list_od_Ani_EN_4x5.jpg']],
+];
+let sekUroNowe = `<div class="jak" style="margin:0 0 16px"><b>Nowe propozycje (12.10) &mdash; to te, ktore wysylalismy w czacie.</b>
+Wybierz jeden wariant (albo napisz pod nim, co zmienic). Z wybranego robimy komplet: post, stories 9:16, reklama EN + DE, slajd na strone i newsletter.
+Na razie wersje angielskie, niemieckie dorobimy po wyborze. Nizej sa pierwsze propozycje z 06.10.</div>`;
+for (const [rid, t, o, d, f] of URO_NOWE) sekUroNowe += await sekcjaKr(rid, '29.10 &ndash; 01.11', t, o, d, f, 'u2', 'urodziny');
+sekUrodziny = sekUroNowe + '<h2 class="dzial" style="margin-top:28px">Pierwsze propozycje (06.10)</h2>' + sekUrodziny;
+
+const GW = SRC + '/kreacje/GREENWEEK', GW2 = GW + '/v2_5_idei';
+const GW_LISTA = [
+  ['g2-1', '1 &mdash; Cena', 'Duze &bdquo;&minus;40%&ldquo; i konkretna cena modelu (Medium &euro;259 &rarr; &euro;155).', GW2, ['1_oferta_cena_EN_4x5.jpg']],
+  ['g2-2', '2 &mdash; Karteczka &bdquo;No Black Friday. Green Week.&ldquo;', 'Zolta karteczka na Waszym zdjeciu z psem.', GW2, ['2_karteczka_EN_4x5.jpg']],
+  ['g2-3', '3 &mdash; Opinia klientek &bdquo;Warm and dry.&ldquo;', 'Najczestsze zdanie z opinii klientek jako naglowek.', GW2, ['3_opinia_EN_4x5.jpg']],
+  ['g2-4', '4 &mdash; Prezent &bdquo;The warmest gift this winter.&ldquo;', 'Green Week jako zakup prezentow przed swietami.', GW2, ['4_prezent_EN_4x5.jpg']],
+  ['g2-5', '5 &mdash; Odliczanie &bdquo;9 days. &minus;40%.&ldquo;', 'Kalendarz 22&ndash;30.11 na dole, kazdego dnia skreslamy jeden.', GW2, ['5_odliczanie_EN_4x5.jpg']],
+  ['g1-1', 'Pierwsza propozycja &mdash; &bdquo;No Black Friday. Green Week.&ldquo;', 'EN i DE.', GW, ['GreenWeek_1_EN_4x5.jpg', 'GreenWeek_1_DE_4x5.jpg']],
+  ['g1-2', 'Pierwsza propozycja &mdash; &bdquo;Less black. More green.&ldquo;', 'EN i DE.', GW, ['GreenWeek_2_EN_4x5.jpg', 'GreenWeek_2_DE_4x5.jpg']],
+  ['g1-3', 'Pierwsza propozycja &mdash; &bdquo;Green Week. Warm feet.&ldquo;', 'EN i DE.', GW, ['GreenWeek_3_EN_4x5.jpg', 'GreenWeek_3_DE_4x5.jpg']],
+];
+let sekGreen = `<div class="jak" style="margin:0 0 16px"><b>Green Week &minus;40 %, 22 &ndash; 30.11 &mdash; to jest tez nasz Black Friday (27.11).</b>
+Nie robimy osobnej akcji na Black Friday: Green Week ja zastepuje i daje powod (&bdquo;No Black Friday. Green Week.&ldquo;).
+Wybierz kierunek albo napisz pod nim, co zmienic. Zdjecia mozemy podmienic na nowsze z sesji. Po wyborze: wersje DE, stories 9:16, newsletter, slajd.</div>`;
+for (const [rid, t, o, d, f] of GW_LISTA) sekGreen += await sekcjaKr(rid, '22 &ndash; 30.11', t, o, d, f, 'gw', 'green week');
+
 // ---------- mailing ----------
 for (const [zr, cel] of [[SRC + '/maile/mail-01-en.html', 'mail-01-en.html'],
                          [SRC + '/maile/mail-01-de.html', 'mail-01-de.html']])
@@ -771,6 +826,7 @@ const SEKCJE = [
   ['feed', 'Feed', sekFeed],
   ['reklama2', 'Reklama &mdash; linia 2 (styl)', sekReklama2],
   ['urodziny', 'Urodziny &minus;40 %', sekUrodziny],
+  ['greenweek', 'Green Week &minus;40 % / Black Friday', sekGreen],
   ['reklama', 'Reklama &mdash; linia 1 (vegan)', sekReklama],
   ['archiwum', 'Archiwum', sekArchiwum],
   ['wiecej', 'Wiecej', '<h2>Jak to dziala</h2>' + '__JAK__' + '<h2>Wasze kanaly</h2>' + '__LINKI__' + '<h2>Mailing</h2>' + sekMailing + '<h2>Strategia</h2>' + sekStrategia + '<h2>Wydatki</h2>' + sekWydatki + '<h2>Pomysly</h2>' + sekPomysly],
