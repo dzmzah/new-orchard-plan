@@ -623,6 +623,22 @@ Nie robimy osobnej akcji na Black Friday: Green Week ja zastepuje i daje powod (
 Wybierz kierunek albo napisz pod nim, co zmienic. Zdjecia mozemy podmienic na nowsze z sesji. Po wyborze: wersje DE, stories 9:16, newsletter, slajd.</div>`;
 for (const [rid, t, o, d, f] of GW_LISTA) sekGreen += await sekcjaKr(rid, '22 &ndash; 30.11', t, o, d, f, 'gw', 'green week');
 
+// ---------- 16.10: Caramel −20 % do akceptu ----------
+const CAR = SRC + '/kreacje/CARAMEL';
+const CAR_LISTA = [
+  ['c-1', '1 &mdash; &bdquo;Caramel season. &minus;20%&ldquo;', 'Zdjecie z sesji (bialy plaszcz, dalmatynczyk, Medium Caramel). Link: Medium Caramel.', ['1_klasyk_EN_4x5.jpg', '1_klasyk_DE_4x5.jpg']],
+  ['c-2', '2 &mdash; Cena Medium &euro;207.20 zamiast &euro;259', 'Noga na stopniu, Medium Caramel. Link: Medium Caramel.', ['2_cena_medium_EN_4x5.jpg', '2_cena_medium_DE_4x5.jpg']],
+  ['c-3', '3 &mdash; &bdquo;Short or Medium?&ldquo;', 'Obie modele obok siebie z cenami. Link: strona z caramel.', ['3_short_czy_medium_EN_4x5.jpg', '3_short_czy_medium_DE_4x5.jpg']],
+  ['c-4', '4 &mdash; Karteczka', 'Karteczka &bdquo;Caramel &minus;20% Short &amp; Medium&ldquo; na zdjeciu z dalmatynczykiem. Link: Medium Caramel.', ['4_karteczka_EN_4x5.jpg', '4_karteczka_DE_4x5.jpg']],
+  ['c-5', '5 &mdash; Odliczanie &bdquo;10 days. &minus;20%.&ldquo;', 'Kalendarz 16&ndash;25.10, zdjecie Short Caramel. Link: Short Caramel.', ['5_odliczanie_EN_4x5.jpg', '5_odliczanie_DE_4x5.jpg']],
+  ['c-post', 'Post i story na Instagram', 'Post 4:5 i story 9:16 (z przyciskiem SHOP CARAMEL) oraz reklama 1:1.', ['pro_post_4x5.jpg', 'pro_story_9x16.jpg', 'pro_ad_1x1.jpg']],
+  ['c-slajd', 'Pierwszy slajd na stronie', 'Wersja A (karmelowy panel + dalmatynczyk) albo B (jasny panel + spacer), do tego wersja mobile.', ['pro_slajd_desktop.jpg', 'pro_slajd_desktop_B.jpg', 'pro_slajd_mobile.jpg']],
+];
+let sekCaramel = `<div class="jak" style="margin:0 0 16px"><b>Caramel &minus;20 %, Short i Medium, do 25.10.</b>
+Reklama: 5 wariantow, kazdy po angielsku i po niemiecku. Wybierz te, ktore puszczamy (mozna kilka &mdash; Meta sama pokaze lepszy), albo napisz pod nim, co zmienic.
+Nizej post i story na Instagram oraz slajd na strone. Nic nie jest uruchomione &mdash; czekamy na Twoje ok.</div>`;
+for (const [rid, t, o, f] of CAR_LISTA) sekCaramel += await sekcjaKr(rid, '16 &ndash; 25.10', t, o, CAR, f, 'car', 'caramel');
+
 // ---------- mailing ----------
 for (const [zr, cel] of [[SRC + '/maile/mail-01-en.html', 'mail-01-en.html'],
                          [SRC + '/maile/mail-01-de.html', 'mail-01-de.html']])
@@ -825,6 +841,7 @@ const SEKCJE = [
   ['stories', 'Stories', sekStories],
   ['feed', 'Feed', sekFeed],
   ['reklama2', 'Reklama &mdash; linia 2 (styl)', sekReklama2],
+  ['caramel', 'Caramel &minus;20 %', sekCaramel],
   ['urodziny', 'Urodziny &minus;40 %', sekUrodziny],
   ['greenweek', 'Green Week &minus;40 % / Black Friday', sekGreen],
   ['reklama', 'Reklama &mdash; linia 1 (vegan)', sekReklama],
