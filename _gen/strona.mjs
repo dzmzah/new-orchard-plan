@@ -639,6 +639,38 @@ Reklama: 5 wariantow, kazdy po angielsku i po niemiecku. Wybierz te, ktore puszc
 Nizej post i story na Instagram oraz slajd na strone. Nic nie jest uruchomione &mdash; czekamy na Twoje ok.</div>`;
 for (const [rid, t, o, f] of CAR_LISTA) sekCaramel += await sekcjaKr(rid, '16 &ndash; 25.10', t, o, CAR, f, 'car', 'caramel');
 
+// 16.10 popoludnie: jesienne kreacje z sesji Klementyny + copy (prosba Ani)
+const CARJ = CAR + '/jesien';
+const COPY_CARJ = `<div class="jak" style="margin:0 0 16px;white-space:pre-line"><b>Copy pod post i reklame</b>
+<b>Post IG/FB &mdash; EN</b>
+Autumn looks better in caramel.
+Our Classic Vegan Boots in Caramel, Short and Medium, are now 20% off until 25 October. Handcrafted in Italy, lined with soft faux fur.
+Need a different size? Exchanges are always free. 🤍
+
+<b>Post IG/FB &mdash; DE</b>
+Der Herbst steht dir in Caramel.
+Unsere Classic Vegan Boots in Caramel, Short und Medium, gibt es bis zum 25. Oktober mit 20 % Rabatt. Handgefertigt in Italien, mit weichem Kunstfellfutter.
+Passt die Grösse nicht? Der Umtausch ist immer kostenlos. 🤍
+
+<b>Reklama Meta &mdash; EN</b>
+Tekst: Long walks, golden leaves, warm feet. Classic Vegan Boots in Caramel, handcrafted in Italy, now 20% off until 25 October. Not the right fit? Exchanges are always free.
+Naglowek: Caramel season &mdash; 20% off
+Przycisk: Shop now
+
+<b>Reklama Meta &mdash; DE</b>
+Tekst: Lange Spaziergänge, goldenes Laub, warme Füsse. Classic Vegan Boots in Caramel, handgefertigt in Italien, bis zum 25. Oktober mit 20 % Rabatt. Passt die Grösse nicht? Der Umtausch ist immer kostenlos.
+Naglowek: Caramel-Saison &mdash; 20 % Rabatt
+Przycisk: Jetzt entdecken</div>`;
+const CARJ_LISTA = [
+  ['cj-6', 'Jesien 6 &mdash; Twoj kadr z logo + &bdquo;&minus;20% on caramel&ldquo;', 'Sesja Klementyny, jesien dorobiona. Link: strona z caramel.', ['6_jesien_45_EN_4x5.jpg', '6_jesien_45_DE_4x5.jpg']],
+  ['cj-7', 'Jesien 7 &mdash; But w dloni, cena Medium', 'Medium Caramel &euro;207.20 zamiast &euro;259. Link: Medium Caramel.', ['7_jesien_94_EN_4x5.jpg', '7_jesien_94_DE_4x5.jpg']],
+  ['cj-8', 'Jesien 8 &mdash; &bdquo;Autumn looks better in caramel.&ldquo;', 'Twoje zdanie z newslettera na niebie. Link: strona z caramel.', ['8_niebo_90_EN_4x5.jpg', '8_niebo_90_DE_4x5.jpg']],
+  ['cj-9', 'Jesien 9 &mdash; Odliczanie &bdquo;10 days. &minus;20%.&ldquo;', 'Kalendarz 16&ndash;25.10 na jesiennym zdjeciu. Link: Medium Caramel.', ['9_odliczanie_91_EN_4x5.jpg', '9_odliczanie_91_DE_4x5.jpg']],
+  ['cj-10', 'Jesien 10 &mdash; Karteczka na Twoim jesiennym zdjeciu', 'Twoja wersja jesienna (dziewczyna na trawie). Link: strona z caramel.', ['10_karteczka_40_EN_4x5.jpg', '10_karteczka_40_DE_4x5.jpg']],
+];
+sekCaramel += `<h2 class="dzial" style="margin-top:28px">Nowe jesienne (16.10) &mdash; z sesji Klementyny</h2>` + COPY_CARJ;
+for (const [rid, t, o, f] of CARJ_LISTA) sekCaramel += await sekcjaKr(rid, '16 &ndash; 25.10', t, o, CARJ, f, 'car', 'caramel');
+
 // ---------- mailing ----------
 for (const [zr, cel] of [[SRC + '/maile/mail-01-en.html', 'mail-01-en.html'],
                          [SRC + '/maile/mail-01-de.html', 'mail-01-de.html']])
