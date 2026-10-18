@@ -883,7 +883,7 @@ const SEKCJE = [
 // Zahar: z zakladek dalo sie wybrac tylko jedna, a nie bylo jak zobaczyc calosci.
 const NAW = '<nav class="naw"><button class="zak" data-sek="wszystko">Wszystko</button>' +
   SEKCJE.map(([id, nazwa], i) =>
-  `<button class="zak${i === 0 ? ' akt' : ''}" data-sek="${id}">${nazwa}</button>`).join('') + '<a href="raporty/" class="nawRap">Raporty</a><span id="zywo">na zywo</span></nav>';
+  `<button class="zak${i === 0 ? ' akt' : ''}" data-sek="${id}">${nazwa}</button>`).join('') + '<a href="raporty/" class="nawRap" onclick="this.href=this.getAttribute(\'href\').split(\'?\')[0]+\'?t=\'+Date.now()">Raporty</a><span id="zywo">na zywo</span></nav>';
 let tresc = SEKCJE.map(([id, nazwa, html], i) =>
   `<div class="sek" id="sek-${id}"${i === 0 ? '' : ' hidden'}><h2 class="dzial">${nazwa}</h2>${html}</div>`).join('');
 
@@ -1014,7 +1014,7 @@ const htmlZespolu = html
   .replace('<span class="belkaZovu">powered by <b>ZOVU</b></span>',
     '<span class="belkaZovu">widok wewnetrzny &mdash; <b>nie pokazujemy klientce</b></span>')
   .replace('<body>', '<body class="panel">')
-  .replace('<a href="raporty/" class="nawRap">', '<button class="zak" data-sek="zespol">Dla nas</button><a href="../raporty/" class="nawRap">')
+  .replace('<a href="raporty/" class="nawRap"', '<button class="zak" data-sek="zespol">Dla nas</button><a href="../raporty/" class="nawRap"')
   .replace('\n</div>\n\n<button id="koszyk"', fs.readFileSync(ROOT + '/_gen/_zespol_sekcja.html', 'utf8') + '\n</div>\n\n<button id="koszyk"');
 for (const folder of ['zovu', 'zespol']) {
   fs.mkdirSync(OUT + '/' + folder, { recursive: true });
