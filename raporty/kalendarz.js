@@ -2,8 +2,8 @@
 // Nowy raport = nowa linia w RAPORTY (poniedziałek tygodnia, adres strony).
 (function(){
   var RAPORTY=[
-    {od:'2026-10-05',url:'tydzien-1.html',nr:1},
-    {od:'2026-10-12',url:'./',nr:2}
+    {od:'2026-10-05',url:'tydzien-1.html',nr:1,okres:'5–11 października 2026',sprzedaz:'2 491 €',reklama:'477 €',zdanie:'Pierwszy tydzień reklam, najlepsza sprzedaż od półtora miesiąca.'},
+    {od:'2026-10-12',url:'tydzien-2.html',nr:2,okres:'12–18 października 2026',sprzedaz:'861 €',reklama:'322 €',zdanie:'Mniejszy budżet, start Caramel −20 %. Koszyki są, zakupów z reklam brak.'}
   ];
   var MIES=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
   var el=document.getElementById('kalendarz');if(!el)return;
@@ -37,8 +37,12 @@
   '.kTydz .poza{color:#c9c3b6}.kTydz .dzis{font-weight:700;text-decoration:underline}'+
   '.kTydz.jest{background:var(--jasny);color:var(--zielen);font-weight:600}.kTydz.jest:hover{background:#d6e2d1}'+
   '.kTydz.teraz{background:var(--zielen);color:#fff}.kTydz.teraz .poza{color:rgba(255,255,255,.6)}'+
+  '.rapK{display:block;background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit}.rapK:hover{border-color:var(--akcent)}.rapK b{display:block;font:400 22px Jost,sans-serif;margin:4px 0}.rapK .zd{display:block;font-size:14.5px;color:#3d3a34}.rapK .lb{display:block;font-size:13px;color:var(--cichy);margin-top:8px}.rapK .lb i{font-style:normal;color:var(--zielen);font-weight:600}.rapK.nowy{border-color:var(--zielen);box-shadow:0 0 0 1px var(--zielen)}#listaRaportow{display:grid;gap:10px}'+
   '@media (max-width:760px){.kMiesiace{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}#kalendarz{padding:14px 10px}.kTydz{font-size:11.5px}}';
   document.head.appendChild(s);
+  // lista raportów (strona wyboru), najnowszy na górze
+  var li=document.getElementById('listaRaportow');
+  if(li){li.innerHTML=RAPORTY.slice().reverse().map(function(r,i){return '<a class="rapK'+(i===0?' nowy':'')+'" href="'+r.url+'"><span class="etyk">Tydzień '+r.nr+(i===0?' · najnowszy':'')+'</span><b>'+r.okres+'</b><span class="zd">'+r.zdanie+'</span><span class="lb">sprzedaż <i>'+r.sprzedaz+'</i> · reklama <i>'+r.reklama+'</i></span></a>'}).join('');}
   // nagłówek dni tygodnia w jednym wierszu
   [].forEach.call(el.querySelectorAll('.kSiatka'),function(g){var sp=[].slice.call(g.children,0,7),w=document.createElement('div');w.className='kTydz';w.style.color='var(--cichy)';w.style.fontSize='11px';sp.forEach(function(x){w.appendChild(x)});g.insertBefore(w,g.firstChild)});
 })();

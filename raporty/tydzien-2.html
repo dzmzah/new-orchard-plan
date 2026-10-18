@@ -1,0 +1,254 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>New Orchard · raporty</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#2c4d23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--zielen:#2c4d23;--ramka:#e3dfd5;--jasny:#e8eee5;--rok:#c9c3b6;--zm:#b4552e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tlo);color:var(--tekst);font:16px/1.55 'Figtree',-apple-system,'Segoe UI',Roboto,sans-serif}
+h1,h2,h3,.liczba,.zak,.marka{font-family:'Jost','Figtree',-apple-system,'Segoe UI',sans-serif}
+.belka{background:var(--zielen);color:#fff}
+.belkaW{max-width:980px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:14px}
+.belka img{width:34px;height:30px;object-fit:contain}
+.marka{font-size:15px;letter-spacing:.22em;font-weight:500}
+.belkaPod{font-size:12px;color:rgba(255,255,255,.72);display:block;margin-top:3px;letter-spacing:.04em}
+.wroc{margin-left:auto;color:#fff;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:6px 14px;white-space:nowrap}
+.wroc:hover{background:rgba(255,255,255,.12)}
+main{max-width:980px;margin:0 auto;padding:30px 22px 70px}
+.etyk{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy)}
+h1{font-size:clamp(28px,5vw,40px);font-weight:400;margin:6px 0 10px;letter-spacing:-.01em}
+.lead{font-size:18px;color:#3d3a34;max-width:720px;margin:0 0 30px}
+h2{font-size:24px;font-weight:400;margin:52px 0 6px}
+.pod{color:var(--cichy);margin:0 0 18px;font-size:15px}
+.karta{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:22px}
+.kafle{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kafel{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:18px 18px 16px}
+.kafel .liczba{font-size:32px;font-weight:500;color:var(--zielen);line-height:1.1}
+.kafel .co{font-size:14px;margin-top:6px}
+.kafel .male{font-size:13px;color:var(--cichy);margin-top:4px}
+.kafel.mocny{background:var(--zielen);border-color:var(--zielen);color:#fff}
+.kafel.mocny .liczba{color:#fff}.kafel.mocny .male{color:rgba(255,255,255,.75)}
+.rr{display:grid;grid-template-columns:1fr;gap:14px}
+.rrW{display:grid;grid-template-columns:190px 1fr;gap:6px 14px;align-items:center}
+.rrW .nz{font-size:14px}
+.pas{display:flex;align-items:center;gap:8px;font-size:13px}
+.pas i{display:block;height:14px;border-radius:7px}
+.pas.teraz i{background:var(--akcent)}.pas.rok i{background:var(--rok)}
+.pas b{font-weight:600}
+.legenda{display:flex;gap:18px;font-size:13px;color:var(--cichy);margin-top:14px;flex-wrap:wrap}
+.legenda span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--akcent)}
+.legenda span.r::before{background:var(--rok)}
+.wykres{width:100%;overflow-x:auto}
+.wykres svg{display:block;width:100%;min-width:520px;height:auto}
+.dni{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.dzien{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:16px 18px}
+.dzien h3{font-size:16px;font-weight:500;margin:0 0 8px;color:var(--zielen)}
+.dzien ul{margin:0;padding-left:18px;font-size:14.5px}.dzien li{margin:3px 0}
+.tab{width:100%;border-collapse:collapse;font-size:14.5px}
+.tab th{text-align:left;font-weight:500;color:var(--cichy);font-size:12.5px;letter-spacing:.04em;padding:8px 10px;border-bottom:1px solid var(--ramka)}
+.tab td{padding:10px;border-bottom:1px solid #efece5;vertical-align:top}
+.tab td.l{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tab tr:last-child td{border-bottom:0}
+.tabW{overflow-x:auto}
+.znaczek{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:10px;background:var(--jasny);color:var(--zielen);margin-left:6px;white-space:nowrap}
+.znaczek.dobry{background:var(--zielen);color:#fff}
+.siatka{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.post{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.post img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#ddd}
+.post .opis{padding:10px 12px 12px;font-size:13px}
+.post .opis b{display:block;font-size:13.5px;margin-bottom:2px}
+.post .st{color:var(--cichy);font-size:12.5px;margin-top:4px}
+.post:hover{border-color:var(--akcent)}
+.uwaga{background:#fbf6ea;border:1px solid #eadfc4;border-radius:14px;padding:18px 20px;font-size:15px}
+.uwaga b{color:#7a5a1c}
+.prop{counter-reset:p;display:grid;gap:12px}
+.prop .karta{position:relative;padding-left:62px}
+.prop .karta::before{counter-increment:p;content:counter(p);position:absolute;left:20px;top:20px;width:28px;height:28px;border-radius:50%;background:var(--zielen);color:#fff;font:500 15px/28px 'Jost',sans-serif;text-align:center}
+.prop h3{margin:0 0 4px;font-size:17px;font-weight:500}
+.prop p{margin:0;font-size:15px;color:#3d3a34}
+.lista{display:grid;gap:8px}
+.lista a{display:flex;justify-content:space-between;gap:12px;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:12px 16px;text-decoration:none;color:inherit;font-size:15px}
+.lista a span{color:var(--cichy);font-size:13px}
+.zam{display:grid;gap:8px}
+.zw{display:grid;grid-template-columns:150px 1fr auto;gap:10px 16px;align-items:center;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:10px 14px}
+.zw .kto{font-size:13px;color:var(--cichy);line-height:1.35}.zw .kto b{display:block;color:var(--tekst);font-size:14px;font-weight:600}
+.zw .rz{display:flex;flex-wrap:wrap;gap:6px}
+.zw .rz span{display:inline-flex;align-items:center;gap:6px;background:#f7f5f0;border-radius:8px;padding:3px 8px 3px 3px;font-size:12.5px;line-height:1.2}
+.zw .rz img{width:34px;height:34px;border-radius:6px;object-fit:cover;background:#eee}
+.zw .kw{font:500 17px 'Jost',sans-serif;color:var(--zielen);white-space:nowrap;text-align:right}
+.zw .kw small{display:block;font:400 11.5px 'Figtree',sans-serif;color:var(--cichy)}
+@media (max-width:760px){.zw{grid-template-columns:1fr auto}.zw .rz{grid-column:1/-1;grid-row:2}}.stopka{margin-top:50px;font-size:13px;color:var(--cichy)}
+@media (max-width:760px){.kafle{grid-template-columns:repeat(2,1fr)}.siatka{grid-template-columns:repeat(2,1fr)}.rrW{grid-template-columns:1fr}.rrW .nz{margin-top:8px;font-weight:500}}
+@media (max-width:420px){main{padding:24px 16px 60px}.belkaW{padding:13px 16px}.kafel .liczba{font-size:26px}.prop .karta{padding-left:54px}.prop .karta::before{left:16px}}
+</style></head><body>
+<header class="belka"><div class="belkaW">
+  <img src="../logo-bialy.png" alt="New Orchard">
+  <div><span class="marka">NEW ORCHARD</span><span class="belkaPod">raporty tygodniowe</span></div>
+  <a class="wroc" href="../" id="wroc">&larr; wróć do planu</a>
+</div></header>
+
+<main>
+<span class="etyk">Raport tygodniowy · tydzień 2</span>
+<h1>12–18 października 2026</h1>
+<div id="kalendarz" data-nr="2"></div>
+<p class="lead">Spokojniejszy tydzień: od środy reklama szła na mniejszym budżecie (ok. 20 € dziennie zamiast 100 €), a promocja Caramel ruszyła dopiero w piątek wieczorem. Reklama nadal daje koszyki taniej niż rok temu, ale wciąż nie zamienia ich w zakupy. To nasz główny problem do rozwiązania przed urodzinami.</p>
+
+<div class="kafle">
+  <div class="kafel mocny"><div class="liczba">861 €</div><div class="co">sprzedaż sklepu</div><div class="male">6 zamówień · rok temu 798 €</div></div>
+  <div class="kafel"><div class="liczba">322 €</div><div class="co">wydane na reklamę</div><div class="male">Meta 273 € · Google 49 €</div></div>
+  <div class="kafel"><div class="liczba">16</div><div class="co">dodań do koszyka z reklam Meta</div><div class="male">rok temu 6</div></div>
+  <div class="kafel"><div class="liczba">0 €</div><div class="co">zamówień po mailach</div><div class="male">mail Caramel 16.10</div></div>
+</div>
+
+<h2>Ten tydzień a rok temu</h2>
+<p class="pod">Ten sam tydzień w 2025 (13–19.10) kontra teraz. Sprzedaż według Google Analytics, reklama według Meta.</p>
+<div class="karta">
+  <div class="rr" id="rr"></div>
+  <div class="legenda"><span>2026</span><span class="r">2025, ten sam tydzień</span></div>
+</div>
+
+<h2>Sprzedaż tydzień po tygodniu</h2>
+<p class="pod">Ostatnie 5 tygodni w sklepie. Reklamy ruszyły w poniedziałek 5.10.</p>
+<div class="karta wykres" id="w1"></div>
+
+<h3 style="font-weight:400;font-size:19px;margin:28px 0 6px">Co kupiono</h3>
+<p class="pod">Wszystkie 6 zamówień tygodnia. 2 pary butów i kapci, reszta to akcesoria. Połowa przyszła z Avocadostore.</p>
+<div class="zam">
+  <div class="zw"><div class="kto"><b>#1502 · 12.10</b>Szwajcaria</div><div class="rz"><span><img src="img/p_14904776032632.jpg" alt="">Medium Brown z czarnym futrem</span></div><div class="kw">275 €<small>z Google (bezpłatnie)</small></div></div>
+  <div class="zw"><div class="kto"><b>#1503 · 13.10</b>Niemcy · Avocadostore</div><div class="rz"><span><img src="img/p_14904873648504.jpg" alt="">Rękawiczki Black</span></div><div class="kw">68 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1504 · 13.10</b>Niemcy</div><div class="rz"><span><img src="img/p_14978596569464.jpg" alt="">Rękawiczki Yellow</span></div><div class="kw">69 €<small>wejście bezpośrednie</small></div></div>
+  <div class="zw"><div class="kto"><b>#1505 · 14.10</b>Niemcy</div><div class="rz"><span><img src="img/p_14904847991160.jpg" alt="">Kapcie Black</span></div><div class="kw">239 €<small>źródło nieznane</small></div></div>
+  <div class="zw"><div class="kto"><b>#1506 · 14.10</b>Austria · Avocadostore</div><div class="rz"><span><img src="img/p_14979869868408.jpg" alt="">2× Dog Hoodie Navy (M, L)</span></div><div class="kw">161 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1507 · 15.10</b>Niemcy · Avocadostore</div><div class="rz"><span><img src="img/p_14904824594808.jpg" alt="">2× wkładka z futrem Black</span></div><div class="kw">49 €<small>marketplace</small></div></div>
+</div>
+<p class="pod" style="margin-top:12px">Wnioski: Avocadostore sprzedaje sam z siebie, głównie akcesoria (warto, bo to Twój priorytet). Od 16.10, czyli od startu Caramel −20 %, nie było żadnego zamówienia.</p>
+
+<h2>Co zrobiliśmy</h2>
+<p class="pod">Dzień po dniu, w skrócie.</p>
+<div class="dni">
+  <div class="dzien"><h3>Pon 12.10</h3><ul><li>Spotkanie z Tobą: urodziny −40 %, marketplace'y, mniejszy budżet Meta</li><li>Propozycje Urodziny i Green Week na dashboardzie</li><li>Plan publikacji 13–19.10: 2 posty i stories dziennie</li></ul></div>
+  <div class="dzien"><h3>Wt 13.10</h3><ul><li>12 postów zaplanowanych na cały tydzień</li><li>Przegląd Avocadostore i Hello Pine</li></ul></div>
+  <div class="dzien"><h3>Śr 14.10</h3><ul><li>24 stories zaplanowane</li><li>Posty z Instagrama same idą na Threads</li><li>Pierwszy pin na Pinterest</li><li>Niemieckie nazwy butów w sklepie z „Boots”</li><li>Przejęliśmy marketplace'y (AVS, Hello Pine, W&amp;B, Faire)</li></ul></div>
+  <div class="dzien"><h3>Czw 15.10</h3><ul><li>Karuzela Pumpkin Season zaakceptowana</li><li>Short Caramel −20 % w sklepie</li><li>FAQ i dokumenty w stopce: plik do Twojej decyzji</li><li>Zapytanie do SLYGAD, rozmowa o W&amp;B</li></ul></div>
+  <div class="dzien"><h3>Pt 16.10</h3><ul><li>Mail Caramel −20 % EN i DE</li><li>Reklama Caramel −20 %: 5 kreacji, DE i EN, do 25.10</li><li>Jesienny slajd na stronie, Crystal −20 %, Medium Green z powrotem 259 €</li><li>Remarketing: wyłączone stare „−33 %”, włączony Caramel</li><li>Faire przejrzany, 388 plików w Twoim folderze</li></ul></div>
+  <div class="dzien"><h3>Weekend 17–18.10</h3><ul><li>Posty i stories według planu</li><li>Jesienna karuzela Caramel</li></ul></div>
+</div>
+
+<h2>Reklamy</h2>
+<p class="pod">Ile poszło na każdą kampanię i co z tego wyszło. Kampanie DE linia 1+2 i Medium Green −33 % skończyły się 15.10.</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Kampania</th><th style="text-align:right">Wydane</th><th style="text-align:right">Kliknięcia</th><th style="text-align:right">Koszyki</th><th style="text-align:right">Koszt koszyka</th></tr>
+  <tr><td>Meta · DE+AT · linia 1 i 2 (do 15.10) <span class="znaczek dobry">najtańszy koszyk</span></td><td class="l">41 €</td><td class="l">55</td><td class="l">6</td><td class="l">7 €</td></tr>
+  <tr><td>Meta · Medium Green −33 % (do 15.10)</td><td class="l">55 €</td><td class="l">61</td><td class="l">5</td><td class="l">11 €</td></tr>
+  <tr><td>Meta · 8 krajów po angielsku</td><td class="l">54 €</td><td class="l">108</td><td class="l">1</td><td class="l">54 €</td></tr>
+  <tr><td>Meta · SALE (Twoje przeceny)</td><td class="l">49 €</td><td class="l">30</td><td class="l">2</td><td class="l">25 €</td></tr>
+  <tr><td>Meta · remarketing (byli na stronie)</td><td class="l">33 €</td><td class="l">45</td><td class="l">0</td><td class="l">–</td></tr>
+  <tr><td>Meta · Caramel −20 % (od 16.10)</td><td class="l">40 €</td><td class="l">40</td><td class="l">2</td><td class="l">20 €</td></tr>
+  <tr><td>Google · wyszukiwarka DE+AT</td><td class="l">28 €</td><td class="l">38</td><td class="l">3</td><td class="l">9 €</td></tr>
+  <tr><td>Google · wyszukiwarka EN</td><td class="l">19 €</td><td class="l">24</td><td class="l">0</td><td class="l">–</td></tr>
+  <tr><td>Google · marka DE</td><td class="l">2 €</td><td class="l">4</td><td class="l">0</td><td class="l">–</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Klikalność 3,2 % (rok temu w tym tygodniu 2,0 %), koszyk za 17 € (rok temu 35 €). Kraje anglojęzyczne, które w 1. tygodniu dawały najtańszy koszyk, w tym tygodniu dały tylko jeden. Google: 49 €, 66 kliknięć, 3 koszyki z wyszukiwarki w DE.</p>
+
+<h3 style="font-weight:400;font-size:19px;margin:28px 0 12px">Najlepsze reklamy tygodnia</h3>
+<div class="siatka">
+  <div class="post"><img src="img/ad_120249479544020527.jpg" alt="" loading="lazy"><div class="opis"><b>Karmelowe na schodach, DE</b>5 koszyków za 6 €<div class="st">42 kliknięcia · CTR 5,4 %</div></div></div>
+  <div class="post"><img src="img/ad_120249502794990527.jpg" alt="" loading="lazy"><div class="opis"><b>Medium Green −33 %, DE</b>5 koszyków za 10 €<div class="st">60 kliknięć · CTR 3,2 %</div></div></div>
+  <div class="post"><img src="img/ad_120249551081390527.jpg" alt="" loading="lazy"><div class="opis"><b>SALE, ciepli, EN</b>2 koszyki<div class="st">25 kliknięć · CTR 2,4 %</div></div></div>
+  <div class="post"><img src="img/ad_120249658489790527.jpg" alt="" loading="lazy"><div class="opis"><b>Caramel jesień, EN i DE</b>2 koszyki za 3 €<div class="st">pierwsze dni · CTR 3,4–7,4 %</div></div></div>
+</div>
+
+<h2>Instagram</h2>
+<p class="pod">13 postów w tygodniu. Razem 2 060 osób zasięgu i 159 polubień. Konto dotarło do 3 423 osób, 184 wizyty profilu, 15 kliknięć w link. Najlepiej poszła rolka adopcyjna.</p>
+<div class="siatka">
+  <a class="post" href="https://www.instagram.com/reel/Dem1_7Cshau/" target="_blank" rel="noopener"><img src="img/ig_18027113309916360.jpg" alt="" loading="lazy"><div class="opis"><b>17.10 · Rolka #adoptdontshop <span class="znaczek dobry">top</span></b><div class="st">384 wyświetlenia · zasięg 281 · ♥ 24</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DeZ08G2jH_X/" target="_blank" rel="noopener"><img src="img/ig_17885273700504565.jpg" alt="" loading="lazy"><div class="opis"><b>12.10 · Tall, warm, easy</b><div class="st">zasięg 302 · ♥ 24 · 3 komentarze</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/Deje8I2jOQ2/" target="_blank" rel="noopener"><img src="img/ig_18186240103370358.jpg" alt="" loading="lazy"><div class="opis"><b>16.10 · First snow, last pairs</b><div class="st">zasięg 198 · ♥ 12</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/Deg6LxfHUUa/" target="_blank" rel="noopener"><img src="img/ig_18128939536832202.jpg" alt="" loading="lazy"><div class="opis"><b>15.10 · She's back</b><div class="st">zasięg 165 · ♥ 15 · 1 komentarz</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DeeVXuGgSb_/" target="_blank" rel="noopener"><img src="img/ig_17960143407239585.jpg" alt="" loading="lazy"><div class="opis"><b>14.10 · City walks, small dog</b><div class="st">zasięg 160 · ♥ 11</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/Dee-h7fAFOR/" target="_blank" rel="noopener"><img src="img/ig_18123147833477078.jpg" alt="" loading="lazy"><div class="opis"><b>14.10 · Wind from the sea</b><div class="st">zasięg 155 · ♥ 11 · 1 komentarz</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DecMBjJCAyr/" target="_blank" rel="noopener"><img src="img/ig_18635051851014825.jpg" alt="" loading="lazy"><div class="opis"><b>13.10 · Cream, first cold mornings</b><div class="st">zasięg 145 · ♥ 9</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DeZLwMXlUF0/" target="_blank" rel="noopener"><img src="img/ig_18179115973445021.jpg" alt="" loading="lazy"><div class="opis"><b>12.10 · Last days at −33 %</b><div class="st">zasięg 144 · ♥ 13</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DeoomVoDy0K/" target="_blank" rel="noopener"><img src="img/ig_18096708818393551.jpg" alt="" loading="lazy"><div class="opis"><b>18.10 · Windy up here</b><div class="st">zasięg 65 · ♥ 4</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DemDuVODSYk/" target="_blank" rel="noopener"><img src="img/ig_18178783486444566.jpg" alt="" loading="lazy"><div class="opis"><b>17.10 · Blue on blue</b><div class="st">zasięg 75 · ♥ 8</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DekIJTHDd2U/" target="_blank" rel="noopener"><img src="img/ig_18117537127783027.jpg" alt="" loading="lazy"><div class="opis"><b>16.10 · Golden hour</b><div class="st">zasięg 116 · ♥ 6</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DehjVjLFDIP/" target="_blank" rel="noopener"><img src="img/ig_18116067686009127.jpg" alt="" loading="lazy"><div class="opis"><b>15.10 · Black on black</b><div class="st">zasięg 124 · ♥ 11 · 1 komentarz</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DecZv5WipBL/" target="_blank" rel="noopener"><img src="img/ig_18120516272476837.jpg" alt="" loading="lazy"><div class="opis"><b>13.10 · Where the path gets rocky</b><div class="st">zasięg 130 · ♥ 11</div></div></a>
+</div>
+<p class="pod" style="margin-top:12px">Do tego stories codziennie według planu. Dwa posty dziennie to za dużo przy tym zasięgu: drugi post dnia ma zwykle mniej niż pierwszy. Rolki docierają dalej niż zdjęcia.</p>
+
+<h2>Maile</h2>
+<p class="pod">Mail Caramel poszedł w piątek 16.10 o 19:00.</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Mail</th><th style="text-align:right">Wysłane</th><th style="text-align:right">Otwarte</th><th style="text-align:right">Zamówienia</th></tr>
+  <tr><td>Caramel −20 % EN · 16.10</td><td class="l">979</td><td class="l">43 %</td><td class="l">0</td></tr>
+  <tr><td>Caramel −20 % DE · 16.10</td><td class="l">130</td><td class="l">32 %</td><td class="l">0</td></tr>
+  <tr><td>Powitanie (automat)</td><td class="l">25</td><td class="l">52 %</td><td class="l">0</td></tr>
+  <tr><td>Porzucona kasa (automat)</td><td class="l">5</td><td class="l">40 %</td><td class="l">0</td></tr>
+  <tr><td>Podziękowanie i powroty (automaty)</td><td class="l">13</td><td class="l">46 %</td><td class="l">0</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Otwieralność dalej bardzo dobra, ale z ponad 450 osób, które otworzyły mail Caramel, kliknęło 12, a 17 wypisało się z listy. Ludzie chcą czytać, ale ta oferta ich nie ruszyła. W 1. tygodniu maile sprzedały za 2 239 €, w tym za 0 €.</p>
+
+<h2>Uczciwie: czego jeszcze nie wiemy</h2>
+<div class="uwaga"><b>Od 5.10 reklama Meta kosztowała 690 € i dała 37 koszyków, 8 rozpoczętych płatności i 0 zakupów.</b> Ludzie dodają buty do koszyka, ale tylko co piąty przechodzi do kasy i nikt nie płaci. Rok temu w tym samym tygodniu reklama dała 1 zakup na 211 €. Część zakupów może nie być widoczna (osoby bez zgody na cookies), ale sklep jako całość też sprzedał mniej niż rok temu (324 € wobec 798 € według Analytics). Tego nie zrzucamy na październik: przed urodzinami musimy zrozumieć, co zatrzymuje ludzi między koszykiem a płatnością.</div>
+
+<h2>Dlaczego listopad jest najważniejszy</h2>
+<p class="pod">Sprzedaż tydzień po tygodniu w sezonie 2025 (Google Analytics). Najlepszy tydzień to Green Week −40 %. Budżet reklamowy oszczędzamy na urodziny i Green Week.</p>
+<div class="karta wykres" id="w2"></div>
+
+<h2>Nasze propozycje</h2>
+<div class="prop">
+  <div class="karta"><h3>Urodziny: 26.10–1.11, siedem dni</h3><p>Start w poniedziałek, koniec w niedzielę 1.11, czyli w World Vegan Day i w same urodziny marki. W komunikacji tylko data końca, bez słowa „sale”, hasło „Celebrate 5. Save 40%”. Reklama: Twoja kreacja z 4 nogami + noga w kapciu, krótka rolka, baner, mail i przypomnienie „last days”. Główny budżet reklamowy idzie na ten tydzień.</p></div>
+  <div class="karta"><h3>Sprawdzić drogę od koszyka do płatności</h3><p>Zrobimy zakup testowy z Niemiec i z kraju EN i sprawdzimy, co kupujący widzi przy kasie: koszt dostawy, czas, waluta, płatności. 37 koszyków bez zakupu to sygnał, że coś odstrasza dopiero w kasie.</p></div>
+  <div class="karta"><h3>Przypomnienie „last days” Caramel w czwartek 23.10</h3><p>Krótsze niż pierwszy mail: jedno zdjęcie, cena, jeden przycisk i duże „darmowa wymiana rozmiaru”. Tak jak robiliście przy dłuższych promocjach. To samo potem przy urodzinach i Green Week.</p></div>
+  <div class="karta"><h3>Mniej postów, więcej rolek</h3><p>Jeden mocny post dziennie zamiast dwóch i rolka 2–3 razy w tygodniu. Rolki docierają do 2 razy więcej osób niż zdjęcia.</p></div>
+  <div class="karta"><h3>Avocadostore: poprawić ceny przed tygodniem z bannerem</h3><p>Avocadostore dał w tym tygodniu połowę zamówień. Ceny i nazwy tam nie zgadzają się ze sklepem (np. Medium Green 174,30 €). Poprawimy je przez Hello Pine przed tygodniem wyróżnienia na Avocadostore (46. tydzień).</p></div>
+</div>
+
+<h2>Wszystkie raporty</h2>
+<div class="lista"><a href="#"><b>Tydzień 2 · 12–18.10.2026</b><span>ten raport</span></a><a href="tydzien-1.html"><b>Tydzień 1 · 5–11.10.2026</b><span>otwórz</span></a><a href="./"><b>Wszystkie tygodnie</b><span>kalendarz</span></a></div>
+
+<p class="stopka">Dane: Meta Ads, Google Analytics, Shopify, Klaviyo, Instagram. Stan na 18.10.2026, 17:00. Przygotowanie: ZOVU.</p>
+</main>
+
+<script>
+(function(){
+  // powrót: do panelu, z którego przyszedł użytkownik
+  try{ if(document.referrer && /\/zovu\/?/.test(new URL(document.referrer).pathname)) document.getElementById('wroc').href='../zovu/'; }catch(e){}
+
+  function f(n){var s=String(n).split('.');return s[0].replace(/\B(?=(\d{3})+(?!\d))/g,' ')+(s[1]?','+s[1]:'')}
+
+  // rok do roku
+  var rr=[['Sprzedaż w tygodniu',324,798,' €'],['Zamówienia',2,4,''],['Kliknięcia w reklamy Meta',339,398,''],['Klikalność reklam Meta',3.2,2.0,' %'],['Koszyki z reklam Meta',16,6,''],['Koszt jednego koszyka',17.1,35.1,' €','mniej = lepiej']];
+  var h='';
+  rr.forEach(function(r){var mx=Math.max(r[1],r[2]);
+    h+='<div class="rrW"><div class="nz">'+r[0]+(r[4]?' <span style="color:var(--cichy);font-size:12px">('+r[4]+')</span>':'')+'</div><div>'+
+      '<div class="pas teraz"><i style="width:'+Math.max(2,r[1]/mx*78)+'%"></i><b>'+f(r[1])+r[3]+'</b></div>'+
+      '<div class="pas rok" style="margin-top:4px"><i style="width:'+Math.max(2,r[2]/mx*78)+'%"></i>'+f(r[2])+r[3]+'</div></div></div>';});
+  document.getElementById('rr').innerHTML=h;
+
+  function bary(el,dane,opt){
+    var W=900,H=300,pl=10,pr=10,pt=34,pb=46,n=dane.length,mx=Math.max.apply(0,dane.map(function(d){return d[1]}));
+    var bw=(W-pl-pr)/n,s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+opt.aria+'">';
+    s+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+(H-pb)+'" y2="'+(H-pb)+'" stroke="#e3dfd5"/>';
+    dane.forEach(function(d,i){var bh=(H-pt-pb)*d[1]/mx,x=pl+i*bw+bw*0.18,w=bw*0.64,y=H-pb-bh,kol=d[2]?'#2c4d23':'#a9b8a3';
+      s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+bh+'" rx="5" fill="'+kol+'"><title>'+d[0]+': '+f(d[1])+' €</title></rect>';
+      s+='<text x="'+(x+w/2)+'" y="'+(y-8)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="'+(n>8?13:15)+'" fill="'+(d[2]?'#2c4d23':'#5d5a52')+'" font-weight="'+(d[2]?600:400)+'">'+f(d[1])+' €</text>';
+      s+='<text x="'+(x+w/2)+'" y="'+(H-pb+20)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="'+(n>8?12:14)+'" fill="#7b766c">'+d[0]+'</text>';
+      if(d[3]) s+='<text x="'+(x+w/2)+'" y="'+(H-pb+37)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="12" fill="#2c4d23" font-weight="600">'+d[3]+'</text>';
+    });
+    el.innerHTML=s+'</svg>';
+  }
+  bary(document.getElementById('w1'),[['14–20.09',757],['21–27.09',1893],['28.09–4.10',512],['5–11.10',2491,0,'start reklam'],['12–18.10',861,1,'ten tydzień']],{aria:'Sprzedaż tygodniowa'});
+  bary(document.getElementById('w2'),[['6.10',119],['13.10',798,0,'ten tydzień'],['20.10',701],['27.10',2215],['3.11',1013],['10.11',486],['17.11',2357],['24.11',5217,1,'Green Week −40 %'],['1.12',1694],['8.12',926],['15.12',576],['22.12',1189]],{aria:'Sprzedaż tygodniowa w sezonie 2025'});
+})();
+</script>
+<script src="kalendarz.js?v=3"></script>
+</body></html>
