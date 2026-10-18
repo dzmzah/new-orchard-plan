@@ -37,7 +37,7 @@
   '.kTydz .poza{color:#c9c3b6}.kTydz .dzis{font-weight:700;text-decoration:underline}'+
   '.kTydz.jest{background:var(--jasny);color:var(--zielen);font-weight:600}.kTydz.jest:hover{background:#d6e2d1}'+
   '.kTydz.teraz{background:var(--zielen);color:#fff}.kTydz.teraz .poza{color:rgba(255,255,255,.6)}'+
-  '@media (max-width:760px){.kMiesiace{grid-template-columns:repeat(2,1fr)}}';
+  '@media (max-width:760px){.kMiesiace{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}#kalendarz{padding:14px 10px}.kTydz{font-size:11.5px}}';
   document.head.appendChild(s);
   // nagłówek dni tygodnia w jednym wierszu
   [].forEach.call(el.querySelectorAll('.kSiatka'),function(g){var sp=[].slice.call(g.children,0,7),w=document.createElement('div');w.className='kTydz';w.style.color='var(--cichy)';w.style.fontSize='11px';sp.forEach(function(x){w.appendChild(x)});g.insertBefore(w,g.firstChild)});
