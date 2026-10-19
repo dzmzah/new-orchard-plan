@@ -3,7 +3,7 @@
 (function(){
   var RAPORTY=[
     {od:'2026-10-05',url:'tydzien-1.html',nr:1,okres:'5–11 października 2026',sprzedaz:'2 491 €',reklama:'477 €',zdanie:'Pierwszy tydzień reklam, najlepsza sprzedaż od półtora miesiąca.'},
-    {od:'2026-10-12',url:'tydzien-2.html',nr:2,okres:'12–18 października 2026',sprzedaz:'861 €',reklama:'322 €',zdanie:'Mniejszy budżet, start Caramel −20 %. Koszyki są, zakupów z reklam brak.'}
+    {od:'2026-10-12',url:'tydzien-2.html',nr:2,okres:'12–18 października 2026',sprzedaz:'861 €',reklama:'333 €',zdanie:'Mniejszy budżet, start Caramel −20 %. Koszyki są, zakupów z reklam brak.'}
   ];
   var MIES=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
   var el=document.getElementById('kalendarz');if(!el)return;
