@@ -628,6 +628,20 @@ let sekUro5 = `<div class="jak" style="margin:0 0 16px"><b>WERSJA DO AKCEPTU (22
 Zatwierdz albo napisz pod kreacja, co zmienic. Przy banerach napisz, ktory wariant idzie na strone i do newslettera. Nizej starsze propozycje (do wgladu).</div>`;
 for (const [rid, t, o, f] of URO5_LISTA) sekUro5 += await sekcjaKr(rid, 'do 1.11', t, o, URO5, f, 'u5', 'urodziny v5');
 sekUrodziny = sekUro5 + '<h2 class="dzial" style="margin-top:28px">Wczesniejsze propozycje</h2>' + sekUrodziny;
+// ---------- 23.10: v6 — uwagi Ani z 22.10 wieczorem (−40% duze, tort bez tortu, jesienne zaproszenie, baner do mailingu) ----------
+const URO6 = URO + '/v6_23-10';
+const URO6_LISTA = [
+  ['u6-t1', 'Tort 1 &mdash; &bdquo;Celebrate 5. Save 40%.&ldquo;', 'Dluzsze niebo, ostatnia linijka na niebie, wiekszym i grubszym fontem.', ['tort_1_EN_4x5.jpg', 'tort_1_DE_4x5.jpg']],
+  ['u6-t2', 'Tort 2 &mdash; Born on World Vegan Day', '&bdquo;5 YEARS LATER&ldquo; wieksze i bold, &minus;40% duze, cala ostatnia linijka wieksza.', ['tort_2_EN_4x5.jpg', 'tort_2_DE_4x5.jpg']],
+  ['u6-t3', 'Tort 3 &mdash; dziewczyna w gorach w dlugich bezowych', 'Bez tortu (oryginalne zdjecie z sesji), &minus;40% duze.', ['tort_3_EN_4x5.jpg', 'tort_3_DE_4x5.jpg']],
+  ['u6-j', 'Journal 1&ndash;3', 'Duze &minus;40% na wszystkich, przy niebieskiej spodnicy &minus;40% obok ceny.', ['journal_1_EN_4x5.jpg', 'journal_1_DE_4x5.jpg', 'journal_2_EN_4x5.jpg', 'journal_2_DE_4x5.jpg', 'journal_3_EN_4x5.jpg', 'journal_3_DE_4x5.jpg']],
+  ['u6-3', '&bdquo;5 winters of warm feet.&ldquo;', 'Duze &minus;40%.', ['3_5_zim_EN_4x5.jpg', '3_5_zim_DE_4x5.jpg']],
+  ['u6-5', 'Zaproszenie', 'Jesienne zdjecie z sesji (kozuch, zielone buty), tekst bez zmian.', ['5_zaproszenie_EN_4x5.jpg', '5_zaproszenie_DE_4x5.jpg']],
+  ['u6-bn', 'BANER do newslettera &mdash; dziewczyna w gorach', 'Bez tortu, &minus;40% duze. Jesli wolisz nogi, zostaje wersja z nogami nizej (v5).', ['baner_newsletter_gory_EN.jpg', 'baner_newsletter_gory_DE.jpg']],
+];
+let sekUro6 = `<div class="jak" style="margin:0 0 16px"><b>POPRAWKI (23.10) &mdash; wszystkie Twoje uwagi z 22.10 wieczorem.</b> Reszta kreacji bez zmian, zostaje z wersji 22.10 nizej. Zatwierdz albo napisz pod kreacja, co jeszcze zmienic.</div>`;
+for (const [rid, t, o, f] of URO6_LISTA) sekUro6 += await sekcjaKr(rid, 'do 1.11', t, o, URO6, f, 'u6', 'urodziny v6');
+sekUrodziny = sekUro6 + '<h2 class="dzial" style="margin-top:28px">Wersja 22.10 (reszta kreacji)</h2>' + sekUrodziny;
 
 
 const GW = SRC + '/kreacje/GREENWEEK', GW2 = GW + '/v2_5_idei';
