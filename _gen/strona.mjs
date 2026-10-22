@@ -606,6 +606,29 @@ Wybierz jeden wariant (albo napisz pod nim, co zmienic). Z wybranego robimy komp
 Na razie wersje angielskie, niemieckie dorobimy po wyborze. Nizej sa pierwsze propozycje z 06.10.</div>`;
 for (const [rid, t, o, d, f] of URO_NOWE) sekUroNowe += await sekcjaKr(rid, '29.10 &ndash; 01.11', t, o, d, f, 'u2', 'urodziny');
 sekUrodziny = sekUroNowe + '<h2 class="dzial" style="margin-top:28px">Pierwsze propozycje (06.10)</h2>' + sekUrodziny;
+// ---------- 22.10: wersja v5 do akceptu — wszystkie poprawki Ani (16–17.10, rozmowa 19.10), tylko data konca, banery www + newsletter ----------
+const URO5 = URO + '/v5_22-10';
+const URO5_LISTA = [
+  ['u5-a', 'A &mdash; piec nog (zeszloroczne 4 nogi + slipper)', 'Twoja poprawka: piata noga w slipperze. Post 4:5 i kwadrat 1:1.', ['A_nogi_5_par_EN_4x5.jpg', 'A_nogi_5_par_DE_4x5.jpg', 'A_nogi_5_par_EN_1x1.jpg', 'A_nogi_5_par_DE_1x1.jpg']],
+  ['u5-t1', 'Tort 1 &mdash; &bdquo;Celebrate 5. Save 40%.&ldquo;', 'Twoje haslo.', ['tort_1_EN_4x5.jpg', 'tort_1_DE_4x5.jpg']],
+  ['u5-t23', 'Tort 2 i 3', 'Bez slowa &bdquo;sale&ldquo;.', ['tort_2_EN_4x5.jpg', 'tort_2_DE_4x5.jpg', 'tort_3_EN_4x5.jpg', 'tort_3_DE_4x5.jpg']],
+  ['u5-j', 'Journal 1&ndash;3', 'Bez &bdquo;sale&ldquo;, tylko data konca.', ['journal_1_EN_4x5.jpg', 'journal_1_DE_4x5.jpg', 'journal_2_EN_4x5.jpg', 'journal_2_DE_4x5.jpg', 'journal_3_EN_4x5.jpg', 'journal_3_DE_4x5.jpg']],
+  ['u5-1', '&bdquo;5 years. 7 days. &minus;40%&ldquo;', '', ['1_5lat_7dni_EN_4x5.jpg', '1_5lat_7dni_DE_4x5.jpg']],
+  ['u5-3', '&bdquo;5 winters of warm feet.&ldquo;', 'W tekscie posta dopisane &bdquo;birthday&ldquo;.', ['3_5_zim_EN_4x5.jpg', '3_5_zim_DE_4x5.jpg']],
+  ['u5-4', '&bdquo;Born on World Vegan Day.&ldquo;', '', ['4_world_vegan_day_EN_4x5.jpg', '4_world_vegan_day_DE_4x5.jpg']],
+  ['u5-5', 'Zaproszenie', 'Twoj tekst, wieksze napisy, inne zdjecie.', ['5_zaproszenie_EN_4x5.jpg', '5_zaproszenie_DE_4x5.jpg']],
+  ['u5-b1', 'BANER www + newsletter &mdash; wariant 1: piec nog', 'Wybierz jeden z trzech wariantow banera. Na gorze strona (komputer), pod spodem naglowek newslettera. Wersje na telefon zrobimy z wybranego.', ['baner_www_nogi_EN.jpg', 'baner_newsletter_nogi_EN.jpg', 'baner_www_nogi_DE.jpg', 'baner_newsletter_nogi_DE.jpg']],
+  ['u5-b2', 'BANER www + newsletter &mdash; wariant 2: zdjecie z zaproszenia', '', ['baner_www_zaproszenie_EN.jpg', 'baner_newsletter_zaproszenie_EN.jpg', 'baner_www_zaproszenie_DE.jpg', 'baner_newsletter_zaproszenie_DE.jpg']],
+  ['u5-b3', 'BANER www + newsletter &mdash; wariant 3: z psem w gorach', '', ['baner_www_5zim_EN.jpg', 'baner_newsletter_5zim_EN.jpg', 'baner_www_5zim_DE.jpg', 'baner_newsletter_5zim_DE.jpg']],
+];
+let sekUro5 = `<div class="jak" style="margin:0 0 16px"><b>WERSJA DO AKCEPTU (22.10) &mdash; wszystkie Twoje poprawki.</b>
+&minus;40 % na wszystkie buty i slippersy, do 1.11 (World Vegan Day). Early access z kodem BIRTHDAY40 25.10. Na grafikach tylko data konca, tak jak prosilas. Haslo &bdquo;Celebrate 5. Save 40%.&ldquo;, bez slowa &bdquo;sale&ldquo;.<br><br>
+<b>Tekst reklamy EN:</b> Celebrate 5. Save 40%. &mdash; Five years ago, on World Vegan Day, we made our very first pair. To say thank you, all vegan shoes are 40% off until 1 November. Handmade in Italy. [Shop now]<br>
+<b>Tekst reklamy DE:</b> 5 Jahre feiern. 40 % sparen. &mdash; Vor f&uuml;nf Jahren, am Weltvegantag, haben wir unser erstes Paar gemacht. Als Dankesch&ouml;n: &minus;40 % auf alle veganen Schuhe bis 1. November. Handgefertigt in Italien. [Jetzt shoppen]<br><br>
+Zatwierdz albo napisz pod kreacja, co zmienic. Przy banerach napisz, ktory wariant idzie na strone i do newslettera. Nizej starsze propozycje (do wgladu).</div>`;
+for (const [rid, t, o, f] of URO5_LISTA) sekUro5 += await sekcjaKr(rid, 'do 1.11', t, o, URO5, f, 'u5', 'urodziny v5');
+sekUrodziny = sekUro5 + '<h2 class="dzial" style="margin-top:28px">Wczesniejsze propozycje</h2>' + sekUrodziny;
+
 
 const GW = SRC + '/kreacje/GREENWEEK', GW2 = GW + '/v2_5_idei';
 const GW_LISTA = [
