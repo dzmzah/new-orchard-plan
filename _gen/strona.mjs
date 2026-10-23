@@ -637,6 +637,7 @@ const URO6_LISTA = [
   ['u6-j', 'Journal 1&ndash;3', 'Duze &minus;40% na wszystkich, przy niebieskiej spodnicy &minus;40% obok ceny.', ['journal_1_EN_4x5.jpg', 'journal_1_DE_4x5.jpg', 'journal_2_EN_4x5.jpg', 'journal_2_DE_4x5.jpg', 'journal_3_EN_4x5.jpg', 'journal_3_DE_4x5.jpg']],
   ['u6-3', '&bdquo;5 winters of warm feet.&ldquo;', 'Duze &minus;40%.', ['3_5_zim_EN_4x5.jpg', '3_5_zim_DE_4x5.jpg']],
   ['u6-5', 'Zaproszenie', 'Jesienne zdjecie z sesji (kozuch, zielone buty), tekst bez zmian.', ['5_zaproszenie_EN_4x5.jpg', '5_zaproszenie_DE_4x5.jpg']],
+  ['u6-bw', 'BANER na strone &mdash; zdjecie z tortem (komputer + telefon)', 'Uklad jak wariant 3 (zielony blok), inne zdjecie z tej sesji + tort, duze &minus;40%. Wchodzi na strone 25.10 rano zamiast slajdu Caramel.', ['baner_www_tort_desktop_EN.jpg', 'baner_www_tort_mobile_EN.jpg', 'baner_www_tort_desktop_DE.jpg', 'baner_www_tort_mobile_DE.jpg']],
   ['u6-bn', 'BANER do newslettera &mdash; dziewczyna w gorach', 'Bez tortu, &minus;40% duze. Jesli wolisz nogi, zostaje wersja z nogami nizej (v5).', ['baner_newsletter_gory_EN.jpg', 'baner_newsletter_gory_DE.jpg']],
 ];
 let sekUro6 = `<div class="jak" style="margin:0 0 16px"><b>POPRAWKI (23.10) &mdash; wszystkie Twoje uwagi z 22.10 wieczorem.</b> Reszta kreacji bez zmian, zostaje z wersji 22.10 nizej. Zatwierdz albo napisz pod kreacja, co jeszcze zmienic.</div>`;
