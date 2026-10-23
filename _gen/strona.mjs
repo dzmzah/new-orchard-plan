@@ -580,7 +580,7 @@ async function kadrKr(dir, plik, pref) {
 }
 async function sekcjaKr(rid, daty, tytul, opis, dir, pliki, pref, tag) {
   const out = [];
-  for (const f of pliki) { const k = await kadrKr(dir, f, pref); if (k) out.push(k.endsWith('.mp4') ? `<video src="${k}" muted loop playsinline controls preload="metadata"></video>` : `<img src="${k}" alt="" loading="lazy">`); }
+  for (const f of pliki) { const k = await kadrKr(dir, f, pref); if (k) out.push(k.endsWith('.mp4') ? `<video src="${k}" loop playsinline controls preload="metadata"></video>` : `<img src="${k}" alt="" loading="lazy">`); }
   return `
 <section class="k zw" id="${rid}">
   <div class="gl"><span class="dat">${daty}</span><h3>${tytul}</h3></div>
@@ -658,7 +658,18 @@ const ANIM_PLAN = [
   ['rolka-9', '1.11', 'Ostatni dzien &mdash; World Vegan Day', '9_ostatni_dzien_wvd_EN_9x16.mp4'],
   ['rolka-4', 'w zapasie', 'Halloween &mdash; wieczor', '4_halloween_wieczor_EN_9x16.mp4'],
 ];
-let sekAnim = `<div class="jak" style="margin:0 0 16px"><b>ROLKI NA URODZINY (23.10) &mdash; plan publikacji 24.10 &ndash; 1.11.</b> Jedna animacja dziennie na Instagram, Facebook, TikTok i YouTube Shorts. Kazda jest tez po niemiecku. Zatwierdz albo napisz pod rolka, co zmienic. Bez Twojego ok nic nie planujemy.</div>`;
+// 23.10 22:00 — rolki „w klimacie NO” (uwaga Ani: animacje „nie są wow”): 3 rolki Zacha z jego materiału + 2 ze zdjęć sesji; plan w ANIM_PLAN przeplata je z zatwierdzonymi animacjami
+const KLIMAT = [
+  ['klimat-z3', '25.10', 'Rolka z naszego materiału 3 (spacer w liściach)', 'zah_rolka_3.mp4'],
+  ['klimat-a', '27.10', '&bdquo;Golden hour&ldquo; &mdash; zdjęcia z sesji', 'klimat_A_golden_hour.mp4'],
+  ['klimat-z1', '29.10', 'Rolka z naszego materiału 1', 'zah_rolka_1.mp4'],
+  ['klimat-b', '31.10', 'Spacer z pieskiem &mdash; zdjęcia z sesji', 'klimat_B_walk_dog.mp4'],
+  ['klimat-z2', 'stories', 'Rolka z naszego materiału 2', 'zah_rolka_2.mp4'],
+  ['klimat-9', '1.11', 'Ostatni dzień &mdash; teraz ze zdjęciem z pieskiem (Twoja uwaga)', '9_ostatni_dzien_wvd_EN_9x16.mp4'],
+];
+let sekKlimat = `<div class="jak" style="margin:0 0 16px"><b>NOWE ROLKI W KLIMACIE NEW ORCHARD (23.10 wieczór) &mdash; z dźwiękiem.</b> Masz rację, animacje są zbyt reklamowe. Te są spokojniejsze: nasz materiał i zdjęcia z sesji, muzyka, mały tekst o &minus;40% na końcu. Plan: na zmianę z zatwierdzonymi animacjami, jedna rolka dziennie. Zatwierdź albo napisz uwagę pod rolką.</div>`;
+for (const [rid, dat, t, f] of KLIMAT) sekKlimat += await sekcjaKr(rid, dat, t, '', ANIM, [f], 'klimat', 'rolki klimat');
+let sekAnim = sekKlimat + `<h2 class="dzial" style="margin-top:28px">Animacje (zatwierdzone 23.10)</h2><div class="jak" style="margin:0 0 16px"><b>ROLKI NA URODZINY (23.10) &mdash; plan publikacji 24.10 &ndash; 1.11.</b> Jedna animacja dziennie na Instagram, Facebook, TikTok i YouTube Shorts. Kazda jest tez po niemiecku. Zatwierdz albo napisz pod rolka, co zmienic. Bez Twojego ok nic nie planujemy.</div>`;
 for (const [rid, dat, t, f] of ANIM_PLAN) sekAnim += await sekcjaKr(rid, dat, t, '', ANIM, [f], 'anim', 'rolki urodziny');
 sekUro6 = sekAnim + '<h2 class="dzial" style="margin-top:28px">Grafiki (23.10)</h2>' + sekUro6;
 sekUrodziny = sekUro6 + '<h2 class="dzial" style="margin-top:28px">Wersja 22.10 (reszta kreacji)</h2>' + sekUrodziny;
