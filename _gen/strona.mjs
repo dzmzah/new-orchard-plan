@@ -573,12 +573,8 @@ async function kadrKr(dir, plik, pref) {
   const zr = `${dir}/${plik}`;
   if (!fs.existsSync(zr)) return null;
   const nazwa = `${pref}-${plik}`.toLowerCase().replace(/[^a-z0-9._-]/g, '_');
-  if (plik.endsWith('.mp4')) {
-    const c = OUT + '/kadry/' + nazwa;
-    if (!fs.existsSync(c) || fs.statSync(c).mtimeMs < fs.statSync(zr).mtimeMs)
-      spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', zr, '-vf', 'scale=540:-2', '-c:v', 'libx264', '-crf', '28', '-preset', 'slow', '-an', '-movflags', '+faststart', c]);
-    return 'kadry/' + nazwa;
-  }
+  // wideo w _src jest juz scisniete (540p) — kopiujemy, bo automat na serwerze nie ma ffmpeg
+  if (plik.endsWith('.mp4')) { fs.copyFileSync(zr, OUT + '/kadry/' + nazwa); return 'kadry/' + nazwa; }
   await sharp(zr).resize(760, 1100, { fit: 'inside' }).jpeg({ quality: 78 }).toFile(OUT + '/kadry/' + nazwa);
   return 'kadry/' + nazwa;
 }
