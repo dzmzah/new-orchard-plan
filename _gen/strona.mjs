@@ -573,12 +573,18 @@ async function kadrKr(dir, plik, pref) {
   const zr = `${dir}/${plik}`;
   if (!fs.existsSync(zr)) return null;
   const nazwa = `${pref}-${plik}`.toLowerCase().replace(/[^a-z0-9._-]/g, '_');
+  if (plik.endsWith('.mp4')) {
+    const c = OUT + '/kadry/' + nazwa;
+    if (!fs.existsSync(c) || fs.statSync(c).mtimeMs < fs.statSync(zr).mtimeMs)
+      spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', zr, '-vf', 'scale=540:-2', '-c:v', 'libx264', '-crf', '28', '-preset', 'slow', '-an', '-movflags', '+faststart', c]);
+    return 'kadry/' + nazwa;
+  }
   await sharp(zr).resize(760, 1100, { fit: 'inside' }).jpeg({ quality: 78 }).toFile(OUT + '/kadry/' + nazwa);
   return 'kadry/' + nazwa;
 }
 async function sekcjaKr(rid, daty, tytul, opis, dir, pliki, pref, tag) {
   const out = [];
-  for (const f of pliki) { const k = await kadrKr(dir, f, pref); if (k) out.push(`<img src="${k}" alt="" loading="lazy">`); }
+  for (const f of pliki) { const k = await kadrKr(dir, f, pref); if (k) out.push(k.endsWith('.mp4') ? `<video src="${k}" muted loop playsinline controls preload="metadata"></video>` : `<img src="${k}" alt="" loading="lazy">`); }
   return `
 <section class="k zw" id="${rid}">
   <div class="gl"><span class="dat">${daty}</span><h3>${tytul}</h3></div>
@@ -642,6 +648,23 @@ const URO6_LISTA = [
 ];
 let sekUro6 = `<div class="jak" style="margin:0 0 16px"><b>POPRAWKI (23.10) &mdash; wszystkie Twoje uwagi z 22.10 wieczorem.</b> Reszta kreacji bez zmian, zostaje z wersji 22.10 nizej. Zatwierdz albo napisz pod kreacja, co jeszcze zmienic.</div>`;
 for (const [rid, t, o, f] of URO6_LISTA) sekUro6 += await sekcjaKr(rid, 'do 1.11', t, o, URO6, f, 'u6', 'urodziny v6');
+// 23.10 wieczór: animacje 9:16 — plan rolek IG/FB/TikTok/YouTube Shorts 24.10–1.11 (do akceptu Ani)
+const ANIM = 'D:/My AI/NEW ORCHARD/03_KREACJE/AKCJE/URODZINY-5-LAT/v6_23-10/ANIMACJE';
+const ANIM_PLAN = [
+  ['a-3', '24.10 wieczor', 'Zaproszenie &mdash; &bdquo;jutro startujemy&ldquo;', '3_urodziny_zaproszenie_EN_9x16.mp4'],
+  ['a-1', '25.10', 'Piec swieczek &mdash; start &minus;40%', '1_urodziny_5_swieczek_EN_9x16.mp4'],
+  ['a-2', '26.10', 'Piec par nog', '2_urodziny_5_par_nog_EN_9x16.mp4'],
+  ['a-6', '27.10', 'Caramel &minus;40%', '6_caramel_40_EN_9x16.mp4'],
+  ['a-10', '28.10', 'Cieple stopy', '10_cieple_stopy_EN_9x16.mp4'],
+  ['a-7', '29.10', 'Ceny 4 modeli', '7_ceny_4_modele_EN_9x16.mp4'],
+  ['a-5', '30.10', 'Halloween &mdash; dynie', '5_halloween_dynie_EN_9x16.mp4'],
+  ['a-8', '31.10', 'Tablica &mdash; ostatnie dni', '8_tablica_7dni_5lat_EN_9x16.mp4'],
+  ['a-9', '1.11', 'Ostatni dzien &mdash; World Vegan Day', '9_ostatni_dzien_wvd_EN_9x16.mp4'],
+  ['a-4', 'w zapasie', 'Halloween &mdash; wieczor', '4_halloween_wieczor_EN_9x16.mp4'],
+];
+let sekAnim = `<div class="jak" style="margin:0 0 16px"><b>ROLKI NA URODZINY (23.10) &mdash; plan publikacji 24.10 &ndash; 1.11.</b> Jedna animacja dziennie na Instagram, Facebook, TikTok i YouTube Shorts. Kazda jest tez po niemiecku. Zatwierdz albo napisz pod rolka, co zmienic. Bez Twojego ok nic nie planujemy.</div>`;
+for (const [rid, dat, t, f] of ANIM_PLAN) sekAnim += await sekcjaKr(rid, dat, t, '', ANIM, [f], 'anim', 'rolki urodziny');
+sekUro6 = sekAnim + '<h2 class="dzial" style="margin-top:28px">Grafiki (23.10)</h2>' + sekUro6;
 sekUrodziny = sekUro6 + '<h2 class="dzial" style="margin-top:28px">Wersja 22.10 (reszta kreacji)</h2>' + sekUrodziny;
 
 
