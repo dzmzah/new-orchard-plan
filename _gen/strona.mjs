@@ -667,7 +667,11 @@ const KLIMAT = [
   ['klimat-z2', 'stories', 'Rolka z naszego materiału 2', 'zah_rolka_2.mp4'],
   ['klimat-9', '1.11', 'Ostatni dzień &mdash; teraz ze zdjęciem z pieskiem (Twoja uwaga)', '9_ostatni_dzien_wvd_EN_9x16.mp4'],
 ];
-let sekKlimat = `<div class="jak" style="margin:0 0 16px"><b>NOWE ROLKI W KLIMACIE NEW ORCHARD (23.10 wieczór) &mdash; z dźwiękiem.</b> Masz rację, animacje są zbyt reklamowe. Te są spokojniejsze: nasz materiał i zdjęcia z sesji, muzyka, mały tekst o &minus;40% na końcu. Plan: na zmianę z zatwierdzonymi animacjami, jedna rolka dziennie. Zatwierdź albo napisz uwagę pod rolką.</div>`;
+// 24.10: baner www v7 (prośba Ani 23.10 19:56) — makiety EN/DE desktop+mobile
+const URO7 = URO + '/v7_24-10';
+let sekBaner7 = `<div class="jak" style="margin:0 0 16px"><b>NOWY BANER NA STRONĘ (24.10)</b> &mdash; Twoje zdjęcie, bez zielonego paska, tekst i przyciski robi strona (EN i DE). Wchodzi sam 26.10 o północy razem z &minus;40%. Zatwierdź albo napisz uwagę.</div>`;
+sekBaner7 += await sekcjaKr('baner7', '26.10', 'Baner na stronę &mdash; komputer i telefon', '', URO7, ['baner_www_desktop_EN.jpg', 'baner_www_mobile_EN.jpg', 'baner_www_desktop_DE.jpg', 'baner_www_mobile_DE.jpg'], 'b7', 'baner www v7');
+let sekKlimat = sekBaner7 + `<div class="jak" style="margin:0 0 16px"><b>NOWE ROLKI W KLIMACIE NEW ORCHARD (23.10 wieczór) &mdash; z dźwiękiem.</b> Masz rację, animacje są zbyt reklamowe. Te są spokojniejsze: nasz materiał i zdjęcia z sesji, muzyka, mały tekst o &minus;40% na końcu. Plan: na zmianę z zatwierdzonymi animacjami, jedna rolka dziennie. Zatwierdź albo napisz uwagę pod rolką.</div>`;
 for (const [rid, dat, t, f] of KLIMAT) sekKlimat += await sekcjaKr(rid, dat, t, '', ANIM, [f], 'klimat', 'rolki klimat');
 let sekAnim = sekKlimat + `<h2 class="dzial" style="margin-top:28px">Animacje (zatwierdzone 23.10)</h2><div class="jak" style="margin:0 0 16px"><b>ROLKI NA URODZINY (23.10) &mdash; plan publikacji 24.10 &ndash; 1.11.</b> Jedna animacja dziennie na Instagram, Facebook, TikTok i YouTube Shorts. Kazda jest tez po niemiecku. Zatwierdz albo napisz pod rolka, co zmienic. Bez Twojego ok nic nie planujemy.</div>`;
 for (const [rid, dat, t, f] of ANIM_PLAN) sekAnim += await sekcjaKr(rid, dat, t, '', ANIM, [f], 'anim', 'rolki urodziny');
