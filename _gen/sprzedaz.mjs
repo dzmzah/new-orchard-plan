@@ -1,6 +1,7 @@
 // Dane do strony /sprzedaz/ — uruchamiane co godzinę przez GitHub Actions (sprzedaz.yml). Klucze z sekretów repo, nic nie trafia do kodu.
 // Shopify: zamówienia od START (bez danych osobowych), Klaviyo: zamówienia przypisane mailom/flowom, Meta: wydatki i zakupy pikselem po dniach.
 import fs from 'fs';
+import crypto from 'crypto';
 const START = process.env.START || new Date(Date.now() - 58 * 864e5).toISOString().slice(0, 10);
 const env = k => { const v = process.env[k]; if (!v) throw new Error('brak ' + k); return v.trim(); };
 const out = { aktualizacja: new Date().toISOString(), start: START, zamowienia: [], meta: [], klaviyo: { kampanie: [], flowy: [] } };
@@ -83,5 +84,30 @@ out.klaviyo.flowy = Object.values(agg).filter(a => a.recipients > 0).sort((a, b)
   out.klaviyo_ly = []; let u = `events?filter=and(equals(metric_id,"${po}"),greater-or-equal(datetime,${lyS}T00:00:00Z),less-or-equal(datetime,${lyE}))&include=attributions&fields[event]=datetime,event_properties`;
   while (u) { const r = await kg3(u); for (const e of r.data || []) out.klaviyo_ly.push({ data: e.attributes.datetime, kwota: +(e.attributes.event_properties?.$value || 0), mail: (e.relationships?.attributions?.data || []).length > 0 });
     u = r.links?.next ? r.links.next.replace('https://a.klaviyo.com/api/', '') : null; } }
+// GA4: wizyty, koszyki, kasa, zakupy, kanały + koszt Google Ads — dla każdego okresu i rok temu
+if (process.env.GA_SA) { try {
+  const sa = JSON.parse(process.env.GA_SA), b64 = o => Buffer.from(JSON.stringify(o)).toString('base64url'), t = Math.floor(Date.now() / 1000);
+  const uns = b64({ alg: 'RS256', typ: 'JWT' }) + '.' + b64({ iss: sa.client_email, scope: 'https://www.googleapis.com/auth/analytics.readonly', aud: sa.token_uri, iat: t, exp: t + 3600 });
+  const jwt = uns + '.' + crypto.createSign('RSA-SHA256').update(uns).sign(sa.private_key, 'base64url');
+  const at = (await (await fetch(sa.token_uri, { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}` })).json()).access_token;
+  const rep = async body => (await fetch('https://analyticsdata.googleapis.com/v1beta/properties/459047463:runReport', { method: 'POST', headers: { authorization: 'Bearer ' + at, 'content-type': 'application/json' }, body: JSON.stringify(body) })).json();
+  const M = ['sessions', 'totalUsers', 'addToCarts', 'checkouts', 'ecommercePurchases', 'purchaseRevenue'];
+  const lyD = d => (+d.slice(0, 4) - 1) + d.slice(4);
+  const val = (row, i) => Object.fromEntries(M.map((m, k) => [m, +(row?.metricValues?.[k]?.value || 0)]));
+  for (const o of out.okresy) {
+    const dr = [{ startDate: o.od, endDate: o.do, name: 'teraz' }, { startDate: lyD(o.od), endDate: lyD(o.do), name: 'rok' }];
+    const tot = await rep({ dateRanges: dr, metrics: M.map(name => ({ name })) });
+    const get = n => val((tot.rows || []).find(r => r.dimensionValues?.[0]?.value === n));
+    o.ga4 = { teraz: get('teraz'), rok: get('rok') };
+    const ad = await rep({ dateRanges: dr, dimensions: [{ name: 'sessionGoogleAdsCampaignName' }], metrics: [{ name: 'advertiserAdCost' }, { name: 'advertiserAdClicks' }], limit: 100 });
+    o.ga4.teraz.googleKoszt = 0; o.ga4.rok.googleKoszt = 0; o.ga4.teraz.googleKlik = 0; o.ga4.rok.googleKlik = 0; for (const r of ad.rows || []) { const n = r.dimensionValues?.[1]?.value || 'teraz'; if (o.ga4[n]) { o.ga4[n].googleKoszt = +(o.ga4[n].googleKoszt + +r.metricValues[0].value).toFixed(2); o.ga4[n].googleKlik += +r.metricValues[1].value; } } if (ad.error && !out.ga4_blad) out.ga4_blad = 'ads: ' + ad.error.message;
+    if (tot.error && !out.ga4_blad) out.ga4_blad = tot.error.message;
+    const kan = await rep({ dateRanges: dr, dimensions: [{ name: 'sessionDefaultChannelGroup' }], metrics: ['sessions', 'addToCarts', 'ecommercePurchases', 'purchaseRevenue'].map(name => ({ name })), limit: 30 });
+    const kk = {}; for (const r of kan.rows || []) { const n = r.dimensionValues[0].value, which = r.dimensionValues[1]?.value || 'teraz'; const v = r.metricValues.map(x => +x.value); (kk[n] ||= { n })[which] = { sesje: v[0], koszyki: v[1], zakupy: v[2], przychod: v[3] }; }
+    o.ga4_kanaly = Object.values(kk).sort((a, b) => (b.teraz?.sesje || 0) - (a.teraz?.sesje || 0));
+  }
+  out.ga4_ok = true;
+} catch (e) { out.ga4_blad = String(e.message).slice(0, 200); } }
+
 fs.writeFileSync(new URL('../sprzedaz/dane.json', import.meta.url), JSON.stringify(out, null, 1));
 console.log('zamowien', out.zamowienia.length, 'meta dni', out.meta.length, 'kampanii', out.klaviyo.kampanie.length, 'flowow', out.klaviyo.flowy.length);

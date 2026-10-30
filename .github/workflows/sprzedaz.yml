@@ -19,6 +19,7 @@ jobs:
           SHOPIFY_SECRET: ${{ secrets.SHOPIFY_SECRET }}
           META_TOKEN: ${{ secrets.META_TOKEN }}
           KLAVIYO_KEY: ${{ secrets.KLAVIYO_KEY }}
+          GA_SA: ${{ secrets.GA_SA }}
       - name: Zapisz dane
         run: |
           git config user.name "zovu-sprzedaz"

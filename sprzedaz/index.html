@@ -118,6 +118,10 @@ h2{font-size:24px;font-weight:400;margin:52px 0 6px}
   <div class="legenda"><span>2026</span><span class="r">2025, ten sam okres</span></div>
 </div>
 
+<h2>Ruch na stronie według kanałów</h2>
+<p class="pod">Google Analytics 4: wizyty, dodania do koszyka i zakupy w sklepie, teraz i ten sam okres rok temu. GA4 widzi tylko osoby, które zgodziły się na cookies, więc liczby są niższe niż w Shopify.</p>
+<div class="karta tabW"><table class="tab" id="ruch"></table></div>
+
 <h2>Skąd przyszła sprzedaż</h2>
 <p class="pod">Najpierw mail, który według Klaviyo doprowadził do zakupu, potem Shopify (reklama Meta, Instagram, wejście bezpośrednie). Rok temu źródła są znane tylko dla maili i reklamy Meta.</p>
 <div class="karta tabW"><table class="tab" id="kanaly"></table></div>
@@ -198,19 +202,25 @@ function render(d,O){
   const mailZ=z.filter(o=>o.klaviyo), mailV=mailZ.reduce((a,o)=>a+netto(o),0);
   const KL=(d.klaviyo_ly||[]).filter(x=>wl(x.data)), mailL=KL.filter(x=>x.mail), mailVL=mailL.reduce((a,x)=>a+x.kwota,0);
   const sr=O.zam?O.teraz/O.zam:0, srL=O.zam_rok_temu?O.rok_temu/O.zam_rok_temu:0;
+  const G=O.ga4||{teraz:{},rok:{}}, gt=G.teraz||{}, gl=G.rok||{};
+  const gk=gt.googleKoszt||0, gkL=gl.googleKoszt||0, rekl=wyd+gk, reklL=wydL+gkL;
   const dni=Math.round((new Date(O.do)-new Date(O.od))/864e5)+1;
   // kafle
   const K=[
     ['mocny',eur(O.teraz),'sprzedaż (sklep + marketplace\'y)',`${O.zam} zamówień · rok temu ${eur(O.rok_temu)} (${O.zam_rok_temu} zam.) · ${zm(O.teraz,O.rok_temu)}`],
-    ['',eur(wyd),'wydane na reklamę Meta',`rok temu ${eur(wydL)} · ${O.teraz?Math.round(wyd/O.teraz*100):0} % sprzedaży (rok temu ${O.rok_temu?Math.round(wydL/O.rok_temu*100):0} %)`],
+    ['',eur(rekl),'wydane na reklamę',`Meta ${eur(wyd)} · Google ${eur(gk)}<br>rok temu ${eur(reklL)} (Meta ${eur(wydL)} · Google ${eur(gkL)})`],
     ['',eur(mailV),'sprzedaż z maili (Klaviyo)',`${mailZ.length} zamówień · rok temu ${eur(mailVL)} (${mailL.length} zam.)`],
     ['',eur(sr),'średnie zamówienie',`rok temu ${eur(srL)} · ${zm(sr,srL)}`]];
   document.getElementById('kafle').innerHTML=K.map(k=>`<div class="kafel ${k[0]}"><div class="liczba">${k[1]}</div><div class="co">${k[2]}</div><div class="male">${k[3]}</div></div>`).join('');
   // porównanie paskami
-  document.getElementById('rrPod').textContent=`${dmy(O.od)}–${dmy(O.do)}.${O.do.slice(0,4)} (${dni} ${dni===1?'dzień':'dni'}) kontra ${dmy(O.od)}–${dmy(O.do)}.${ly(O.do).slice(0,4)}. Sprzedaż i zamówienia: raporty Shopify (sklep + marketplace'y), reklama według Meta, maile według Klaviyo.`;
-  const rr=[['Sprzedaż',O.teraz,O.rok_temu,' €'],['Zamówienia',O.zam,O.zam_rok_temu,''],['Średnie zamówienie',sr,srL,' €'],['Sprzedaż z maili',mailV,mailVL,' €'],['Zamówienia z maili',mailZ.length,mailL.length,''],['Wydane na reklamę Meta',wyd,wydL,' €','','n'],['Reklama jako % sprzedaży',O.teraz?wyd/O.teraz*100:0,O.rok_temu?wydL/O.rok_temu*100:0,' %','mniej = lepiej'],['Kliknięcia w reklamy Meta',kl,klL,''],['Klikalność reklam Meta',wys?kl/wys*100:0,wysL?klL/wysL*100:0,' %'],['Koszyki z reklam Meta',ko,koL,''],['Koszt jednego koszyka',ko?wyd/ko:0,koL?wydL/koL:0,' €','mniej = lepiej'],['Zakupy wg piksela Meta',zk,zkL,''],['Wartość zakupów wg piksela',wv,wvL,' €']];
+  document.getElementById('rrPod').textContent=`${dmy(O.od)}–${dmy(O.do)}.${O.do.slice(0,4)} (${dni} ${dni===1?'dzień':'dni'}) kontra ${dmy(O.od)}–${dmy(O.do)}.${ly(O.do).slice(0,4)}. Sprzedaż i zamówienia: raporty Shopify (sklep + marketplace'y), ruch i Google Ads: GA4, reklama według Meta, maile według Klaviyo.`;
+  const rr=[['Sprzedaż',O.teraz,O.rok_temu,' €'],['Zamówienia',O.zam,O.zam_rok_temu,''],['Średnie zamówienie',sr,srL,' €'],['Sprzedaż z maili',mailV,mailVL,' €'],['Zamówienia z maili',mailZ.length,mailL.length,''],['Wizyty na stronie',gt.sessions||0,gl.sessions||0,''],['Dodania do koszyka',gt.addToCarts||0,gl.addToCarts||0,''],['Przejścia do kasy',gt.checkouts||0,gl.checkouts||0,''],['Konwersja (zakupy / wizyty)',gt.sessions?(gt.ecommercePurchases||0)/gt.sessions*100:0,gl.sessions?(gl.ecommercePurchases||0)/gl.sessions*100:0,' %'],['Wydane na reklamę (Meta + Google)',rekl,reklL,' €','','n'],['Reklama jako % sprzedaży',O.teraz?rekl/O.teraz*100:0,O.rok_temu?reklL/O.rok_temu*100:0,' %','mniej = lepiej'],['Wydane na Meta',wyd,wydL,' €','','n'],['Wydane na Google Ads',gk,gkL,' €','','n'],['Kliknięcia w reklamy Meta',kl,klL,''],['Klikalność reklam Meta',wys?kl/wys*100:0,wysL?klL/wysL*100:0,' %'],['Koszyki z reklam Meta',ko,koL,''],['Koszt jednego koszyka',ko?wyd/ko:0,koL?wydL/koL:0,' €','mniej = lepiej'],['Zakupy wg piksela Meta',zk,zkL,''],['Wartość zakupów wg piksela',wv,wvL,' €']];
   const fm=(v,u)=>u===' %'?v.toLocaleString('pl-PL',{maximumFractionDigits:1})+u:(u===' €'&&v<100?v.toLocaleString('pl-PL',{maximumFractionDigits:1}):f(v))+u;
   document.getElementById('rr').innerHTML=rr.map(r=>{const mx=Math.max(r[1],r[2],0.0001);return `<div class="rrW"><div class="nz">${r[0]}${r[4]?` <span style="color:var(--cichy);font-size:12px">(${r[4]})</span>`:''}</div><div><div class="pas teraz"><i style="width:${Math.max(1,r[1]/mx*78)}%"></i><b>${fm(r[1],r[3])}</b> ${zm(r[1],r[2],r[5]||!!r[4])}</div><div class="pas rok" style="margin-top:4px"><i style="width:${Math.max(1,r[2]/mx*78)}%"></i>${fm(r[2],r[3])}</div></div></div>`}).join('');
+  // ruch GA4 wg kanałów
+  const PL={'Paid Social':'Reklama w social media','Direct':'Wejście bezpośrednie','Organic Search':'Wyszukiwarka (bezpłatnie)','Email':'Maile','Organic Social':'Social media (bezpłatnie)','Paid Search':'Google Ads (wyszukiwarka)','Referral':'Linki z innych stron','Paid Shopping':'Google Shopping (płatnie)','Organic Shopping':'Google Shopping (bezpłatnie)','Unassigned':'Nieprzypisane','Cross-network':'Google (Performance Max)','Display':'Reklama displayowa','Paid Video':'Reklama wideo','Organic Video':'Wideo (bezpłatnie)','SMS':'SMS','AI Assistant':'Asystenci AI (ChatGPT itp.)','Paid Other':'Inna reklama płatna'};
+  const GK=(O.ga4_kanaly||[]).filter(k=>(k.teraz?.sesje||0)+(k.rok?.sesje||0)>0);
+  document.getElementById('ruch').innerHTML='<tr><th>Kanał</th><th style="text-align:right">Wizyty</th><th style="text-align:right">Rok temu</th><th style="text-align:right">Koszyki</th><th style="text-align:right">Rok temu</th><th style="text-align:right">Zakupy</th><th style="text-align:right">Rok temu</th></tr>'+(GK.length?GK.map(k=>{const t=k.teraz||{},l=k.rok||{};return `<tr><td>${esc(PL[k.n]||k.n)}</td><td class="l"><b>${f(t.sesje||0)}</b> ${zm(t.sesje||0,l.sesje||0)}</td><td class="l" style="color:var(--cichy)">${f(l.sesje||0)}</td><td class="l"><b>${t.koszyki||0}</b></td><td class="l" style="color:var(--cichy)">${l.koszyki||0}</td><td class="l"><b>${t.zakupy||0}</b></td><td class="l" style="color:var(--cichy)">${l.zakupy||0}</td></tr>`}).join(''):'<tr><td colspan="7">Brak danych GA4</td></tr>');
   // kanały
   const kan={};z.forEach(o=>{const[n,c]=kanal(o);(kan[n]||=( {n,c,i:0,v:0}));kan[n].i++;kan[n].v+=netto(o)});
   const kll=Object.values(kan).sort((a,b)=>b.v-a.v), mx=Math.max(...kll.map(k=>k.v),1), mailsum=kll.filter(k=>k.c==='mail');
