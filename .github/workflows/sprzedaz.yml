@@ -1,0 +1,29 @@
+# Co godzinę: świeże dane sprzedaży (Shopify, Klaviyo, Meta) do /sprzedaz/dane.json
+name: Sprzedaz na zywo
+on:
+  schedule: [{ cron: '17 * * * *' }]
+  workflow_dispatch:
+concurrency: { group: sprzedaz, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  dane:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node _gen/sprzedaz.mjs
+        env:
+          SHOPIFY_ID: ${{ secrets.SHOPIFY_ID }}
+          SHOPIFY_SECRET: ${{ secrets.SHOPIFY_SECRET }}
+          META_TOKEN: ${{ secrets.META_TOKEN }}
+          KLAVIYO_KEY: ${{ secrets.KLAVIYO_KEY }}
+      - name: Zapisz dane
+        run: |
+          git config user.name "zovu-sprzedaz"
+          git config user.email "zovu.pl@gmail.com"
+          git add sprzedaz/dane.json
+          git diff --cached --quiet || git commit -m "Sprzedaz: dane $(date -u +%H:%M)"
+          git pull --rebase -q origin ${{ github.ref_name }}
+          git push -q origin HEAD:${{ github.ref_name }}
