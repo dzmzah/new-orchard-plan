@@ -45,6 +45,10 @@ th.n{text-align:right}
 
   <div class="kafle" id="kafle"></div>
 
+  <h2>Rok do roku</h2>
+  <div class="tab"><table id="rdr"></table></div>
+  <div class="uw">Dane z raportów Shopify (ShopifyQL): ta sama metoda dla obu lat, z marketplace'ami, po zwrotach i bez wysyłki — dlatego suma może się różnić od sumy zamówień wyżej. Reklama Meta rok temu w tym samym okresie: <span id="metaly"></span>.</div>
+
   <h2>Skąd przyszła sprzedaż</h2>
   <div class="tab"><table id="kanaly"></table></div>
   <div class="uw">Źródło: najpierw mail, który według Klaviyo doprowadził do zakupu (kampania albo automatyczny mail), potem Shopify (UTM reklamy, Instagram, wejście bezpośrednie).</div>
@@ -99,8 +103,12 @@ fetch('dane.json?t='+Date.now()).then(r=>r.json()).then(d=>{
   const dzis=dzien(new Date()), zDzis=z.filter(o=>dzien(o.data)===dzis);
   const wyd=d.meta.reduce((a,m)=>a+m.wydatek,0), wydDzis=(d.meta.find(m=>m.dzien===dzis)||{}).wydatek||0;
   const mailV=[...d.klaviyo.kampanie,...d.klaviyo.flowy].reduce((a,x)=>a+(x.conversion_value||0),0);
-  const K=[['Sprzedaż',eur(suma),z.length+' zamówień'],['Dziś',eur(zDzis.reduce((a,o)=>a+netto(o),0)),zDzis.length+' zamówień'],['Średnie zamówienie',eur(z.length?suma/z.length:0),''],['Reklama Meta',eur(wyd),'dziś '+eur(wydDzis)],['Z maili (Klaviyo)',eur(mailV),'kampanie + flowy']];
+  const dniAkcji=Math.round((new Date(dzien(new Date()))-new Date(d.start))/864e5)+1;const K=[['Sprzedaż od '+new Date(d.start).toLocaleDateString('pl-PL',{day:'2-digit',month:'2-digit'})+' ('+dniAkcji+' dni)',eur(suma),z.length+' zamówień'],['Dziś',eur(zDzis.reduce((a,o)=>a+netto(o),0)),zDzis.length+' zamówień'],['Średnie zamówienie',eur(z.length?suma/z.length:0),''],['Reklama Meta',eur(wyd),'dziś '+eur(wydDzis)],['Z maili (Klaviyo)',eur(mailV),'kampanie + flowy']];
   document.getElementById('kafle').innerHTML=K.map(k=>`<div class="kafel"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="s">${k[2]}</div></div>`).join('');
+  // rok do roku
+  if(d.rok_do_roku){const zm=(a,b)=>b?((a/b-1)*100>=0?'+':'')+Math.round((a/b-1)*100)+' %':'—';
+    document.getElementById('rdr').innerHTML='<tr><th>Okres</th><th class="n">2026</th><th class="n">Zamówień</th><th class="n">Rok temu</th><th class="n">Zamówień</th><th class="n">Zmiana</th></tr>'+d.rok_do_roku.map(r=>`<tr><td>${esc(r.okres)}<br><span class="sub">${new Date(r.od).toLocaleDateString('pl-PL',{day:'2-digit',month:'2-digit'})}–${new Date(r.do).toLocaleDateString('pl-PL',{day:'2-digit',month:'2-digit'})}</span></td><td class="n"><b>${eur(r.teraz)}</b></td><td class="n">${r.zam}</td><td class="n">${eur(r.rok_temu)}</td><td class="n">${r.zam_rok_temu}</td><td class="n" style="color:${r.teraz>=r.rok_temu?'#2f6b3f':'#b4552e'}"><b>${zm(r.teraz,r.rok_temu)}</b></td></tr>`).join('');
+    if(d.meta_rok_temu)document.getElementById('metaly').textContent=eur(d.meta_rok_temu.wydatek)+' (teraz '+eur(wyd)+')';}
   // kanały
   const kan={};z.forEach(o=>{const[n,c]=kanal(o);(kan[n]||=( {n,c,i:0,v:0}));kan[n].i++;kan[n].v+=netto(o)});
   const kl=Object.values(kan).sort((a,b)=>b.v-a.v), mx=Math.max(...kl.map(k=>k.v),1);

@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-10-30T21:29:59.416Z",
+ "aktualizacja": "2026-10-30T21:38:40.627Z",
  "start": "2026-10-24",
  "zamowienia": [
   {
@@ -390,8 +390,8 @@
   },
   {
    "dzien": "2026-10-30",
-   "wydatek": 114.52,
-   "klikniecia": 106,
+   "wydatek": 115.75,
+   "klikniecia": 107,
    "koszyki": 6,
    "zakupy": 2,
    "wartosc": 383.4
@@ -413,7 +413,7 @@
     "nazwa": "Birthday 30.10 Halloween EN",
     "wyslano": "2026-10-30T07:00:00+00:00",
     "recipients": 955,
-    "opens_unique": 323,
+    "opens_unique": 327,
     "clicks_unique": 25,
     "unsubscribes": 6,
     "conversions": 1,
@@ -478,5 +478,75 @@
     "conversion_value": 0
    }
   ]
+ },
+ "rok_do_roku": [
+  {
+   "okres": "Dziś",
+   "od": "2026-10-30",
+   "do": "2026-10-30",
+   "teraz": 754.76,
+   "zam": 5,
+   "rok_temu": 155.09,
+   "zam_rok_temu": 1
+  },
+  {
+   "okres": "Akcja (od 24.10)",
+   "od": "2026-10-24",
+   "do": "2026-10-30",
+   "teraz": 2842.95,
+   "zam": 18,
+   "rok_temu": 698.76,
+   "zam_rok_temu": 5
+  },
+  {
+   "okres": "Ten miesiąc",
+   "od": "2026-10-01",
+   "do": "2026-10-30",
+   "teraz": 7498.5,
+   "zam": 38,
+   "rok_temu": 1861.09,
+   "zam_rok_temu": 13
+  },
+  {
+   "okres": "Sezon (od 1.09)",
+   "od": "2026-09-01",
+   "do": "2026-10-30",
+   "teraz": 11410.67,
+   "zam": 52,
+   "rok_temu": 3288.29,
+   "zam_rok_temu": 20
+  }
+ ],
+ "dni_rok_temu": [
+  {
+   "dzien": "2025-10-26",
+   "sprzedaz": 234,
+   "zam": 1
+  },
+  {
+   "dzien": "2025-10-24",
+   "sprzedaz": 174.78,
+   "zam": 1
+  },
+  {
+   "dzien": "2025-10-30",
+   "sprzedaz": 155.09,
+   "zam": 1
+  },
+  {
+   "dzien": "2025-10-28",
+   "sprzedaz": 71.89,
+   "zam": 1
+  },
+  {
+   "dzien": "2025-10-25",
+   "sprzedaz": 63,
+   "zam": 1
+  }
+ ],
+ "meta_rok_temu": {
+  "wydatek": 545.24,
+  "zakupy": 0,
+  "wartosc": 0
  }
 }

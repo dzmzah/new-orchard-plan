@@ -15,10 +15,22 @@ for (const o of sj.data.orders.nodes) {
     towary: o.lineItems.nodes.map(l => (l.quantity > 1 ? l.quantity + '× ' : '') + l.title.replace(' (Unisex)', '').replace('Classic Vegan ', '')), zrodlo: lv.source || '', utm_source: u.source || '', utm_medium: u.medium || '', utm_campaign: u.campaign || '' });
 }
 
+// Rok do roku (ShopifyQL — te same liczby co w raportach; obejmuje marketplace'y i zwroty)
+{ const sq = async q => (await (await fetch('https://theneworchard.myshopify.com/admin/api/2025-07/graphql.json', { method: 'POST', headers: { 'content-type': 'application/json', 'X-Shopify-Access-Token': tok }, body: JSON.stringify({ query: `{ shopifyqlQuery(query: ${JSON.stringify(q)}) { parseErrors tableData { rows } } }` }) })).json()).data?.shopifyqlQuery?.tableData?.rows || [];
+  const suma = rows => rows.reduce((a, r) => ({ s: a.s + (+r.total_sales || 0), z: a.z + (+r.orders || 0) }), { s: 0, z: 0 });
+  const zr = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Zurich' }), y = +zr.slice(0, 4), ly = d => (+d.slice(0, 4) - 1) + d.slice(4);
+  const okresy = [['Dziś', zr, zr], ['Akcja (od ' + START.slice(8, 10) + '.' + START.slice(5, 7) + ')', START, zr], ['Ten miesiąc', zr.slice(0, 8) + '01', zr], ['Sezon (od 1.09)', (zr.slice(5, 7) >= '09' ? y : y - 1) + '-09-01', zr]];
+  out.rok_do_roku = [];
+  for (const [n, a, b] of okresy) { const t = suma(await sq(`FROM sales SHOW total_sales, orders SINCE ${a} UNTIL ${b}`)), l = suma(await sq(`FROM sales SHOW total_sales, orders SINCE ${ly(a)} UNTIL ${ly(b)}`));
+    out.rok_do_roku.push({ okres: n, od: a, do: b, teraz: +t.s.toFixed(2), zam: t.z, rok_temu: +l.s.toFixed(2), zam_rok_temu: l.z }); }
+  const dni = await sq(`FROM sales SHOW total_sales, orders GROUP BY day SINCE ${ly(START)} UNTIL ${ly(zr)}`);
+  out.dni_rok_temu = dni.map(r => ({ dzien: r.day, sprzedaz: +r.total_sales, zam: +r.orders })); }
+
 // Meta
+const pick = (a, k) => +((a || []).find(x => x.action_type === k)?.value || 0);
 const MT = env('META_TOKEN'), dzis = new Date().toISOString().slice(0, 10);
 const mr = await (await fetch(`https://graph.facebook.com/v21.0/act_1262853788445873/insights?time_range={"since":"${START}","until":"${dzis}"}&time_increment=1&fields=spend,inline_link_clicks,actions,action_values&limit=100&access_token=${MT}`)).json();
-const pick = (a, k) => +((a || []).find(x => x.action_type === k)?.value || 0);
+{ const lyS=(+START.slice(0,4)-1)+START.slice(4), lyE=(+dzis.slice(0,4)-1)+dzis.slice(4); const ml=await (await fetch(`https://graph.facebook.com/v21.0/act_1262853788445873/insights?time_range={"since":"${lyS}","until":"${lyE}"}&fields=spend,actions,action_values&access_token=${MT}`)).json(); const x=ml.data?.[0]||{}; out.meta_rok_temu={ wydatek:+(+(x.spend||0)).toFixed(2), zakupy:pick(x.actions,'offsite_conversion.fb_pixel_purchase'), wartosc:pick(x.action_values,'offsite_conversion.fb_pixel_purchase') }; }
 for (const d of mr.data || []) out.meta.push({ dzien: d.date_start, wydatek: +(+d.spend).toFixed(2), klikniecia: +(d.inline_link_clicks || 0), koszyki: pick(d.actions, 'offsite_conversion.fb_pixel_add_to_cart'), zakupy: pick(d.actions, 'offsite_conversion.fb_pixel_purchase'), wartosc: pick(d.action_values, 'offsite_conversion.fb_pixel_purchase') });
 
 // Klaviyo
