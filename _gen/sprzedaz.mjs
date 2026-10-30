@@ -33,7 +33,10 @@ for (const o of sj.data.orders.nodes) {
     { id: 'sezon', nazwa: 'Sezon (od 1.09)', od: sezon, do: zr } ];
   out.okresy = [];
   for (const o of okresy) { const t = suma(await sq(`FROM sales SHOW total_sales, orders SINCE ${o.od} UNTIL ${o.do}`)), l = suma(await sq(`FROM sales SHOW total_sales, orders SINCE ${ly(o.od)} UNTIL ${ly(o.do)}`));
-    out.okresy.push({ ...o, teraz: +t.s.toFixed(2), zam: t.z, rok_temu: +l.s.toFixed(2), zam_rok_temu: l.z }); }
+    const prod = async (a, b) => (await sq(`FROM sales SHOW net_items_sold, total_sales GROUP BY product_title SINCE ${a} UNTIL ${b} ORDER BY net_items_sold DESC LIMIT 12`)).filter(r => +r.net_items_sold > 0).map(r => ({ n: r.product_title.replace(' (Unisex)', '').replace('Classic Vegan ', ''), q: +r.net_items_sold, s: +(+r.total_sales).toFixed(2) }));
+    const kraj = async (a, b) => (await sq(`FROM sales SHOW orders, total_sales GROUP BY shipping_country SINCE ${a} UNTIL ${b} ORDER BY orders DESC`)).filter(r => +r.orders > 0).map(r => ({ n: r.shipping_country || '?', z: +r.orders, s: +(+r.total_sales).toFixed(2) }));
+    out.okresy.push({ ...o, teraz: +t.s.toFixed(2), zam: t.z, rok_temu: +l.s.toFixed(2), zam_rok_temu: l.z,
+      produkty: await prod(o.od, o.do), produkty_rok: await prod(ly(o.od), ly(o.do)), kraje: await kraj(o.od, o.do), kraje_rok: await kraj(ly(o.od), ly(o.do)) }); }
   const mies = async (a, b) => (await sq(`FROM sales SHOW total_sales, orders GROUP BY month SINCE ${a} UNTIL ${b}`)).map(r => ({ m: String(r.month).slice(0, 7), s: +r.total_sales, z: +r.orders }));
   const t = await mies(sezon, zr), l = await mies(ly(sezon), ly(sezon).slice(0, 4) - 0 + 1 + '-01-31');
   out.miesiace = l.map(r => { const tm = (+r.m.slice(0, 4) + 1) + r.m.slice(4); const x = t.find(z => z.m === tm); return { miesiac: tm, nazwa: MS[+tm.slice(5, 7)], teraz: x ? +x.s.toFixed(2) : null, zam: x ? x.z : null, rok_temu: +r.s.toFixed(2), zam_rok_temu: r.z }; }); }
@@ -41,9 +44,13 @@ for (const o of sj.data.orders.nodes) {
 // Meta
 const pick = (a, k) => +((a || []).find(x => x.action_type === k)?.value || 0);
 const MT = env('META_TOKEN'), dzis = new Date().toISOString().slice(0, 10);
-const mr = await (await fetch(`https://graph.facebook.com/v21.0/act_1262853788445873/insights?time_range={"since":"${START}","until":"${dzis}"}&time_increment=1&fields=spend,inline_link_clicks,actions,action_values&limit=100&access_token=${MT}`)).json();
+const mr = await (await fetch(`https://graph.facebook.com/v21.0/act_1262853788445873/insights?time_range={"since":"${START}","until":"${dzis}"}&time_increment=1&fields=spend,impressions,inline_link_clicks,actions,action_values&limit=100&access_token=${MT}`)).json();
 { const lyS='2025-10-24', lyE='2025-11-01'; const ml=await (await fetch(`https://graph.facebook.com/v21.0/act_1262853788445873/insights?time_range={"since":"${lyS}","until":"${lyE}"}&fields=spend,actions,action_values&access_token=${MT}`)).json(); const x=ml.data?.[0]||{}; out.meta_rok_temu={ wydatek:+(+(x.spend||0)).toFixed(2), zakupy:pick(x.actions,'offsite_conversion.fb_pixel_purchase'), wartosc:pick(x.action_values,'offsite_conversion.fb_pixel_purchase') }; }
-for (const d of mr.data || []) out.meta.push({ dzien: d.date_start, wydatek: +(+d.spend).toFixed(2), klikniecia: +(d.inline_link_clicks || 0), koszyki: pick(d.actions, 'offsite_conversion.fb_pixel_add_to_cart'), zakupy: pick(d.actions, 'offsite_conversion.fb_pixel_purchase'), wartosc: pick(d.action_values, 'offsite_conversion.fb_pixel_purchase') });
+for (const d of mr.data || []) out.meta.push({ dzien: d.date_start, wydatek: +(+d.spend).toFixed(2), wyswietlenia: +(d.impressions || 0), klikniecia: +(d.inline_link_clicks || 0), koszyki: pick(d.actions, 'offsite_conversion.fb_pixel_add_to_cart'), zakupy: pick(d.actions, 'offsite_conversion.fb_pixel_purchase'), wartosc: pick(d.action_values, 'offsite_conversion.fb_pixel_purchase') });
+
+{ const lyS = (+START.slice(0, 4) - 1) + START.slice(4), lyE = (+dzis.slice(0, 4) - 1) + dzis.slice(4); out.meta_ly = [];
+  let u = `https://graph.facebook.com/v21.0/act_1262853788445873/insights?time_range={"since":"${lyS}","until":"${lyE}"}&time_increment=1&fields=spend,impressions,inline_link_clicks,actions,action_values&limit=100&access_token=${MT}`;
+  while (u) { const r = await (await fetch(u)).json(); for (const d of r.data || []) out.meta_ly.push({ dzien: d.date_start, wydatek: +(+d.spend).toFixed(2), wyswietlenia: +(d.impressions || 0), klikniecia: +(d.inline_link_clicks || 0), koszyki: pick(d.actions, 'offsite_conversion.fb_pixel_add_to_cart'), zakupy: pick(d.actions, 'offsite_conversion.fb_pixel_purchase'), wartosc: pick(d.action_values, 'offsite_conversion.fb_pixel_purchase') }); u = r.paging?.next; } }
 
 // Klaviyo
 const KH = { Authorization: 'Klaviyo-API-Key ' + env('KLAVIYO_KEY'), revision: '2024-10-15', accept: 'application/vnd.api+json', 'content-type': 'application/vnd.api+json' };
@@ -69,6 +76,12 @@ out.klaviyo.flowy = Object.values(agg).filter(a => a.recipients > 0).sort((a, b)
     for (const e of r.data || []) { const p = e.attributes.event_properties || {}; const oid = String(p.$event_id || ''); const z = out.zamowienia.find(x => x.id === oid); if (!z) continue;
       for (const a of e.relationships?.attributions?.data || []) { const at = inc[a.id]; if (!at) continue; const R = at.relationships || {};
         if (R.campaign?.data) z.klaviyo = 'Mail: ' + (cn[R.campaign.data.id] || 'kampania'); else if (R.flow?.data) { const fn = fl[R.flow.data.id] || ''; z.klaviyo = /Abandoned Cart/i.test(fn) ? 'Mail: porzucony koszyk' : /Checkout/i.test(fn) ? 'Mail: porzucona kasa' : /Welcome/i.test(fn) ? 'Mail powitalny' : /Winback/i.test(fn) ? 'Mail: powrót klienta' : 'Mail automatyczny: ' + fn; } } }
+    u = r.links?.next ? r.links.next.replace('https://a.klaviyo.com/api/', '') : null; } }
+{ const KH3 = { ...KH, revision: '2025-07-15' }; delete KH3['content-type'];
+  const kg3 = async p => { for (let i = 0; i < 5; i++) { const r = await fetch('https://a.klaviyo.com/api/' + p, { headers: KH3 }); if (r.status === 429) { await new Promise(z => setTimeout(z, 3000)); continue; } return r.json(); } };
+  const lyS = (+START.slice(0, 4) - 1) + START.slice(4), lyE = (+dzis.slice(0, 4) - 1) + dzis.slice(4) + 'T23:59:59Z';
+  out.klaviyo_ly = []; let u = `events?filter=and(equals(metric_id,"${po}"),greater-or-equal(datetime,${lyS}T00:00:00Z),less-or-equal(datetime,${lyE}))&include=attributions&fields[event]=datetime,event_properties`;
+  while (u) { const r = await kg3(u); for (const e of r.data || []) out.klaviyo_ly.push({ data: e.attributes.datetime, kwota: +(e.attributes.event_properties?.$value || 0), mail: (e.relationships?.attributions?.data || []).length > 0 });
     u = r.links?.next ? r.links.next.replace('https://a.klaviyo.com/api/', '') : null; } }
 fs.writeFileSync(new URL('../sprzedaz/dane.json', import.meta.url), JSON.stringify(out, null, 1));
 console.log('zamowien', out.zamowienia.length, 'meta dni', out.meta.length, 'kampanii', out.klaviyo.kampanie.length, 'flowow', out.klaviyo.flowy.length);

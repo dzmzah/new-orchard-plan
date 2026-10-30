@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-10-30T21:39:55.747Z",
+ "aktualizacja": "2026-10-30T21:48:37.263Z",
  "start": "2026-09-02",
  "zamowienia": [
   {
@@ -969,6 +969,7 @@
   {
    "dzien": "2026-10-05",
    "wydatek": 19.07,
+   "wyswietlenia": 957,
    "klikniecia": 18,
    "koszyki": 0,
    "zakupy": 0,
@@ -977,6 +978,7 @@
   {
    "dzien": "2026-10-06",
    "wydatek": 31.76,
+   "wyswietlenia": 1154,
    "klikniecia": 29,
    "koszyki": 4,
    "zakupy": 0,
@@ -985,6 +987,7 @@
   {
    "dzien": "2026-10-07",
    "wydatek": 35.68,
+   "wyswietlenia": 1039,
    "klikniecia": 37,
    "koszyki": 1,
    "zakupy": 0,
@@ -993,6 +996,7 @@
   {
    "dzien": "2026-10-08",
    "wydatek": 72.55,
+   "wyswietlenia": 1975,
    "klikniecia": 63,
    "koszyki": 2,
    "zakupy": 0,
@@ -1001,6 +1005,7 @@
   {
    "dzien": "2026-10-09",
    "wydatek": 81.02,
+   "wyswietlenia": 2398,
    "klikniecia": 78,
    "koszyki": 3,
    "zakupy": 0,
@@ -1009,6 +1014,7 @@
   {
    "dzien": "2026-10-10",
    "wydatek": 68.83,
+   "wyswietlenia": 2174,
    "klikniecia": 70,
    "koszyki": 5,
    "zakupy": 0,
@@ -1017,6 +1023,7 @@
   {
    "dzien": "2026-10-11",
    "wydatek": 107.79,
+   "wyswietlenia": 3315,
    "klikniecia": 119,
    "koszyki": 6,
    "zakupy": 0,
@@ -1025,6 +1032,7 @@
   {
    "dzien": "2026-10-12",
    "wydatek": 100.87,
+   "wyswietlenia": 3404,
    "klikniecia": 137,
    "koszyki": 7,
    "zakupy": 0,
@@ -1033,6 +1041,7 @@
   {
    "dzien": "2026-10-13",
    "wydatek": 75.66,
+   "wyswietlenia": 2579,
    "klikniecia": 94,
    "koszyki": 7,
    "zakupy": 0,
@@ -1041,6 +1050,7 @@
   {
    "dzien": "2026-10-14",
    "wydatek": 21.61,
+   "wyswietlenia": 976,
    "klikniecia": 28,
    "koszyki": 0,
    "zakupy": 0,
@@ -1049,6 +1059,7 @@
   {
    "dzien": "2026-10-15",
    "wydatek": 16.7,
+   "wyswietlenia": 796,
    "klikniecia": 19,
    "koszyki": 0,
    "zakupy": 0,
@@ -1057,6 +1068,7 @@
   {
    "dzien": "2026-10-16",
    "wydatek": 17.53,
+   "wyswietlenia": 1001,
    "klikniecia": 17,
    "koszyki": 0,
    "zakupy": 0,
@@ -1065,6 +1077,7 @@
   {
    "dzien": "2026-10-17",
    "wydatek": 24.5,
+   "wyswietlenia": 1180,
    "klikniecia": 28,
    "koszyki": 1,
    "zakupy": 0,
@@ -1073,6 +1086,7 @@
   {
    "dzien": "2026-10-18",
    "wydatek": 25.72,
+   "wyswietlenia": 1309,
    "klikniecia": 24,
    "koszyki": 1,
    "zakupy": 0,
@@ -1081,6 +1095,7 @@
   {
    "dzien": "2026-10-19",
    "wydatek": 19.23,
+   "wyswietlenia": 967,
    "klikniecia": 18,
    "koszyki": 0,
    "zakupy": 0,
@@ -1089,6 +1104,7 @@
   {
    "dzien": "2026-10-20",
    "wydatek": 25.48,
+   "wyswietlenia": 951,
    "klikniecia": 26,
    "koszyki": 2,
    "zakupy": 0,
@@ -1097,6 +1113,7 @@
   {
    "dzien": "2026-10-21",
    "wydatek": 19.94,
+   "wyswietlenia": 685,
    "klikniecia": 16,
    "koszyki": 0,
    "zakupy": 0,
@@ -1105,6 +1122,7 @@
   {
    "dzien": "2026-10-22",
    "wydatek": 7.3,
+   "wyswietlenia": 314,
    "klikniecia": 8,
    "koszyki": 0,
    "zakupy": 0,
@@ -1113,6 +1131,7 @@
   {
    "dzien": "2026-10-23",
    "wydatek": 4.06,
+   "wyswietlenia": 358,
    "klikniecia": 6,
    "koszyki": 0,
    "zakupy": 0,
@@ -1121,6 +1140,7 @@
   {
    "dzien": "2026-10-24",
    "wydatek": 3.83,
+   "wyswietlenia": 394,
    "klikniecia": 5,
    "koszyki": 0,
    "zakupy": 0,
@@ -1129,6 +1149,7 @@
   {
    "dzien": "2026-10-25",
    "wydatek": 10.4,
+   "wyswietlenia": 1187,
    "klikniecia": 23,
    "koszyki": 0,
    "zakupy": 0,
@@ -1137,6 +1158,7 @@
   {
    "dzien": "2026-10-26",
    "wydatek": 60.41,
+   "wyswietlenia": 4923,
    "klikniecia": 111,
    "koszyki": 0,
    "zakupy": 0,
@@ -1145,6 +1167,7 @@
   {
    "dzien": "2026-10-27",
    "wydatek": 91.89,
+   "wyswietlenia": 6475,
    "klikniecia": 156,
    "koszyki": 12,
    "zakupy": 1,
@@ -1153,6 +1176,7 @@
   {
    "dzien": "2026-10-28",
    "wydatek": 57.26,
+   "wyswietlenia": 2878,
    "klikniecia": 76,
    "koszyki": 4,
    "zakupy": 1,
@@ -1161,6 +1185,7 @@
   {
    "dzien": "2026-10-29",
    "wydatek": 95.58,
+   "wyswietlenia": 5255,
    "klikniecia": 134,
    "koszyki": 7,
    "zakupy": 1,
@@ -1168,8 +1193,9 @@
   },
   {
    "dzien": "2026-10-30",
-   "wydatek": 116.26,
-   "klikniecia": 109,
+   "wydatek": 117.47,
+   "wyswietlenia": 5982,
+   "klikniecia": 110,
    "koszyki": 6,
    "zakupy": 2,
    "wartosc": 383.4
@@ -1241,7 +1267,7 @@
     "nazwa": "Birthday 30.10 Halloween EN",
     "wyslano": "2026-10-30T07:00:00+00:00",
     "recipients": 955,
-    "opens_unique": 327,
+    "opens_unique": 328,
     "clicks_unique": 25,
     "unsubscribes": 6,
     "conversions": 1,
@@ -1336,7 +1362,165 @@
    "teraz": 2842.95,
    "zam": 18,
    "rok_temu": 698.76,
-   "zam_rok_temu": 5
+   "zam_rok_temu": 5,
+   "produkty": [
+    {
+     "n": "Slippers Black",
+     "q": 6,
+     "s": 824.4
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 4,
+     "s": 98
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 2,
+     "s": 286.8
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 2,
+     "s": 39.8
+    },
+    {
+     "n": "Medium Boots All Black (limited edition)",
+     "q": 2,
+     "s": 310.8
+    },
+    {
+     "n": "Upcycled Vegan Scrunchie Beige",
+     "q": 2,
+     "s": 25.44
+    },
+    {
+     "n": "Short Boots Grey",
+     "q": 1,
+     "s": 143.4
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 168.81
+    },
+    {
+     "n": "Long Boots Black",
+     "q": 1,
+     "s": 167.4
+    },
+    {
+     "n": "Medium Boots Blue",
+     "q": 1,
+     "s": 168.24
+    },
+    {
+     "n": "Winter Vegan Skirt Red (limited edition)",
+     "q": 1,
+     "s": 159
+    },
+    {
+     "n": "Winter Vegan Gloves Red",
+     "q": 1,
+     "s": 63.87
+    }
+   ],
+   "produkty_rok": [
+    {
+     "n": "Winter Vegan Gloves Navy",
+     "q": 1,
+     "s": 53.1
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 1,
+     "s": 164.88
+    },
+    {
+     "n": "Medium Boots Grey",
+     "q": 1,
+     "s": 62.75
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 1,
+     "s": 65.72
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 1,
+     "s": 82.44
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 224.1
+    }
+   ],
+   "kraje": [
+    {
+     "n": "Germany",
+     "z": 7,
+     "s": 814.48
+    },
+    {
+     "n": "Poland",
+     "z": 2,
+     "s": 492.64
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 226.3
+    },
+    {
+     "n": "Switzerland",
+     "z": 2,
+     "s": 438.63
+    },
+    {
+     "n": "Netherlands",
+     "z": 2,
+     "s": 383.4
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 295.7
+    },
+    {
+     "n": "France",
+     "z": 1,
+     "s": 158.3
+    },
+    {
+     "n": "Austria",
+     "z": 1,
+     "s": 33.5
+    }
+   ],
+   "kraje_rok": [
+    {
+     "n": "Germany",
+     "z": 2,
+     "s": 389.09
+    },
+    {
+     "n": "Sweden",
+     "z": 1,
+     "s": 71.89
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 63
+    },
+    {
+     "n": "Slovenia",
+     "z": 1,
+     "s": 174.78
+    }
+   ]
   },
   {
    "id": "dzis",
@@ -1346,7 +1530,85 @@
    "teraz": 754.76,
    "zam": 5,
    "rok_temu": 155.09,
-   "zam_rok_temu": 1
+   "zam_rok_temu": 1,
+   "produkty": [
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 2,
+     "s": 49
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 2,
+     "s": 39.8
+    },
+    {
+     "n": "Slippers Black",
+     "q": 2,
+     "s": 274.8
+    },
+    {
+     "n": "Winter Vegan Beanie Beige",
+     "q": 1,
+     "s": 24.5
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 168.81
+    },
+    {
+     "n": "Short Boots Grey",
+     "q": 1,
+     "s": 143.4
+    }
+   ],
+   "produkty_rok": [
+    {
+     "n": "Medium Boots Grey",
+     "q": 1,
+     "s": 62.75
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 1,
+     "s": 82.44
+    }
+   ],
+   "kraje": [
+    {
+     "n": "France",
+     "z": 1,
+     "s": 158.3
+    },
+    {
+     "n": "Austria",
+     "z": 1,
+     "s": 33.5
+    },
+    {
+     "n": "Germany",
+     "z": 1,
+     "s": 147.3
+    },
+    {
+     "n": "Switzerland",
+     "z": 1,
+     "s": 179.56
+    },
+    {
+     "n": "Netherlands",
+     "z": 1,
+     "s": 236.1
+    }
+   ],
+   "kraje_rok": [
+    {
+     "n": "Germany",
+     "z": 1,
+     "s": 155.09
+    }
+   ]
   },
   {
    "id": "7",
@@ -1356,7 +1618,165 @@
    "teraz": 2842.95,
    "zam": 18,
    "rok_temu": 698.76,
-   "zam_rok_temu": 5
+   "zam_rok_temu": 5,
+   "produkty": [
+    {
+     "n": "Slippers Black",
+     "q": 6,
+     "s": 824.4
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 4,
+     "s": 98
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 2,
+     "s": 286.8
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 2,
+     "s": 39.8
+    },
+    {
+     "n": "Medium Boots All Black (limited edition)",
+     "q": 2,
+     "s": 310.8
+    },
+    {
+     "n": "Upcycled Vegan Scrunchie Beige",
+     "q": 2,
+     "s": 25.44
+    },
+    {
+     "n": "Short Boots Grey",
+     "q": 1,
+     "s": 143.4
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 168.81
+    },
+    {
+     "n": "Long Boots Black",
+     "q": 1,
+     "s": 167.4
+    },
+    {
+     "n": "Medium Boots Blue",
+     "q": 1,
+     "s": 168.24
+    },
+    {
+     "n": "Winter Vegan Skirt Red (limited edition)",
+     "q": 1,
+     "s": 159
+    },
+    {
+     "n": "Winter Vegan Gloves Red",
+     "q": 1,
+     "s": 63.87
+    }
+   ],
+   "produkty_rok": [
+    {
+     "n": "Winter Vegan Gloves Navy",
+     "q": 1,
+     "s": 53.1
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 1,
+     "s": 164.88
+    },
+    {
+     "n": "Medium Boots Grey",
+     "q": 1,
+     "s": 62.75
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 1,
+     "s": 65.72
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 1,
+     "s": 82.44
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 224.1
+    }
+   ],
+   "kraje": [
+    {
+     "n": "Germany",
+     "z": 7,
+     "s": 814.48
+    },
+    {
+     "n": "Poland",
+     "z": 2,
+     "s": 492.64
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 226.3
+    },
+    {
+     "n": "Switzerland",
+     "z": 2,
+     "s": 438.63
+    },
+    {
+     "n": "Netherlands",
+     "z": 2,
+     "s": 383.4
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 295.7
+    },
+    {
+     "n": "France",
+     "z": 1,
+     "s": 158.3
+    },
+    {
+     "n": "Austria",
+     "z": 1,
+     "s": 33.5
+    }
+   ],
+   "kraje_rok": [
+    {
+     "n": "Germany",
+     "z": 2,
+     "s": 389.09
+    },
+    {
+     "n": "Sweden",
+     "z": 1,
+     "s": 71.89
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 63
+    },
+    {
+     "n": "Slovenia",
+     "z": 1,
+     "s": 174.78
+    }
+   ]
   },
   {
    "id": "30",
@@ -1366,7 +1786,200 @@
    "teraz": 7498.5,
    "zam": 38,
    "rok_temu": 1861.09,
-   "zam_rok_temu": 13
+   "zam_rok_temu": 13,
+   "produkty": [
+    {
+     "n": "Slippers Black",
+     "q": 7,
+     "s": 1053.4
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 5,
+     "s": 120.05
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 4,
+     "s": 764.8
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 4,
+     "s": 236
+    },
+    {
+     "n": "Medium Boots All Black (limited edition)",
+     "q": 3,
+     "s": 569.8
+    },
+    {
+     "n": "Slippers Sabbia",
+     "q": 3,
+     "s": 687
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 3,
+     "s": 59.7
+    },
+    {
+     "n": "Vegan T-shirt Oat Milk",
+     "q": 3,
+     "s": 171.1
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 2,
+     "s": 332.38
+    },
+    {
+     "n": "Insole Faux Fur Black",
+     "q": 2,
+     "s": 39.8
+    },
+    {
+     "n": "Upcycled Vegan Scrunchie Beige",
+     "q": 2,
+     "s": 25.44
+    },
+    {
+     "n": "Vegan T-Shirt Vegan Chocolate",
+     "q": 2,
+     "s": 118
+    }
+   ],
+   "produkty_rok": [
+    {
+     "n": "Short Boots Grey",
+     "q": 3,
+     "s": 322.73
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 2,
+     "s": 348.08
+    },
+    {
+     "n": "Medium Boots Grey",
+     "q": 2,
+     "s": 188.25
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 2,
+     "s": 265.64
+    },
+    {
+     "n": "Winter Vegan Gloves Navy",
+     "q": 1,
+     "s": 53.1
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 1,
+     "s": 29.4
+    },
+    {
+     "n": "Insole Faux Fur White",
+     "q": 1,
+     "s": 19.9
+    },
+    {
+     "n": "Medium Boots Brown with White Fur",
+     "q": 1,
+     "s": 199.2
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 1,
+     "s": 65.72
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 224.1
+    }
+   ],
+   "kraje": [
+    {
+     "n": "Germany",
+     "z": 21,
+     "s": 4205.16
+    },
+    {
+     "n": "Poland",
+     "z": 3,
+     "s": 545.74
+    },
+    {
+     "n": "Austria",
+     "z": 3,
+     "s": 378.15
+    },
+    {
+     "n": "Switzerland",
+     "z": 3,
+     "s": 713.55
+    },
+    {
+     "n": "Netherlands",
+     "z": 3,
+     "s": 721.4
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 226.3
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 295.7
+    },
+    {
+     "n": "France",
+     "z": 1,
+     "s": 158.3
+    },
+    {
+     "n": "United States",
+     "z": 1,
+     "s": 254.2
+    }
+   ],
+   "kraje_rok": [
+    {
+     "n": "Germany",
+     "z": 7,
+     "s": 1163.62
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 252.4
+    },
+    {
+     "n": "Sweden",
+     "z": 1,
+     "s": 71.89
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 63
+    },
+    {
+     "n": "Slovenia",
+     "z": 1,
+     "s": 174.78
+    },
+    {
+     "n": "Denmark",
+     "z": 1,
+     "s": 135.4
+    }
+   ]
   },
   {
    "id": "mies",
@@ -1376,7 +1989,200 @@
    "teraz": 7498.5,
    "zam": 38,
    "rok_temu": 1861.09,
-   "zam_rok_temu": 13
+   "zam_rok_temu": 13,
+   "produkty": [
+    {
+     "n": "Slippers Black",
+     "q": 7,
+     "s": 1053.4
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 5,
+     "s": 120.05
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 4,
+     "s": 764.8
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 4,
+     "s": 236
+    },
+    {
+     "n": "Medium Boots All Black (limited edition)",
+     "q": 3,
+     "s": 569.8
+    },
+    {
+     "n": "Slippers Sabbia",
+     "q": 3,
+     "s": 687
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 3,
+     "s": 59.7
+    },
+    {
+     "n": "Vegan T-shirt Oat Milk",
+     "q": 3,
+     "s": 171.1
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 2,
+     "s": 332.38
+    },
+    {
+     "n": "Insole Faux Fur Black",
+     "q": 2,
+     "s": 39.8
+    },
+    {
+     "n": "Upcycled Vegan Scrunchie Beige",
+     "q": 2,
+     "s": 25.44
+    },
+    {
+     "n": "Vegan T-Shirt Vegan Chocolate",
+     "q": 2,
+     "s": 118
+    }
+   ],
+   "produkty_rok": [
+    {
+     "n": "Short Boots Grey",
+     "q": 3,
+     "s": 322.73
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 2,
+     "s": 348.08
+    },
+    {
+     "n": "Medium Boots Grey",
+     "q": 2,
+     "s": 188.25
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 2,
+     "s": 265.64
+    },
+    {
+     "n": "Winter Vegan Gloves Navy",
+     "q": 1,
+     "s": 53.1
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 1,
+     "s": 29.4
+    },
+    {
+     "n": "Insole Faux Fur White",
+     "q": 1,
+     "s": 19.9
+    },
+    {
+     "n": "Medium Boots Brown with White Fur",
+     "q": 1,
+     "s": 199.2
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 1,
+     "s": 65.72
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 224.1
+    }
+   ],
+   "kraje": [
+    {
+     "n": "Germany",
+     "z": 21,
+     "s": 4205.16
+    },
+    {
+     "n": "Poland",
+     "z": 3,
+     "s": 545.74
+    },
+    {
+     "n": "Austria",
+     "z": 3,
+     "s": 378.15
+    },
+    {
+     "n": "Switzerland",
+     "z": 3,
+     "s": 713.55
+    },
+    {
+     "n": "Netherlands",
+     "z": 3,
+     "s": 721.4
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 226.3
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 295.7
+    },
+    {
+     "n": "France",
+     "z": 1,
+     "s": 158.3
+    },
+    {
+     "n": "United States",
+     "z": 1,
+     "s": 254.2
+    }
+   ],
+   "kraje_rok": [
+    {
+     "n": "Germany",
+     "z": 7,
+     "s": 1163.62
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 252.4
+    },
+    {
+     "n": "Sweden",
+     "z": 1,
+     "s": 71.89
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 63
+    },
+    {
+     "n": "Slovenia",
+     "z": 1,
+     "s": 174.78
+    },
+    {
+     "n": "Denmark",
+     "z": 1,
+     "s": 135.4
+    }
+   ]
   },
   {
    "id": "pmies",
@@ -1386,7 +2192,155 @@
    "teraz": 3912.17,
    "zam": 14,
    "rok_temu": 1427.2,
-   "zam_rok_temu": 7
+   "zam_rok_temu": 7,
+   "produkty": [
+    {
+     "n": "Winter Vegan Gloves Blue",
+     "q": 2,
+     "s": 118
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 2,
+     "s": 320.6
+    },
+    {
+     "n": "Upcycled Vegan Scrunchie Beige",
+     "q": 2,
+     "s": 25.44
+    },
+    {
+     "n": "Winter Vegan Gloves Navy",
+     "q": 2,
+     "s": 118
+    },
+    {
+     "n": "Long Boots Beige",
+     "q": 2,
+     "s": 548
+    },
+    {
+     "n": "Medium Boots Grey",
+     "q": 1,
+     "s": 174.3
+    },
+    {
+     "n": "Sports Vegan Tierry White",
+     "q": 1,
+     "s": 19
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 259
+    },
+    {
+     "n": "Winter Vegan Skirt Red (limited edition)",
+     "q": 1,
+     "s": 143.1
+    },
+    {
+     "n": "Winter Vegan Capuche Khaki",
+     "q": 1,
+     "s": 89
+    },
+    {
+     "n": "Slippers Black",
+     "q": 1,
+     "s": 219
+    },
+    {
+     "n": "Medium Boots Caramel",
+     "q": 1,
+     "s": 174.3
+    }
+   ],
+   "produkty_rok": [
+    {
+     "n": "Medium Boots Caramel",
+     "q": 2,
+     "s": 353.4
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 2,
+     "s": 307.8
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 1,
+     "s": 19.9
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 1,
+     "s": 171
+    },
+    {
+     "n": "Medium Boots Grey",
+     "q": 1,
+     "s": 167.4
+    },
+    {
+     "n": "Short Boots Grey",
+     "q": 1,
+     "s": 171
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 1,
+     "s": 167.4
+    }
+   ],
+   "kraje": [
+    {
+     "n": "Germany",
+     "z": 5,
+     "s": 2338.24
+    },
+    {
+     "n": "United States",
+     "z": 3,
+     "s": 808.9
+    },
+    {
+     "n": "Austria",
+     "z": 2,
+     "s": 200.9
+    },
+    {
+     "n": "Belgium",
+     "z": 1,
+     "s": 158
+    },
+    {
+     "n": "Spain",
+     "z": 1,
+     "s": 184.2
+    },
+    {
+     "n": "Switzerland",
+     "z": 1,
+     "s": 13.73
+    },
+    {
+     "n": "Lithuania",
+     "z": 1,
+     "s": 208.2
+    }
+   ],
+   "kraje_rok": [
+    {
+     "n": "Germany",
+     "z": 6,
+     "s": 1263.4
+    },
+    {
+     "n": "Ireland",
+     "z": 1,
+     "s": 163.8
+    }
+   ]
   },
   {
    "id": "sezon",
@@ -1396,7 +2350,230 @@
    "teraz": 11410.67,
    "zam": 52,
    "rok_temu": 3288.29,
-   "zam_rok_temu": 20
+   "zam_rok_temu": 20,
+   "produkty": [
+    {
+     "n": "Slippers Black",
+     "q": 8,
+     "s": 1272.4
+    },
+    {
+     "n": "Short Boots Black",
+     "q": 5,
+     "s": 1003.8
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 5,
+     "s": 120.05
+    },
+    {
+     "n": "Upcycled Vegan Scrunchie Beige",
+     "q": 4,
+     "s": 50.88
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 4,
+     "s": 652.98
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 4,
+     "s": 79.6
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 4,
+     "s": 236
+    },
+    {
+     "n": "Slippers Sabbia",
+     "q": 3,
+     "s": 708.9
+    },
+    {
+     "n": "Medium Boots Brown with Black Fur",
+     "q": 3,
+     "s": 678.68
+    },
+    {
+     "n": "Long Boots Beige",
+     "q": 3,
+     "s": 827
+    },
+    {
+     "n": "Vegan T-shirt Oat Milk",
+     "q": 3,
+     "s": 171.1
+    },
+    {
+     "n": "Medium Boots All Black (limited edition)",
+     "q": 3,
+     "s": 569.8
+    }
+   ],
+   "produkty_rok": [
+    {
+     "n": "Short Boots Black",
+     "q": 4,
+     "s": 573.44
+    },
+    {
+     "n": "Short Boots Grey",
+     "q": 4,
+     "s": 493.73
+    },
+    {
+     "n": "Short Boots Caramel",
+     "q": 3,
+     "s": 519.08
+    },
+    {
+     "n": "Medium Boots Grey",
+     "q": 3,
+     "s": 355.65
+    },
+    {
+     "n": "Medium Boots Sabbia",
+     "q": 2,
+     "s": 391.5
+    },
+    {
+     "n": "Medium Boots Caramel",
+     "q": 2,
+     "s": 353.4
+    },
+    {
+     "n": "Winter Vegan Gloves Navy",
+     "q": 1,
+     "s": 53.1
+    },
+    {
+     "n": "Winter Vegan Gloves Black",
+     "q": 1,
+     "s": 65.72
+    },
+    {
+     "n": "Winter Vegan Beanie Black",
+     "q": 1,
+     "s": 29.4
+    },
+    {
+     "n": "Water Repellent Vegan Spray",
+     "q": 1,
+     "s": 19.9
+    },
+    {
+     "n": "Insole Faux Fur White",
+     "q": 1,
+     "s": 19.9
+    },
+    {
+     "n": "Medium Boots Brown with White Fur",
+     "q": 1,
+     "s": 199.2
+    }
+   ],
+   "kraje": [
+    {
+     "n": "Germany",
+     "z": 26,
+     "s": 6543.4
+    },
+    {
+     "n": "Austria",
+     "z": 5,
+     "s": 579.05
+    },
+    {
+     "n": "Switzerland",
+     "z": 4,
+     "s": 727.28
+    },
+    {
+     "n": "United States",
+     "z": 4,
+     "s": 1063.1
+    },
+    {
+     "n": "Poland",
+     "z": 3,
+     "s": 545.74
+    },
+    {
+     "n": "Netherlands",
+     "z": 3,
+     "s": 721.4
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 226.3
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 295.7
+    },
+    {
+     "n": "Belgium",
+     "z": 1,
+     "s": 158
+    },
+    {
+     "n": "France",
+     "z": 1,
+     "s": 158.3
+    },
+    {
+     "n": "Spain",
+     "z": 1,
+     "s": 184.2
+    },
+    {
+     "n": "Lithuania",
+     "z": 1,
+     "s": 208.2
+    }
+   ],
+   "kraje_rok": [
+    {
+     "n": "Germany",
+     "z": 13,
+     "s": 2427.02
+    },
+    {
+     "n": "United Kingdom",
+     "z": 2,
+     "s": 252.4
+    },
+    {
+     "n": "Sweden",
+     "z": 1,
+     "s": 71.89
+    },
+    {
+     "n": "Finland",
+     "z": 1,
+     "s": 63
+    },
+    {
+     "n": "Slovenia",
+     "z": 1,
+     "s": 174.78
+    },
+    {
+     "n": "Ireland",
+     "z": 1,
+     "s": 163.8
+    },
+    {
+     "n": "Denmark",
+     "z": 1,
+     "s": 135.4
+    }
+   ]
   }
  ],
  "miesiace": [
@@ -1445,5 +2622,640 @@
   "wydatek": 716.38,
   "zakupy": 4,
   "wartosc": 574.54
- }
+ },
+ "meta_ly": [
+  {
+   "dzien": "2025-09-02",
+   "wydatek": 20.33,
+   "wyswietlenia": 2608,
+   "klikniecia": 43,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-03",
+   "wydatek": 25.12,
+   "wyswietlenia": 2945,
+   "klikniecia": 31,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-04",
+   "wydatek": 27.92,
+   "wyswietlenia": 3183,
+   "klikniecia": 14,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-05",
+   "wydatek": 39.3,
+   "wyswietlenia": 4067,
+   "klikniecia": 29,
+   "koszyki": 1,
+   "zakupy": 1,
+   "wartosc": 163.8
+  },
+  {
+   "dzien": "2025-09-06",
+   "wydatek": 35.5,
+   "wyswietlenia": 4000,
+   "klikniecia": 26,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-07",
+   "wydatek": 36.06,
+   "wyswietlenia": 4165,
+   "klikniecia": 29,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-08",
+   "wydatek": 31.26,
+   "wyswietlenia": 5308,
+   "klikniecia": 20,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-09",
+   "wydatek": 33.73,
+   "wyswietlenia": 4463,
+   "klikniecia": 18,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-10",
+   "wydatek": 34.15,
+   "wyswietlenia": 4498,
+   "klikniecia": 22,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-11",
+   "wydatek": 28.06,
+   "wyswietlenia": 3591,
+   "klikniecia": 19,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-12",
+   "wydatek": 29.23,
+   "wyswietlenia": 3617,
+   "klikniecia": 20,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-13",
+   "wydatek": 21.75,
+   "wyswietlenia": 2685,
+   "klikniecia": 14,
+   "koszyki": 4,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-14",
+   "wydatek": 38.67,
+   "wyswietlenia": 3365,
+   "klikniecia": 34,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-15",
+   "wydatek": 34.93,
+   "wyswietlenia": 2376,
+   "klikniecia": 32,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-16",
+   "wydatek": 30.7,
+   "wyswietlenia": 2565,
+   "klikniecia": 21,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-17",
+   "wydatek": 26.03,
+   "wyswietlenia": 2773,
+   "klikniecia": 15,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-18",
+   "wydatek": 33.58,
+   "wyswietlenia": 2514,
+   "klikniecia": 31,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-19",
+   "wydatek": 30.57,
+   "wyswietlenia": 1773,
+   "klikniecia": 22,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-20",
+   "wydatek": 1,
+   "wyswietlenia": 102,
+   "klikniecia": 2,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-21",
+   "wydatek": 0,
+   "wyswietlenia": 0,
+   "klikniecia": 0,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-22",
+   "wydatek": 0,
+   "wyswietlenia": 0,
+   "klikniecia": 0,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-23",
+   "wydatek": 44.75,
+   "wyswietlenia": 3961,
+   "klikniecia": 36,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-24",
+   "wydatek": 47.67,
+   "wyswietlenia": 3960,
+   "klikniecia": 38,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-25",
+   "wydatek": 44.82,
+   "wyswietlenia": 3122,
+   "klikniecia": 42,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-26",
+   "wydatek": 35.32,
+   "wyswietlenia": 3171,
+   "klikniecia": 32,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-27",
+   "wydatek": 26.45,
+   "wyswietlenia": 2459,
+   "klikniecia": 31,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-28",
+   "wydatek": 34.71,
+   "wyswietlenia": 2832,
+   "klikniecia": 37,
+   "koszyki": 8,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-29",
+   "wydatek": 31.9,
+   "wyswietlenia": 2455,
+   "klikniecia": 45,
+   "koszyki": 5,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-09-30",
+   "wydatek": 30.31,
+   "wyswietlenia": 3219,
+   "klikniecia": 40,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-01",
+   "wydatek": 32.49,
+   "wyswietlenia": 3295,
+   "klikniecia": 28,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-02",
+   "wydatek": 30.13,
+   "wyswietlenia": 2636,
+   "klikniecia": 29,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-03",
+   "wydatek": 25.46,
+   "wyswietlenia": 2931,
+   "klikniecia": 28,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-04",
+   "wydatek": 23.75,
+   "wyswietlenia": 3765,
+   "klikniecia": 46,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-05",
+   "wydatek": 35.26,
+   "wyswietlenia": 3840,
+   "klikniecia": 43,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-06",
+   "wydatek": 30.16,
+   "wyswietlenia": 3726,
+   "klikniecia": 39,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-07",
+   "wydatek": 31.88,
+   "wyswietlenia": 5454,
+   "klikniecia": 39,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-08",
+   "wydatek": 29.56,
+   "wyswietlenia": 2784,
+   "klikniecia": 32,
+   "koszyki": 3,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-09",
+   "wydatek": 33.2,
+   "wyswietlenia": 2675,
+   "klikniecia": 30,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-10",
+   "wydatek": 35.51,
+   "wyswietlenia": 4969,
+   "klikniecia": 44,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-11",
+   "wydatek": 29.97,
+   "wyswietlenia": 2361,
+   "klikniecia": 53,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-12",
+   "wydatek": 34.24,
+   "wyswietlenia": 2803,
+   "klikniecia": 56,
+   "koszyki": 3,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-13",
+   "wydatek": 29.6,
+   "wyswietlenia": 2885,
+   "klikniecia": 48,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-14",
+   "wydatek": 30.21,
+   "wyswietlenia": 2801,
+   "klikniecia": 51,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-15",
+   "wydatek": 29.62,
+   "wyswietlenia": 2835,
+   "klikniecia": 50,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-16",
+   "wydatek": 31.28,
+   "wyswietlenia": 3284,
+   "klikniecia": 68,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-17",
+   "wydatek": 29.55,
+   "wyswietlenia": 2813,
+   "klikniecia": 57,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-18",
+   "wydatek": 26.56,
+   "wyswietlenia": 2093,
+   "klikniecia": 56,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-19",
+   "wydatek": 33.99,
+   "wyswietlenia": 3552,
+   "klikniecia": 68,
+   "koszyki": 1,
+   "zakupy": 1,
+   "wartosc": 135.4
+  },
+  {
+   "dzien": "2025-10-20",
+   "wydatek": 33.8,
+   "wyswietlenia": 3024,
+   "klikniecia": 69,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-21",
+   "wydatek": 37.63,
+   "wyswietlenia": 4797,
+   "klikniecia": 72,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-22",
+   "wydatek": 35.32,
+   "wyswietlenia": 4088,
+   "klikniecia": 81,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-23",
+   "wydatek": 51.05,
+   "wyswietlenia": 5191,
+   "klikniecia": 103,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-24",
+   "wydatek": 59.9,
+   "wyswietlenia": 6035,
+   "klikniecia": 118,
+   "koszyki": 3,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-25",
+   "wydatek": 53.04,
+   "wyswietlenia": 5246,
+   "klikniecia": 112,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-26",
+   "wydatek": 71.88,
+   "wyswietlenia": 6750,
+   "klikniecia": 155,
+   "koszyki": 3,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-27",
+   "wydatek": 60.62,
+   "wyswietlenia": 5822,
+   "klikniecia": 90,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-28",
+   "wydatek": 91.57,
+   "wyswietlenia": 9310,
+   "klikniecia": 92,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-29",
+   "wydatek": 98.24,
+   "wyswietlenia": 7330,
+   "klikniecia": 96,
+   "koszyki": 4,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2025-10-30",
+   "wydatek": 109.99,
+   "wyswietlenia": 11221,
+   "klikniecia": 80,
+   "koszyki": 7,
+   "zakupy": 0,
+   "wartosc": 0
+  }
+ ],
+ "klaviyo_ly": [
+  {
+   "data": "2025-10-30T00:15:00+00:00",
+   "kwota": 155.09,
+   "mail": true
+  },
+  {
+   "data": "2025-10-28T13:00:12+00:00",
+   "kwota": 71.89,
+   "mail": false
+  },
+  {
+   "data": "2025-10-26T22:54:33+00:00",
+   "kwota": 234,
+   "mail": true
+  },
+  {
+   "data": "2025-10-25T13:25:12+00:00",
+   "kwota": 63,
+   "mail": true
+  },
+  {
+   "data": "2025-10-24T18:54:57+00:00",
+   "kwota": 174.78,
+   "mail": true
+  },
+  {
+   "data": "2025-10-21T18:36:58+00:00",
+   "kwota": 229,
+   "mail": true
+  },
+  {
+   "data": "2025-10-19T14:19:24+00:00",
+   "kwota": 138.14,
+   "mail": false
+  },
+  {
+   "data": "2025-10-19T11:26:50+00:00",
+   "kwota": 135.4,
+   "mail": true
+  },
+  {
+   "data": "2025-10-16T20:09:05+00:00",
+   "kwota": 266.38,
+   "mail": false
+  },
+  {
+   "data": "2025-10-15T16:53:54+00:00",
+   "kwota": 193.1,
+   "mail": false
+  },
+  {
+   "data": "2025-10-13T13:40:51+00:00",
+   "kwota": 203.1,
+   "mail": false
+  },
+  {
+   "data": "2025-10-11T07:54:04+00:00",
+   "kwota": 118.91,
+   "mail": false
+  },
+  {
+   "data": "2025-10-03T07:10:35+00:00",
+   "kwota": 49.3,
+   "mail": false
+  },
+  {
+   "data": "2025-09-30T21:52:49+00:00",
+   "kwota": 195.9,
+   "mail": false
+  },
+  {
+   "data": "2025-09-24T09:14:57+00:00",
+   "kwota": 200.8,
+   "mail": true
+  },
+  {
+   "data": "2025-09-20T16:39:14+00:00",
+   "kwota": 177.3,
+   "mail": true
+  },
+  {
+   "data": "2025-09-15T11:33:59+00:00",
+   "kwota": 163.8,
+   "mail": true
+  },
+  {
+   "data": "2025-09-14T22:30:19+00:00",
+   "kwota": 180.9,
+   "mail": false
+  },
+  {
+   "data": "2025-09-05T13:27:00+00:00",
+   "kwota": 344.7,
+   "mail": true
+  },
+  {
+   "data": "2025-09-05T06:45:36+00:00",
+   "kwota": 163.8,
+   "mail": true
+  }
+ ]
 }
