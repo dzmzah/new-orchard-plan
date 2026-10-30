@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-10-30T22:32:49.763Z",
+ "aktualizacja": "2026-10-30T22:34:01.542Z",
  "start": "2026-09-02",
  "zamowienia": [
   {
@@ -1193,9 +1193,9 @@
   },
   {
    "dzien": "2026-10-30",
-   "wydatek": 122.57,
-   "wyswietlenia": 6185,
-   "klikniecia": 114,
+   "wydatek": 122.85,
+   "wyswietlenia": 6202,
+   "klikniecia": 115,
    "koszyki": 6,
    "zakupy": 2,
    "wartosc": 383.4
@@ -1224,12 +1224,32 @@
     "conversion_value": 254.2
    },
    {
+    "nazwa": "medium green -33 last days DE",
+    "wyslano": "2026-10-09T17:05:00+00:00",
+    "recipients": 130,
+    "opens_unique": 50,
+    "clicks_unique": 5,
+    "unsubscribes": 1,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
     "nazwa": "Caramel jesien EN",
     "wyslano": "2026-10-16T17:00:00+00:00",
     "recipients": 980,
     "opens_unique": 459,
     "clicks_unique": 15,
     "unsubscribes": 20,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Caramel jesien DE",
+    "wyslano": "2026-10-16T17:00:00+00:00",
+    "recipients": 130,
+    "opens_unique": 48,
+    "clicks_unique": 3,
+    "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1264,26 +1284,6 @@
     "conversion_value": 274.07999
    },
    {
-    "nazwa": "Birthday 30.10 Halloween EN",
-    "wyslano": "2026-10-30T07:00:00+00:00",
-    "recipients": 955,
-    "opens_unique": 333,
-    "clicks_unique": 25,
-    "unsubscribes": 6,
-    "conversions": 1,
-    "conversion_value": 158.3
-   },
-   {
-    "nazwa": "medium green -33 last days DE",
-    "wyslano": "2026-10-09T17:05:00+00:00",
-    "recipients": 130,
-    "opens_unique": 50,
-    "clicks_unique": 5,
-    "unsubscribes": 1,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
     "nazwa": "Urodziny early access 25.10 DE",
     "wyslano": "2026-10-25T07:00:00+00:00",
     "recipients": 127,
@@ -1294,22 +1294,22 @@
     "conversion_value": 495.90001
    },
    {
+    "nazwa": "Birthday 30.10 Halloween EN",
+    "wyslano": "2026-10-30T07:00:00+00:00",
+    "recipients": 955,
+    "opens_unique": 333,
+    "clicks_unique": 25,
+    "unsubscribes": 6,
+    "conversions": 1,
+    "conversion_value": 158.3
+   },
+   {
     "nazwa": "Birthday 30.10 Halloween DE",
     "wyslano": "2026-10-30T07:00:00+00:00",
     "recipients": 126,
     "opens_unique": 32,
     "clicks_unique": 5,
     "unsubscribes": 1,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
-    "nazwa": "Caramel jesien DE",
-    "wyslano": "2026-10-16T17:00:00+00:00",
-    "recipients": 130,
-    "opens_unique": 48,
-    "clicks_unique": 3,
-    "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
    }
@@ -1528,7 +1528,7 @@
      "addToCarts": 88,
      "checkouts": 35,
      "ecommercePurchases": 10,
-     "purchaseRevenue": 1873.6992759999998,
+     "purchaseRevenue": 1873.699276,
      "googleKoszt": 8.7,
      "googleKlik": 19
     },
@@ -2192,7 +2192,7 @@
      "addToCarts": 88,
      "checkouts": 35,
      "ecommercePurchases": 10,
-     "purchaseRevenue": 1873.6992759999998,
+     "purchaseRevenue": 1873.699276,
      "googleKoszt": 8.7,
      "googleKlik": 19
     },
@@ -2614,7 +2614,7 @@
      "addToCarts": 248,
      "checkouts": 113,
      "ecommercePurchases": 19,
-     "purchaseRevenue": 5132.3304100000005,
+     "purchaseRevenue": 5132.33041,
      "googleKoszt": 154.69,
      "googleKlik": 216
     },
@@ -2624,7 +2624,7 @@
      "addToCarts": 114,
      "checkouts": 61,
      "ecommercePurchases": 11,
-     "purchaseRevenue": 1822.0600000000002,
+     "purchaseRevenue": 1822.06,
      "googleKoszt": 218.06,
      "googleKlik": 524
     }
@@ -2657,7 +2657,7 @@
       "sesje": 1083,
       "koszyki": 15,
       "zakupy": 4,
-      "przychod": 627.69
+      "przychod": 627.6899999999999
      }
     },
     {
@@ -3036,7 +3036,7 @@
      "addToCarts": 248,
      "checkouts": 113,
      "ecommercePurchases": 19,
-     "purchaseRevenue": 5132.3304100000005,
+     "purchaseRevenue": 5132.33041,
      "googleKoszt": 154.69,
      "googleKlik": 216
     },
@@ -3046,7 +3046,7 @@
      "addToCarts": 114,
      "checkouts": 61,
      "ecommercePurchases": 11,
-     "purchaseRevenue": 1822.0600000000002,
+     "purchaseRevenue": 1822.06,
      "googleKoszt": 218.06,
      "googleKlik": 524
     }
@@ -3079,7 +3079,7 @@
       "sesje": 1083,
       "koszyki": 15,
       "zakupy": 4,
-      "przychod": 627.69
+      "przychod": 627.6899999999999
      }
     },
     {
@@ -3423,7 +3423,7 @@
      "addToCarts": 74,
      "checkouts": 32,
      "ecommercePurchases": 7,
-     "purchaseRevenue": 1427.2000000000003,
+     "purchaseRevenue": 1427.2,
      "googleKoszt": 217.48,
      "googleKlik": 464
     }
@@ -3465,7 +3465,7 @@
       "sesje": 698,
       "koszyki": 37,
       "zakupy": 6,
-      "przychod": 1740.478057
+      "przychod": 1740.4780569999998
      },
      "rok": {
       "sesje": 671,
@@ -3875,7 +3875,7 @@
      "addToCarts": 188,
      "checkouts": 93,
      "ecommercePurchases": 18,
-     "purchaseRevenue": 3249.26,
+     "purchaseRevenue": 3249.2599999999998,
      "googleKoszt": 435.54,
      "googleKlik": 988
     }
@@ -3902,7 +3902,7 @@
       "sesje": 2081,
       "koszyki": 92,
       "zakupy": 14,
-      "przychod": 4939.887333000001
+      "przychod": 4939.887332999999
      },
      "rok": {
       "sesje": 1754,
@@ -3932,7 +3932,7 @@
       "sesje": 1546,
       "koszyki": 37,
       "zakupy": 3,
-      "przychod": 609.58
+      "przychod": 609.5799999999999
      },
      "teraz": {
       "sesje": 1446,
