@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprzedaż na żywo · New Orchard</title>
+<link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--ramka:#e3dfd5;--akcent:#3c5a46;--jasny:#e8eee5;--zm:#b4552e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tlo);color:var(--tekst);font-family:'Jost',-apple-system,'Segoe UI',sans-serif;font-size:15px;line-height:1.45}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 60px}
+a{color:var(--akcent)}
+h1{font-weight:500;font-size:28px;margin:0 0 4px}
+h2{font-weight:500;font-size:19px;margin:34px 0 10px}
+.sub{color:var(--cichy);font-size:14px}
+.kafle{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:20px}
+.kafel{background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:14px 16px}
+.kafel .l{color:var(--cichy);font-size:13px}
+.kafel .v{font-size:26px;font-weight:500;margin-top:2px}
+.kafel .s{color:var(--cichy);font-size:12px;margin-top:2px}
+.tab{background:var(--karta);border:1px solid var(--ramka);border-radius:12px;overflow:auto}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--ramka);vertical-align:top;font-size:14px}
+th{color:var(--cichy);font-weight:500;font-size:13px;background:#faf9f5}
+tr:last-child td{border-bottom:0}
+td.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+th.n{text-align:right}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:var(--jasny);color:var(--akcent);white-space:nowrap}
+.tag.mail{background:#e6eef7;color:#2b5b8a}.tag.meta{background:#efe7f6;color:#6a3d8f}.tag.ig{background:#f7e7ee;color:#93365c}.tag.nz{background:#eee;color:#666}.tag.dir{background:#f3efe2;color:#7a6526}
+.bar{height:8px;border-radius:4px;background:var(--akcent);min-width:2px}
+.dwie{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.dwie{grid-template-columns:1fr}}
+.uw{color:var(--cichy);font-size:13px;margin-top:8px}
+.zw{color:var(--zm)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="sub"><a href="../">← Panel</a></div>
+  <h1>Sprzedaż na żywo</h1>
+  <div class="sub" id="upd">Ładowanie…</div>
+
+  <div class="kafle" id="kafle"></div>
+
+  <h2>Skąd przyszła sprzedaż</h2>
+  <div class="tab"><table id="kanaly"></table></div>
+  <div class="uw">Źródło: najpierw mail, który według Klaviyo doprowadził do zakupu (kampania albo automatyczny mail), potem Shopify (UTM reklamy, Instagram, wejście bezpośrednie).</div>
+
+  <h2>Wszystkie zamówienia</h2>
+  <div class="tab"><table id="zam"></table></div>
+
+  <h2>Najczęściej kupowane i dlaczego</h2>
+  <div class="tab"><table id="towary"></table></div>
+  <div class="dwie">
+    <div>
+      <h2>Kraje</h2>
+      <div class="tab"><table id="kraje"></table></div>
+    </div>
+  </div>
+
+  <h2>Maile (Klaviyo)</h2>
+  <div class="tab"><table id="kampanie"></table></div>
+  <div class="tab" style="margin-top:12px"><table id="flowy"></table></div>
+  <div class="uw">Zamówienia przypisane przez Klaviyo (zakup do 5 dni po otwarciu/kliknięciu). Jedno zamówienie może być przypisane i mailowi, i reklamie.</div>
+
+  <h2>Reklama Meta po dniach</h2>
+  <div class="tab"><table id="meta"></table></div>
+  <div class="uw">Zakupy według piksela Meta (piksel nie widzi wszystkich zamówień, np. bez zgody na cookies).</div>
+</div>
+<script>
+const eur=v=>(Math.round(v*100)/100).toLocaleString('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+const tz='Europe/Zurich';
+const dt=s=>new Date(s).toLocaleString('pl-PL',{timeZone:tz,day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+const dzien=s=>new Date(s).toLocaleDateString('sv-SE',{timeZone:tz});
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function zrodla(o){const a=[];if(o.klaviyo)a.push([o.klaviyo,'mail']);const b=kanal0(o);if(!a.length||b[1]==='meta'||b[1]==='ig')a.push(b);return a}
+function kanal(o){return zrodla(o)[0]}
+function kanal0(o){
+  const k=(o.kody||[]).join(' ').toUpperCase(), s=(o.zrodlo||'').toLowerCase(), us=(o.utm_source||'').toLowerCase(), uc=(o.utm_campaign||'').toLowerCase();
+  if(k.includes('BIRTHDAY40')) return ['Mail early access (kod)','mail'];
+  if(k.includes('WELCOME')) return ['Mail powitalny (kod)','mail'];
+  if(us.includes('klaviyo')||s==='email') return ['Mail (kampania)','mail'];
+  if(us==='meta'||us==='facebook'||uc.includes('urodziny40')||uc.includes('katalog')) return ['Reklama Meta','meta'];
+  if(us.includes('igshopping')) return ['Instagram Shopping','ig'];
+  if(us==='instagram'||s.includes('instagram')) return ['Instagram','ig'];
+  if(us==='pinterest') return ['Pinterest','ig'];
+  if(s.includes('google')) return ['Google','dir'];
+  if(s==='direct') return ['Wejście bezpośrednie','dir'];
+  return ['Nieznane','nz'];
+}
+fetch('dane.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+  document.getElementById('upd').textContent='Od '+new Date(d.start).toLocaleDateString('pl-PL')+' · aktualizacja '+dt(d.aktualizacja)+' (co godzinę)';
+  const z=d.zamowienia.filter(o=>!o.anulowane);
+  const netto=o=>o.kwota-(o.zwrot||0);
+  const suma=z.reduce((a,o)=>a+netto(o),0);
+  const dzis=dzien(new Date()), zDzis=z.filter(o=>dzien(o.data)===dzis);
+  const wyd=d.meta.reduce((a,m)=>a+m.wydatek,0), wydDzis=(d.meta.find(m=>m.dzien===dzis)||{}).wydatek||0;
+  const mailV=[...d.klaviyo.kampanie,...d.klaviyo.flowy].reduce((a,x)=>a+(x.conversion_value||0),0);
+  const K=[['Sprzedaż',eur(suma),z.length+' zamówień'],['Dziś',eur(zDzis.reduce((a,o)=>a+netto(o),0)),zDzis.length+' zamówień'],['Średnie zamówienie',eur(z.length?suma/z.length:0),''],['Reklama Meta',eur(wyd),'dziś '+eur(wydDzis)],['Z maili (Klaviyo)',eur(mailV),'kampanie + flowy']];
+  document.getElementById('kafle').innerHTML=K.map(k=>`<div class="kafel"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="s">${k[2]}</div></div>`).join('');
+  // kanały
+  const kan={};z.forEach(o=>{const[n,c]=kanal(o);(kan[n]||=( {n,c,i:0,v:0}));kan[n].i++;kan[n].v+=netto(o)});
+  const kl=Object.values(kan).sort((a,b)=>b.v-a.v), mx=Math.max(...kl.map(k=>k.v),1);
+  document.getElementById('kanaly').innerHTML='<tr><th>Źródło</th><th class="n">Zamówień</th><th class="n">Suma</th><th style="width:35%"></th></tr>'+kl.map(k=>`<tr><td><span class="tag ${k.c}">${esc(k.n)}</span></td><td class="n">${k.i}</td><td class="n">${eur(k.v)}</td><td><div class="bar" style="width:${k.v/mx*100}%"></div></td></tr>`).join('');
+  // zamówienia
+  document.getElementById('zam').innerHTML='<tr><th>Nr</th><th>Kiedy</th><th>Kraj</th><th>Co kupiono</th><th>Źródło</th><th class="n">Kwota</th></tr>'+[...z].reverse().map(o=>{const[n,c]=kanal(o);return `<tr><td>${esc(o.nr)}</td><td>${dt(o.data)}</td><td>${esc(o.kraj)}</td><td>${o.towary.map(esc).join('<br>')}</td><td>${zrodla(o).map(([n2,c2])=>`<span class="tag ${c2}">${esc(n2)}</span>`).join(' ')}</td><td class="n">${eur(o.kwota)}${o.zwrot?`<br><span class="zw">zwrot −${eur(o.zwrot)}</span>`:''}</td></tr>`}).join('');
+  // towary
+  const tw={};z.forEach(o=>{const[kn,kc]=kanal(o);o.towary.forEach(t=>{const m=t.match(/^(\d+)× (.*)$/);const q=m?+m[1]:1,n=m?m[2]:t;const e=tw[n]||={q:0,src:{}};e.q+=q;(e.src[kn]||={c:kc,q:0}).q+=q})});
+  document.getElementById('towary').innerHTML='<tr><th>Produkt</th><th class="n">Szt.</th><th>Dlaczego kupili</th></tr>'+Object.entries(tw).sort((a,b)=>b[1].q-a[1].q).slice(0,15).map(([n,e])=>`<tr><td>${esc(n)}</td><td class="n">${e.q}</td><td>${Object.entries(e.src).sort((a,b)=>b[1].q-a[1].q).map(([k,v])=>`<span class="tag ${v.c}">${esc(k)}${v.q>1?' ×'+v.q:''}</span>`).join(' ')}</td></tr>`).join('');
+  const kr={};z.forEach(o=>{kr[o.kraj||'?']=(kr[o.kraj||'?']||0)+1});
+  document.getElementById('kraje').innerHTML='<tr><th>Kraj</th><th class="n">Zamówień</th></tr>'+Object.entries(kr).sort((a,b)=>b[1]-a[1]).map(([n,q])=>`<tr><td>${esc(n)}</td><td class="n">${q}</td></tr>`).join('');
+  // klaviyo
+  document.getElementById('kampanie').innerHTML='<tr><th>Kampania</th><th>Wysłano</th><th class="n">Odbiorcy</th><th class="n">Otwarcia</th><th class="n">Kliknięcia</th><th class="n">Wypisy</th><th class="n">Zamówienia</th><th class="n">Wartość</th></tr>'+d.klaviyo.kampanie.sort((a,b)=>String(b.wyslano).localeCompare(a.wyslano)).map(c=>`<tr><td>${esc(c.nazwa)}</td><td>${c.wyslano?dt(c.wyslano):''}</td><td class="n">${c.recipients}</td><td class="n">${c.opens_unique}</td><td class="n">${c.clicks_unique}</td><td class="n">${c.unsubscribes}</td><td class="n">${c.conversions}</td><td class="n">${eur(c.conversion_value)}</td></tr>`).join('');
+  document.getElementById('flowy').innerHTML='<tr><th>Automatyczne maile (flow)</th><th class="n">Odbiorcy</th><th class="n">Zamówienia</th><th class="n">Wartość</th></tr>'+d.klaviyo.flowy.map(f=>`<tr><td>${esc(f.nazwa)}</td><td class="n">${f.recipients}</td><td class="n">${f.conversions}</td><td class="n">${eur(f.conversion_value)}</td></tr>`).join('');
+  // meta
+  document.getElementById('meta').innerHTML='<tr><th>Dzień</th><th class="n">Wydatek</th><th class="n">Kliknięcia</th><th class="n">Koszyki</th><th class="n">Zakupy</th><th class="n">Wartość</th></tr>'+[...d.meta].reverse().map(m=>`<tr><td>${new Date(m.dzien).toLocaleDateString('pl-PL',{weekday:'short',day:'2-digit',month:'2-digit'})}</td><td class="n">${eur(m.wydatek)}</td><td class="n">${m.klikniecia}</td><td class="n">${m.koszyki}</td><td class="n">${m.zakupy}</td><td class="n">${eur(m.wartosc)}</td></tr>`).join('')+`<tr><td><b>Razem</b></td><td class="n"><b>${eur(wyd)}</b></td><td class="n">${d.meta.reduce((a,m)=>a+m.klikniecia,0)}</td><td class="n">${d.meta.reduce((a,m)=>a+m.koszyki,0)}</td><td class="n">${d.meta.reduce((a,m)=>a+m.zakupy,0)}</td><td class="n">${eur(d.meta.reduce((a,m)=>a+m.wartosc,0))}</td></tr>`;
+}).catch(e=>{document.getElementById('upd').textContent='Błąd ładowania danych: '+e.message});
+</script>
+</body>
+</html>

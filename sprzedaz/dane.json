@@ -1,0 +1,482 @@
+{
+ "aktualizacja": "2026-10-30T21:20:15.943Z",
+ "start": "2026-10-24",
+ "zamowienia": [
+  {
+   "id": "13286403867000",
+   "nr": "#1513",
+   "data": "2026-10-25T08:06:51Z",
+   "kwota": 155.4,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "PL",
+   "kody": [
+    "BIRTHDAY40"
+   ],
+   "towary": [
+    "Medium Boots All Black (limited edition)"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: Urodziny early access 25.10 EN"
+  },
+  {
+   "id": "13286883426680",
+   "nr": "#1514",
+   "data": "2026-10-25T11:14:03Z",
+   "kwota": 118.68,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [
+    "BIRTHDAY40"
+   ],
+   "towary": [
+    "Medium Boots Grey"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: Urodziny early access 25.10 EN"
+  },
+  {
+   "id": "13287046414712",
+   "nr": "#1515",
+   "data": "2026-10-25T12:09:22Z",
+   "kwota": 153.3,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [
+    "BIRTHDAY40"
+   ],
+   "towary": [
+    "Short Boots Black"
+   ],
+   "zrodlo": "Google",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: Urodziny early access 25.10 DE"
+  },
+  {
+   "id": "13287742570872",
+   "nr": "#1516",
+   "data": "2026-10-25T15:54:38Z",
+   "kwota": 168.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Skirt Red (limited edition)"
+   ],
+   "zrodlo": "Instagram",
+   "utm_source": "IGShopping",
+   "utm_medium": "Social",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13287901102456",
+   "nr": "#1517",
+   "data": "2026-10-25T16:46:52Z",
+   "kwota": 71,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "GB",
+   "kody": [
+    "WELCOME-75PQKRP5"
+   ],
+   "towary": [
+    "Winter Vegan Gloves Brown"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail powitalny"
+  },
+  {
+   "id": "13288104853880",
+   "nr": "#1518",
+   "data": "2026-10-25T18:01:44Z",
+   "kwota": 177.3,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [
+    "BIRTHDAY40"
+   ],
+   "towary": [
+    "Long Boots Black"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: Urodziny early access 25.10 DE"
+  },
+  {
+   "id": "13294295744888",
+   "nr": "#1519",
+   "data": "2026-10-27T18:16:16Z",
+   "kwota": 58,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "2× Winter Vegan Beanie (Schwarz)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13294579450232",
+   "nr": "#1520",
+   "data": "2026-10-27T20:05:03Z",
+   "kwota": 295.7,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "FI",
+   "kody": [],
+   "towary": [
+    "Short Boots Black",
+    "Slippers Black"
+   ],
+   "zrodlo": "an unknown source",
+   "utm_source": "meta",
+   "utm_medium": "paid_social",
+   "utm_campaign": "urodziny40_en"
+  },
+  {
+   "id": "13295930737016",
+   "nr": "#1521",
+   "data": "2026-10-28T09:46:10Z",
+   "kwota": 259.07,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "CH",
+   "kody": [],
+   "towary": [
+    "Medium Boots Blue",
+    "Snack Pouche Blue",
+    "Winter Vegan Gloves Red"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail powitalny"
+  },
+  {
+   "id": "13297097834872",
+   "nr": "#1522",
+   "data": "2026-10-28T15:50:18Z",
+   "kwota": 165.3,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Medium Boots All Black (limited edition)"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: Urodziny early access 25.10 DE"
+  },
+  {
+   "id": "13300551188856",
+   "nr": "#1523",
+   "data": "2026-10-29T17:19:36Z",
+   "kwota": 155.3,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "GB",
+   "kody": [],
+   "towary": [
+    "Slippers Black"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: porzucony koszyk"
+  },
+  {
+   "id": "13300695892344",
+   "nr": "#1524",
+   "data": "2026-10-29T18:11:25Z",
+   "kwota": 147.3,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "NL",
+   "kody": [],
+   "towary": [
+    "Slippers Black"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13301182759288",
+   "nr": "#1525",
+   "data": "2026-10-29T20:56:30Z",
+   "kwota": 337.24,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "PL",
+   "kody": [],
+   "towary": [
+    "2× Upcycled Vegan Scrunchie Beige",
+    "Medium Boots Brown with Black Fur",
+    "Sports Vegan Tierry White",
+    "Slippers Black"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: porzucony koszyk"
+  },
+  {
+   "id": "13302067593592",
+   "nr": "#1526",
+   "data": "2026-10-30T07:02:59Z",
+   "kwota": 236.1,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "NL",
+   "kody": [],
+   "towary": [
+    "2× Water Repellent Vegan Spray",
+    "Winter Vegan Beanie Black",
+    "Winter Vegan Beanie Beige",
+    "Slippers Black"
+   ],
+   "zrodlo": "an unknown source",
+   "utm_source": "meta",
+   "utm_medium": "paid_social",
+   "utm_campaign": "urodziny40_en"
+  },
+  {
+   "id": "13302082208120",
+   "nr": "#1527",
+   "data": "2026-10-30T07:09:14Z",
+   "kwota": 179.56,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "CH",
+   "kody": [],
+   "towary": [
+    "Medium Boots Sabbia"
+   ],
+   "zrodlo": "email",
+   "utm_source": "klaviyo",
+   "utm_medium": "email",
+   "utm_campaign": "birthday-halloween-3010",
+   "klaviyo": "Mail: porzucony koszyk"
+  },
+  {
+   "id": "13302272164216",
+   "nr": "#1528",
+   "data": "2026-10-30T08:30:52Z",
+   "kwota": 158.3,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "FR",
+   "kody": [],
+   "towary": [
+    "Short Boots Grey"
+   ],
+   "zrodlo": "email",
+   "utm_source": "klaviyo",
+   "utm_medium": "email",
+   "utm_campaign": "birthday-halloween-3010",
+   "klaviyo": "Mail: Birthday 30.10 Halloween EN"
+  },
+  {
+   "id": "13302517170552",
+   "nr": "#1529",
+   "data": "2026-10-30T10:00:54Z",
+   "kwota": 33.5,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "AT",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Beanie (Schwarz)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13304139219320",
+   "nr": "#1530",
+   "data": "2026-10-30T18:13:35Z",
+   "kwota": 147.3,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Slippers Black"
+   ],
+   "zrodlo": "Instagram",
+   "utm_source": "meta",
+   "utm_medium": "paid_social",
+   "utm_campaign": "urodziny40_de"
+  }
+ ],
+ "meta": [
+  {
+   "dzien": "2026-10-24",
+   "wydatek": 3.83,
+   "klikniecia": 5,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-25",
+   "wydatek": 10.4,
+   "klikniecia": 23,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-26",
+   "wydatek": 60.41,
+   "klikniecia": 111,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-27",
+   "wydatek": 91.89,
+   "klikniecia": 156,
+   "koszyki": 12,
+   "zakupy": 1,
+   "wartosc": 295.7
+  },
+  {
+   "dzien": "2026-10-28",
+   "wydatek": 57.26,
+   "klikniecia": 76,
+   "koszyki": 4,
+   "zakupy": 1,
+   "wartosc": 259.31
+  },
+  {
+   "dzien": "2026-10-29",
+   "wydatek": 95.58,
+   "klikniecia": 134,
+   "koszyki": 7,
+   "zakupy": 1,
+   "wartosc": 155.3
+  },
+  {
+   "dzien": "2026-10-30",
+   "wydatek": 112.91,
+   "klikniecia": 104,
+   "koszyki": 6,
+   "zakupy": 2,
+   "wartosc": 383.4
+  }
+ ],
+ "klaviyo": {
+  "kampanie": [
+   {
+    "nazwa": "Urodziny early access 25.10 EN",
+    "wyslano": "2026-10-25T07:00:00+00:00",
+    "recipients": 973,
+    "opens_unique": 441,
+    "clicks_unique": 42,
+    "unsubscribes": 18,
+    "conversions": 2,
+    "conversion_value": 274.07999
+   },
+   {
+    "nazwa": "Urodziny early access 25.10 DE",
+    "wyslano": "2026-10-25T07:00:00+00:00",
+    "recipients": 127,
+    "opens_unique": 52,
+    "clicks_unique": 9,
+    "unsubscribes": 3,
+    "conversions": 3,
+    "conversion_value": 495.90001
+   },
+   {
+    "nazwa": "Birthday 30.10 Halloween EN",
+    "wyslano": "2026-10-30T07:00:00+00:00",
+    "recipients": 955,
+    "opens_unique": 323,
+    "clicks_unique": 25,
+    "unsubscribes": 6,
+    "conversions": 1,
+    "conversion_value": 158.3
+   },
+   {
+    "nazwa": "Birthday 30.10 Halloween DE",
+    "wyslano": "2026-10-30T07:00:00+00:00",
+    "recipients": 126,
+    "opens_unique": 31,
+    "clicks_unique": 5,
+    "unsubscribes": 1,
+    "conversions": 0,
+    "conversion_value": 0
+   }
+  ],
+  "flowy": [
+   {
+    "nazwa": "Abandoned Cart Reminder",
+    "recipients": 25,
+    "conversions": 3,
+    "conversion_value": 672.0999899999999
+   },
+   {
+    "nazwa": "Welcome Series",
+    "recipients": 15,
+    "conversions": 2,
+    "conversion_value": 330.07001
+   },
+   {
+    "nazwa": "Customer Thank You - New vs. Returning",
+    "recipients": 11,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Customer Winback after 1-2 months",
+    "recipients": 4,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Customer Winback after 11 months",
+    "recipients": 14,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Abandoned Checkout",
+    "recipients": 13,
+    "conversions": 0,
+    "conversion_value": 0
+   }
+  ]
+ }
+}
