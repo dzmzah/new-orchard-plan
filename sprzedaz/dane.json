@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-10-30T21:21:49.546Z",
+ "aktualizacja": "2026-10-30T21:29:59.416Z",
  "start": "2026-10-24",
  "zamowienia": [
   {
@@ -390,8 +390,8 @@
   },
   {
    "dzien": "2026-10-30",
-   "wydatek": 112.91,
-   "klikniecia": 104,
+   "wydatek": 114.52,
+   "klikniecia": 106,
    "koszyki": 6,
    "zakupy": 2,
    "wartosc": 383.4
@@ -410,16 +410,6 @@
     "conversion_value": 274.07999
    },
    {
-    "nazwa": "Urodziny early access 25.10 DE",
-    "wyslano": "2026-10-25T07:00:00+00:00",
-    "recipients": 127,
-    "opens_unique": 52,
-    "clicks_unique": 9,
-    "unsubscribes": 3,
-    "conversions": 3,
-    "conversion_value": 495.90001
-   },
-   {
     "nazwa": "Birthday 30.10 Halloween EN",
     "wyslano": "2026-10-30T07:00:00+00:00",
     "recipients": 955,
@@ -428,6 +418,16 @@
     "unsubscribes": 6,
     "conversions": 1,
     "conversion_value": 158.3
+   },
+   {
+    "nazwa": "Urodziny early access 25.10 DE",
+    "wyslano": "2026-10-25T07:00:00+00:00",
+    "recipients": 127,
+    "opens_unique": 52,
+    "clicks_unique": 9,
+    "unsubscribes": 3,
+    "conversions": 3,
+    "conversion_value": 495.90001
    },
    {
     "nazwa": "Birthday 30.10 Halloween DE",
