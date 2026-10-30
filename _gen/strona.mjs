@@ -955,7 +955,7 @@ const SEKCJE = [
 // Zahar: z zakladek dalo sie wybrac tylko jedna, a nie bylo jak zobaczyc calosci.
 const NAW = '<nav class="naw"><button class="zak" data-sek="wszystko">Wszystko</button>' +
   SEKCJE.map(([id, nazwa], i) =>
-  `<button class="zak${i === 0 ? ' akt' : ''}" data-sek="${id}">${nazwa}</button>`).join('') + '<a href="raporty/" class="nawRap" onclick="this.href=this.getAttribute(\'href\').split(\'?\')[0]+\'?t=\'+Date.now()">Raporty</a><span id="zywo">na zywo</span></nav>';
+  `<button class="zak${i === 0 ? ' akt' : ''}" data-sek="${id}">${nazwa}</button>`).join('') + '<a href="raporty/" class="nawRap" onclick="this.href=this.getAttribute(\'href\').split(\'?\')[0]+\'?t=\'+Date.now()">Raporty</a><a href="sprzedaz/" class="nawRap" onclick="this.href=this.getAttribute('href').split('?')[0]+'?t='+Date.now()">Sprzedaż</a><span id="zywo">na zywo</span></nav>';
 let tresc = SEKCJE.map(([id, nazwa, html], i) =>
   `<div class="sek" id="sek-${id}"${i === 0 ? '' : ' hidden'}><h2 class="dzial">${nazwa}</h2>${html}</div>`).join('');
 
