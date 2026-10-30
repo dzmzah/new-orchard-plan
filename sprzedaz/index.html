@@ -42,12 +42,15 @@ th.n{text-align:right}
   <div class="sub"><a href="../">← Panel</a></div>
   <h1>Sprzedaż na żywo</h1>
   <div class="sub" id="upd">Ładowanie…</div>
+  <div style="margin-top:14px"><label class="sub" for="okres">Okres: </label><select id="okres" style="font:inherit;padding:6px 10px;border:1px solid var(--ramka);border-radius:8px;background:#fff"></select></div>
 
   <div class="kafle" id="kafle"></div>
 
-  <h2>Rok do roku</h2>
+  <h2>Rok do roku — wybrany okres</h2>
   <div class="tab"><table id="rdr"></table></div>
-  <div class="uw">Dane z raportów Shopify (ShopifyQL): ta sama metoda dla obu lat, z marketplace'ami, po zwrotach i bez wysyłki — dlatego suma może się różnić od sumy zamówień wyżej. Reklama Meta rok temu w tym samym okresie: <span id="metaly"></span>.</div>
+  <h2>Miesiące sezonu: 2026/27 vs 2025/26</h2>
+  <div class="tab"><table id="mies"></table></div>
+  <div class="uw">Dane z raportów Shopify (ShopifyQL): ta sama metoda dla obu lat, z marketplace'ami, po zwrotach i bez wysyłki — dlatego suma może się różnić od sumy zamówień wyżej. Reklama Meta: <span id="metaly"></span>.</div>
 
   <h2>Skąd przyszła sprzedaż</h2>
   <div class="tab"><table id="kanaly"></table></div>
@@ -96,36 +99,46 @@ function kanal0(o){
   return ['Nieznane','nz'];
 }
 fetch('dane.json?t='+Date.now()).then(r=>r.json()).then(d=>{
-  document.getElementById('upd').textContent='Od '+new Date(d.start).toLocaleDateString('pl-PL')+' · aktualizacja '+dt(d.aktualizacja)+' (co godzinę)';
-  const z=d.zamowienia.filter(o=>!o.anulowane);
+  document.getElementById('upd').textContent='Aktualizacja '+dt(d.aktualizacja)+' (co godzinę) · zamówienia dostępne od '+new Date(d.start).toLocaleDateString('pl-PL');
+  const sel=document.getElementById('okres');
+  sel.innerHTML=d.okresy.map(o=>`<option value="${o.id}">${esc(o.nazwa)}</option>`).join('');
+  let pam='akcja';try{pam=localStorage.getItem('sp_okres')||'akcja'}catch(e){}
+  if(d.okresy.some(o=>o.id===pam))sel.value=pam;
+  sel.onchange=()=>{try{localStorage.setItem('sp_okres',sel.value)}catch(e){};render(d,d.okresy.find(o=>o.id===sel.value))};
+  const zm=(a,b)=>a==null||!b?'—':((a/b-1)*100>=0?'+':'')+Math.round((a/b-1)*100)+' %';
+  document.getElementById('mies').innerHTML='<tr><th>Miesiąc</th><th class="n">2026/27</th><th class="n">Zam.</th><th class="n">Rok temu</th><th class="n">Zam.</th><th class="n">Zmiana</th></tr>'+[...d.miesiace].sort((a,b)=>a.miesiac.localeCompare(b.miesiac)).map(m=>`<tr><td>${esc(m.nazwa)}</td><td class="n"><b>${m.teraz==null?'—':eur(m.teraz)}</b></td><td class="n">${m.zam??'—'}</td><td class="n">${eur(m.rok_temu)}</td><td class="n">${m.zam_rok_temu}</td><td class="n" style="color:${m.teraz!=null&&m.teraz>=m.rok_temu?'#2f6b3f':'#b4552e'}"><b>${zm(m.teraz,m.rok_temu)}</b></td></tr>`).join('');
+  render(d,d.okresy.find(o=>o.id===sel.value));
+}).catch(e=>{document.getElementById('upd').textContent='Błąd ładowania danych: '+e.message});
+
+function render(d,O){
+  const w=s=>{const x=dzien(s);return x>=O.od&&x<=O.do};
+  const z=d.zamowienia.filter(o=>!o.anulowane&&w(o.data));
   const netto=o=>o.kwota-(o.zwrot||0);
   const suma=z.reduce((a,o)=>a+netto(o),0);
-  const dzis=dzien(new Date()), zDzis=z.filter(o=>dzien(o.data)===dzis);
-  const wyd=d.meta.reduce((a,m)=>a+m.wydatek,0), wydDzis=(d.meta.find(m=>m.dzien===dzis)||{}).wydatek||0;
-  const mailV=[...d.klaviyo.kampanie,...d.klaviyo.flowy].reduce((a,x)=>a+(x.conversion_value||0),0);
-  const dniAkcji=Math.round((new Date(dzien(new Date()))-new Date(d.start))/864e5)+1;const K=[['Sprzedaż od '+new Date(d.start).toLocaleDateString('pl-PL',{day:'2-digit',month:'2-digit'})+' ('+dniAkcji+' dni)',eur(suma),z.length+' zamówień'],['Dziś',eur(zDzis.reduce((a,o)=>a+netto(o),0)),zDzis.length+' zamówień'],['Średnie zamówienie',eur(z.length?suma/z.length:0),''],['Reklama Meta',eur(wyd),'dziś '+eur(wydDzis)],['Z maili (Klaviyo)',eur(mailV),'kampanie + flowy']];
+  const M=d.meta.filter(m=>m.dzien>=O.od&&m.dzien<=O.do);
+  const wyd=M.reduce((a,m)=>a+m.wydatek,0);
+  const mailZ=z.filter(o=>o.klaviyo), mailV=mailZ.reduce((a,o)=>a+netto(o),0);
+  const ileDni=Math.round((new Date(O.do)-new Date(O.od))/864e5)+1;
+  const pocz=O.od<d.start?' (lista od '+new Date(d.start).toLocaleDateString('pl-PL')+')':'';
+  const K=[['Sprzedaż · '+ileDni+(ileDni===1?' dzień':' dni'),eur(suma),z.length+' zamówień'+pocz],['Rok temu (ten sam okres)',eur(O.rok_temu),O.zam_rok_temu+' zamówień · raport Shopify'],['Średnie zamówienie',eur(z.length?suma/z.length:0),''],['Reklama Meta',eur(wyd),M.reduce((a,m)=>a+m.zakupy,0)+' zakupów wg piksela'],['Z maili (Klaviyo)',eur(mailV),mailZ.length+' zamówień']];
   document.getElementById('kafle').innerHTML=K.map(k=>`<div class="kafel"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="s">${k[2]}</div></div>`).join('');
-  // rok do roku
-  if(d.rok_do_roku){const zm=(a,b)=>b?((a/b-1)*100>=0?'+':'')+Math.round((a/b-1)*100)+' %':'—';
-    document.getElementById('rdr').innerHTML='<tr><th>Okres</th><th class="n">2026</th><th class="n">Zamówień</th><th class="n">Rok temu</th><th class="n">Zamówień</th><th class="n">Zmiana</th></tr>'+d.rok_do_roku.map(r=>`<tr><td>${esc(r.okres)}<br><span class="sub">${new Date(r.od).toLocaleDateString('pl-PL',{day:'2-digit',month:'2-digit'})}–${new Date(r.do).toLocaleDateString('pl-PL',{day:'2-digit',month:'2-digit'})}</span></td><td class="n"><b>${eur(r.teraz)}</b></td><td class="n">${r.zam}</td><td class="n">${eur(r.rok_temu)}</td><td class="n">${r.zam_rok_temu}</td><td class="n" style="color:${r.teraz>=r.rok_temu?'#2f6b3f':'#b4552e'}"><b>${zm(r.teraz,r.rok_temu)}</b></td></tr>`).join('');
-    if(d.meta_rok_temu)document.getElementById('metaly').textContent=eur(d.meta_rok_temu.wydatek)+' (teraz '+eur(wyd)+')';}
-  // kanały
+  const zm=(a,b)=>b?((a/b-1)*100>=0?'+':'')+Math.round((a/b-1)*100)+' %':'—';
+  document.getElementById('rdr').innerHTML='<tr><th>Okres</th><th class="n">Teraz</th><th class="n">Zamówień</th><th class="n">Rok temu</th><th class="n">Zamówień</th><th class="n">Zmiana</th></tr>'+`<tr><td>${esc(O.nazwa)}<br><span class="sub">${new Date(O.od).toLocaleDateString('pl-PL')}–${new Date(O.do).toLocaleDateString('pl-PL')}</span></td><td class="n"><b>${eur(O.teraz)}</b></td><td class="n">${O.zam}</td><td class="n">${eur(O.rok_temu)}</td><td class="n">${O.zam_rok_temu}</td><td class="n" style="color:${O.teraz>=O.rok_temu?'#2f6b3f':'#b4552e'}"><b>${zm(O.teraz,O.rok_temu)}</b></td></tr>`;
+  if(d.meta_rok_temu)document.getElementById('metaly').textContent=eur(d.meta_rok_temu.wydatek)+' w akcji rok temu (24.10–1.11.2025)';
   const kan={};z.forEach(o=>{const[n,c]=kanal(o);(kan[n]||=( {n,c,i:0,v:0}));kan[n].i++;kan[n].v+=netto(o)});
   const kl=Object.values(kan).sort((a,b)=>b.v-a.v), mx=Math.max(...kl.map(k=>k.v),1);
-  document.getElementById('kanaly').innerHTML='<tr><th>Źródło</th><th class="n">Zamówień</th><th class="n">Suma</th><th style="width:35%"></th></tr>'+kl.map(k=>`<tr><td><span class="tag ${k.c}">${esc(k.n)}</span></td><td class="n">${k.i}</td><td class="n">${eur(k.v)}</td><td><div class="bar" style="width:${k.v/mx*100}%"></div></td></tr>`).join('');
-  // zamówienia
-  document.getElementById('zam').innerHTML='<tr><th>Nr</th><th>Kiedy</th><th>Kraj</th><th>Co kupiono</th><th>Źródło</th><th class="n">Kwota</th></tr>'+[...z].reverse().map(o=>{const[n,c]=kanal(o);return `<tr><td>${esc(o.nr)}</td><td>${dt(o.data)}</td><td>${esc(o.kraj)}</td><td>${o.towary.map(esc).join('<br>')}</td><td>${zrodla(o).map(([n2,c2])=>`<span class="tag ${c2}">${esc(n2)}</span>`).join(' ')}</td><td class="n">${eur(o.kwota)}${o.zwrot?`<br><span class="zw">zwrot −${eur(o.zwrot)}</span>`:''}</td></tr>`}).join('');
-  // towary
+  document.getElementById('kanaly').innerHTML='<tr><th>Źródło</th><th class="n">Zamówień</th><th class="n">Suma</th><th style="width:35%"></th></tr>'+(kl.length?kl.map(k=>`<tr><td><span class="tag ${k.c}">${esc(k.n)}</span></td><td class="n">${k.i}</td><td class="n">${eur(k.v)}</td><td><div class="bar" style="width:${k.v/mx*100}%"></div></td></tr>`).join(''):'<tr><td colspan="4">Brak zamówień w tym okresie</td></tr>');
+  document.getElementById('zam').innerHTML='<tr><th>Nr</th><th>Kiedy</th><th>Kraj</th><th>Co kupiono</th><th>Źródło</th><th class="n">Kwota</th></tr>'+[...z].reverse().map(o=>`<tr><td>${esc(o.nr)}</td><td>${dt(o.data)}</td><td>${esc(o.kraj)}</td><td>${o.towary.map(esc).join('<br>')}</td><td>${zrodla(o).map(([n2,c2])=>`<span class="tag ${c2}">${esc(n2)}</span>`).join(' ')}</td><td class="n">${eur(o.kwota)}${o.zwrot?`<br><span class="zw">zwrot −${eur(o.zwrot)}</span>`:''}</td></tr>`).join('');
   const tw={};z.forEach(o=>{const[kn,kc]=kanal(o);o.towary.forEach(t=>{const m=t.match(/^(\d+)× (.*)$/);const q=m?+m[1]:1,n=m?m[2]:t;const e=tw[n]||={q:0,src:{}};e.q+=q;(e.src[kn]||={c:kc,q:0}).q+=q})});
   document.getElementById('towary').innerHTML='<tr><th>Produkt</th><th class="n">Szt.</th><th>Dlaczego kupili</th></tr>'+Object.entries(tw).sort((a,b)=>b[1].q-a[1].q).slice(0,15).map(([n,e])=>`<tr><td>${esc(n)}</td><td class="n">${e.q}</td><td>${Object.entries(e.src).sort((a,b)=>b[1].q-a[1].q).map(([k,v])=>`<span class="tag ${v.c}">${esc(k)}${v.q>1?' ×'+v.q:''}</span>`).join(' ')}</td></tr>`).join('');
   const kr={};z.forEach(o=>{kr[o.kraj||'?']=(kr[o.kraj||'?']||0)+1});
   document.getElementById('kraje').innerHTML='<tr><th>Kraj</th><th class="n">Zamówień</th></tr>'+Object.entries(kr).sort((a,b)=>b[1]-a[1]).map(([n,q])=>`<tr><td>${esc(n)}</td><td class="n">${q}</td></tr>`).join('');
-  // klaviyo
-  document.getElementById('kampanie').innerHTML='<tr><th>Kampania</th><th>Wysłano</th><th class="n">Odbiorcy</th><th class="n">Otwarcia</th><th class="n">Kliknięcia</th><th class="n">Wypisy</th><th class="n">Zamówienia</th><th class="n">Wartość</th></tr>'+d.klaviyo.kampanie.sort((a,b)=>String(b.wyslano).localeCompare(a.wyslano)).map(c=>`<tr><td>${esc(c.nazwa)}</td><td>${c.wyslano?dt(c.wyslano):''}</td><td class="n">${c.recipients}</td><td class="n">${c.opens_unique}</td><td class="n">${c.clicks_unique}</td><td class="n">${c.unsubscribes}</td><td class="n">${c.conversions}</td><td class="n">${eur(c.conversion_value)}</td></tr>`).join('');
-  document.getElementById('flowy').innerHTML='<tr><th>Automatyczne maile (flow)</th><th class="n">Odbiorcy</th><th class="n">Zamówienia</th><th class="n">Wartość</th></tr>'+d.klaviyo.flowy.map(f=>`<tr><td>${esc(f.nazwa)}</td><td class="n">${f.recipients}</td><td class="n">${f.conversions}</td><td class="n">${eur(f.conversion_value)}</td></tr>`).join('');
-  // meta
-  document.getElementById('meta').innerHTML='<tr><th>Dzień</th><th class="n">Wydatek</th><th class="n">Kliknięcia</th><th class="n">Koszyki</th><th class="n">Zakupy</th><th class="n">Wartość</th></tr>'+[...d.meta].reverse().map(m=>`<tr><td>${new Date(m.dzien).toLocaleDateString('pl-PL',{weekday:'short',day:'2-digit',month:'2-digit'})}</td><td class="n">${eur(m.wydatek)}</td><td class="n">${m.klikniecia}</td><td class="n">${m.koszyki}</td><td class="n">${m.zakupy}</td><td class="n">${eur(m.wartosc)}</td></tr>`).join('')+`<tr><td><b>Razem</b></td><td class="n"><b>${eur(wyd)}</b></td><td class="n">${d.meta.reduce((a,m)=>a+m.klikniecia,0)}</td><td class="n">${d.meta.reduce((a,m)=>a+m.koszyki,0)}</td><td class="n">${d.meta.reduce((a,m)=>a+m.zakupy,0)}</td><td class="n">${eur(d.meta.reduce((a,m)=>a+m.wartosc,0))}</td></tr>`;
-}).catch(e=>{document.getElementById('upd').textContent='Błąd ładowania danych: '+e.message});
+  const KC=d.klaviyo.kampanie.filter(c=>c.wyslano&&w(c.wyslano));
+  document.getElementById('kampanie').innerHTML='<tr><th>Kampania</th><th>Wysłano</th><th class="n">Odbiorcy</th><th class="n">Otwarcia</th><th class="n">Kliknięcia</th><th class="n">Wypisy</th><th class="n">Zamówienia</th><th class="n">Wartość</th></tr>'+(KC.length?KC.sort((a,b)=>String(b.wyslano).localeCompare(a.wyslano)).map(c=>`<tr><td>${esc(c.nazwa)}</td><td>${dt(c.wyslano)}</td><td class="n">${c.recipients}</td><td class="n">${c.opens_unique}</td><td class="n">${c.clicks_unique}</td><td class="n">${c.unsubscribes}</td><td class="n">${c.conversions}</td><td class="n">${eur(c.conversion_value)}</td></tr>`).join(''):'<tr><td colspan="8">Brak kampanii w tym okresie</td></tr>');
+  const fz={};mailZ.forEach(o=>{if(!/porzucon|powitaln|powrót|automatyczny/.test(o.klaviyo))return;(fz[o.klaviyo]||={n:o.klaviyo,i:0,v:0});fz[o.klaviyo].i++;fz[o.klaviyo].v+=netto(o)});
+  document.getElementById('flowy').innerHTML='<tr><th>Automatyczne maile (flow)</th><th class="n">Zamówienia</th><th class="n">Wartość</th></tr>'+(Object.values(fz).length?Object.values(fz).sort((a,b)=>b.v-a.v).map(f=>`<tr><td>${esc(f.n)}</td><td class="n">${f.i}</td><td class="n">${eur(f.v)}</td></tr>`).join(''):'<tr><td colspan="3">Brak zamówień z automatycznych maili w tym okresie</td></tr>');
+  document.getElementById('meta').innerHTML='<tr><th>Dzień</th><th class="n">Wydatek</th><th class="n">Kliknięcia</th><th class="n">Koszyki</th><th class="n">Zakupy</th><th class="n">Wartość</th></tr>'+[...M].reverse().map(m=>`<tr><td>${new Date(m.dzien).toLocaleDateString('pl-PL',{weekday:'short',day:'2-digit',month:'2-digit'})}</td><td class="n">${eur(m.wydatek)}</td><td class="n">${m.klikniecia}</td><td class="n">${m.koszyki}</td><td class="n">${m.zakupy}</td><td class="n">${eur(m.wartosc)}</td></tr>`).join('')+`<tr><td><b>Razem</b></td><td class="n"><b>${eur(wyd)}</b></td><td class="n">${M.reduce((a,m)=>a+m.klikniecia,0)}</td><td class="n">${M.reduce((a,m)=>a+m.koszyki,0)}</td><td class="n">${M.reduce((a,m)=>a+m.zakupy,0)}</td><td class="n">${eur(M.reduce((a,m)=>a+m.wartosc,0))}</td></tr>`;
+}
 </script>
 </body>
 </html>

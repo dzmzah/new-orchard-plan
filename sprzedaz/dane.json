@@ -1,7 +1,633 @@
 {
- "aktualizacja": "2026-10-30T21:38:40.627Z",
- "start": "2026-10-24",
+ "aktualizacja": "2026-10-30T21:39:55.747Z",
+ "start": "2026-09-02",
  "zamowienia": [
+  {
+   "id": "13134528643448",
+   "nr": "#1479",
+   "data": "2026-09-02T17:30:53Z",
+   "kwota": 127,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "AT",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves (Navy)",
+    "Winter Vegan Gloves (Blau)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13157169955192",
+   "nr": "#1480",
+   "data": "2026-09-10T18:21:40Z",
+   "kwota": 184.2,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "ES",
+   "kody": [],
+   "towary": [
+    "Medium Grey"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13157229363576",
+   "nr": "#1481",
+   "data": "2026-09-10T18:48:39Z",
+   "kwota": 301.2,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "US",
+   "kody": [],
+   "towary": [
+    "Short Caramel",
+    "Winter Vegan Capuche Khaki"
+   ],
+   "zrodlo": "Google",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13160691401080",
+   "nr": "#1482",
+   "data": "2026-09-12T05:08:47Z",
+   "kwota": 168.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Skirt Navy"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13161119973752",
+   "nr": "#1483",
+   "data": "2026-09-12T09:24:01Z",
+   "kwota": 716.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Long Beige",
+    "Slippers Black",
+    "Slippers Sabbia"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13161232564600",
+   "nr": "#1484",
+   "data": "2026-09-12T10:04:26Z",
+   "kwota": 13.73,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "CH",
+   "kody": [
+    "free_shipping4u"
+   ],
+   "towary": [
+    "Upcycled Vegan Scrunchie White"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13171132957048",
+   "nr": "#1485",
+   "data": "2026-09-15T19:51:22Z",
+   "kwota": 617.8,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "US",
+   "kody": [],
+   "towary": [
+    "Medium Brown with Black Fur",
+    "Water Repellent Vegan Spray",
+    "Medium Brown with White Fur"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13173883470200",
+   "nr": "#1486",
+   "data": "2026-09-16T12:37:18Z",
+   "kwota": 138.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "US",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves Blue"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13191689863544",
+   "nr": "#1487",
+   "data": "2026-09-22T19:29:33Z",
+   "kwota": 158,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "BE",
+   "kody": [
+    "WELCOME-ZZ53TQW4"
+   ],
+   "towary": [
+    "Winter Vegan Skirt Red (limited edition)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13193640935800",
+   "nr": "#1488",
+   "data": "2026-09-23T13:21:10Z",
+   "kwota": 1199.34,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Long Beige",
+    "Medium Sabbia",
+    "Short Brown",
+    "Short Black",
+    "Winter Vegan Capuche Red",
+    "Winter Vegan Gloves Red",
+    "2× Upcycled Vegan Scrunchie Beige"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13194515743096",
+   "nr": "#1489",
+   "data": "2026-09-23T19:10:53Z",
+   "kwota": 184.2,
+   "zwrot": 174.3,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Medium Caramel"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13196834636152",
+   "nr": "#1490",
+   "data": "2026-09-24T15:17:47Z",
+   "kwota": 68.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves Navy"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13197378453880",
+   "nr": "#1491",
+   "data": "2026-09-24T18:54:48Z",
+   "kwota": 208.2,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "LT",
+   "kody": [],
+   "towary": [
+    "Sports Vegan Tierry White",
+    "Sports Vegan Rainbow",
+    "Short Caramel"
+   ],
+   "zrodlo": "Instagram",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13197538263416",
+   "nr": "#1492",
+   "data": "2026-09-24T20:00:16Z",
+   "kwota": 73.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "AT",
+   "kody": [],
+   "towary": [
+    "Vegan T-shirt EdaMama"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13227185439096",
+   "nr": "#1493",
+   "data": "2026-10-04T18:17:13Z",
+   "kwota": 268.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Medium Boots All Black (limited edition)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13227385454968",
+   "nr": "#1494",
+   "data": "2026-10-04T19:25:27Z",
+   "kwota": 190.1,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Water Repellent Vegan Spray",
+    "Short Boots Caramel"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13227751375224",
+   "nr": "#1495",
+   "data": "2026-10-04T22:10:12Z",
+   "kwota": 53.1,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "PL",
+   "kody": [
+    "WELCOME-KS86RTV7"
+   ],
+   "towary": [
+    "Vegan T-Shirt Tofu Team"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail powitalny"
+  },
+  {
+   "id": "13233496588664",
+   "nr": "#1496",
+   "data": "2026-10-06T21:00:52Z",
+   "kwota": 68,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves (Schwarz)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13237772616056",
+   "nr": "#1497",
+   "data": "2026-10-08T11:13:27Z",
+   "kwota": 1528.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Short Boots Black",
+    "Short Boots Black",
+    "Vegan T-shirt Oat Milk",
+    "Vegan T-shirt Oat Milk",
+    "Vegan T-Shirt Avocado Toast",
+    "Vegan T-Shirt Avocado Toast",
+    "Vegan T-Shirt Vegan Chocolate",
+    "Vegan T-Shirt Vegan Chocolate",
+    "Slippers Sabbia",
+    "Slippers Sabbia",
+    "Slippers Sabbia"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: Welcome email seasonal "
+  },
+  {
+   "id": "13237821604216",
+   "nr": "#1498",
+   "data": "2026-10-08T11:30:28Z",
+   "kwota": 456.2,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Long Boots Beige",
+    "Short Boots Grey"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: Welcome email seasonal "
+  },
+  {
+   "id": "13238335766904",
+   "nr": "#1499",
+   "data": "2026-10-08T14:35:58Z",
+   "kwota": 183.65,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "AT",
+   "kody": [
+    "WELCOME-T6X2S6RC"
+   ],
+   "towary": [
+    "Vegan T-shirt Oat Milk",
+    "Winter Vegan Capuche Brown",
+    "Snack Pouche Red",
+    "Winter Vegan Beanie Black"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail powitalny"
+  },
+  {
+   "id": "13246887559544",
+   "nr": "#1500",
+   "data": "2026-10-11T14:51:22Z",
+   "kwota": 254.2,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "US",
+   "kody": [],
+   "towary": [
+    "Medium Boots Green"
+   ],
+   "zrodlo": "https://shopify.com/",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: medium green -33 last days EN"
+  },
+  {
+   "id": "13247911592312",
+   "nr": "#1501",
+   "data": "2026-10-11T21:01:19Z",
+   "kwota": 68,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves (Schwarz)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13248738525560",
+   "nr": "#1502",
+   "data": "2026-10-12T07:51:36Z",
+   "kwota": 274.92,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "CH",
+   "kody": [],
+   "towary": [
+    "Medium Boots Brown with Black Fur"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13253001085304",
+   "nr": "#1503",
+   "data": "2026-10-13T16:31:03Z",
+   "kwota": 68,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves (Schwarz)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13253179441528",
+   "nr": "#1504",
+   "data": "2026-10-13T17:48:44Z",
+   "kwota": 68.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves Yellow"
+   ],
+   "zrodlo": "direct",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13254997016952",
+   "nr": "#1505",
+   "data": "2026-10-14T11:18:43Z",
+   "kwota": 238.9,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Slippers Black"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13255541326200",
+   "nr": "#1506",
+   "data": "2026-10-14T14:30:23Z",
+   "kwota": 161,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "AT",
+   "kody": [],
+   "towary": [
+    "Dog Hoodie Navy, Rot, Blau (L, Navy)",
+    "Dog Hoodie Navy, Rot, Blau (M, Navy)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13258661298552",
+   "nr": "#1507",
+   "data": "2026-10-15T15:45:59Z",
+   "kwota": 48.8,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Insole Faux Fur Black, White (42, Black)",
+    "Insole Faux Fur Black, White (43, Black)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13269363327352",
+   "nr": "#1508",
+   "data": "2026-10-19T12:25:09Z",
+   "kwota": 338,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "NL",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Skirt Brown",
+    "Winter Vegan Skirt Navy"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13271709974904",
+   "nr": "#1509",
+   "data": "2026-10-20T09:16:01Z",
+   "kwota": 68,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves (Cinnamon)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13271710138744",
+   "nr": "#1510",
+   "data": "2026-10-20T09:16:04Z",
+   "kwota": 68,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves (Cinnamon)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13273389629816",
+   "nr": "#1511",
+   "data": "2026-10-20T19:45:57Z",
+   "kwota": 68,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Gloves (Schwarz)"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13278410113400",
+   "nr": "#1512",
+   "data": "2026-10-22T11:40:22Z",
+   "kwota": 181.98,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "DE",
+   "kody": [
+    "Custom discount"
+   ],
+   "towary": [
+    "Short Boots Caramel"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: porzucona kasa"
+  },
   {
    "id": "13286403867000",
    "nr": "#1513",
@@ -341,6 +967,158 @@
  ],
  "meta": [
   {
+   "dzien": "2026-10-05",
+   "wydatek": 19.07,
+   "klikniecia": 18,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-06",
+   "wydatek": 31.76,
+   "klikniecia": 29,
+   "koszyki": 4,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-07",
+   "wydatek": 35.68,
+   "klikniecia": 37,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-08",
+   "wydatek": 72.55,
+   "klikniecia": 63,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-09",
+   "wydatek": 81.02,
+   "klikniecia": 78,
+   "koszyki": 3,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-10",
+   "wydatek": 68.83,
+   "klikniecia": 70,
+   "koszyki": 5,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-11",
+   "wydatek": 107.79,
+   "klikniecia": 119,
+   "koszyki": 6,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-12",
+   "wydatek": 100.87,
+   "klikniecia": 137,
+   "koszyki": 7,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-13",
+   "wydatek": 75.66,
+   "klikniecia": 94,
+   "koszyki": 7,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-14",
+   "wydatek": 21.61,
+   "klikniecia": 28,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-15",
+   "wydatek": 16.7,
+   "klikniecia": 19,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-16",
+   "wydatek": 17.53,
+   "klikniecia": 17,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-17",
+   "wydatek": 24.5,
+   "klikniecia": 28,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-18",
+   "wydatek": 25.72,
+   "klikniecia": 24,
+   "koszyki": 1,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-19",
+   "wydatek": 19.23,
+   "klikniecia": 18,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-20",
+   "wydatek": 25.48,
+   "klikniecia": 26,
+   "koszyki": 2,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-21",
+   "wydatek": 19.94,
+   "klikniecia": 16,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-22",
+   "wydatek": 7.3,
+   "klikniecia": 8,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
+   "dzien": "2026-10-23",
+   "wydatek": 4.06,
+   "klikniecia": 6,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
+  },
+  {
    "dzien": "2026-10-24",
    "wydatek": 3.83,
    "klikniecia": 5,
@@ -390,8 +1168,8 @@
   },
   {
    "dzien": "2026-10-30",
-   "wydatek": 115.75,
-   "klikniecia": 107,
+   "wydatek": 116.26,
+   "klikniecia": 109,
    "koszyki": 6,
    "zakupy": 2,
    "wartosc": 383.4
@@ -399,6 +1177,56 @@
  ],
  "klaviyo": {
   "kampanie": [
+   {
+    "nazwa": "Welcome email seasonal ",
+    "wyslano": "2026-10-06T15:00:00+00:00",
+    "recipients": 1118,
+    "opens_unique": 503,
+    "clicks_unique": 31,
+    "unsubscribes": 20,
+    "conversions": 2,
+    "conversion_value": 1985.10004
+   },
+   {
+    "nazwa": "medium green -33 last days EN",
+    "wyslano": "2026-10-09T17:05:00+00:00",
+    "recipients": 964,
+    "opens_unique": 410,
+    "clicks_unique": 14,
+    "unsubscribes": 11,
+    "conversions": 1,
+    "conversion_value": 254.2
+   },
+   {
+    "nazwa": "Caramel jesien EN",
+    "wyslano": "2026-10-16T17:00:00+00:00",
+    "recipients": 980,
+    "opens_unique": 459,
+    "clicks_unique": 15,
+    "unsubscribes": 20,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Caramel −20 % OSTATNIE DNI EN",
+    "wyslano": "2026-10-23T17:00:00+00:00",
+    "recipients": 177,
+    "opens_unique": 122,
+    "clicks_unique": 5,
+    "unsubscribes": 1,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Caramel −20 % OSTATNIE DNI DE",
+    "wyslano": "2026-10-23T17:00:00+00:00",
+    "recipients": 22,
+    "opens_unique": 10,
+    "clicks_unique": 1,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
+   },
    {
     "nazwa": "Urodziny early access 25.10 EN",
     "wyslano": "2026-10-25T07:00:00+00:00",
@@ -418,6 +1246,26 @@
     "unsubscribes": 6,
     "conversions": 1,
     "conversion_value": 158.3
+   },
+   {
+    "nazwa": "medium green -33 last days DE",
+    "wyslano": "2026-10-09T17:05:00+00:00",
+    "recipients": 130,
+    "opens_unique": 50,
+    "clicks_unique": 5,
+    "unsubscribes": 1,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Caramel jesien DE",
+    "wyslano": "2026-10-16T17:00:00+00:00",
+    "recipients": 130,
+    "opens_unique": 48,
+    "clicks_unique": 3,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
    },
    {
     "nazwa": "Urodziny early access 25.10 DE",
@@ -443,54 +1291,46 @@
   "flowy": [
    {
     "nazwa": "Abandoned Cart Reminder",
-    "recipients": 25,
+    "recipients": 29,
     "conversions": 3,
     "conversion_value": 672.0999899999999
    },
    {
     "nazwa": "Welcome Series",
-    "recipients": 15,
-    "conversions": 2,
-    "conversion_value": 330.07001
+    "recipients": 85,
+    "conversions": 4,
+    "conversion_value": 566.82
+   },
+   {
+    "nazwa": "Abandoned Checkout",
+    "recipients": 51,
+    "conversions": 1,
+    "conversion_value": 181.98
    },
    {
     "nazwa": "Customer Thank You - New vs. Returning",
-    "recipients": 11,
+    "recipients": 42,
     "conversions": 0,
     "conversion_value": 0
    },
    {
     "nazwa": "Customer Winback after 1-2 months",
-    "recipients": 4,
+    "recipients": 16,
     "conversions": 0,
     "conversion_value": 0
    },
    {
     "nazwa": "Customer Winback after 11 months",
-    "recipients": 14,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
-    "nazwa": "Abandoned Checkout",
-    "recipients": 13,
+    "recipients": 54,
     "conversions": 0,
     "conversion_value": 0
    }
   ]
  },
- "rok_do_roku": [
+ "okresy": [
   {
-   "okres": "Dziś",
-   "od": "2026-10-30",
-   "do": "2026-10-30",
-   "teraz": 754.76,
-   "zam": 5,
-   "rok_temu": 155.09,
-   "zam_rok_temu": 1
-  },
-  {
-   "okres": "Akcja (od 24.10)",
+   "id": "akcja",
+   "nazwa": "Akcja urodzinowa 24.10–1.11",
    "od": "2026-10-24",
    "do": "2026-10-30",
    "teraz": 2842.95,
@@ -499,7 +1339,28 @@
    "zam_rok_temu": 5
   },
   {
-   "okres": "Ten miesiąc",
+   "id": "dzis",
+   "nazwa": "Dziś",
+   "od": "2026-10-30",
+   "do": "2026-10-30",
+   "teraz": 754.76,
+   "zam": 5,
+   "rok_temu": 155.09,
+   "zam_rok_temu": 1
+  },
+  {
+   "id": "7",
+   "nazwa": "Ostatnie 7 dni",
+   "od": "2026-10-24",
+   "do": "2026-10-30",
+   "teraz": 2842.95,
+   "zam": 18,
+   "rok_temu": 698.76,
+   "zam_rok_temu": 5
+  },
+  {
+   "id": "30",
+   "nazwa": "Ostatnie 30 dni",
    "od": "2026-10-01",
    "do": "2026-10-30",
    "teraz": 7498.5,
@@ -508,7 +1369,28 @@
    "zam_rok_temu": 13
   },
   {
-   "okres": "Sezon (od 1.09)",
+   "id": "mies",
+   "nazwa": "Ten miesiąc (październik)",
+   "od": "2026-10-01",
+   "do": "2026-10-30",
+   "teraz": 7498.5,
+   "zam": 38,
+   "rok_temu": 1861.09,
+   "zam_rok_temu": 13
+  },
+  {
+   "id": "pmies",
+   "nazwa": "Poprzedni miesiąc (wrzesień)",
+   "od": "2026-09-01",
+   "do": "2026-09-30",
+   "teraz": 3912.17,
+   "zam": 14,
+   "rok_temu": 1427.2,
+   "zam_rok_temu": 7
+  },
+  {
+   "id": "sezon",
+   "nazwa": "Sezon (od 1.09)",
    "od": "2026-09-01",
    "do": "2026-10-30",
    "teraz": 11410.67,
@@ -517,36 +1399,51 @@
    "zam_rok_temu": 20
   }
  ],
- "dni_rok_temu": [
+ "miesiace": [
   {
-   "dzien": "2025-10-26",
-   "sprzedaz": 234,
-   "zam": 1
+   "miesiac": "2026-11",
+   "nazwa": "listopad",
+   "teraz": null,
+   "zam": null,
+   "rok_temu": 12123.1,
+   "zam_rok_temu": 78
   },
   {
-   "dzien": "2025-10-24",
-   "sprzedaz": 174.78,
-   "zam": 1
+   "miesiac": "2026-12",
+   "nazwa": "grudzień",
+   "teraz": null,
+   "zam": null,
+   "rok_temu": 6983.89,
+   "zam_rok_temu": 54
   },
   {
-   "dzien": "2025-10-30",
-   "sprzedaz": 155.09,
-   "zam": 1
+   "miesiac": "2027-01",
+   "nazwa": "styczeń",
+   "teraz": null,
+   "zam": null,
+   "rok_temu": 6970.07,
+   "zam_rok_temu": 47
   },
   {
-   "dzien": "2025-10-28",
-   "sprzedaz": 71.89,
-   "zam": 1
+   "miesiac": "2026-10",
+   "nazwa": "październik",
+   "teraz": 7498.5,
+   "zam": 38,
+   "rok_temu": 2109.13,
+   "zam_rok_temu": 15
   },
   {
-   "dzien": "2025-10-25",
-   "sprzedaz": 63,
-   "zam": 1
+   "miesiac": "2026-09",
+   "nazwa": "wrzesień",
+   "teraz": 3912.17,
+   "zam": 14,
+   "rok_temu": 1427.2,
+   "zam_rok_temu": 7
   }
  ],
  "meta_rok_temu": {
-  "wydatek": 545.24,
-  "zakupy": 0,
-  "wartosc": 0
+  "wydatek": 716.38,
+  "zakupy": 4,
+  "wartosc": 574.54
  }
 }
