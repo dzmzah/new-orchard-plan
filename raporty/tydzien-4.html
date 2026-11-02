@@ -339,10 +339,10 @@ sel.value=R.findIndex(r=>r[0]==='2025-10-27');sel.onchange=pokaz;pokaz();
   // rok do roku
   var rr=[['Sprzedaż',3596,2861,' €'],['Zamówienia',23,16,''],['Średnie zamówienie',156,179,' €'],['Wydane na reklamę (Meta + Google)',667,694,' €'],['Reklama jako % sprzedaży',19,24,' %','mniej = lepiej'],['Kliknięcia w reklamy Meta',884,518,''],['Klikalność reklam Meta',2.1,0.9,' %'],['Koszyki z reklam Meta',34,47,''],['Koszt jednego koszyka',19,13.7,' €','mniej = lepiej'],['Zakupy według Meta',6,7,'']];
   var h='';
-  rr.forEach(function(r){var mx=Math.max(r[1],r[2]);
+  rr.forEach(function(r,i){var mx=Math.max(r[1],r[2]);
     var zm=r[2]?Math.round((r[1]-r[2])/r[2]*100):0, dobrze=r[4]?zm<0:zm>0;
     var zmT='<span style="display:block;font-size:12.5px;font-weight:600;color:'+(zm===0?'var(--cichy)':(dobrze?'var(--zielen)':'var(--zm)'))+'">'+(zm>0?'+':zm<0?'−':'')+Math.abs(zm)+' % do roku temu</span>';
-    h+='<div class="rrW"><div class="nz">'+r[0]+(r[4]?' <span style="color:var(--cichy);font-size:12px">('+r[4]+')</span>':'')+zmT+'</div><div>'+
+    h+='<div class="rrW"><div class="nz">'+r[0]+(r[4]?' <span style="color:var(--cichy);font-size:12px">('+r[4]+')</span>':'')+(i<3?zmT:'')+'</div><div>'+
       '<div class="pas teraz"><i style="width:'+Math.max(2,r[1]/mx*78)+'%"></i><b>'+f(r[1])+r[3]+'</b></div>'+
       '<div class="pas rok" style="margin-top:4px"><i style="width:'+Math.max(2,r[2]/mx*78)+'%"></i>'+f(r[2])+r[3]+'</div></div></div>';});
   document.getElementById('rr').innerHTML=h;
