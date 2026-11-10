@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-11-10T09:49:50.045Z",
+ "aktualizacja": "2026-11-10T17:50:09.663Z",
  "start": "2026-09-13",
  "zamowienia": [
   {
@@ -525,7 +525,7 @@
    "nr": "#1513",
    "data": "2026-10-25T08:06:51Z",
    "kwota": 155.4,
-   "zwrot": 0,
+   "zwrot": 155.4,
    "anulowane": false,
    "kraj": "PL",
    "kody": [
@@ -1119,10 +1119,11 @@
     "Winter Vegan Gloves Blue",
     "Winter Vegan Capuche Blue"
    ],
-   "zrodlo": "",
+   "zrodlo": "direct",
    "utm_source": "",
    "utm_medium": "",
-   "utm_campaign": ""
+   "utm_campaign": "",
+   "klaviyo": "Mail powitalny"
   }
  ],
  "meta": [
@@ -1443,8 +1444,8 @@
   },
   {
    "dzien": "2026-11-09",
-   "wydatek": 31.14,
-   "wyswietlenia": 1310,
+   "wydatek": 31.16,
+   "wyswietlenia": 1311,
    "klikniecia": 39,
    "koszyki": 0,
    "zakupy": 0,
@@ -1452,9 +1453,9 @@
   },
   {
    "dzien": "2026-11-10",
-   "wydatek": 10.59,
-   "wyswietlenia": 376,
-   "klikniecia": 9,
+   "wydatek": 22.1,
+   "wyswietlenia": 1996,
+   "klikniecia": 24,
    "koszyki": 0,
    "zakupy": 0,
    "wartosc": 0
@@ -1556,9 +1557,9 @@
     "nazwa": "9.11 VegNews + Caramel EN",
     "wyslano": "2026-11-09T07:00:00+00:00",
     "recipients": 814,
-    "opens_unique": 299,
+    "opens_unique": 306,
     "clicks_unique": 11,
-    "unsubscribes": 10,
+    "unsubscribes": 11,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1636,13 +1637,13 @@
   "flowy": [
    {
     "nazwa": "Welcome Series",
-    "recipients": 104,
-    "conversions": 8,
-    "conversion_value": 932.75
+    "recipients": 106,
+    "conversions": 9,
+    "conversion_value": 1065.23
    },
    {
     "nazwa": "Abandoned Cart Reminder",
-    "recipients": 51,
+    "recipients": 52,
     "conversions": 3,
     "conversion_value": 672.0999899999999
    },
@@ -1654,7 +1655,7 @@
    },
    {
     "nazwa": "Customer Thank You - New vs. Returning",
-    "recipients": 55,
+    "recipients": 56,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1666,7 +1667,7 @@
    },
    {
     "nazwa": "Customer Winback after 11 months",
-    "recipients": 84,
+    "recipients": 88,
     "conversions": 0,
     "conversion_value": 0
    }
@@ -2137,12 +2138,12 @@
    "kraje_rok": [],
    "ga4": {
     "teraz": {
-     "sessions": 163,
-     "totalUsers": 160,
+     "sessions": 213,
+     "totalUsers": 209,
      "addToCarts": 5,
-     "checkouts": 4,
-     "ecommercePurchases": 1,
-     "purchaseRevenue": 42.48,
+     "checkouts": 5,
+     "ecommercePurchases": 2,
+     "purchaseRevenue": 165.06,
      "googleKoszt": 0,
      "googleKlik": 0
     },
@@ -2161,7 +2162,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 133,
+      "sesje": 168,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2182,7 +2183,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 23,
+      "sesje": 26,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2197,7 +2198,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 9,
+      "sesje": 19,
       "koszyki": 2,
       "zakupy": 1,
       "przychod": 42.48
@@ -2212,7 +2213,22 @@
       "przychod": 0
      },
      "teraz": {
+      "sesje": 7,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Referral",
+     "teraz": {
       "sesje": 6,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "rok": {
+      "sesje": 2,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2234,27 +2250,12 @@
      }
     },
     {
-     "n": "Referral",
-     "teraz": {
-      "sesje": 4,
-      "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     },
-     "rok": {
-      "sesje": 2,
-      "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     }
-    },
-    {
      "n": "Organic Shopping",
      "teraz": {
-      "sesje": 3,
+      "sesje": 4,
       "koszyki": 2,
-      "zakupy": 0,
-      "przychod": 0
+      "zakupy": 1,
+      "przychod": 122.58
      },
      "rok": {
       "sesje": 0,
@@ -2266,7 +2267,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 1,
+      "sesje": 2,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2345,7 +2346,7 @@
    "nazwa": "Ostatnie 7 dni",
    "od": "2026-11-04",
    "do": "2026-11-10",
-   "teraz": 405.66,
+   "teraz": 250.26,
    "zam": 8,
    "rok_temu": 843.54,
    "zam_rok_temu": 11,
@@ -2469,12 +2470,12 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 2361,
-     "totalUsers": 2279,
+     "sessions": 2412,
+     "totalUsers": 2327,
      "addToCarts": 40,
-     "checkouts": 24,
-     "ecommercePurchases": 2,
-     "purchaseRevenue": 95.58,
+     "checkouts": 25,
+     "ecommercePurchases": 3,
+     "purchaseRevenue": 218.16,
      "googleKoszt": 9.22,
      "googleKlik": 26
     },
@@ -2493,7 +2494,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 1755,
+      "sesje": 1790,
       "koszyki": 13,
       "zakupy": 0,
       "przychod": 0
@@ -2514,7 +2515,7 @@
       "przychod": 332.43
      },
      "teraz": {
-      "sesje": 209,
+      "sesje": 219,
       "koszyki": 9,
       "zakupy": 1,
       "przychod": 42.48
@@ -2529,7 +2530,7 @@
       "przychod": 168.5
      },
      "teraz": {
-      "sesje": 180,
+      "sesje": 181,
       "koszyki": 7,
       "zakupy": 0,
       "przychod": 0
@@ -2541,10 +2542,10 @@
       "sesje": 417,
       "koszyki": 16,
       "zakupy": 3,
-      "przychod": 383.90000000000003
+      "przychod": 383.9
      },
      "teraz": {
-      "sesje": 100,
+      "sesje": 103,
       "koszyki": 3,
       "zakupy": 1,
       "przychod": 53.1
@@ -2553,7 +2554,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 66,
+      "sesje": 68,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -2598,7 +2599,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 18,
+      "sesje": 19,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -2628,10 +2629,10 @@
     {
      "n": "Organic Shopping",
      "teraz": {
-      "sesje": 7,
+      "sesje": 8,
       "koszyki": 2,
-      "zakupy": 0,
-      "przychod": 0
+      "zakupy": 1,
+      "przychod": 122.58
      },
      "rok": {
       "sesje": 5,
@@ -2692,7 +2693,7 @@
    "nazwa": "Ostatnie 30 dni",
    "od": "2026-10-12",
    "do": "2026-11-10",
-   "teraz": 5715.9,
+   "teraz": 5560.5,
    "zam": 44,
    "rok_temu": 5734.13,
    "zam_rok_temu": 37,
@@ -2849,7 +2850,7 @@
     {
      "n": "Poland",
      "z": 2,
-     "s": 492.64
+     "s": 337.24
     },
     {
      "n": "Finland",
@@ -2931,12 +2932,12 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 6542,
-     "totalUsers": 5912,
+     "sessions": 6593,
+     "totalUsers": 5959,
      "addToCarts": 237,
-     "checkouts": 126,
-     "ecommercePurchases": 19,
-     "purchaseRevenue": 2941.637376,
+     "checkouts": 127,
+     "ecommercePurchases": 20,
+     "purchaseRevenue": 3064.217376,
      "googleKoszt": 82.49,
      "googleKlik": 139
     },
@@ -2955,7 +2956,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 3089,
+      "sesje": 3126,
       "koszyki": 82,
       "zakupy": 4,
       "przychod": 677.04
@@ -2964,7 +2965,7 @@
       "sesje": 952,
       "koszyki": 45,
       "zakupy": 11,
-      "przychod": 1732.87
+      "przychod": 1732.8700000000001
      }
     },
     {
@@ -2976,7 +2977,7 @@
       "przychod": 1069.7399999999998
      },
      "teraz": {
-      "sesje": 1589,
+      "sesje": 1590,
       "koszyki": 43,
       "zakupy": 2,
       "przychod": 363.6
@@ -2991,7 +2992,7 @@
       "przychod": 741.21
      },
      "teraz": {
-      "sesje": 800,
+      "sesje": 811,
       "koszyki": 35,
       "zakupy": 6,
       "przychod": 818.4381000000001
@@ -3018,10 +3019,10 @@
       "sesje": 1762,
       "koszyki": 33,
       "zakupy": 6,
-      "przychod": 1112.18
+      "przychod": 1112.1799999999998
      },
      "teraz": {
-      "sesje": 200,
+      "sesje": 203,
       "koszyki": 12,
       "zakupy": 3,
       "przychod": 456.53914900000007
@@ -3045,7 +3046,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 123,
+      "sesje": 125,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -3075,7 +3076,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 71,
+      "sesje": 72,
       "koszyki": 3,
       "zakupy": 0,
       "przychod": 0
@@ -3096,10 +3097,10 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 42,
+      "sesje": 43,
       "koszyki": 11,
-      "zakupy": 1,
-      "przychod": 159
+      "zakupy": 2,
+      "przychod": 281.58
      }
     },
     {
@@ -3154,7 +3155,7 @@
    "nazwa": "Ten miesiąc (listopad)",
    "od": "2026-11-01",
    "do": "2026-11-10",
-   "teraz": 1040.55,
+   "teraz": 885.15,
    "zam": 13,
    "rok_temu": 3622.21,
    "zam_rok_temu": 24,
@@ -3343,12 +3344,12 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 3202,
-     "totalUsers": 3096,
+     "sessions": 3264,
+     "totalUsers": 3143,
      "addToCarts": 52,
-     "checkouts": 31,
-     "ecommercePurchases": 4,
-     "purchaseRevenue": 394.85696600000006,
+     "checkouts": 32,
+     "ecommercePurchases": 5,
+     "purchaseRevenue": 517.436966,
      "googleKoszt": 18.38,
      "googleKlik": 39
     },
@@ -3367,7 +3368,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 2256,
+      "sesje": 2292,
       "koszyki": 15,
       "zakupy": 1,
       "przychod": 143.4
@@ -3388,7 +3389,7 @@
       "przychod": 332.43
      },
      "teraz": {
-      "sesje": 321,
+      "sesje": 331,
       "koszyki": 12,
       "zakupy": 2,
       "przychod": 198.356966
@@ -3403,7 +3404,7 @@
       "przychod": 845.5999999999999
      },
      "teraz": {
-      "sesje": 315,
+      "sesje": 316,
       "koszyki": 7,
       "zakupy": 0,
       "przychod": 0
@@ -3418,7 +3419,7 @@
       "przychod": 652.7
      },
      "teraz": {
-      "sesje": 118,
+      "sesje": 121,
       "koszyki": 3,
       "zakupy": 1,
       "przychod": 53.1
@@ -3442,7 +3443,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 84,
+      "sesje": 86,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -3472,7 +3473,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 28,
+      "sesje": 29,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -3501,15 +3502,15 @@
     },
     {
      "n": "Organic Shopping",
+     "teraz": {
+      "sesje": 9,
+      "koszyki": 2,
+      "zakupy": 1,
+      "przychod": 122.58
+     },
      "rok": {
       "sesje": 8,
       "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     },
-     "teraz": {
-      "sesje": 8,
-      "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
      }
@@ -3795,7 +3796,7 @@
      "addToCarts": 122,
      "checkouts": 68,
      "ecommercePurchases": 13,
-     "purchaseRevenue": 2070.1,
+     "purchaseRevenue": 2070.1000000000004,
      "googleKoszt": 227.84,
      "googleKlik": 541
     }
@@ -4003,7 +4004,7 @@
    "nazwa": "Sezon (od 1.09)",
    "od": "2026-09-01",
    "do": "2026-11-10",
-   "teraz": 12699.12,
+   "teraz": 12543.72,
    "zam": 67,
    "rok_temu": 7158.54,
    "zam_rok_temu": 46,
@@ -4160,7 +4161,7 @@
     {
      "n": "Poland",
      "z": 3,
-     "s": 545.74
+     "s": 390.34
     },
     {
      "n": "Netherlands",
@@ -4267,12 +4268,12 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 11890,
-     "totalUsers": 10675,
+     "sessions": 11940,
+     "totalUsers": 10725,
      "addToCarts": 402,
-     "checkouts": 191,
-     "ecommercePurchases": 37,
-     "purchaseRevenue": 9668.105432999999,
+     "checkouts": 192,
+     "ecommercePurchases": 38,
+     "purchaseRevenue": 9790.685432999999,
      "googleKoszt": 173.4,
      "googleKlik": 258
     },
@@ -4291,7 +4292,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 4641,
+      "sesje": 4681,
       "koszyki": 107,
       "zakupy": 7,
       "przychod": 2314.7799999999997
@@ -4300,7 +4301,7 @@
       "sesje": 1577,
       "koszyki": 58,
       "zakupy": 12,
-      "przychod": 1928.77
+      "przychod": 1928.7700000000002
      }
     },
     {
@@ -4309,10 +4310,10 @@
       "sesje": 2700,
       "koszyki": 62,
       "zakupy": 10,
-      "przychod": 1805.9900000000002
+      "przychod": 1805.99
      },
      "teraz": {
-      "sesje": 2184,
+      "sesje": 2187,
       "koszyki": 93,
       "zakupy": 14,
       "przychod": 4824.767206
@@ -4327,7 +4328,7 @@
       "przychod": 1233.54
      },
      "teraz": {
-      "sesje": 1974,
+      "sesje": 1975,
       "koszyki": 65,
       "zakupy": 2,
       "przychod": 363.6
@@ -4342,7 +4343,7 @@
       "przychod": 942.01
      },
      "teraz": {
-      "sesje": 1808,
+      "sesje": 1819,
       "koszyki": 55,
       "zakupy": 8,
       "przychod": 1172.7381
@@ -4402,7 +4403,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 174,
+      "sesje": 176,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -4411,7 +4412,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 141,
+      "sesje": 142,
       "koszyki": 3,
       "zakupy": 0,
       "przychod": 0
@@ -4432,10 +4433,10 @@
       "przychod": 177.3
      },
      "teraz": {
-      "sesje": 74,
+      "sesje": 75,
       "koszyki": 12,
-      "zakupy": 1,
-      "przychod": 159
+      "zakupy": 2,
+      "przychod": 281.58
      }
     },
     {
@@ -4490,7 +4491,7 @@
   {
    "miesiac": "2026-11",
    "nazwa": "listopad",
-   "teraz": 1040.55,
+   "teraz": 885.15,
    "zam": 13,
    "rok_temu": 12123.1,
    "zam_rok_temu": 78
