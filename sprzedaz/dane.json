@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-11-11T15:11:23.861Z",
+ "aktualizacja": "2026-11-11T21:57:32.791Z",
  "start": "2026-09-14",
  "zamowienia": [
   {
@@ -1124,6 +1124,41 @@
    "utm_medium": "",
    "utm_campaign": "",
    "klaviyo": "Mail powitalny"
+  },
+  {
+   "id": "13344135872888",
+   "nr": "#1546",
+   "data": "2026-11-11T17:10:53Z",
+   "kwota": 107.43,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "CH",
+   "kody": [],
+   "towary": [
+    "Winter Vegan Capuche Black"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": ""
+  },
+  {
+   "id": "13344776978808",
+   "nr": "#1547",
+   "data": "2026-11-11T20:32:25Z",
+   "kwota": 47.94,
+   "zwrot": 0,
+   "anulowane": false,
+   "kraj": "NO",
+   "kody": [],
+   "towary": [
+    "Dog Hoodie Red"
+   ],
+   "zrodlo": "",
+   "utm_source": "",
+   "utm_medium": "",
+   "utm_campaign": "",
+   "klaviyo": "Mail: 9.11 VegNews + Caramel EN"
   }
  ],
  "meta": [
@@ -1454,7 +1489,7 @@
   {
    "dzien": "2026-11-10",
    "wydatek": 34.02,
-   "wyswietlenia": 3916,
+   "wyswietlenia": 3917,
    "klikniecia": 40,
    "koszyki": 0,
    "zakupy": 0,
@@ -1462,10 +1497,10 @@
   },
   {
    "dzien": "2026-11-11",
-   "wydatek": 25.68,
-   "wyswietlenia": 2671,
-   "klikniecia": 29,
-   "koszyki": 0,
+   "wydatek": 41.29,
+   "wyswietlenia": 5174,
+   "klikniecia": 49,
+   "koszyki": 3,
    "zakupy": 0,
    "wartosc": 0
   }
@@ -1493,6 +1528,16 @@
     "conversion_value": 254.2
    },
    {
+    "nazwa": "medium green -33 last days DE",
+    "wyslano": "2026-10-09T17:05:00+00:00",
+    "recipients": 130,
+    "opens_unique": 50,
+    "clicks_unique": 5,
+    "unsubscribes": 1,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
     "nazwa": "Caramel jesien EN",
     "wyslano": "2026-10-16T17:00:00+00:00",
     "recipients": 980,
@@ -1513,16 +1558,6 @@
     "conversion_value": 0
    },
    {
-    "nazwa": "Caramel −20 % OSTATNIE DNI DE",
-    "wyslano": "2026-10-23T17:00:00+00:00",
-    "recipients": 22,
-    "opens_unique": 10,
-    "clicks_unique": 1,
-    "unsubscribes": 0,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
     "nazwa": "Urodziny early access 25.10 EN",
     "wyslano": "2026-10-25T07:00:00+00:00",
     "recipients": 973,
@@ -1533,6 +1568,16 @@
     "conversion_value": 274.07999
    },
    {
+    "nazwa": "Urodziny early access 25.10 DE",
+    "wyslano": "2026-10-25T07:00:00+00:00",
+    "recipients": 127,
+    "opens_unique": 52,
+    "clicks_unique": 9,
+    "unsubscribes": 3,
+    "conversions": 3,
+    "conversion_value": 495.90001
+   },
+   {
     "nazwa": "Birthday 30.10 Halloween EN",
     "wyslano": "2026-10-30T07:00:00+00:00",
     "recipients": 956,
@@ -1541,6 +1586,16 @@
     "unsubscribes": 9,
     "conversions": 1,
     "conversion_value": 158.3
+   },
+   {
+    "nazwa": "Birthday 30.10 Halloween DE",
+    "wyslano": "2026-10-30T07:00:00+00:00",
+    "recipients": 126,
+    "opens_unique": 40,
+    "clicks_unique": 5,
+    "unsubscribes": 2,
+    "conversions": 0,
+    "conversion_value": 0
    },
    {
     "nazwa": "Birthday 1.11 final call EN",
@@ -1566,31 +1621,11 @@
     "nazwa": "9.11 VegNews + Caramel EN",
     "wyslano": "2026-11-09T07:00:00+00:00",
     "recipients": 814,
-    "opens_unique": 317,
+    "opens_unique": 320,
     "clicks_unique": 14,
     "unsubscribes": 11,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
-    "nazwa": "9.11 VegNews + Caramel DE",
-    "wyslano": "2026-11-09T07:00:00+00:00",
-    "recipients": 121,
-    "opens_unique": 37,
-    "clicks_unique": 0,
-    "unsubscribes": 0,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
-    "nazwa": "medium green -33 last days DE",
-    "wyslano": "2026-10-09T17:05:00+00:00",
-    "recipients": 130,
-    "opens_unique": 50,
-    "clicks_unique": 5,
-    "unsubscribes": 1,
-    "conversions": 0,
-    "conversion_value": 0
+    "conversions": 1,
+    "conversion_value": 47.94
    },
    {
     "nazwa": "Caramel jesien DE",
@@ -1603,22 +1638,12 @@
     "conversion_value": 0
    },
    {
-    "nazwa": "Urodziny early access 25.10 DE",
-    "wyslano": "2026-10-25T07:00:00+00:00",
-    "recipients": 127,
-    "opens_unique": 52,
-    "clicks_unique": 9,
-    "unsubscribes": 3,
-    "conversions": 3,
-    "conversion_value": 495.90001
-   },
-   {
-    "nazwa": "Birthday 30.10 Halloween DE",
-    "wyslano": "2026-10-30T07:00:00+00:00",
-    "recipients": 126,
-    "opens_unique": 40,
-    "clicks_unique": 5,
-    "unsubscribes": 2,
+    "nazwa": "Caramel −20 % OSTATNIE DNI DE",
+    "wyslano": "2026-10-23T17:00:00+00:00",
+    "recipients": 22,
+    "opens_unique": 10,
+    "clicks_unique": 1,
+    "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1641,12 +1666,22 @@
     "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
+   },
+   {
+    "nazwa": "9.11 VegNews + Caramel DE",
+    "wyslano": "2026-11-09T07:00:00+00:00",
+    "recipients": 121,
+    "opens_unique": 37,
+    "clicks_unique": 0,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
    }
   ],
   "flowy": [
    {
     "nazwa": "Welcome Series",
-    "recipients": 109,
+    "recipients": 110,
     "conversions": 9,
     "conversion_value": 1065.23
    },
@@ -1658,7 +1693,7 @@
    },
    {
     "nazwa": "Abandoned Checkout",
-    "recipients": 60,
+    "recipients": 61,
     "conversions": 1,
     "conversion_value": 181.98
    },
@@ -1912,7 +1947,7 @@
      "addToCarts": 94,
      "checkouts": 43,
      "ecommercePurchases": 9,
-     "purchaseRevenue": 1360.7099999999998,
+     "purchaseRevenue": 1360.71,
      "googleKoszt": 63.63,
      "googleKlik": 150
     }
@@ -2120,24 +2155,46 @@
    "nazwa": "Dziś",
    "od": "2026-11-11",
    "do": "2026-11-11",
-   "teraz": 0,
-   "zam": 0,
+   "teraz": 155.37,
+   "zam": 2,
    "rok_temu": 0,
    "zam_rok_temu": 0,
-   "produkty": [],
+   "produkty": [
+    {
+     "n": "Dog Hoodie Red",
+     "q": 1,
+     "s": 33.04
+    },
+    {
+     "n": "Winter Vegan Capuche Black",
+     "q": 1,
+     "s": 107.43
+    }
+   ],
    "produkty_rok": [],
-   "kraje": [],
+   "kraje": [
+    {
+     "n": "Norway",
+     "z": 1,
+     "s": 47.94
+    },
+    {
+     "n": "Switzerland",
+     "z": 1,
+     "s": 107.43
+    }
+   ],
    "kraje_rok": [],
    "ga4": {
     "teraz": {
-     "sessions": 82,
-     "totalUsers": 81,
-     "addToCarts": 2,
+     "sessions": 143,
+     "totalUsers": 141,
+     "addToCarts": 6,
      "checkouts": 1,
      "ecommercePurchases": 0,
      "purchaseRevenue": 0,
-     "googleKoszt": 1.29,
-     "googleKlik": 4
+     "googleKoszt": 2.92,
+     "googleKlik": 6
     },
     "rok": {
      "sessions": 181,
@@ -2154,7 +2211,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 52,
+      "sesje": 102,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -2162,21 +2219,6 @@
      "rok": {
       "sesje": 19,
       "koszyki": 4,
-      "zakupy": 0,
-      "przychod": 0
-     }
-    },
-    {
-     "n": "Paid Social",
-     "rok": {
-      "sesje": 49,
-      "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     },
-     "teraz": {
-      "sesje": 11,
-      "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
      }
@@ -2190,8 +2232,23 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 8,
+      "sesje": 14,
       "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Paid Social",
+     "rok": {
+      "sesje": 49,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 13,
+      "koszyki": 3,
       "zakupy": 0,
       "przychod": 0
      }
@@ -2205,7 +2262,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 6,
+      "sesje": 12,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2214,8 +2271,23 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 5,
+      "sesje": 7,
       "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "rok": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Paid Search",
+     "teraz": {
+      "sesje": 3,
+      "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
      },
@@ -2246,21 +2318,6 @@
      "teraz": {
       "sesje": 2,
       "koszyki": 1,
-      "zakupy": 0,
-      "przychod": 0
-     },
-     "rok": {
-      "sesje": 0,
-      "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     }
-    },
-    {
-     "n": "Paid Search",
-     "teraz": {
-      "sesje": 2,
-      "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
      },
@@ -2308,20 +2365,20 @@
    "nazwa": "Ostatnie 7 dni",
    "od": "2026-11-05",
    "do": "2026-11-11",
-   "teraz": 9.28,
-   "zam": 6,
+   "teraz": 164.65,
+   "zam": 8,
    "rok_temu": 608.48,
    "zam_rok_temu": 9,
    "produkty": [
     {
+     "n": "Dog Hoodie Red",
+     "q": 2,
+     "s": 86.14
+    },
+    {
      "n": "Winter Vegan Beanie Black",
      "q": 2,
      "s": 49
-    },
-    {
-     "n": "Dog Hoodie Red",
-     "q": 1,
-     "s": 53.1
     },
     {
      "n": "Winter Vegan Gloves Blue",
@@ -2332,6 +2389,11 @@
      "n": "Winter Vegan Beanie Beige",
      "q": 1,
      "s": 24.5
+    },
+    {
+     "n": "Winter Vegan Capuche Black",
+     "q": 1,
+     "s": 107.43
     },
     {
      "n": "Winter Vegan Capuche Blue",
@@ -2391,6 +2453,16 @@
      "n": "Germany",
      "z": 6,
      "s": 295.98
+    },
+    {
+     "n": "Norway",
+     "z": 1,
+     "s": 47.94
+    },
+    {
+     "n": "Switzerland",
+     "z": 1,
+     "s": 107.43
     }
    ],
    "kraje_rok": [
@@ -2412,14 +2484,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 2274,
-     "totalUsers": 2189,
-     "addToCarts": 43,
+     "sessions": 2333,
+     "totalUsers": 2247,
+     "addToCarts": 47,
      "checkouts": 28,
      "ecommercePurchases": 3,
      "purchaseRevenue": 218.16,
-     "googleKoszt": 7.85,
-     "googleKlik": 26
+     "googleKoszt": 9.48,
+     "googleKlik": 28
     },
     "rok": {
      "sessions": 1737,
@@ -2436,7 +2508,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 1669,
+      "sesje": 1716,
       "koszyki": 14,
       "zakupy": 0,
       "przychod": 0
@@ -2457,7 +2529,7 @@
       "przychod": 332.43
      },
      "teraz": {
-      "sesje": 216,
+      "sesje": 221,
       "koszyki": 10,
       "zakupy": 1,
       "przychod": 42.48
@@ -2472,8 +2544,8 @@
       "przychod": 168.5
      },
      "teraz": {
-      "sesje": 160,
-      "koszyki": 6,
+      "sesje": 162,
+      "koszyki": 9,
       "zakupy": 0,
       "przychod": 0
      }
@@ -2481,7 +2553,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 79,
+      "sesje": 81,
       "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
@@ -2491,21 +2563,6 @@
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
-     }
-    },
-    {
-     "n": "Unassigned",
-     "rok": {
-      "sesje": 431,
-      "koszyki": 12,
-      "zakupy": 3,
-      "przychod": 383.90000000000003
-     },
-     "teraz": {
-      "sesje": 78,
-      "koszyki": 3,
-      "zakupy": 1,
-      "przychod": 53.1
      }
     },
     {
@@ -2521,6 +2578,21 @@
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
+     }
+    },
+    {
+     "n": "Unassigned",
+     "rok": {
+      "sesje": 431,
+      "koszyki": 12,
+      "zakupy": 3,
+      "przychod": 383.9
+     },
+     "teraz": {
+      "sesje": 41,
+      "koszyki": 3,
+      "zakupy": 1,
+      "przychod": 53.1
      }
     },
     {
@@ -2556,8 +2628,8 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 16,
-      "koszyki": 1,
+      "sesje": 17,
+      "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
      },
@@ -2571,7 +2643,7 @@
     {
      "n": "Organic Shopping",
      "teraz": {
-      "sesje": 9,
+      "sesje": 10,
       "koszyki": 2,
       "zakupy": 1,
       "przychod": 122.58
@@ -2635,8 +2707,8 @@
    "nazwa": "Ostatnie 30 dni",
    "od": "2026-10-13",
    "do": "2026-11-11",
-   "teraz": 5233.2,
-   "zam": 43,
+   "teraz": 5388.57,
+   "zam": 45,
    "rok_temu": 5734.13,
    "zam_rok_temu": 37,
    "produkty": [
@@ -2649,6 +2721,11 @@
      "n": "Winter Vegan Beanie Black",
      "q": 6,
      "s": 147
+    },
+    {
+     "n": "Dog Hoodie Red",
+     "q": 3,
+     "s": 133.34
     },
     {
      "n": "Short Boots Black",
@@ -2694,11 +2771,6 @@
      "n": "Water Repellent Vegan Spray",
      "q": 2,
      "s": 39.8
-    },
-    {
-     "n": "Dog Hoodie Red",
-     "q": 2,
-     "s": 100.3
     }
    ],
    "produkty_rok": [
@@ -2770,14 +2842,14 @@
      "s": 2057.04
     },
     {
+     "n": "Switzerland",
+     "z": 5,
+     "s": 897.55
+    },
+    {
      "n": "United Kingdom",
      "z": 4,
      "s": 474.2
-    },
-    {
-     "n": "Switzerland",
-     "z": 4,
-     "s": 790.12
     },
     {
      "n": "Austria",
@@ -2790,6 +2862,11 @@
      "s": 721.4
     },
     {
+     "n": "Norway",
+     "z": 2,
+     "s": 110.04
+    },
+    {
      "n": "Poland",
      "z": 2,
      "s": 337.24
@@ -2798,11 +2875,6 @@
      "n": "Finland",
      "z": 1,
      "s": 295.7
-    },
-    {
-     "n": "Norway",
-     "z": 1,
-     "s": 62.1
     },
     {
      "n": "France",
@@ -2874,14 +2946,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 6544,
-     "totalUsers": 5943,
-     "addToCarts": 231,
+     "sessions": 6555,
+     "totalUsers": 6000,
+     "addToCarts": 235,
      "checkouts": 128,
      "ecommercePurchases": 19,
      "purchaseRevenue": 2799.636242,
-     "googleKoszt": 59.8,
-     "googleKlik": 111
+     "googleKoszt": 61.43,
+     "googleKlik": 113
     },
     "rok": {
      "sessions": 7098,
@@ -2898,7 +2970,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 3163,
+      "sesje": 3205,
       "koszyki": 77,
       "zakupy": 4,
       "przychod": 677.04
@@ -2907,7 +2979,7 @@
       "sesje": 956,
       "koszyki": 49,
       "zakupy": 11,
-      "przychod": 1732.8700000000001
+      "przychod": 1732.87
      }
     },
     {
@@ -2919,8 +2991,8 @@
       "przychod": 1069.74
      },
      "teraz": {
-      "sesje": 1543,
-      "koszyki": 43,
+      "sesje": 1545,
+      "koszyki": 46,
       "zakupy": 2,
       "przychod": 363.6
      }
@@ -2934,7 +3006,7 @@
       "przychod": 741.21
      },
      "teraz": {
-      "sesje": 812,
+      "sesje": 817,
       "koszyki": 35,
       "zakupy": 5,
       "przychod": 553.856966
@@ -2971,24 +3043,9 @@
      }
     },
     {
-     "n": "Unassigned",
-     "rok": {
-      "sesje": 1789,
-      "koszyki": 33,
-      "zakupy": 6,
-      "przychod": 1112.18
-     },
-     "teraz": {
-      "sesje": 155,
-      "koszyki": 12,
-      "zakupy": 3,
-      "przychod": 456.53914900000007
-     }
-    },
-    {
      "n": "Referral",
      "teraz": {
-      "sesje": 140,
+      "sesje": 142,
       "koszyki": 5,
       "zakupy": 0,
       "przychod": 0
@@ -2998,6 +3055,21 @@
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
+     }
+    },
+    {
+     "n": "Unassigned",
+     "rok": {
+      "sesje": 1789,
+      "koszyki": 33,
+      "zakupy": 6,
+      "przychod": 1112.18
+     },
+     "teraz": {
+      "sesje": 118,
+      "koszyki": 12,
+      "zakupy": 3,
+      "przychod": 456.53914900000007
      }
     },
     {
@@ -3018,8 +3090,8 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 65,
-      "koszyki": 5,
+      "sesje": 66,
+      "koszyki": 6,
       "zakupy": 0,
       "przychod": 0
      },
@@ -3039,7 +3111,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 42,
+      "sesje": 43,
       "koszyki": 11,
       "zakupy": 2,
       "przychod": 281.58
@@ -3097,15 +3169,15 @@
    "nazwa": "Ten miesiąc (listopad)",
    "od": "2026-11-01",
    "do": "2026-11-11",
-   "teraz": 832.77,
-   "zam": 13,
+   "teraz": 988.14,
+   "zam": 15,
    "rok_temu": 3622.21,
    "zam_rok_temu": 24,
    "produkty": [
     {
      "n": "Dog Hoodie Red",
-     "q": 2,
-     "s": 100.3
+     "q": 3,
+     "s": 133.34
     },
     {
      "n": "Winter Vegan Beanie Black",
@@ -3116,6 +3188,11 @@
      "n": "Short Boots Black",
      "q": 1,
      "s": 155.76
+    },
+    {
+     "n": "Winter Vegan Capuche Blue",
+     "q": 1,
+     "s": 80.1
     },
     {
      "n": "Winter Vegan Gloves Cinnamon",
@@ -3133,14 +3210,14 @@
      "s": 259
     },
     {
+     "n": "Winter Vegan Capuche Black",
+     "q": 1,
+     "s": 107.43
+    },
+    {
      "n": "Medium Boots Brown with Black Fur",
      "q": 1,
      "s": 168.8
-    },
-    {
-     "n": "Winter Vegan Capuche Blue",
-     "q": 1,
-     "s": 80.1
     },
     {
      "n": "Winter Vegan Gloves Red",
@@ -3223,13 +3300,13 @@
     },
     {
      "n": "Switzerland",
-     "z": 2,
-     "s": 351.49
+     "z": 3,
+     "s": 458.92
     },
     {
      "n": "Norway",
-     "z": 1,
-     "s": 62.1
+     "z": 2,
+     "s": 110.04
     },
     {
      "n": "Austria",
@@ -3286,14 +3363,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 3406,
-     "totalUsers": 3295,
-     "addToCarts": 56,
+     "sessions": 3471,
+     "totalUsers": 3352,
+     "addToCarts": 60,
      "checkouts": 35,
      "ecommercePurchases": 5,
      "purchaseRevenue": 517.436966,
-     "googleKoszt": 19.67,
-     "googleKlik": 43
+     "googleKoszt": 21.3,
+     "googleKlik": 45
     },
     "rok": {
      "sessions": 3046,
@@ -3310,7 +3387,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 2378,
+      "sesje": 2426,
       "koszyki": 16,
       "zakupy": 1,
       "przychod": 143.4
@@ -3331,7 +3408,7 @@
       "przychod": 332.43
      },
      "teraz": {
-      "sesje": 359,
+      "sesje": 365,
       "koszyki": 13,
       "zakupy": 2,
       "przychod": 198.356966
@@ -3346,8 +3423,8 @@
       "przychod": 845.5999999999999
      },
      "teraz": {
-      "sesje": 339,
-      "koszyki": 7,
+      "sesje": 341,
+      "koszyki": 10,
       "zakupy": 0,
       "przychod": 0
      }
@@ -3368,24 +3445,9 @@
      }
     },
     {
-     "n": "Unassigned",
-     "rok": {
-      "sesje": 972,
-      "koszyki": 23,
-      "zakupy": 4,
-      "przychod": 652.7
-     },
-     "teraz": {
-      "sesje": 102,
-      "koszyki": 3,
-      "zakupy": 1,
-      "przychod": 53.1
-     }
-    },
-    {
      "n": "Referral",
      "teraz": {
-      "sesje": 101,
+      "sesje": 103,
       "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
@@ -3395,6 +3457,21 @@
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
+     }
+    },
+    {
+     "n": "Unassigned",
+     "rok": {
+      "sesje": 972,
+      "koszyki": 23,
+      "zakupy": 4,
+      "przychod": 652.7
+     },
+     "teraz": {
+      "sesje": 65,
+      "koszyki": 3,
+      "zakupy": 1,
+      "przychod": 53.1
      }
     },
     {
@@ -3430,8 +3507,8 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 25,
-      "koszyki": 3,
+      "sesje": 26,
+      "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
      },
@@ -3445,7 +3522,7 @@
     {
      "n": "Organic Shopping",
      "teraz": {
-      "sesje": 10,
+      "sesje": 11,
       "koszyki": 2,
       "zakupy": 1,
       "przychod": 122.58
@@ -3786,7 +3863,7 @@
       "sesje": 717,
       "koszyki": 42,
       "zakupy": 5,
-      "przychod": 809.4900000000001
+      "przychod": 809.49
      }
     },
     {
@@ -3946,8 +4023,8 @@
    "nazwa": "Sezon (od 1.09)",
    "od": "2026-09-01",
    "do": "2026-11-11",
-   "teraz": 12491.34,
-   "zam": 67,
+   "teraz": 12646.71,
+   "zam": 69,
    "rok_temu": 7158.54,
    "zam_rok_temu": 46,
    "produkty": [
@@ -3982,14 +4059,19 @@
      "s": 50.88
     },
     {
+     "n": "Medium Boots Brown with Black Fur",
+     "q": 4,
+     "s": 847.48
+    },
+    {
      "n": "Winter Vegan Gloves Red",
      "q": 4,
      "s": 234.97
     },
     {
-     "n": "Medium Boots Brown with Black Fur",
-     "q": 4,
-     "s": 847.48
+     "n": "Dog Hoodie Red",
+     "q": 3,
+     "s": 133.34
     },
     {
      "n": "Long Boots Beige",
@@ -3997,19 +4079,14 @@
      "s": 827
     },
     {
-     "n": "Slippers Sabbia",
-     "q": 3,
-     "s": 708.9
-    },
-    {
-     "n": "Short Boots Caramel",
-     "q": 3,
-     "s": 492.68
-    },
-    {
      "n": "Winter Vegan Gloves Cinnamon",
      "q": 3,
      "s": 177
+    },
+    {
+     "n": "Slippers Sabbia",
+     "q": 3,
+     "s": 708.9
     }
    ],
    "produkty_rok": [
@@ -4081,14 +4158,14 @@
      "s": 6975.38
     },
     {
+     "n": "Switzerland",
+     "z": 7,
+     "s": 1186.2
+    },
+    {
      "n": "Austria",
      "z": 6,
      "s": 852.95
-    },
-    {
-     "n": "Switzerland",
-     "z": 6,
-     "s": 1078.77
     },
     {
      "n": "United Kingdom",
@@ -4111,6 +4188,11 @@
      "s": 721.4
     },
     {
+     "n": "Norway",
+     "z": 2,
+     "s": 110.04
+    },
+    {
      "n": "Finland",
      "z": 1,
      "s": 295.7
@@ -4119,11 +4201,6 @@
      "n": "Belgium",
      "z": 1,
      "s": 158
-    },
-    {
-     "n": "Norway",
-     "z": 1,
-     "s": 62.1
     },
     {
      "n": "France",
@@ -4210,14 +4287,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 12017,
-     "totalUsers": 10883,
-     "addToCarts": 406,
+     "sessions": 12047,
+     "totalUsers": 10938,
+     "addToCarts": 410,
      "checkouts": 195,
      "ecommercePurchases": 38,
-     "purchaseRevenue": 9790.685433,
-     "googleKoszt": 174.69,
-     "googleKlik": 262
+     "purchaseRevenue": 9790.685433000002,
+     "googleKoszt": 176.32,
+     "googleKlik": 264
     },
     "rok": {
      "sessions": 12152,
@@ -4234,7 +4311,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 4747,
+      "sesje": 4795,
       "koszyki": 108,
       "zakupy": 7,
       "przychod": 2314.7799999999997
@@ -4243,7 +4320,7 @@
       "sesje": 1597,
       "koszyki": 62,
       "zakupy": 12,
-      "przychod": 1928.77
+      "przychod": 1928.7700000000002
      }
     },
     {
@@ -4252,10 +4329,10 @@
       "sesje": 2757,
       "koszyki": 62,
       "zakupy": 10,
-      "przychod": 1805.9899999999998
+      "przychod": 1805.9900000000002
      },
      "teraz": {
-      "sesje": 2170,
+      "sesje": 2136,
       "koszyki": 93,
       "zakupy": 14,
       "przychod": 4824.7672059999995
@@ -4270,8 +4347,8 @@
       "przychod": 1233.54
      },
      "teraz": {
-      "sesje": 1998,
-      "koszyki": 65,
+      "sesje": 2000,
+      "koszyki": 68,
       "zakupy": 2,
       "przychod": 363.6
      }
@@ -4285,7 +4362,7 @@
       "przychod": 942.01
      },
      "teraz": {
-      "sesje": 1845,
+      "sesje": 1850,
       "koszyki": 56,
       "zakupy": 8,
       "przychod": 1172.7381
@@ -4309,8 +4386,8 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 207,
-      "koszyki": 8,
+      "sesje": 208,
+      "koszyki": 9,
       "zakupy": 0,
       "przychod": 0
      },
@@ -4345,7 +4422,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 192,
+      "sesje": 194,
       "koszyki": 5,
       "zakupy": 0,
       "przychod": 0
@@ -4375,7 +4452,7 @@
       "przychod": 177.3
      },
      "teraz": {
-      "sesje": 76,
+      "sesje": 77,
       "koszyki": 12,
       "zakupy": 2,
       "przychod": 281.58
@@ -4433,8 +4510,8 @@
   {
    "miesiac": "2026-11",
    "nazwa": "listopad",
-   "teraz": 832.77,
-   "zam": 13,
+   "teraz": 988.14,
+   "zam": 15,
    "rok_temu": 12123.1,
    "zam_rok_temu": 78
   },
