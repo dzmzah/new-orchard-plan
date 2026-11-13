@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-11-13T00:23:09.195Z",
+ "aktualizacja": "2026-11-13T07:56:52.606Z",
  "start": "2026-09-16",
  "zamowienia": [
   {
@@ -1505,8 +1505,8 @@
   },
   {
    "dzien": "2026-11-12",
-   "wydatek": 43.49,
-   "wyswietlenia": 4799,
+   "wydatek": 43.51,
+   "wyswietlenia": 4808,
    "klikniecia": 58,
    "koszyki": 0,
    "zakupy": 0,
@@ -1514,9 +1514,9 @@
   },
   {
    "dzien": "2026-11-13",
-   "wydatek": 1.8,
-   "wyswietlenia": 205,
-   "klikniecia": 2,
+   "wydatek": 12.26,
+   "wyswietlenia": 1064,
+   "klikniecia": 14,
    "koszyki": 0,
    "zakupy": 0,
    "wartosc": 0
@@ -1618,7 +1618,7 @@
     "nazwa": "9.11 VegNews + Caramel EN",
     "wyslano": "2026-11-09T07:00:00+00:00",
     "recipients": 815,
-    "opens_unique": 323,
+    "opens_unique": 324,
     "clicks_unique": 15,
     "unsubscribes": 11,
     "conversions": 1,
@@ -1635,12 +1635,42 @@
     "conversion_value": 0
    },
    {
+    "nazwa": "16.11 Fresh Finds outlet EN v3",
+    "wyslano": "2026-11-13T07:00:00+00:00",
+    "recipients": 764,
+    "opens_unique": 109,
+    "clicks_unique": 6,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "16.11 Fresh Finds outlet DE v3",
+    "wyslano": "2026-11-13T07:00:00+00:00",
+    "recipients": 114,
+    "opens_unique": 10,
+    "clicks_unique": 1,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
     "nazwa": "medium green -33 last days DE",
     "wyslano": "2026-10-09T17:05:00+00:00",
     "recipients": 130,
     "opens_unique": 50,
     "clicks_unique": 5,
     "unsubscribes": 1,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Caramel jesien DE",
+    "wyslano": "2026-10-16T17:00:00+00:00",
+    "recipients": 130,
+    "opens_unique": 48,
+    "clicks_unique": 3,
+    "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1661,16 +1691,6 @@
     "opens_unique": 40,
     "clicks_unique": 5,
     "unsubscribes": 2,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
-    "nazwa": "Caramel jesien DE",
-    "wyslano": "2026-10-16T17:00:00+00:00",
-    "recipients": 130,
-    "opens_unique": 48,
-    "clicks_unique": 3,
-    "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1698,7 +1718,7 @@
   "flowy": [
    {
     "nazwa": "Welcome Series",
-    "recipients": 110,
+    "recipients": 111,
     "conversions": 9,
     "conversion_value": 1065.23
    },
@@ -1954,7 +1974,7 @@
      "addToCarts": 109,
      "checkouts": 43,
      "ecommercePurchases": 15,
-     "purchaseRevenue": 2522.4762419999997,
+     "purchaseRevenue": 2522.476242,
      "googleKoszt": 13.03,
      "googleKlik": 28
     },
@@ -1964,7 +1984,7 @@
      "addToCarts": 94,
      "checkouts": 43,
      "ecommercePurchases": 9,
-     "purchaseRevenue": 1360.71,
+     "purchaseRevenue": 1360.7099999999998,
      "googleKoszt": 63.63,
      "googleKlik": 150
     }
@@ -1997,7 +2017,7 @@
       "sesje": 374,
       "koszyki": 33,
       "zakupy": 5,
-      "przychod": 683.99
+      "przychod": 683.9900000000001
      }
     },
     {
@@ -2182,8 +2202,8 @@
    "kraje_rok": [],
    "ga4": {
     "teraz": {
-     "sessions": 0,
-     "totalUsers": 0,
+     "sessions": 151,
+     "totalUsers": 151,
      "addToCarts": 0,
      "checkouts": 0,
      "ecommercePurchases": 0,
@@ -2204,16 +2224,13 @@
    },
    "ga4_kanaly": [
     {
-     "n": "Unassigned",
-     "rok": {
-      "sesje": 50,
+     "n": "Direct",
+     "teraz": {
+      "sesje": 144,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
-     }
-    },
-    {
-     "n": "Direct",
+     },
      "rok": {
       "sesje": 32,
       "koszyki": 0,
@@ -2228,6 +2245,12 @@
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
+     },
+     "teraz": {
+      "sesje": 2,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
      }
     },
     {
@@ -2237,12 +2260,9 @@
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
-     }
-    },
-    {
-     "n": "Paid Shopping",
-     "rok": {
-      "sesje": 13,
+     },
+     "teraz": {
+      "sesje": 2,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2255,12 +2275,54 @@
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
+     },
+     "teraz": {
+      "sesje": 2,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
      }
     },
     {
      "n": "Referral",
      "rok": {
       "sesje": 5,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 1,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Unassigned",
+     "rok": {
+      "sesje": 50,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Paid Shopping",
+     "rok": {
+      "sesje": 13,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2273,6 +2335,12 @@
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
      }
     },
     {
@@ -2282,12 +2350,24 @@
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
      }
     },
     {
      "n": "Paid Search",
      "rok": {
       "sesje": 1,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2409,8 +2489,8 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 2357,
-     "totalUsers": 2297,
+     "sessions": 2754,
+     "totalUsers": 2688,
      "addToCarts": 45,
      "checkouts": 32,
      "ecommercePurchases": 3,
@@ -2433,7 +2513,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 1861,
+      "sesje": 2219,
       "koszyki": 19,
       "zakupy": 0,
       "przychod": 0
@@ -2454,7 +2534,7 @@
       "przychod": 41.74
      },
      "teraz": {
-      "sesje": 199,
+      "sesje": 208,
       "koszyki": 8,
       "zakupy": 1,
       "przychod": 42.48
@@ -2469,7 +2549,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 124,
+      "sesje": 137,
       "koszyki": 6,
       "zakupy": 0,
       "przychod": 0
@@ -2478,7 +2558,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 67,
+      "sesje": 71,
       "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
@@ -2499,7 +2579,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 38,
+      "sesje": 40,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -2514,10 +2594,25 @@
       "przychod": 151.5
      },
      "teraz": {
-      "sesje": 34,
+      "sesje": 35,
       "koszyki": 3,
       "zakupy": 1,
       "przychod": 53.1
+     }
+    },
+    {
+     "n": "AI Assistant",
+     "teraz": {
+      "sesje": 16,
+      "koszyki": 1,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "rok": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
      }
     },
     {
@@ -2536,30 +2631,30 @@
      }
     },
     {
-     "n": "AI Assistant",
-     "teraz": {
-      "sesje": 14,
-      "koszyki": 1,
-      "zakupy": 0,
-      "przychod": 0
-     },
-     "rok": {
-      "sesje": 0,
-      "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     }
-    },
-    {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 13,
+      "sesje": 14,
       "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
      },
      "rok": {
       "sesje": 3,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Cross-network",
+     "teraz": {
+      "sesje": 8,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "rok": {
+      "sesje": 2,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2576,21 +2671,6 @@
      "rok": {
       "sesje": 6,
       "koszyki": 1,
-      "zakupy": 0,
-      "przychod": 0
-     }
-    },
-    {
-     "n": "Cross-network",
-     "rok": {
-      "sesje": 2,
-      "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     },
-     "teraz": {
-      "sesje": 1,
-      "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
      }
@@ -2871,12 +2951,12 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 6963,
-     "totalUsers": 6478,
+     "sessions": 7396,
+     "totalUsers": 6862,
      "addToCarts": 233,
      "checkouts": 134,
      "ecommercePurchases": 18,
-     "purchaseRevenue": 2740.6362419999996,
+     "purchaseRevenue": 2740.636242,
      "googleKoszt": 40.2,
      "googleKlik": 85
     },
@@ -2895,7 +2975,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 3748,
+      "sesje": 4108,
       "koszyki": 83,
       "zakupy": 3,
       "przychod": 618.04
@@ -2913,10 +2993,10 @@
       "sesje": 2052,
       "koszyki": 60,
       "zakupy": 6,
-      "przychod": 1069.74
+      "przychod": 1069.7399999999998
      },
      "teraz": {
-      "sesje": 1436,
+      "sesje": 1449,
       "koszyki": 39,
       "zakupy": 2,
       "przychod": 363.6
@@ -2931,7 +3011,7 @@
       "przychod": 741.21
      },
      "teraz": {
-      "sesje": 818,
+      "sesje": 827,
       "koszyki": 35,
       "zakupy": 5,
       "przychod": 553.856966
@@ -2946,7 +3026,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 358,
+      "sesje": 360,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -2970,7 +3050,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 155,
+      "sesje": 159,
       "koszyki": 5,
       "zakupy": 0,
       "przychod": 0
@@ -2988,10 +3068,10 @@
       "sesje": 1837,
       "koszyki": 36,
       "zakupy": 6,
-      "przychod": 1112.18
+      "przychod": 1112.1799999999998
      },
      "teraz": {
-      "sesje": 109,
+      "sesje": 110,
       "koszyki": 13,
       "zakupy": 3,
       "przychod": 456.53914900000007
@@ -3000,7 +3080,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 71,
+      "sesje": 73,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -3015,7 +3095,7 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 48,
+      "sesje": 49,
       "koszyki": 6,
       "zakupy": 0,
       "przychod": 0
@@ -3051,7 +3131,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 2,
+      "sesje": 9,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -3293,8 +3373,8 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 4140,
-     "totalUsers": 4069,
+     "sessions": 4538,
+     "totalUsers": 4459,
      "addToCarts": 70,
      "checkouts": 45,
      "ecommercePurchases": 5,
@@ -3308,7 +3388,7 @@
      "addToCarts": 98,
      "checkouts": 42,
      "ecommercePurchases": 18,
-     "purchaseRevenue": 2824.8100000000004,
+     "purchaseRevenue": 2824.81,
      "googleKoszt": 99.68,
      "googleKlik": 197
     }
@@ -3317,7 +3397,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 3019,
+      "sesje": 3316,
       "koszyki": 25,
       "zakupy": 1,
       "przychod": 143.4
@@ -3338,7 +3418,7 @@
       "przychod": 332.43
      },
      "teraz": {
-      "sesje": 401,
+      "sesje": 410,
       "koszyki": 13,
       "zakupy": 2,
       "przychod": 198.356966
@@ -3353,7 +3433,7 @@
       "przychod": 845.5999999999999
      },
      "teraz": {
-      "sesje": 368,
+      "sesje": 381,
       "koszyki": 10,
       "zakupy": 0,
       "przychod": 0
@@ -3362,7 +3442,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 120,
+      "sesje": 124,
       "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
@@ -3383,7 +3463,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 113,
+      "sesje": 115,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -3398,7 +3478,7 @@
       "przychod": 652.7
      },
      "teraz": {
-      "sesje": 72,
+      "sesje": 73,
       "koszyki": 4,
       "zakupy": 1,
       "przychod": 53.1
@@ -3422,7 +3502,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 33,
+      "sesje": 35,
       "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
@@ -3437,7 +3517,7 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 27,
+      "sesje": 28,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -3466,14 +3546,14 @@
     },
     {
      "n": "Cross-network",
-     "rok": {
-      "sesje": 3,
+     "teraz": {
+      "sesje": 8,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
      },
-     "teraz": {
-      "sesje": 1,
+     "rok": {
+      "sesje": 3,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -3793,7 +3873,7 @@
       "sesje": 717,
       "koszyki": 42,
       "zakupy": 5,
-      "przychod": 809.4900000000001
+      "przychod": 809.49
      }
     },
     {
@@ -4217,8 +4297,8 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 12657,
-     "totalUsers": 11596,
+     "sessions": 13114,
+     "totalUsers": 11973,
      "addToCarts": 420,
      "checkouts": 205,
      "ecommercePurchases": 38,
@@ -4241,7 +4321,7 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 5358,
+      "sesje": 5735,
       "koszyki": 117,
       "zakupy": 7,
       "przychod": 2314.7799999999997
@@ -4250,7 +4330,7 @@
       "sesje": 1659,
       "koszyki": 62,
       "zakupy": 12,
-      "przychod": 1928.7700000000002
+      "przychod": 1928.77
      }
     },
     {
@@ -4259,10 +4339,10 @@
       "sesje": 2849,
       "koszyki": 65,
       "zakupy": 10,
-      "przychod": 1805.9900000000002
+      "przychod": 1805.99
      },
      "teraz": {
-      "sesje": 2143,
+      "sesje": 2144,
       "koszyki": 94,
       "zakupy": 14,
       "przychod": 4824.7672059999995
@@ -4277,7 +4357,7 @@
       "przychod": 1233.54
      },
      "teraz": {
-      "sesje": 2027,
+      "sesje": 2040,
       "koszyki": 68,
       "zakupy": 2,
       "przychod": 363.6
@@ -4292,7 +4372,7 @@
       "przychod": 942.01
      },
      "teraz": {
-      "sesje": 1885,
+      "sesje": 1895,
       "koszyki": 56,
       "zakupy": 8,
       "przychod": 1172.7381
@@ -4307,7 +4387,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 562,
+      "sesje": 564,
       "koszyki": 14,
       "zakupy": 1,
       "przychod": 208.2
@@ -4322,7 +4402,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 211,
+      "sesje": 215,
       "koszyki": 5,
       "zakupy": 0,
       "przychod": 0
@@ -4331,7 +4411,7 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 209,
+      "sesje": 210,
       "koszyki": 9,
       "zakupy": 0,
       "przychod": 0
@@ -4361,7 +4441,7 @@
     {
      "n": "AI Assistant",
      "teraz": {
-      "sesje": 146,
+      "sesje": 148,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -4397,7 +4477,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 3,
+      "sesje": 10,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
