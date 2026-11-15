@@ -6,7 +6,8 @@
     {od:'2026-10-12',url:'tydzien-2.html',nr:2,okres:'12–18 października 2026',sprzedaz:'861 €',reklama:'333 €',zdanie:'Mniejszy budżet, start Caramel −20 %. Koszyki są, zakupów z reklam brak.'},
     {od:'2026-10-19',url:'tydzien-3.html',nr:3,okres:'19–25 października 2026',sprzedaz:'1 151 €',reklama:'92 €',zdanie:'Przygotowania do urodzin. Caramel −20 % nie sprzedał, early access −40 % dał 3 pary w kilka godzin.'},
     {od:'2026-10-26',url:'tydzien-4.html',nr:4,okres:'Raport urodzinowy · 25 października – 1 listopada 2026',sprzedaz:'3 596 €',reklama:'667 €',zdanie:'Cała akcja urodzinowa z wcześniejszym dostępem: 3 596 € i 23 zamówienia, o 26 % więcej niż urodziny 2025 (2 861 €).'},
-    {od:'2026-11-02',url:'tydzien-5.html',nr:5,okres:'2–8 listopada 2026',sprzedaz:'221 €',reklama:'123 €',zdanie:'Tydzień po urodzinach: 5 zamówień tylko z marketplace’ów (506 €, po zwrotach 221 €), sklep internetowy 0. Przygotowania do Green Week.'}
+    {od:'2026-11-02',url:'tydzien-5.html',nr:5,okres:'2–8 listopada 2026',sprzedaz:'221 €',reklama:'123 €',zdanie:'Tydzień po urodzinach: 5 zamówień tylko z marketplace’ów (506 €, po zwrotach 221 €), sklep internetowy 0. Przygotowania do Green Week.'},
+    {od:'2026-11-09',url:'tydzien-6.html',nr:6,okres:'9–15 listopada 2026',sprzedaz:'399 €',reklama:'236 €',zdanie:'Same akcesoria: 9 zamówień za 554 € (po zwrotach 399 €, rok temu 400 €), 0 par butów. Reklama bez zakupu wyłączona, start early access i gotowa kampania Green Week.'}
   ];
   var MIES=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
   var el=document.getElementById('kalendarz');if(!el)return;

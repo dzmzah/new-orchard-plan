@@ -1,0 +1,276 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>New Orchard · raport 9–15.11</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#2c4d23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--zielen:#2c4d23;--ramka:#e3dfd5;--jasny:#e8eee5;--rok:#c9c3b6;--zm:#b4552e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tlo);color:var(--tekst);font:16px/1.55 'Figtree',-apple-system,'Segoe UI',Roboto,sans-serif}
+h1,h2,h3,.liczba,.zak,.marka{font-family:'Jost','Figtree',-apple-system,'Segoe UI',sans-serif}
+.belka{background:var(--zielen);color:#fff}
+.belkaW{max-width:980px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:14px}
+.belka img{width:34px;height:30px;object-fit:contain}
+.marka{font-size:15px;letter-spacing:.22em;font-weight:500}
+.belkaPod{font-size:12px;color:rgba(255,255,255,.72);display:block;margin-top:3px;letter-spacing:.04em}
+.wroc{margin-left:auto;color:#fff;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:6px 14px;white-space:nowrap}
+.wroc:hover{background:rgba(255,255,255,.12)}
+main{max-width:980px;margin:0 auto;padding:30px 22px 70px}
+.etyk{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy)}
+h1{font-size:clamp(28px,5vw,40px);font-weight:400;margin:6px 0 10px;letter-spacing:-.01em}
+.lead{font-size:18px;color:#3d3a34;max-width:720px;margin:0 0 30px}
+h2{font-size:24px;font-weight:400;margin:52px 0 6px}
+.pod{color:var(--cichy);margin:0 0 18px;font-size:15px}
+.karta{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:22px}
+.kafle{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kafel{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:18px 18px 16px}
+.kafel .liczba{font-size:32px;font-weight:500;color:var(--zielen);line-height:1.1}
+.kafel .co{font-size:14px;margin-top:6px}
+.kafel .male{font-size:13px;color:var(--cichy);margin-top:4px}
+.kafel.mocny{background:var(--zielen);border-color:var(--zielen);color:#fff}
+.kafel.mocny .liczba{color:#fff}.kafel.mocny .male{color:rgba(255,255,255,.75)}
+.rr{display:grid;grid-template-columns:1fr;gap:14px}
+.rrW{display:grid;grid-template-columns:190px 1fr;gap:6px 14px;align-items:center}
+.rrW .nz{font-size:14px}
+.pas{display:flex;align-items:center;gap:8px;font-size:13px}
+.pas i{display:block;height:14px;border-radius:7px}
+.pas.teraz i{background:var(--akcent)}.pas.rok i{background:var(--rok)}
+.pas b{font-weight:600}
+.legenda{display:flex;gap:18px;font-size:13px;color:var(--cichy);margin-top:14px;flex-wrap:wrap}
+.legenda span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--akcent)}
+.legenda span.r::before{background:var(--rok)}
+.wykres{width:100%;overflow-x:auto}
+.wykres svg{display:block;width:100%;min-width:520px;height:auto}
+.dni{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.dzien{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:16px 18px}
+.dzien h3{font-size:16px;font-weight:500;margin:0 0 8px;color:var(--zielen)}
+.dzien ul{margin:0;padding-left:18px;font-size:14.5px}.dzien li{margin:3px 0}
+.tab{width:100%;border-collapse:collapse;font-size:14.5px}
+.tab th{text-align:left;font-weight:500;color:var(--cichy);font-size:12.5px;letter-spacing:.04em;padding:8px 10px;border-bottom:1px solid var(--ramka)}
+.tab td{padding:10px;border-bottom:1px solid #efece5;vertical-align:top}
+.tab td.l{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tab tr:last-child td{border-bottom:0}
+.tabW{overflow-x:auto}
+.znaczek{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:10px;background:var(--jasny);color:var(--zielen);margin-left:6px;white-space:nowrap}
+.znaczek.dobry{background:var(--zielen);color:#fff}
+.siatka{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.post{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.post img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#ddd}
+.post .opis{padding:10px 12px 12px;font-size:13px}
+.post .opis b{display:block;font-size:13.5px;margin-bottom:2px}
+.post .st{color:var(--cichy);font-size:12.5px;margin-top:4px}
+.post:hover{border-color:var(--akcent)}
+.uwaga{background:#fbf6ea;border:1px solid #eadfc4;border-radius:14px;padding:18px 20px;font-size:15px}
+.uwaga b{color:#7a5a1c}
+.prop{counter-reset:p;display:grid;gap:12px}
+.prop .karta{position:relative;padding-left:62px}
+.prop .karta::before{counter-increment:p;content:counter(p);position:absolute;left:20px;top:20px;width:28px;height:28px;border-radius:50%;background:var(--zielen);color:#fff;font:500 15px/28px 'Jost',sans-serif;text-align:center}
+.prop h3{margin:0 0 4px;font-size:17px;font-weight:500}
+.prop p{margin:0;font-size:15px;color:#3d3a34}
+.lista{display:grid;gap:8px}
+.lista a{display:flex;justify-content:space-between;gap:12px;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:12px 16px;text-decoration:none;color:inherit;font-size:15px}
+.lista a span{color:var(--cichy);font-size:13px}
+.zam{display:grid;gap:8px}
+.zw{display:grid;grid-template-columns:150px 1fr auto;gap:10px 16px;align-items:center;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:10px 14px}
+.zw .kto{font-size:13px;color:var(--cichy);line-height:1.35}.zw .kto b{display:block;color:var(--tekst);font-size:14px;font-weight:600}
+.zw .rz{display:flex;flex-wrap:wrap;gap:6px}
+.zw .rz span{display:inline-flex;align-items:center;gap:6px;background:#f7f5f0;border-radius:8px;padding:3px 8px 3px 3px;font-size:12.5px;line-height:1.2}
+.zw .rz img{width:34px;height:34px;border-radius:6px;object-fit:cover;background:#eee}
+.zw .kw{font:500 17px 'Jost',sans-serif;color:var(--zielen);white-space:nowrap;text-align:right}
+.zw .kw small{display:block;font:400 11.5px 'Figtree',sans-serif;color:var(--cichy)}
+@media (max-width:760px){.zw{grid-template-columns:1fr auto}.zw .rz{grid-column:1/-1;grid-row:2}}.stopka{margin-top:50px;font-size:13px;color:var(--cichy)}
+@media (max-width:760px){.kafle{grid-template-columns:repeat(2,1fr)}.siatka{grid-template-columns:repeat(2,1fr)}.rrW{grid-template-columns:1fr}.rrW .nz{margin-top:8px;font-weight:500}}
+@media (max-width:420px){main{padding:24px 16px 60px}.belkaW{padding:13px 16px}.kafel .liczba{font-size:26px}.prop .karta{padding-left:54px}.prop .karta::before{left:16px}}
+</style></head><body>
+<header class="belka"><div class="belkaW">
+  <img src="../logo-bialy.png" alt="New Orchard">
+  <div><span class="marka">NEW ORCHARD</span><span class="belkaPod">raporty tygodniowe</span></div>
+  <a class="wroc" href="../" id="wroc">&larr; wróć do planu</a>
+</div></header>
+
+<main>
+<span class="etyk">Raport tygodniowy · tydzień 6</span>
+<h1>9–15 listopada 2026</h1>
+<div id="kalendarz" data-nr="6"></div>
+<p class="lead">Tydzień przygotowań do Green Week. 9 zamówień za 554 € (jedno z nich anulowane), po zwrotach 399 €, czyli tyle samo co rok temu (400 €, 4 zamówienia). Ale nie sprzedała się ani jedna para butów, kupowano same akcesoria. Sklep internetowy znowu sprzedaje: 3 zamówienia (270 €), w dwóch użyto kodu za zapis do newslettera. Reklama Meta kosztowała 224 € i nie dała zakupu, więc 13 i 14.11 wyłączyliśmy kampanie bez wyniku. Pieniądze przenieśliśmy na Green Week: kampania na 100 € dziennie jest gotowa (51 reklam zatwierdzonych przez Meta), a od dziś zbieramy maile na early access 22.11. Cel Green Week: 5 000 €.</p>
+
+<div class="kafle">
+  <div class="kafel mocny"><div class="liczba">554 €</div><div class="co">zamówienia w tygodniu</div><div class="male">8 zam. + 1 anulowane, 0 par butów<br>po zwrotach 399 € · rok temu 400 € (4 zam.)</div></div>
+  <div class="kafel"><div class="liczba">236 €</div><div class="co">wydane na reklamę</div><div class="male">Meta 224 € · Google 12 €<br>rok temu Meta 427 €</div></div>
+  <div class="kafel"><div class="liczba">3</div><div class="co">zamówienia ze sklepu internetowego</div><div class="male">270 €, same akcesoria, 2 z kodem za newsletter<br>z DE, AT i CH 231 wizyt, rok temu 731</div></div>
+  <div class="kafel"><div class="liczba">1 153 €</div><div class="co">zostało z budżetu reklamy</div><div class="male">1 500 € na 2.11–31.12 · wydane 347 €<br>po Green Week zostanie ok. 180 €</div></div>
+</div>
+
+<h2>Ten tydzień a rok temu</h2>
+<p class="pod">Ten sam tydzień w 2025 (10–16.11) kontra teraz. Sprzedaż: wszystkie zamówienia w Shopify (sklep + marketplace'y) po zwrotach, reklama według Meta. Niedziela 15.11 jeszcze trwa.</p>
+<div class="karta">
+  <div class="rr" id="rr"></div>
+  <div class="legenda"><span>2026</span><span class="r">2025, ten sam tydzień</span></div>
+</div>
+
+<h2>Sprzedaż: tydzień</h2>
+<p class="pod">Wszystkie zamówienia w Shopify (sklep internetowy + marketplace'y), ten rok i rok temu, po zwrotach.</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Tydzień</th><th style="text-align:right">2026</th><th style="text-align:right">2025, ten sam tydzień</th><th style="text-align:right">Zmiana</th></tr>
+  <tr><td>Poprzedni 2–8.11<br><small style="color:var(--cichy)">po raporcie doszły 2 zamówienia, w tym 1 ze sklepu</small></td><td class="l"><b>317 €</b><br><small style="color:var(--cichy)">7 zam.</small></td><td class="l">1 416 €<br><small style="color:var(--cichy)">12 zam.</small></td><td class="l" style="color:var(--zm)">−78 %</td></tr>
+  <tr><td>Ten 9–15.11<br><small style="color:var(--cichy)">dane do niedzieli 22:00</small></td><td class="l"><b>399 €</b><br><small style="color:var(--cichy)">9 zam. (1 anulowane) · 554 € przed zwrotami</small></td><td class="l">400 €<br><small style="color:var(--cichy)">4 zam.</small></td><td class="l">0 %</td></tr>
+  <tr><td>Przyszły 16–22.11<br><small style="color:var(--cichy)">mail 19.11, early access 22.11</small></td><td class="l">–</td><td class="l">2 362 €<br><small style="color:var(--cichy)">16 zam.</small></td><td class="l"></td></tr>
+  <tr><td>Green Week 23–30.11<br><small style="color:var(--cichy)">−40 % na wszystko</small></td><td class="l">–</td><td class="l">5 560 €<br><small style="color:var(--cichy)">34 zam. (tydzień 24–30.11)</small></td><td class="l">cel 5 000 €</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Rok temu w tym tygodniu 504 € przyszło dopiero w niedzielę, więc dzisiejszy dzień może jeszcze coś zmienić. Zwroty w tym tygodniu: 126 € z wcześniejszego zamówienia (zwrot zaksięgowany 9.11) i anulowane zamówienie #1544 na rękawiczki. W piątek 13.11 nie było ani jednego zamówienia.</p>
+
+<h2>Sezon miesiąc po miesiącu</h2>
+<p class="pod">Sezon to wrzesień–styczeń. Wszystkie zamówienia w Shopify (sklep + marketplace'y).</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Miesiąc</th><th style="text-align:right">Sezon 2026/27</th><th style="text-align:right">Sezon 2025/26</th><th style="text-align:right">Zmiana</th></tr>
+  <tr><td>Wrzesień</td><td class="l"><b>3 912 €</b><br><small style="color:var(--cichy)">14 zam.</small></td><td class="l">1 427 €<br><small style="color:var(--cichy)">7 zam.</small></td><td class="l" style="color:var(--zielen)">×2,7</td></tr>
+  <tr><td>Październik</td><td class="l"><b>7 746 €</b><br><small style="color:var(--cichy)">40 zam.</small></td><td class="l">2 109 €<br><small style="color:var(--cichy)">15 zam.</small></td><td class="l" style="color:var(--zielen)">×3,7</td></tr>
+  <tr><td>Listopad<br><small style="color:var(--cichy)">do 15.11</small></td><td class="l"><b>1 221 €</b><br><small style="color:var(--cichy)">19 zam.</small></td><td class="l">12 123 €<br><small style="color:var(--cichy)">do 15.11: 3 698 €, 26 zam.</small></td><td class="l" style="color:var(--zm)">−67 %</td></tr>
+  <tr><td>Grudzień</td><td class="l">–</td><td class="l">6 984 €<br><small style="color:var(--cichy)">54 zam.</small></td><td class="l"></td></tr>
+  <tr><td>Styczeń</td><td class="l">–</td><td class="l">6 970 €<br><small style="color:var(--cichy)">47 zam.</small></td><td class="l"></td></tr>
+  <tr style="border-top:2px solid var(--tekst,#222)"><td><b>Razem</b></td><td class="l"><b>12 880 €</b><br><small style="color:var(--cichy)">73 zam.</small></td><td class="l"><b>29 613 €</b><br><small style="color:var(--cichy)">do 15.11: 7 234 €, 48 zam.</small></td><td class="l" style="color:var(--zielen)">+78 %</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Sezon do dziś jest o 78 % lepszy niż rok temu (12 880 € wobec 7 234 €). Listopad jest na razie o 67 % słabszy, a najważniejsza część listopada dopiero przed nami: rok temu od 16.11 do końca miesiąca przyszło ponad 8 400 €, z tego 5 560 € w tygodniu Green Week.</p>
+
+<h2>Sprzedaż tydzień po tygodniu</h2>
+<p class="pod">Ostatnie 7 tygodni: wartość wszystkich zamówień złożonych w danym tygodniu (Shopify: sklep + marketplace'y), bez anulowanych i bez odejmowania późniejszych zwrotów.</p>
+<div class="karta wykres" id="w1"></div>
+
+<h3 style="font-weight:400;font-size:19px;margin:28px 0 6px">Co kupiono</h3>
+<p class="pod">Wszystkie 9 zamówień tygodnia. Same akcesoria: czapki, rękawiczki, szale z kapturem i bluzy dla psa. 5 zamówień z marketplace'ów (Avocadostore 2, Syncee 2, W&amp;B 1), 3 ze sklepu internetowego, 1 anulowane.</p>
+<div class="zam">
+  <div class="zw"><div class="kto"><b>#1543 · 9.11</b>Niemcy · Avocadostore</div><div class="rz"><span><img src="img/p_14904816992632.jpg" alt="">Czapka Beige</span></div><div class="kw">34 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1544 · 10.11</b>Niemcy · sklep (Google)</div><div class="rz"><span><img src="img/p_14904864211320.jpg" alt="">Rękawiczki Blue</span></div><div class="kw">52 €<small>anulowane</small></div></div>
+  <div class="zw"><div class="kto"><b>#1545 · 10.11</b>Niemcy · sklep, kod za newsletter</div><div class="rz"><span><img src="img/p_14904864211320.jpg" alt="">Rękawiczki Blue</span><span><img src="img/p_14904853135736.jpg" alt="">Szal z kapturem Blue</span></div><div class="kw">132 €<small>sklep</small></div></div>
+  <div class="zw"><div class="kto"><b>#1546 · 11.11</b>Szwajcaria · W&amp;B</div><div class="rz"><span><img src="img/p_14904849990008.jpg" alt="">Szal z kapturem Black</span></div><div class="kw">107 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1547 · 11.11</b>Norwegia · Syncee</div><div class="rz"><span><img src="img/p_14979842179448.jpg" alt="">Bluza dla psa Red (XS)</span></div><div class="kw">48 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1548 · 12.11</b>Norwegia · Syncee</div><div class="rz"><span><img src="img/p_14979869868408.jpg" alt="">Bluza dla psa Navy (S)</span></div><div class="kw">62 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1549 · 14.11</b>Niemcy · Avocadostore</div><div class="rz"><span><img src="img/p_14904816992632.jpg" alt="">Czapka Beige</span></div><div class="kw">34 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1550 · 14.11</b>USA · sklep (Google)</div><div class="rz"><span><img src="img/p_14904816566648.jpg" alt="">Czapka Black</span></div><div class="kw">74 €<small>sklep</small></div></div>
+  <div class="zw"><div class="kto"><b>#1551 · 14.11</b>Niemcy · sklep, kod za newsletter</div><div class="rz"><span><img src="img/p_14978596667768.jpg" alt="">Rękawiczki Navy</span></div><div class="kw">63 €<small>sklep</small></div></div>
+</div>
+<p class="pod" style="margin-top:12px">Wnioski: akcesoria sprzedają się same, z marketplace'ów i z wyszukiwarki Google, bez reklamy. Kod −10 % za zapis do newslettera działa: dwa z trzech zamówień ze sklepu go użyły. Butów bez rabatu nikt nie kupił, ani w sklepie, ani na marketplace'ach. Zgadza się to z danymi z całego sezonu: buty sprzedają się w dużych akcjach (urodziny, Green Week, styczeń), a między nimi prawie wcale.</p>
+
+<h2>Co zrobiliśmy</h2>
+<p class="pod">Dzień po dniu, w skrócie.</p>
+<div class="dni">
+  <div class="dzien"><h3>Pon 9.11</h3><ul><li>Rozmowa z Tobą (46 min), Excel z budżetem reklamy</li><li>Mail VegNews + Caramel o 8:00, EN i DE</li><li>Dwie nowe rolki: „Stop the video on your pair” i „This or that?”, tydzień 10–14.11 zaplanowany</li><li>Wieczorem Twoje prośby: FAQ, spódnica Khaki, nowy outlet</li><li>Szwajcaria wyłączona z reklam Meta, w tle reklama wizerunkowa</li></ul></div>
+  <div class="dzien"><h3>Wt 10.11</h3><ul><li>FAQ EN i DE na stronie według Twojego pliku</li><li>Tierschutz Aktiv Grenzenlos pierwszy na liście organizacji dla psów</li><li>Outlet zaktualizowany (Medium Green, koszulka Aquafaba)</li><li>hello@ zamienione na store@ w mailu potwierdzenia zamówienia</li><li>Rolka „Stop on your pair” poprawiona i puszczona jako reklama zasięgowa DE+AT</li><li>Green Week: kod, maile 19.11 i 23.11, wideo EN/DE, baner</li></ul></div>
+  <div class="dzien"><h3>Śr 11.11</h3><ul><li>Post „Walks for three” i rolka „Which one stopped for you?”</li><li>3 stories z Glore Luzern</li><li>Green Week −40 % na cały sklep przygotowany i sprawdzony na próbę</li><li>Adoption story Sally &amp; Ollie z @sallyshi</li></ul></div>
+  <div class="dzien"><h3>Czw 12.11</h3><ul><li>Post „Leaf season” (10.11 Instagram go odrzucił przez oznaczenie produktu)</li><li>Maile i baner Green Week zmienione na „40 % on everything / auf alles”</li><li>Nowe kreacje Green Week z akcesoriami i bluzą dla psa</li><li>3 rolki zaplanowane na TikToku (12–14.11)</li><li>ManyChat podłączony do Instagrama, kod HELLO15</li></ul></div>
+  <div class="dzien"><h3>Pt 13.11</h3><ul><li>Mail outlet „Fresh Finds” o 8:00, EN i DE</li><li>Analiza: co sprzedawało w sezonie 2025/26 i teraz</li><li>Test grup wyłączony (0 zakupów), remarketing Caramel podniesiony do 8 €/dzień</li><li>Kampania Meta Green Week zbudowana i włączona ze startem 23.11, z 5 nowymi wideo</li><li>Rolka Glore Luzern, story Blickfang runda 2, 3 stories z opiniami zaplanowane na 16–18.11</li></ul></div>
+  <div class="dzien"><h3>Sob 14.11</h3><ul><li>Wyłączone dwie kampanie zasięgowe (rolka i wizerunek), razem 17 €/dzień</li><li>Kod GREENWEEK40 na cały sklep, ważny tylko w niedzielę 22.11</li><li>Włączone powitanie w ManyChat z kodem HELLO15 dla nowych obserwujących</li><li>Losowanie Blickfang runda 2: 32 osoby, 5 zwycięzców</li><li>Rolka „This or that?” na Instagramie i TikToku</li></ul></div>
+  <div class="dzien"><h3>Ndz 15.11</h3><ul><li>Strona early access z formularzem (EN i DE)</li><li>Start reklamy early access: zbieramy maile do 21.11, 17 €/dzień</li><li>Story Glore o 10:00</li><li>Adoption story z oznaczeniami na każdym slajdzie</li><li>Grafika do Twojego posta z Roxy</li><li>Formularz early access wyżej na telefonie</li><li>Raport za tydzień 6</li></ul></div>
+</div>
+
+<h2>Reklamy</h2>
+<p class="pod">Do 13.11 test trzech grup w DE+AT, od 8.11 remarketing Medium Caramel z outletu, 9–14.11 reklama wizerunkowa, 10–14.11 rolka „Stop on your pair” na zasięg. Od 15.11 reklama early access. Kampania Green Week startuje 23.11.</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Kampania</th><th style="text-align:right">Wydane</th><th style="text-align:right">Kliknięcia</th><th style="text-align:right">Koszyki</th><th style="text-align:right">Koszt koszyka</th></tr>
+  <tr><td>Meta · test grup DE+AT (9–13.11, wyłączony) <span class="znaczek dobry">jedyne koszyki</span></td><td class="l">93 €</td><td class="l">170</td><td class="l">3</td><td class="l">31 €</td></tr>
+  <tr><td>Meta · rolka „Stop on your pair”, zasięg DE+AT (10–14.11, wyłączona)</td><td class="l">40 €</td><td class="l">15</td><td class="l">0</td><td class="l">–</td></tr>
+  <tr><td>Meta · wizerunek „Vegan. Langlebig. Bequem.” (9–14.11, wyłączona)</td><td class="l">37 €</td><td class="l">35</td><td class="l">0</td><td class="l">–</td></tr>
+  <tr><td>Meta · remarketing Medium Caramel −25 % (działa do 21.11)</td><td class="l">43 €</td><td class="l">15</td><td class="l">0</td><td class="l">–</td></tr>
+  <tr><td>Meta · early access Green Week (od 15.11) <span class="znaczek">nowa</span></td><td class="l">11 €</td><td class="l">62</td><td class="l">–</td><td class="l">–</td></tr>
+  <tr><td>Meta · Green Week 2026 (start 23.11)</td><td class="l">0 €</td><td class="l">–</td><td class="l">–</td><td class="l">–</td></tr>
+  <tr><td>Google · reklama na nazwę marki DE</td><td class="l">12 €</td><td class="l">21</td><td class="l">–</td><td class="l">–</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Razem Meta 224 €, 297 kliknięć, 3 koszyki, 0 rozpoczętych płatności, 0 zakupów. Wszystkie 3 koszyki przyszły 11.11 z grupy „podobni do klientów”. Rolka na zasięg wyświetliła się 14 654 razy, ale prawie nikt nie wszedł z niej do sklepu. Rok temu w tym tygodniu Meta kosztowała 427 € i dała 1 zakup (252 €). Poprawka do raportu 5: reklama Google na nazwę marki działała też w zeszłym tygodniu i kosztowała 12 €, a nie 0 €.</p>
+
+<h3 style="font-weight:400;font-size:19px;margin:28px 0 12px">Reklamy tygodnia</h3>
+<div class="siatka">
+  <div class="post"><img src="img/ad_120249999339360527.jpg" alt="" loading="lazy"><div class="opis"><b>Test podobni do klientów · D</b>3 koszyki<div class="st">78 kliknięć · 29 €</div></div></div>
+  <div class="post"><img src="img/ad_120250058805580527.jpg" alt="" loading="lazy"><div class="opis"><b>Rolka Stop on your pair</b>14 654 wyświetleń<div class="st">15 kliknięć · 40 €</div></div></div>
+  <div class="post"><img src="img/ad_120250043491960527.jpg" alt="" loading="lazy"><div class="opis"><b>Wizerunek DE · zdjęcie 2025</b>0 koszyków<div class="st">18 kliknięć · 27 €</div></div></div>
+  <div class="post"><img src="img/ad_120250030724940527.jpg" alt="" loading="lazy"><div class="opis"><b>Remarketing Caramel −25 % DE</b>0 koszyków<div class="st">7 kliknięć · 18 €</div></div></div>
+</div>
+
+<h2>Instagram</h2>
+<p class="pod">6 publikacji w tygodniu: 3 posty i 3 rolki. Razem 791 osób zasięgu i 51 polubień. Konto dotarło do 14 872 osób (razem z reklamą rolki), 477 wizyt profilu i 22 kliknięcia w link. Stories: 3 z Glore Luzern, Blickfang runda 2, Glore w niedzielę rano, zwycięzcy Blickfang i adoption story (7 slajdów z oznaczeniami). TikTok: 3 rolki 12–14.11, rolka z Karoliną ma 699 wyświetleń.</p>
+<div class="siatka">
+  <a class="post" href="https://www.instagram.com/p/DfmUyrois-I/" target="_blank" rel="noopener"><img src="img/ig_18093095384235834.jpg" alt="" loading="lazy"><div class="opis"><b>11.11 · Walks for three <span class="znaczek dobry">top</span></b><div class="st">zasięg 191 · ♥ 16 · 1 komentarz</div></div></a>
+  <a class="post" href="https://www.instagram.com/reel/Dfm96q1DpRQ/" target="_blank" rel="noopener"><img src="img/ig_18443709535178196.jpg" alt="" loading="lazy"><div class="opis"><b>11.11 · Which one stopped for you?</b><div class="st">rolka · zasięg 150 · ♥ 9 · 212 wyświetleń</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/Dfo5lR7lWlB/" target="_blank" rel="noopener"><img src="img/ig_18131709904846256.jpg" alt="" loading="lazy"><div class="opis"><b>12.11 · Leaf season</b><div class="st">zasięg 150 · ♥ 8</div></div></a>
+  <a class="post" href="https://www.instagram.com/reel/DfreTiZDYw9/" target="_blank" rel="noopener"><img src="img/ig_18571013983076233.jpg" alt="" loading="lazy"><div class="opis"><b>13.11 · Hello, Luzern (Glore)</b><div class="st">rolka · zasięg 112 · ♥ 7 · 169 wyświetleń</div></div></a>
+  <a class="post" href="https://www.instagram.com/reel/DfusTHck1jf/" target="_blank" rel="noopener"><img src="img/ig_18138448936730174.jpg" alt="" loading="lazy"><div class="opis"><b>14.11 · This or that?</b><div class="st">rolka · zasięg 95 · ♥ 6 · 1 komentarz</div></div></a>
+  <a class="post" href="https://www.instagram.com/p/DfxSgQXs5uu/" target="_blank" rel="noopener"><img src="img/ig_18081520556721208.jpg" alt="" loading="lazy"><div class="opis"><b>15.11 · Roxy od Rebekki</b><div class="st">zasięg 93 · ♥ 5 · 1 komentarz</div></div></a>
+</div>
+<p class="pod" style="margin-top:12px">Najlepszy był zwykły post z psem (191 osób). Post z Roxy jest z niedzieli wieczór i jeszcze zbiera zasięg. Zasięg bez reklamy jest mały, 80–190 osób na publikację.</p>
+
+<h2>Maile</h2>
+<p class="pod">Dwie wysyłki do całej bazy bez CH: VegNews + Caramel 9.11 i outlet „Fresh Finds” 13.11 (przesunięty z 16.11 za Twoją zgodą). Następny mail 19.11: zapowiedź early access.</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Mail</th><th style="text-align:right">Wysłane</th><th style="text-align:right">Otwarte</th><th style="text-align:right">Kliknięte</th><th style="text-align:right">Zamówienia</th></tr>
+  <tr><td>VegNews + Caramel EN · 9.11</td><td class="l">815</td><td class="l">41 %</td><td class="l">15</td><td class="l">1*</td></tr>
+  <tr><td>VegNews + Caramel DE · 9.11</td><td class="l">121</td><td class="l">31 %</td><td class="l">0</td><td class="l">0</td></tr>
+  <tr><td>Outlet „Fresh Finds” EN · 13.11</td><td class="l">813</td><td class="l">36 %</td><td class="l">16</td><td class="l">0</td></tr>
+  <tr><td>Outlet „Fresh Finds” DE · 13.11</td><td class="l">121</td><td class="l">32 %</td><td class="l">2</td><td class="l">0</td></tr>
+  <tr><td>Powitanie z kodem −10 % (automat) <span class="znaczek dobry">sprzedaje</span></td><td class="l">15</td><td class="l">40 %</td><td class="l">0</td><td class="l">2 (1 anulowane)</td></tr>
+  <tr><td>Podziękowanie po zakupie (automat)</td><td class="l">5</td><td class="l">60 %</td><td class="l">0</td><td class="l">1*</td></tr>
+  <tr><td>Porzucony koszyk i porzucona kasa (automaty)</td><td class="l">10</td><td class="l">40 %</td><td class="l">0</td><td class="l">0</td></tr>
+  <tr><td>Powroty po 11 i po 1–2 miesiącach (automaty)</td><td class="l">14</td><td class="l">43 %</td><td class="l">2</td><td class="l">0</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">* Klaviyo liczy zamówienie, jeśli ktoś otworzył maila i potem kupił gdziekolwiek. Te dwa zamówienia to bluzy dla psa kupione przez Syncee (48 € i 62 €), więc mail raczej ich nie sprowadził. Naprawdę z maili przyszło jedno zamówienie: #1545 za 132 € z kodem z maila powitalnego. Mail VegNews miał 11 wypisów, outlet 5.</p>
+
+<h2>Uczciwie: co nie działa i czego jeszcze nie wiemy</h2>
+<div class="uwaga"><b>Buty bez rabatu się nie sprzedają.</b> W tym tygodniu 0 par, w poprzednim 1 para (z marketplace'u). Reklama zakupowa w pełnej cenie przez dwa tygodnie dawała kliknięcia i kilka koszyków, ale ani jednego zakupu, dlatego ją wyłączyliśmy. Do sklepu przychodzi mało prawdziwych klientów: z Niemiec, Austrii i Szwajcarii 231 wizyt, rok temu w tym tygodniu 731. Ponad połowa wszystkich wizyt w GA (1 756 z 3 268) to boty z Singapuru.<br><br><b>Czego jeszcze nie wiemy.</b> Ile maili zbierze early access do 21.11: reklama ruszyła dziś rano i nie ma jeszcze wyników. Czy −40 % na wszystko da w Green Week 5 000 €: rok temu ten tydzień dał 5 560 €, ale wtedy do sklepu przychodziło z DE, AT i CH ponad 3 razy więcej osób. Czy kod HELLO15 i powitanie w ManyChat (od 14.11) dadzą zamówienia: pierwsze wyniki w przyszłym tygodniu. Jak Green Week sprzeda się na marketplace'ach, które teraz dają większość zamówień.</div>
+
+<h2>Dlaczego listopad jest najważniejszy</h2>
+<p class="pod">Sprzedaż tydzień po tygodniu w sezonie 2025 (wszystkie zamówienia w Shopify). Urodziny i Green Week to dwa najlepsze momenty sezonu. Green Week 2026 trwa 23–30.11, early access 22.11.</p>
+<div class="karta wykres" id="w2"></div>
+
+<h2>Do decyzji na spotkaniu</h2>
+<div class="prop">
+  <div class="karta"><h3>Green Week: budżet i grudzień</h3><p>Kampania Green Week jest gotowa: 23–30.11, 100 € dziennie, 51 reklam (zdjęcia, wideo, opinie, akcesoria, psy), wszystkie zatwierdzone przez Meta. Z budżetu zostało 1 153 €. Po early access (do 21.11) i Green Week zostanie około 180 € na grudzień. Rok temu grudzień dał 6 984 €. Jeśli w grudniu ma być przecena Sabbia i powrót czerwonego kapturka, trzeba zdecydować, skąd wziąć pieniądze na reklamę.</p></div>
+  <div class="karta"><h3>Early access 22.11: pomóż nam zebrać maile</h3><p>Strona z formularzem działa od dziś (EN i DE). Osoby z listy dostaną 22.11 rano kod GREENWEEK40 (−40 % na wszystko, ważny tylko w niedzielę). Prosimy o Twoje story o early access albo link w bio: Twoje konto dociera do ludzi, którzy już znają markę.</p></div>
+  <div class="karta"><h3>Maile do Green Week</h3><p>19.11 zapowiedź early access („Sunday only”), 22.11 kod tylko dla listy early access, 23.11 start Green Week do całej bazy. Testy EN i DE wyślemy Ci najpóźniej dzień przed wysyłką. Czy w siatce produktów mają być też akcesoria?</p></div>
+  <div class="karta"><h3>Marketplace'y w Green Week</h3><p>5 z 8 zamówień tygodnia przyszło z marketplace'ów (Avocadostore, Syncee, W&amp;B). Czy −40 % ma być też na marketplace'ach, czy tylko w sklepie? Jeśli też tam, ceny trzeba zmienić przed 23.11.</p></div>
+  <div class="karta"><h3>Blickfang 20–22.11</h3><p>Zwycięzców drugiego losowania (5 osób) trzeba powiadomić wiadomością, tekst EN i DE jest gotowy. Proponujemy też kod QR na stoisku, który prowadzi na stronę early access.</p></div>
+</div>
+
+<h2>Wszystkie raporty</h2>
+<div class="lista"><a href="#"><b>Tydzień 6 · 9–15.11.2026</b><span>ten raport</span></a><a href="tydzien-5.html"><b>Tydzień 5 · 2–8.11.2026</b><span>otwórz</span></a><a href="tydzien-4.html"><b>Raport urodzinowy · 25.10–1.11.2026</b><span>otwórz</span></a><a href="tydzien-3.html"><b>Tydzień 3 · 19–25.10.2026</b><span>otwórz</span></a><a href="tydzien-2.html"><b>Tydzień 2 · 12–18.10.2026</b><span>otwórz</span></a><a href="tydzien-1.html"><b>Tydzień 1 · 5–11.10.2026</b><span>otwórz</span></a><a href="./"><b>Wszystkie raporty</b><span>kalendarz</span></a></div>
+
+<p class="stopka">Dane: Meta Ads, Google Analytics, Shopify, Klaviyo, Instagram. Stan na 15.11.2026, 22:00. Przygotowanie: ZOVU.</p>
+</main>
+
+<script>
+(function(){
+  // powrót: do panelu, z którego przyszedł użytkownik
+  try{ if(document.referrer && /\/zovu\/?/.test(new URL(document.referrer).pathname)) document.getElementById('wroc').href='../zovu/'; }catch(e){}
+
+  function f(n){var s=String(n).split('.');return s[0].replace(/\B(?=(\d{3})+(?!\d))/g,' ')+(s[1]?','+s[1]:'')}
+
+  // rok do roku
+  var rr=[['Sprzedaż w tygodniu (po zwrotach)',399,400,' €'],['Wydane na reklamę Meta',224,427,' €'],['Reklama Meta jako % sprzedaży',56,107,' %','mniej = lepiej'],['Zamówienia',9,4,''],['Kliknięcia w reklamy Meta',297,302,''],['Koszyki z reklam Meta',3,8,''],['Zakupy z reklam Meta',0,1,''],['Koszt jednego koszyka',74.7,53.4,' €','mniej = lepiej']];
+  var h='';
+  rr.forEach(function(r){var mx=Math.max(r[1],r[2]);
+    h+='<div class="rrW"><div class="nz">'+r[0]+(r[4]?' <span style="color:var(--cichy);font-size:12px">('+r[4]+')</span>':'')+'</div><div>'+
+      '<div class="pas teraz"><i style="width:'+Math.max(2,r[1]/mx*78)+'%"></i><b>'+f(r[1])+r[3]+'</b></div>'+
+      '<div class="pas rok" style="margin-top:4px"><i style="width:'+Math.max(2,r[2]/mx*78)+'%"></i>'+f(r[2])+r[3]+'</div></div></div>';});
+  document.getElementById('rr').innerHTML=h;
+
+  function bary(el,dane,opt){
+    var W=900,H=300,pl=10,pr=10,pt=34,pb=46,n=dane.length,mx=Math.max.apply(0,dane.map(function(d){return d[1]}));
+    var bw=(W-pl-pr)/n,s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+opt.aria+'">';
+    s+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+(H-pb)+'" y2="'+(H-pb)+'" stroke="#e3dfd5"/>';
+    dane.forEach(function(d,i){var bh=(H-pt-pb)*d[1]/mx,x=pl+i*bw+bw*0.18,w=bw*0.64,y=H-pb-bh,kol=d[2]?'#2c4d23':'#a9b8a3';
+      s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+bh+'" rx="5" fill="'+kol+'"><title>'+d[0]+': '+f(d[1])+' €</title></rect>';
+      s+='<text x="'+(x+w/2)+'" y="'+(y-8)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="'+(n>8?13:15)+'" fill="'+(d[2]?'#2c4d23':'#5d5a52')+'" font-weight="'+(d[2]?600:400)+'">'+f(d[1])+' €</text>';
+      s+='<text x="'+(x+w/2)+'" y="'+(H-pb+20)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="'+(n>8?12:14)+'" fill="#7b766c">'+d[0]+'</text>';
+      if(d[3]) s+='<text x="'+(x+w/2)+'" y="'+(H-pb+37)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="12" fill="#2c4d23" font-weight="600">'+d[3]+'</text>';
+    });
+    el.innerHTML=s+'</svg>';
+  }
+  bary(document.getElementById('w1'),[['28.09–4.10',512],['5–11.10',2887,0,'start reklam'],['12–18.10',1199],['19–25.10',1569],['26.10–1.11',2987,0,'urodziny'],['2–8.11',636],['9–15.11',554,1,'ten tydzień']],{aria:'Sprzedaż tygodniowa'});
+  bary(document.getElementById('w2'),[['13.10',936],['20.10',701],['27.10',2861,1,'urodziny'],['3.11',1416],['10.11',400,0,'ten tydzień'],['17.11',2362],['24.11',5560,1,'Green Week −40 %'],['1.12',2326],['8.12',1528],['15.12',448],['22.12',1142]],{aria:'Sprzedaż tygodniowa w sezonie 2025'});
+})();
+</script>
+<script src="kalendarz.js?v=13"></script>
+</body></html>
