@@ -217,6 +217,7 @@ const kartaHTML = (p) => `
 // ---------- budowa ----------
 fs.rmSync(OUT + "/kadry", { recursive: true, force: true });  // .git zostaje
 fs.mkdirSync(OUT + '/kadry', { recursive: true });
+fs.cpSync(SRC + '/kreacje/GW26', OUT + '/kadry/gw26', { recursive: true }); // 17.11 zakladka Green Week 2026
 const posty = await zbierz();
 for (const p of posty) p.stara = await poprzedniaHTML(p.id);
 
@@ -690,10 +691,11 @@ const GW_LISTA = [
   ['g1-2', 'Pierwsza propozycja &mdash; &bdquo;Less black. More green.&ldquo;', 'EN i DE.', GW, ['GreenWeek_2_EN_4x5.jpg', 'GreenWeek_2_DE_4x5.jpg']],
   ['g1-3', 'Pierwsza propozycja &mdash; &bdquo;Green Week. Warm feet.&ldquo;', 'EN i DE.', GW, ['GreenWeek_3_EN_4x5.jpg', 'GreenWeek_3_DE_4x5.jpg']],
 ];
-let sekGreen = `<div class="jak" style="margin:0 0 16px"><b>Green Week &minus;40 %, 22 &ndash; 30.11 &mdash; to jest tez nasz Black Friday (27.11).</b>
-Nie robimy osobnej akcji na Black Friday: Green Week ja zastepuje i daje powod (&bdquo;No Black Friday. Green Week.&ldquo;).
-Wybierz kierunek albo napisz pod nim, co zmienic. Zdjecia mozemy podmienic na nowsze z sesji. Po wyborze: wersje DE, stories 9:16, newsletter, slajd.</div>`;
-for (const [rid, t, o, d, f] of GW_LISTA) sekGreen += await sekcjaKr(rid, '22 &ndash; 30.11', t, o, d, f, 'gw', 'green week');
+// 17.11: zakladka GW = caly plan Green Week 2026 (agent/zmiany_15-11/gw_akcept/panel_gw.py -> _gw26_sekcja.html); stare propozycje zwiniete na dole
+let sekGreen = fs.readFileSync(ROOT + '/_gen/_gw26_sekcja.html', 'utf8');
+let sekGreenStare = '';
+for (const [rid, t, o, d, f] of GW_LISTA) sekGreenStare += await sekcjaKr(rid, '22 &ndash; 30.11', t, o, d, f, 'gw', 'green week');
+sekGreen += `<details style="margin-top:40px"><summary style="cursor:pointer;color:#666">Pierwsze propozycje grafik z pazdziernika (archiwum)</summary>${sekGreenStare}</details>`;
 
 // ---------- 16.10: Caramel −20 % do akceptu ----------
 const CAR = SRC + '/kreacje/CARAMEL';
@@ -947,7 +949,7 @@ const SEKCJE = [
   ['reklama2', 'Reklama &mdash; linia 2 (styl)', sekReklama2],
   ['caramel', 'Caramel &minus;20 %', sekCaramel],
   ['urodziny', 'Urodziny &minus;40 %', sekUrodziny],
-  ['greenweek', 'Green Week &minus;40 % / Black Friday', sekGreen],
+  ['greenweek', 'Green Week &minus;40 % (22&ndash;30.11)', sekGreen],
   ['reklama', 'Reklama &mdash; linia 1 (vegan)', sekReklama],
   ['archiwum', 'Archiwum', sekArchiwum],
   ['wiecej', 'Wiecej', '<h2>Jak to dziala</h2>' + '__JAK__' + '<h2>Wasze kanaly</h2>' + '__LINKI__' + '<h2>Mailing</h2>' + sekMailing + '<h2>Strategia</h2>' + sekStrategia + '<h2>Wydatki</h2>' + sekWydatki + '<h2>Pomysly</h2>' + sekPomysly],
