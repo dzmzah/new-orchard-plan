@@ -1,0 +1,182 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>New Orchard · podsumowanie października 2026</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#2c4d23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--zielen:#2c4d23;--ramka:#e3dfd5;--jasny:#e8eee5;--rok:#c9c3b6;--zm:#b4552e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tlo);color:var(--tekst);font:16px/1.55 'Figtree',-apple-system,'Segoe UI',Roboto,sans-serif}
+h1,h2,h3,.liczba,.zak,.marka{font-family:'Jost','Figtree',-apple-system,'Segoe UI',sans-serif}
+.belka{background:var(--zielen);color:#fff}
+.belkaW{max-width:980px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:14px}
+.belka img{width:34px;height:30px;object-fit:contain}
+.marka{font-size:15px;letter-spacing:.22em;font-weight:500}
+.belkaPod{font-size:12px;color:rgba(255,255,255,.72);display:block;margin-top:3px;letter-spacing:.04em}
+.wroc{margin-left:auto;color:#fff;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:6px 14px;white-space:nowrap}
+.wroc:hover{background:rgba(255,255,255,.12)}
+main{max-width:980px;margin:0 auto;padding:30px 22px 70px}
+.etyk{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy)}
+h1{font-size:clamp(28px,5vw,40px);font-weight:400;margin:6px 0 10px;letter-spacing:-.01em}
+.lead{font-size:18px;color:#3d3a34;max-width:720px;margin:0 0 30px}
+h2{font-size:24px;font-weight:400;margin:52px 0 6px}
+.pod{color:var(--cichy);margin:0 0 18px;font-size:15px}
+.karta{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:22px}
+.kafle{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kafel{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:18px 18px 16px}
+.kafel .liczba{font-size:32px;font-weight:500;color:var(--zielen);line-height:1.1}
+.kafel .co{font-size:14px;margin-top:6px}
+.kafel .male{font-size:13px;color:var(--cichy);margin-top:4px}
+.kafel.mocny{background:var(--zielen);border-color:var(--zielen);color:#fff}
+.kafel.mocny .liczba{color:#fff}.kafel.mocny .male{color:rgba(255,255,255,.75)}
+.rr{display:grid;grid-template-columns:1fr;gap:14px}
+.rrW{display:grid;grid-template-columns:190px 1fr;gap:6px 14px;align-items:center}
+.rrW .nz{font-size:14px}
+.pas{display:flex;align-items:center;gap:8px;font-size:13px}
+.pas i{display:block;height:14px;border-radius:7px}
+.pas.teraz i{background:var(--akcent)}.pas.rok i{background:var(--rok)}
+.pas b{font-weight:600}
+.legenda{display:flex;gap:18px;font-size:13px;color:var(--cichy);margin-top:14px;flex-wrap:wrap}
+.legenda span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--akcent)}
+.legenda span.r::before{background:var(--rok)}
+.wykres{width:100%;overflow-x:auto}
+.wykres svg{display:block;width:100%;min-width:520px;height:auto}
+.dni{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.dzien{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:16px 18px}
+.dzien h3{font-size:16px;font-weight:500;margin:0 0 8px;color:var(--zielen)}
+.dzien ul{margin:0;padding-left:18px;font-size:14.5px}.dzien li{margin:3px 0}
+.tab{width:100%;border-collapse:collapse;font-size:14.5px}
+.tab th{text-align:left;font-weight:500;color:var(--cichy);font-size:12.5px;letter-spacing:.04em;padding:8px 10px;border-bottom:1px solid var(--ramka)}
+.tab td{padding:10px;border-bottom:1px solid #efece5;vertical-align:top}
+.tab td.l{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tab tr:last-child td{border-bottom:0}
+.tabW{overflow-x:auto}
+.znaczek{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:10px;background:var(--jasny);color:var(--zielen);margin-left:6px;white-space:nowrap}
+.znaczek.dobry{background:var(--zielen);color:#fff}
+.siatka{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.post{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.post img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#ddd}
+.post .opis{padding:10px 12px 12px;font-size:13px}
+.post .opis b{display:block;font-size:13.5px;margin-bottom:2px}
+.post .st{color:var(--cichy);font-size:12.5px;margin-top:4px}
+.post:hover{border-color:var(--akcent)}
+.uwaga{background:#fbf6ea;border:1px solid #eadfc4;border-radius:14px;padding:18px 20px;font-size:15px}
+.uwaga b{color:#7a5a1c}
+.prop{counter-reset:p;display:grid;gap:12px}
+.prop .karta{position:relative;padding-left:62px}
+.prop .karta::before{counter-increment:p;content:counter(p);position:absolute;left:20px;top:20px;width:28px;height:28px;border-radius:50%;background:var(--zielen);color:#fff;font:500 15px/28px 'Jost',sans-serif;text-align:center}
+.prop h3{margin:0 0 4px;font-size:17px;font-weight:500}
+.prop p{margin:0;font-size:15px;color:#3d3a34}
+.lista{display:grid;gap:8px}
+.lista a{display:flex;justify-content:space-between;gap:12px;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:12px 16px;text-decoration:none;color:inherit;font-size:15px}
+.lista a span{color:var(--cichy);font-size:13px}
+.zam{display:grid;gap:8px}
+.zw{display:grid;grid-template-columns:150px 1fr auto;gap:10px 16px;align-items:center;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:10px 14px}
+.zw .kto{font-size:13px;color:var(--cichy);line-height:1.35}.zw .kto b{display:block;color:var(--tekst);font-size:14px;font-weight:600}
+.zw .rz{display:flex;flex-wrap:wrap;gap:6px}
+.zw .rz span{display:inline-flex;align-items:center;gap:6px;background:#f7f5f0;border-radius:8px;padding:3px 8px 3px 3px;font-size:12.5px;line-height:1.2}
+.zw .rz img{width:34px;height:34px;border-radius:6px;object-fit:cover;background:#eee}
+.zw .kw{font:500 17px 'Jost',sans-serif;color:var(--zielen);white-space:nowrap;text-align:right}
+.zw .kw small{display:block;font:400 11.5px 'Figtree',sans-serif;color:var(--cichy)}
+@media (max-width:760px){.zw{grid-template-columns:1fr auto}.zw .rz{grid-column:1/-1;grid-row:2}}.stopka{margin-top:50px;font-size:13px;color:var(--cichy)}
+@media (max-width:760px){.kafle{grid-template-columns:repeat(2,1fr)}.siatka{grid-template-columns:repeat(2,1fr)}.rrW{grid-template-columns:1fr}.rrW .nz{margin-top:8px;font-weight:500}}
+@media (max-width:420px){main{padding:24px 16px 60px}.belkaW{padding:13px 16px}.kafel .liczba{font-size:26px}.prop .karta{padding-left:54px}.prop .karta::before{left:16px}}
+</style></head><body>
+<header class="belka"><div class="belkaW">
+  <img src="../logo-bialy.png" alt="New Orchard">
+  <div><span class="marka">NEW ORCHARD</span><span class="belkaPod">podsumowanie miesiąca</span></div>
+  <a class="wroc" href="../" id="wroc">&larr; wróć do planu</a>
+</div></header>
+
+<main>
+<span class="etyk">Podsumowanie miesiąca</span>
+<h1>Październik 2026</h1>
+<p class="lead">Październik dał 7 746 € i 40 zamówień. Rok temu w październiku było 2 109 € i 15 zamówień, czyli w tym roku prawie 4 razy więcej. Reklama kosztowała 1 475 € (19 % sprzedaży), rok temu sama Meta 1 376 € (65 % sprzedaży). Najwięcej dały maile i urodziny −40 %.</p>
+
+<div class="kafle">
+  <div class="kafel mocny"><div class="liczba">7 746 €</div><div class="co">sprzedaż (sklep + marketplace'y)</div><div class="male">40 zamówień · rok temu 2 109 € (15 zam.)</div></div>
+  <div class="kafel"><div class="liczba">1 475 €</div><div class="co">wydane na reklamę</div><div class="male">Meta 1 320 € · Google 155 €<br>rok temu Meta 1 376 €</div></div>
+  <div class="kafel"><div class="liczba">19 %</div><div class="co">reklama jako % sprzedaży</div><div class="male">rok temu 65 % (mniej = lepiej)</div></div>
+  <div class="kafel"><div class="liczba">12 163 €</div><div class="co">sezon od 1.09</div><div class="male">rok temu 4 313 € w tym samym czasie</div></div>
+</div>
+
+<h2>Tydzień po tygodniu</h2>
+<p class="pod">Wszystkie zamówienia w Shopify (sklep + marketplace'y).</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Okres</th><th style="text-align:right">Sprzedaż</th><th style="text-align:right">Zamówienia</th><th>Co się działo</th></tr>
+  <tr><td>5–11.10</td><td class="l"><b>2 612 €</b></td><td class="l">7</td><td>start reklam Meta, Medium Green −33 %</td></tr>
+  <tr><td>12–18.10</td><td class="l">861 €</td><td class="l">6</td><td>mniejszy budżet, start Caramel −20 %</td></tr>
+  <tr><td>19–24.10</td><td class="l">724 €</td><td class="l">5</td><td>Caramel −20 % nie sprzedał, klienci czekali na urodziny</td></tr>
+  <tr><td>25.10</td><td class="l"><b>845 €</b></td><td class="l">6</td><td>wcześniejszy dostęp −40 % dla listy mailowej</td></tr>
+  <tr><td>26–31.10</td><td class="l"><b>2 246 €</b></td><td class="l">14</td><td>urodziny −40 % (+79 % do tych samych dni rok temu)</td></tr>
+</table></div>
+
+<h2>Reklama</h2>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Kanał</th><th style="text-align:right">Wydane</th><th style="text-align:right">Wynik</th></tr>
+  <tr><td>Meta, 1–25.10 (przed urodzinami)</td><td class="l">~790 €</td><td class="l">ruch i koszyki, 0 zakupów wg piksela</td></tr>
+  <tr><td>Meta, urodziny 26–31.10</td><td class="l">~530 €</td><td class="l">5 zakupów · 1 094 € wg piksela</td></tr>
+  <tr><td>Google · płatne słowa („Vegane UGG”, „Vegan Boots”)</td><td class="l">138 €</td><td class="l">181 wizyt, 5 koszyków, 0 zakupów, wyłączone</td></tr>
+  <tr><td>Google · marka</td><td class="l">17 €</td><td class="l">ochrona nazwy marki</td></tr>
+  <tr><td>TikTok, 26–29.10</td><td class="l">ok. 60 CHF</td><td class="l">ok. 400 wizyt, 0 koszyków, wyłączony</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Wniosek: reklama Meta sprzedaje w promocjach, a poza nimi przyprowadza ludzi, którzy kupują później przez maile albo wchodząc bezpośrednio. Darmowe wyszukiwanie Google dało 5 zamówień (673 €), płatne słowa zero. Budżet października 1 000 €, do 25.10 wydane ok. 935 €; urodziny liczone z budżetu listopadowego.</p>
+
+<h2>Skąd przyszli kupujący</h2>
+<p class="pod">Google Analytics 4, październik 2026 (tylko osoby, które zgodziły się na cookies).</p>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Kanał</th><th style="text-align:right">Wizyty</th><th style="text-align:right">Koszyki</th><th style="text-align:right">Zakupy</th></tr>
+  <tr><td>Reklama w social media</td><td class="l">1 659</td><td class="l">58</td><td class="l">2</td></tr>
+  <tr><td>Wejście bezpośrednie</td><td class="l">1 284</td><td class="l">74</td><td class="l">4</td></tr>
+  <tr><td>Wyszukiwarka (bezpłatnie)</td><td class="l">772</td><td class="l">25</td><td class="l">5</td></tr>
+  <tr><td>Maile</td><td class="l">149</td><td class="l">29</td><td class="l">3</td></tr>
+  <tr><td>Google Ads (płatne słowa)</td><td class="l">181</td><td class="l">5</td><td class="l">0</td></tr>
+  <tr><td>Nieprzypisane (m.in. Instagram, marketplace'y)</td><td class="l">1 374</td><td class="l">53</td><td class="l">7</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Cały październik: 5 852 wizyty i 261 dodań do koszyka (rok temu 122).</p>
+
+<h2>Co kupowano</h2>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Produkt</th><th style="text-align:right">Sztuk</th></tr>
+  <tr><td>Kapcie Black</td><td class="l"><b>7</b></td></tr>
+  <tr><td>Short Black</td><td class="l">6</td></tr>
+  <tr><td>Czapki Black</td><td class="l">5</td></tr>
+  <tr><td>Rękawiczki Black</td><td class="l">4</td></tr>
+  <tr><td>Medium All Black (limited)</td><td class="l">3</td></tr>
+  <tr><td>Medium Brown z czarnym futerkiem</td><td class="l">3</td></tr>
+  <tr><td>Kapcie Sabbia</td><td class="l">3</td></tr>
+  <tr><td>T-shirty (Oat Milk, Avocado Toast, Vegan Chocolate)</td><td class="l">7</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Kraje: Niemcy 22 zamówienia, Szwajcaria 5, Wielka Brytania 4, Polska, Austria i Holandia po 3. Kapcie Black: zostało 6 par, brak rozmiarów 37, 39 i 40.</p>
+
+<h2>Maile</h2>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Mail</th><th style="text-align:right">Wysłane</th><th style="text-align:right">Otwarte</th><th style="text-align:right">Zamówienia</th></tr>
+  <tr><td>Wcześniejszy dostęp EN+DE · 25.10</td><td class="l">1 100</td><td class="l">46 %</td><td class="l"><b>4 · 605 €</b> (kod BIRTHDAY40)</td></tr>
+  <tr><td>Halloween −40 % EN+DE · 30.10</td><td class="l">1 081</td><td class="l">40 %</td><td class="l">2 · 338 €</td></tr>
+  <tr><td>Wcześniejsze kampanie października</td><td class="l">~1 100</td><td class="l">43–48 %</td><td class="l">wg Klaviyo 3</td></tr>
+  <tr><td>Automaty (porzucony koszyk, powitanie i inne)</td><td class="l">—</td><td class="l">—</td><td class="l">wg Klaviyo 9 · 1 492 €</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Maile to najlepszy kanał: otwiera je 40–48 % osób, a w urodziny dały najwięcej zamówień. Lista rośnie powoli (pop-upy zapisują 2,2 % osób), stąd propozycja nowego pop-upu.</p>
+
+<h2>Instagram</h2>
+<p class="pod">29 publikacji w październiku, 9 229 obserwujących. Urodziny podbiły zasięg konta do 14 163 osób w ostatnim tygodniu (tydzień wcześniej 3 178), wizyty profilu 609, kliknięcia w link 87.</p>
+
+<h2>Co zadziałało, co nie</h2>
+<div class="prop">
+  <div class="karta"><h3>Zadziałało</h3><p>Urodziny −40 % z wcześniejszym dostępem (3 596 €, +26 % do roku temu), maile do listy, automat porzuconego koszyka, czarne kapcie w reklamie, darmowe wyszukiwanie Google.</p></div>
+  <div class="karta"><h3>Nie zadziałało</h3><p>Caramel −20 % (prawie zero sprzedaży), płatne słowa w Google, TikTok, reklama Meta poza promocją (bez zakupów z linku), mail „ostatni dzień” 1.11 (0 zamówień).</p></div>
+  <div class="karta"><h3>Listopad</h3><p>Najważniejszy miesiąc sezonu: rok temu 12 123 €, z tego Green Week 7 568 € przy 634 € reklamy. Plan: do Green Week mało reklamy (kapcie, zapis do newslettera), Green Week 22–30.11 z wcześniejszym dostępem dla listy, Blickfang 20–22.11, Glore Luzern do 21.11.</p></div>
+</div>
+
+<p class="stopka">Dane: Shopify, Meta Ads, Google Ads, Google Analytics, Klaviyo, Instagram. Stan na 2.11.2026. Przygotowanie: ZOVU.</p>
+</main>
+
+<script>(function(){try{if(document.referrer&&/\/zovu\/?/.test(new URL(document.referrer).pathname))document.getElementById("wroc").href="../zovu/";}catch(e){}})();</script>
+</body></html>
