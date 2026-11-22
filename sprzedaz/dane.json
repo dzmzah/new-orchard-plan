@@ -1,60 +1,7 @@
 {
- "aktualizacja": "2026-11-21T23:15:25.609Z",
- "start": "2026-09-24",
+ "aktualizacja": "2026-11-22T03:14:09.420Z",
+ "start": "2026-09-25",
  "zamowienia": [
-  {
-   "id": "13196834636152",
-   "nr": "#1490",
-   "data": "2026-09-24T15:17:47Z",
-   "kwota": 68.9,
-   "zwrot": 0,
-   "anulowane": false,
-   "kraj": "DE",
-   "kody": [],
-   "towary": [
-    "Winter Vegan Gloves Navy"
-   ],
-   "zrodlo": "direct",
-   "utm_source": "",
-   "utm_medium": "",
-   "utm_campaign": ""
-  },
-  {
-   "id": "13197378453880",
-   "nr": "#1491",
-   "data": "2026-09-24T18:54:48Z",
-   "kwota": 208.2,
-   "zwrot": 0,
-   "anulowane": false,
-   "kraj": "LT",
-   "kody": [],
-   "towary": [
-    "Sports Vegan Tierry White",
-    "Sports Vegan Rainbow",
-    "Short Caramel"
-   ],
-   "zrodlo": "Instagram",
-   "utm_source": "",
-   "utm_medium": "",
-   "utm_campaign": ""
-  },
-  {
-   "id": "13197538263416",
-   "nr": "#1492",
-   "data": "2026-09-24T20:00:16Z",
-   "kwota": 73.9,
-   "zwrot": 0,
-   "anulowane": false,
-   "kraj": "AT",
-   "kody": [],
-   "towary": [
-    "Vegan T-shirt EdaMama"
-   ],
-   "zrodlo": "",
-   "utm_source": "",
-   "utm_medium": "",
-   "utm_campaign": ""
-  },
   {
    "id": "13227185439096",
    "nr": "#1493",
@@ -1687,6 +1634,15 @@
    "koszyki": 0,
    "zakupy": 0,
    "wartosc": 0
+  },
+  {
+   "dzien": "2026-11-22",
+   "wydatek": 2.91,
+   "wyswietlenia": 179,
+   "klikniecia": 3,
+   "koszyki": 0,
+   "zakupy": 0,
+   "wartosc": 0
   }
  ],
  "klaviyo": {
@@ -1712,32 +1668,12 @@
     "conversion_value": 254.2
    },
    {
-    "nazwa": "medium green -33 last days DE",
-    "wyslano": "2026-10-09T17:05:00+00:00",
-    "recipients": 130,
-    "opens_unique": 50,
-    "clicks_unique": 5,
-    "unsubscribes": 1,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
     "nazwa": "Caramel jesien EN",
     "wyslano": "2026-10-16T17:00:00+00:00",
     "recipients": 980,
     "opens_unique": 466,
     "clicks_unique": 18,
     "unsubscribes": 20,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
-    "nazwa": "Caramel jesien DE",
-    "wyslano": "2026-10-16T17:00:00+00:00",
-    "recipients": 130,
-    "opens_unique": 48,
-    "clicks_unique": 3,
-    "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1772,16 +1708,6 @@
     "conversion_value": 274.07999
    },
    {
-    "nazwa": "Urodziny early access 25.10 DE",
-    "wyslano": "2026-10-25T07:00:00+00:00",
-    "recipients": 127,
-    "opens_unique": 52,
-    "clicks_unique": 9,
-    "unsubscribes": 3,
-    "conversions": 3,
-    "conversion_value": 495.90001
-   },
-   {
     "nazwa": "Birthday 30.10 Halloween EN",
     "wyslano": "2026-10-30T07:00:00+00:00",
     "recipients": 956,
@@ -1790,16 +1716,6 @@
     "unsubscribes": 9,
     "conversions": 1,
     "conversion_value": 158.3
-   },
-   {
-    "nazwa": "Birthday 30.10 Halloween DE",
-    "wyslano": "2026-10-30T07:00:00+00:00",
-    "recipients": 126,
-    "opens_unique": 40,
-    "clicks_unique": 5,
-    "unsubscribes": 2,
-    "conversions": 0,
-    "conversion_value": 0
    },
    {
     "nazwa": "Birthday 1.11 final call EN",
@@ -1812,32 +1728,12 @@
     "conversion_value": 0
    },
    {
-    "nazwa": "Birthday 1.11 final call DE",
-    "wyslano": "2026-11-01T07:00:00+00:00",
-    "recipients": 24,
-    "opens_unique": 10,
-    "clicks_unique": 0,
-    "unsubscribes": 0,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
     "nazwa": "CH 5.11 pop-upy EN",
     "wyslano": "2026-11-05T10:30:00+00:00",
     "recipients": 175,
     "opens_unique": 102,
     "clicks_unique": 4,
     "unsubscribes": 2,
-    "conversions": 0,
-    "conversion_value": 0
-   },
-   {
-    "nazwa": "CH 5.11 pop-upy DE",
-    "wyslano": "2026-11-05T10:30:00+00:00",
-    "recipients": 4,
-    "opens_unique": 3,
-    "clicks_unique": 0,
-    "unsubscribes": 0,
     "conversions": 0,
     "conversion_value": 0
    },
@@ -1880,6 +1776,66 @@
     "unsubscribes": 2,
     "conversions": 1,
     "conversion_value": 129.14999
+   },
+   {
+    "nazwa": "medium green -33 last days DE",
+    "wyslano": "2026-10-09T17:05:00+00:00",
+    "recipients": 130,
+    "opens_unique": 50,
+    "clicks_unique": 5,
+    "unsubscribes": 1,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Urodziny early access 25.10 DE",
+    "wyslano": "2026-10-25T07:00:00+00:00",
+    "recipients": 127,
+    "opens_unique": 52,
+    "clicks_unique": 9,
+    "unsubscribes": 3,
+    "conversions": 3,
+    "conversion_value": 495.90001
+   },
+   {
+    "nazwa": "Birthday 30.10 Halloween DE",
+    "wyslano": "2026-10-30T07:00:00+00:00",
+    "recipients": 126,
+    "opens_unique": 40,
+    "clicks_unique": 5,
+    "unsubscribes": 2,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Caramel jesien DE",
+    "wyslano": "2026-10-16T17:00:00+00:00",
+    "recipients": 130,
+    "opens_unique": 48,
+    "clicks_unique": 3,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "Birthday 1.11 final call DE",
+    "wyslano": "2026-11-01T07:00:00+00:00",
+    "recipients": 24,
+    "opens_unique": 10,
+    "clicks_unique": 0,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
+   },
+   {
+    "nazwa": "CH 5.11 pop-upy DE",
+    "wyslano": "2026-11-05T10:30:00+00:00",
+    "recipients": 4,
+    "opens_unique": 3,
+    "clicks_unique": 0,
+    "unsubscribes": 0,
+    "conversions": 0,
+    "conversion_value": 0
    }
   ],
   "flowy": [
@@ -1897,25 +1853,25 @@
    },
    {
     "nazwa": "Abandoned Checkout",
-    "recipients": 63,
+    "recipients": 62,
     "conversions": 2,
     "conversion_value": 359.17999999999995
    },
    {
     "nazwa": "Customer Thank You - New vs. Returning",
-    "recipients": 62,
+    "recipients": 60,
     "conversions": 1,
     "conversion_value": 62.1
    },
    {
     "nazwa": "Customer Winback after 1-2 months",
-    "recipients": 27,
+    "recipients": 26,
     "conversions": 0,
     "conversion_value": 0
    },
    {
     "nazwa": "Customer Winback after 11 months",
-    "recipients": 113,
+    "recipients": 112,
     "conversions": 0,
     "conversion_value": 0
    }
@@ -2151,7 +2107,7 @@
      "addToCarts": 94,
      "checkouts": 43,
      "ecommercePurchases": 9,
-     "purchaseRevenue": 1360.7099999999998,
+     "purchaseRevenue": 1360.71,
      "googleKoszt": 63.63,
      "googleKlik": 150
     }
@@ -2184,7 +2140,7 @@
       "sesje": 374,
       "koszyki": 33,
       "zakupy": 5,
-      "przychod": 683.99
+      "przychod": 683.9900000000001
      }
     },
     {
@@ -2421,8 +2377,8 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 0,
-     "totalUsers": 0,
+     "sessions": 11,
+     "totalUsers": 11,
      "addToCarts": 0,
      "checkouts": 0,
      "ecommercePurchases": 0,
@@ -2449,12 +2405,9 @@
       "koszyki": 10,
       "zakupy": 0,
       "przychod": 0
-     }
-    },
-    {
-     "n": "Unassigned",
-     "rok": {
-      "sesje": 80,
+     },
+     "teraz": {
+      "sesje": 6,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2467,30 +2420,9 @@
       "koszyki": 2,
       "zakupy": 1,
       "przychod": 138.16
-     }
-    },
-    {
-     "n": "Paid Social",
-     "rok": {
-      "sesje": 49,
-      "koszyki": 9,
-      "zakupy": 2,
-      "przychod": 364.05
-     }
-    },
-    {
-     "n": "Organic Social",
-     "rok": {
-      "sesje": 15,
-      "koszyki": 0,
-      "zakupy": 0,
-      "przychod": 0
-     }
-    },
-    {
-     "n": "Paid Shopping",
-     "rok": {
-      "sesje": 15,
+     },
+     "teraz": {
+      "sesje": 2,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2503,12 +2435,99 @@
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
+     },
+     "teraz": {
+      "sesje": 2,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Unassigned",
+     "rok": {
+      "sesje": 80,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 1,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Email",
+     "teraz": {
+      "sesje": 1,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "rok": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Paid Social",
+     "rok": {
+      "sesje": 49,
+      "koszyki": 9,
+      "zakupy": 2,
+      "przychod": 364.05
+     },
+     "teraz": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Organic Social",
+     "rok": {
+      "sesje": 15,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     }
+    },
+    {
+     "n": "Paid Shopping",
+     "rok": {
+      "sesje": 15,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
      }
     },
     {
      "n": "Paid Other",
      "rok": {
       "sesje": 2,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2521,12 +2540,24 @@
       "koszyki": 1,
       "zakupy": 1,
       "przychod": 171.3
+     },
+     "teraz": {
+      "sesje": 0,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
      }
     },
     {
      "n": "Paid Search",
      "rok": {
       "sesje": 1,
+      "koszyki": 0,
+      "zakupy": 0,
+      "przychod": 0
+     },
+     "teraz": {
+      "sesje": 0,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2703,14 +2734,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 2065,
-     "totalUsers": 2004,
-     "addToCarts": 45,
-     "checkouts": 44,
+     "sessions": 2103,
+     "totalUsers": 2033,
+     "addToCarts": 47,
+     "checkouts": 46,
      "ecommercePurchases": 3,
      "purchaseRevenue": 333.75,
-     "googleKoszt": 10.72,
-     "googleKlik": 17
+     "googleKoszt": 10.77,
+     "googleKlik": 18
     },
     "rok": {
      "sessions": 1825,
@@ -2727,8 +2758,8 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 1711,
-      "koszyki": 32,
+      "sesje": 1732,
+      "koszyki": 34,
       "zakupy": 1,
       "przychod": 119.25
      },
@@ -2748,7 +2779,7 @@
       "przychod": 316.81
      },
      "teraz": {
-      "sesje": 209,
+      "sesje": 220,
       "koszyki": 7,
       "zakupy": 1,
       "przychod": 167.3
@@ -2763,7 +2794,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 45,
+      "sesje": 48,
       "koszyki": 2,
       "zakupy": 0,
       "przychod": 0
@@ -2778,7 +2809,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 33,
+      "sesje": 35,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -2802,7 +2833,7 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 16,
+      "sesje": 17,
       "koszyki": 0,
       "zakupy": 0,
       "przychod": 0
@@ -2832,7 +2863,7 @@
     {
      "n": "Email",
      "teraz": {
-      "sesje": 11,
+      "sesje": 12,
       "koszyki": 1,
       "zakupy": 0,
       "przychod": 0
@@ -3170,14 +3201,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 11262,
-     "totalUsers": 10781,
-     "addToCarts": 231,
-     "checkouts": 140,
+     "sessions": 11300,
+     "totalUsers": 10810,
+     "addToCarts": 233,
+     "checkouts": 142,
      "ecommercePurchases": 22,
      "purchaseRevenue": 3098.8862419999996,
-     "googleKoszt": 50.62,
-     "googleKlik": 101
+     "googleKoszt": 50.67,
+     "googleKlik": 102
     },
     "rok": {
      "sessions": 7805,
@@ -3194,8 +3225,8 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 7772,
-      "koszyki": 78,
+      "sesje": 7784,
+      "koszyki": 80,
       "zakupy": 4,
       "przychod": 737.29
      },
@@ -3230,7 +3261,7 @@
       "przychod": 1058.02
      },
      "teraz": {
-      "sesje": 955,
+      "sesje": 967,
       "koszyki": 39,
       "zakupy": 7,
       "przychod": 745.656966
@@ -3254,7 +3285,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 220,
+      "sesje": 223,
       "koszyki": 7,
       "zakupy": 0,
       "przychod": 0
@@ -3269,7 +3300,7 @@
     {
      "n": "Email",
      "teraz": {
-      "sesje": 212,
+      "sesje": 213,
       "koszyki": 38,
       "zakupy": 3,
       "przychod": 467.020127
@@ -3290,7 +3321,7 @@
       "przychod": 652.7
      },
      "teraz": {
-      "sesje": 132,
+      "sesje": 134,
       "koszyki": 13,
       "zakupy": 3,
       "przychod": 456.53914900000007
@@ -3314,7 +3345,7 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 65,
+      "sesje": 66,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -3612,14 +3643,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 9380,
-     "totalUsers": 9117,
-     "addToCarts": 130,
-     "checkouts": 101,
+     "sessions": 9410,
+     "totalUsers": 9143,
+     "addToCarts": 132,
+     "checkouts": 103,
      "ecommercePurchases": 9,
-     "purchaseRevenue": 875.6869660000001,
-     "googleKoszt": 41.59,
-     "googleKlik": 79
+     "purchaseRevenue": 875.686966,
+     "googleKoszt": 41.64,
+     "googleKlik": 80
     },
     "rok": {
      "sessions": 5681,
@@ -3636,8 +3667,8 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 7369,
-      "koszyki": 66,
+      "sesje": 7380,
+      "koszyki": 68,
       "zakupy": 2,
       "przychod": 262.65
      },
@@ -3645,7 +3676,7 @@
       "sesje": 945,
       "koszyki": 41,
       "zakupy": 10,
-      "przychod": 1727.43
+      "przychod": 1727.4300000000003
      }
     },
     {
@@ -3657,7 +3688,7 @@
       "przychod": 649.24
      },
      "teraz": {
-      "sesje": 738,
+      "sesje": 749,
       "koszyki": 26,
       "zakupy": 4,
       "przychod": 390.156966
@@ -3681,7 +3712,7 @@
     {
      "n": "Referral",
      "teraz": {
-      "sesje": 193,
+      "sesje": 196,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -3717,7 +3748,7 @@
       "przychod": 652.7
      },
      "teraz": {
-      "sesje": 108,
+      "sesje": 110,
       "koszyki": 4,
       "zakupy": 1,
       "przychod": 53.1
@@ -3726,7 +3757,7 @@
     {
      "n": "Email",
      "teraz": {
-      "sesje": 85,
+      "sesje": 86,
       "koszyki": 9,
       "zakupy": 0,
       "przychod": 0
@@ -3756,7 +3787,7 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 54,
+      "sesje": 55,
       "koszyki": 4,
       "zakupy": 0,
       "przychod": 0
@@ -4541,14 +4572,14 @@
    ],
    "ga4": {
     "teraz": {
-     "sessions": 17675,
-     "totalUsers": 16752,
-     "addToCarts": 480,
-     "checkouts": 261,
+     "sessions": 17698,
+     "totalUsers": 16779,
+     "addToCarts": 482,
+     "checkouts": 263,
      "ecommercePurchases": 42,
      "purchaseRevenue": 10148.935433,
-     "googleKoszt": 196.61,
-     "googleKlik": 298
+     "googleKoszt": 196.66,
+     "googleKlik": 299
     },
     "rok": {
      "sessions": 14622,
@@ -4556,7 +4587,7 @@
      "addToCarts": 356,
      "checkouts": 188,
      "ecommercePurchases": 48,
-     "purchaseRevenue": 8008.120000000002,
+     "purchaseRevenue": 8008.120000000001,
      "googleKoszt": 592.51,
      "googleKlik": 1335
     }
@@ -4565,8 +4596,8 @@
     {
      "n": "Direct",
      "teraz": {
-      "sesje": 9780,
-      "koszyki": 158,
+      "sesje": 9794,
+      "koszyki": 160,
       "zakupy": 8,
       "przychod": 2434.0299999999997
      },
@@ -4586,10 +4617,10 @@
       "przychod": 1258.8200000000002
      },
      "teraz": {
-      "sesje": 2227,
+      "sesje": 2238,
       "koszyki": 69,
       "zakupy": 10,
-      "przychod": 1364.5381000000002
+      "przychod": 1364.5381
      }
     },
     {
@@ -4598,10 +4629,10 @@
       "sesje": 3411,
       "koszyki": 68,
       "zakupy": 10,
-      "przychod": 1805.9899999999998
+      "przychod": 1805.9900000000002
      },
      "teraz": {
-      "sesje": 2180,
+      "sesje": 2182,
       "koszyki": 94,
       "zakupy": 14,
       "przychod": 4824.767206
@@ -4646,7 +4677,7 @@
       "przychod": 0
      },
      "teraz": {
-      "sesje": 284,
+      "sesje": 287,
       "koszyki": 7,
       "zakupy": 0,
       "przychod": 0
@@ -4655,7 +4686,7 @@
     {
      "n": "Email",
      "teraz": {
-      "sesje": 239,
+      "sesje": 240,
       "koszyki": 43,
       "zakupy": 4,
       "przychod": 625.020127
@@ -4670,7 +4701,7 @@
     {
      "n": "Paid Search",
      "teraz": {
-      "sesje": 236,
+      "sesje": 237,
       "koszyki": 9,
       "zakupy": 0,
       "przychod": 0
@@ -4808,15 +4839,6 @@
   "wartosc": 574.54
  },
  "meta_ly": [
-  {
-   "dzien": "2025-09-24",
-   "wydatek": 47.67,
-   "wyswietlenia": 3960,
-   "klikniecia": 38,
-   "koszyki": 1,
-   "zakupy": 0,
-   "wartosc": 0
-  },
   {
    "dzien": "2025-09-25",
    "wydatek": 44.82,
@@ -5338,9 +5360,43 @@
    "koszyki": 4,
    "zakupy": 1,
    "wartosc": 159.3
+  },
+  {
+   "dzien": "2025-11-22",
+   "wydatek": 50.82,
+   "wyswietlenia": 2321,
+   "klikniecia": 55,
+   "koszyki": 14,
+   "zakupy": 4,
+   "wartosc": 713.37
   }
  ],
  "klaviyo_ly": [
+  {
+   "data": "2025-11-22T14:24:44+00:00",
+   "kwota": 159.3,
+   "mail": false
+  },
+  {
+   "data": "2025-11-22T11:21:49+00:00",
+   "kwota": 204.75,
+   "mail": true
+  },
+  {
+   "data": "2025-11-22T10:16:04+00:00",
+   "kwota": 138.16,
+   "mail": true
+  },
+  {
+   "data": "2025-11-22T10:13:25+00:00",
+   "kwota": 178.02,
+   "mail": true
+  },
+  {
+   "data": "2025-11-22T09:30:58+00:00",
+   "kwota": 171.3,
+   "mail": true
+  },
   {
    "data": "2025-11-21T16:52:29+00:00",
    "kwota": 158.75,
@@ -5580,11 +5636,6 @@
    "data": "2025-09-30T21:52:49+00:00",
    "kwota": 195.9,
    "mail": false
-  },
-  {
-   "data": "2025-09-24T09:14:57+00:00",
-   "kwota": 200.8,
-   "mail": true
   }
  ],
  "ga4_ok": true
