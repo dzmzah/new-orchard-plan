@@ -1,0 +1,240 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>New Orchard · raport 16–22.11</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#2c4d23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--tlo:#f4f2ec;--karta:#fff;--tekst:#1c1b18;--cichy:#7b766c;--akcent:#3c5a46;--zielen:#2c4d23;--ramka:#e3dfd5;--jasny:#e8eee5;--rok:#c9c3b6;--zm:#b4552e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--tlo);color:var(--tekst);font:16px/1.55 'Figtree',-apple-system,'Segoe UI',Roboto,sans-serif}
+h1,h2,h3,.liczba,.zak,.marka{font-family:'Jost','Figtree',-apple-system,'Segoe UI',sans-serif}
+.belka{background:var(--zielen);color:#fff}
+.belkaW{max-width:980px;margin:0 auto;padding:16px 22px;display:flex;align-items:center;gap:14px}
+.belka img{width:34px;height:30px;object-fit:contain}
+.marka{font-size:15px;letter-spacing:.22em;font-weight:500}
+.belkaPod{font-size:12px;color:rgba(255,255,255,.72);display:block;margin-top:3px;letter-spacing:.04em}
+.wroc{margin-left:auto;color:#fff;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,.4);border-radius:20px;padding:6px 14px;white-space:nowrap}
+.wroc:hover{background:rgba(255,255,255,.12)}
+main{max-width:980px;margin:0 auto;padding:30px 22px 70px}
+.etyk{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cichy)}
+h1{font-size:clamp(28px,5vw,40px);font-weight:400;margin:6px 0 10px;letter-spacing:-.01em}
+.lead{font-size:18px;color:#3d3a34;max-width:720px;margin:0 0 30px}
+h2{font-size:24px;font-weight:400;margin:52px 0 6px}
+.pod{color:var(--cichy);margin:0 0 18px;font-size:15px}
+.karta{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:22px}
+.kafle{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kafel{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:18px 18px 16px}
+.kafel .liczba{font-size:32px;font-weight:500;color:var(--zielen);line-height:1.1}
+.kafel .co{font-size:14px;margin-top:6px}
+.kafel .male{font-size:13px;color:var(--cichy);margin-top:4px}
+.kafel.mocny{background:var(--zielen);border-color:var(--zielen);color:#fff}
+.kafel.mocny .liczba{color:#fff}.kafel.mocny .male{color:rgba(255,255,255,.75)}
+.rr{display:grid;grid-template-columns:1fr;gap:14px}
+.rrW{display:grid;grid-template-columns:190px 1fr;gap:6px 14px;align-items:center}
+.rrW .nz{font-size:14px}
+.pas{display:flex;align-items:center;gap:8px;font-size:13px}
+.pas i{display:block;height:14px;border-radius:7px}
+.pas.teraz i{background:var(--akcent)}.pas.rok i{background:var(--rok)}
+.pas b{font-weight:600}
+.legenda{display:flex;gap:18px;font-size:13px;color:var(--cichy);margin-top:14px;flex-wrap:wrap}
+.legenda span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--akcent)}
+.legenda span.r::before{background:var(--rok)}
+.wykres{width:100%;overflow-x:auto}
+.wykres svg{display:block;width:100%;min-width:520px;height:auto}
+.dni{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.dzien{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;padding:16px 18px}
+.dzien h3{font-size:16px;font-weight:500;margin:0 0 8px;color:var(--zielen)}
+.dzien ul{margin:0;padding-left:18px;font-size:14.5px}.dzien li{margin:3px 0}
+.tab{width:100%;border-collapse:collapse;font-size:14.5px}
+.tab th{text-align:left;font-weight:500;color:var(--cichy);font-size:12.5px;letter-spacing:.04em;padding:8px 10px;border-bottom:1px solid var(--ramka)}
+.tab td{padding:10px;border-bottom:1px solid #efece5;vertical-align:top}
+.tab td.l{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tab tr:last-child td{border-bottom:0}
+.tabW{overflow-x:auto}
+.znaczek{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:10px;background:var(--jasny);color:var(--zielen);margin-left:6px;white-space:nowrap}
+.znaczek.dobry{background:var(--zielen);color:#fff}
+.siatka{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.post{background:var(--karta);border:1px solid var(--ramka);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.post img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#ddd}
+.post .opis{padding:10px 12px 12px;font-size:13px}
+.post .opis b{display:block;font-size:13.5px;margin-bottom:2px}
+.post .st{color:var(--cichy);font-size:12.5px;margin-top:4px}
+.post:hover{border-color:var(--akcent)}
+.uwaga{background:#fbf6ea;border:1px solid #eadfc4;border-radius:14px;padding:18px 20px;font-size:15px}
+.uwaga b{color:#7a5a1c}
+.prop{counter-reset:p;display:grid;gap:12px}
+.prop .karta{position:relative;padding-left:62px}
+.prop .karta::before{counter-increment:p;content:counter(p);position:absolute;left:20px;top:20px;width:28px;height:28px;border-radius:50%;background:var(--zielen);color:#fff;font:500 15px/28px 'Jost',sans-serif;text-align:center}
+.prop h3{margin:0 0 4px;font-size:17px;font-weight:500}
+.prop p{margin:0;font-size:15px;color:#3d3a34}
+.lista{display:grid;gap:8px}
+.lista a{display:flex;justify-content:space-between;gap:12px;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:12px 16px;text-decoration:none;color:inherit;font-size:15px}
+.lista a span{color:var(--cichy);font-size:13px}
+.zam{display:grid;gap:8px}
+.zw{display:grid;grid-template-columns:150px 1fr auto;gap:10px 16px;align-items:center;background:var(--karta);border:1px solid var(--ramka);border-radius:12px;padding:10px 14px}
+.zw .kto{font-size:13px;color:var(--cichy);line-height:1.35}.zw .kto b{display:block;color:var(--tekst);font-size:14px;font-weight:600}
+.zw .rz{display:flex;flex-wrap:wrap;gap:6px}
+.zw .rz span{display:inline-flex;align-items:center;gap:6px;background:#f7f5f0;border-radius:8px;padding:3px 8px 3px 3px;font-size:12.5px;line-height:1.2}
+.zw .rz img{width:34px;height:34px;border-radius:6px;object-fit:cover;background:#eee}
+.zw .kw{font:500 17px 'Jost',sans-serif;color:var(--zielen);white-space:nowrap;text-align:right}
+.zw .kw small{display:block;font:400 11.5px 'Figtree',sans-serif;color:var(--cichy)}
+@media (max-width:760px){.zw{grid-template-columns:1fr auto}.zw .rz{grid-column:1/-1;grid-row:2}}.stopka{margin-top:50px;font-size:13px;color:var(--cichy)}
+@media (max-width:760px){.kafle{grid-template-columns:repeat(2,1fr)}.siatka{grid-template-columns:repeat(2,1fr)}.rrW{grid-template-columns:1fr}.rrW .nz{margin-top:8px;font-weight:500}}
+@media (max-width:420px){main{padding:24px 16px 60px}.belkaW{padding:13px 16px}.kafel .liczba{font-size:26px}.prop .karta{padding-left:54px}.prop .karta::before{left:16px}}
+</style></head><body>
+<header class="belka"><div class="belkaW">
+  <img src="../logo-bialy.png" alt="New Orchard">
+  <div><span class="marka">NEW ORCHARD</span><span class="belkaPod">raporty tygodniowe</span></div>
+  <a class="wroc" href="../" id="wroc">&larr; wróć do planu</a>
+</div></header>
+
+<main>
+<span class="etyk">Raport tygodniowy · tydzień 7</span>
+<h1>16–22 listopada 2026</h1>
+<div id="kalendarz" data-nr="7"></div>
+<p class="lead">Tydzień przed Green Week i pierwszy dzień promocji. 15 zamówień za 1 902 € (rok temu 2 362 €, 16 zamówień) plus zamówienie hurtowe z Faire do Szwajcarii na 788 $. Wróciły buty: 7 par, tydzień wcześniej 0. W niedzielę 22.11 wystartował Green Week −40 % na wszystko: 7 zamówień za 824 € w jeden dzień, mail do całej bazy o 8:00 i reklama Meta 100 €/dzień od północy.</p>
+
+<div class="kafle">
+  <div class="kafel mocny"><div class="liczba">1 902 €</div><div class="co">zamówienia w tygodniu</div><div class="male">15 zam., 7 par butów<br>+ hurt Faire 788 $ · rok temu 2 362 € (16 zam.)</div></div>
+  <div class="kafel"><div class="liczba">824 €</div><div class="co">pierwszy dzień Green Week</div><div class="male">7 zamówień 22.11<br>4 pary butów, spódnica, 2 czapki</div></div>
+  <div class="kafel"><div class="liczba">140 €</div><div class="co">wydane na reklamę Meta</div><div class="male">131 € w niedzielę 22.11 (Green Week)<br>rok temu 425 €</div></div>
+  <div class="kafel"><div class="liczba">968 €</div><div class="co">zostało z budżetu reklamy</div><div class="male">1 500 € na 2.11–31.12 · wydane 532 €<br>po Green Week zostanie ok. 170 €</div></div>
+</div>
+
+<h2>Ten tydzień a rok temu</h2>
+<p class="pod">Ten sam tydzień w 2025 (17–23.11) kontra teraz. Sprzedaż: zamówienia detaliczne w Shopify (sklep + marketplace'y), bez hurtu Faire, przed zwrotami. Reklama według Meta.</p>
+<div class="karta">
+  <div class="rr" id="rr"></div>
+  <div class="legenda"><span>2026</span><span class="r">2025, ten sam tydzień</span></div>
+</div>
+
+<h2>Sprzedaż: tydzień</h2>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Tydzień</th><th style="text-align:right">2026</th><th style="text-align:right">2025, ten sam tydzień</th><th style="text-align:right">Zmiana</th></tr>
+  <tr><td>Poprzedni 9–15.11</td><td class="l"><b>399 €</b><br><small style="color:var(--cichy)">po zwrotach</small></td><td class="l">400 €</td><td class="l">0 %</td></tr>
+  <tr><td>Ten 16–22.11<br><small style="color:var(--cichy)">w tym Green Week od 22.11</small></td><td class="l"><b>1 902 €</b><br><small style="color:var(--cichy)">15 zam. · + hurt Faire 788 $</small></td><td class="l">2 362 €<br><small style="color:var(--cichy)">16 zam.</small></td><td class="l" style="color:var(--zm)">−19 %</td></tr>
+  <tr><td>Green Week 23–30.11<br><small style="color:var(--cichy)">−40 % na wszystko</small></td><td class="l">–</td><td class="l">5 560 €<br><small style="color:var(--cichy)">34 zam.</small></td><td class="l">cel 5 000 €</td></tr>
+</table></div>
+
+<h2>Sprzedaż tydzień po tygodniu</h2>
+<p class="pod">Ostatnie 6 tygodni, wszystkie zamówienia w Shopify, bez anulowanych. Ten tydzień razem z hurtem Faire.</p>
+<div class="karta wykres" id="w1"></div>
+
+<h3 style="font-weight:400;font-size:19px;margin:28px 0 6px">Co kupiono</h3>
+<p class="pod">7 zamówień ze sklepu internetowego (946 €), 8 z marketplace'ów, 1 hurtowe z Faire.</p>
+<div class="zam">
+  <div class="zw"><div class="kto"><b>#1552 · 16.11</b>Niemcy · sklep</div><div class="rz"><span><img src="img/p_14904741527928.jpg" alt="">Short Grey</span></div><div class="kw">177 €<small>sklep</small></div></div>
+  <div class="zw"><div class="kto"><b>#1553 · 17.11</b>Niemcy · sklep</div><div class="rz"><span><img src="img/p_14979877011832.jpg" alt="">Spódnica Brown</span></div><div class="kw">129 €<small>sklep</small></div></div>
+  <div class="zw"><div class="kto"><b>Faire · 17.11</b>Szwajcaria · hurt</div><div class="rz"><span><img src="img/p_14904849990008.jpg" alt="">8 szali z kapturem</span><span><img src="img/p_14979876880760.jpg" alt="">4 spódnice</span></div><div class="kw">788 $<small>hurt</small></div></div>
+  <div class="zw"><div class="kto"><b>#1555 · 17.11</b>Irlandia · marketplace</div><div class="rz"><span><img src="img/p_14904847991160.jpg" alt="">Kapcie Black</span></div><div class="kw">244 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1556 · 18.11</b>Niemcy · marketplace</div><div class="rz"><span><img src="img/p_14904873648504.jpg" alt="">Rękawiczki Black</span></div><div class="kw">68 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1557 · 18.11</b>Wielka Brytania · marketplace</div><div class="rz"><span><img src="img/p_14904872763768.jpg" alt="">Rękawiczki Grey</span><span><img src="img/p_14904852513144.jpg" alt="">Szal z kapturem Grey</span></div><div class="kw">168 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1558 · 20.11</b>Niemcy · marketplace</div><div class="rz"><span><img src="img/p_14904816566648.jpg" alt="">Czapka Black</span></div><div class="kw">34 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1559 · 20.11</b>Niemcy · sklep (Google)</div><div class="rz"><span><img src="img/p_14904864211320.jpg" alt="">Rękawiczki Blue</span></div><div class="kw">57 €<small>sklep</small></div></div>
+  <div class="zw"><div class="kto"><b>#1560 · 20.11</b>Holandia · marketplace</div><div class="rz"><span><img src="img/p_14904740249976.jpg" alt="">Short Brown</span></div><div class="kw">201 €<small>marketplace</small></div></div>
+  <div class="zw"><div class="kto"><b>#1561 · 22.11</b>Niemcy · sklep (reklama Instagram)</div><div class="rz"><span><img src="img/p_14979874587000.jpg" alt="">Spódnica Blue</span></div><div class="kw">105 €<small>Green Week</small></div></div>
+  <div class="zw"><div class="kto"><b>#1562 · 22.11</b>Niemcy · sklep</div><div class="rz"><span><img src="img/p_14984908013944.jpg" alt="">Medium All Black</span></div><div class="kw">165 €<small>Green Week</small></div></div>
+  <div class="zw"><div class="kto"><b>#1563 · 22.11</b>Włochy · sklep (mail)</div><div class="rz"><span><img src="img/p_14904739299704.jpg" alt="">Short Black</span></div><div class="kw">158 €<small>Green Week</small></div></div>
+  <div class="zw"><div class="kto"><b>#1564 · 22.11</b>Niemcy · marketplace</div><div class="rz"><span><img src="img/p_14904816566648.jpg" alt="">Czapka Black</span></div><div class="kw">38 €<small>Green Week</small></div></div>
+  <div class="zw"><div class="kto"><b>#1565 · 22.11</b>Niemcy · marketplace</div><div class="rz"><span><img src="img/p_14904768987512.jpg" alt="">Medium Deep Green</span></div><div class="kw">164 €<small>Green Week</small></div></div>
+  <div class="zw"><div class="kto"><b>#1566 · 22.11</b>Niemcy · sklep (Google)</div><div class="rz"><span><img src="img/p_14904739299704.jpg" alt="">Short Black</span></div><div class="kw">153 €<small>Green Week</small></div></div>
+  <div class="zw"><div class="kto"><b>#1567 · 22.11</b>Niemcy · marketplace</div><div class="rz"><span><img src="img/p_14904796152184.jpg" alt="">Classic Beanie Black</span></div><div class="kw">39 €<small>Green Week</small></div></div>
+</div>
+<p class="pod" style="margin-top:12px">Wnioski: z rabatem buty od razu się sprzedają, w niedzielę 4 pary w jeden dzień. Short Black kupiony dwa razy, oba razy ze sklepu. Marketplace'y dalej dają połowę zamówień.</p>
+
+<h2>Co zrobiliśmy</h2>
+<div class="dni">
+  <div class="dzien"><h3>Pon 16.11</h3><ul><li>Stories z opiniami klientek 16–18.11 o 10:00</li><li>Ustalony start Green Week 22.11 dla wszystkich</li></ul></div>
+  <div class="dzien"><h3>Wt 17.11</h3><ul><li>Reklamy Green Week z 2025 z nowym tekstem</li><li>Maile 22.11 i 29.11 EN i DE</li><li>Strona Green Week i Twoje uwagi w panelu</li><li>Rolka z Rebeccą</li></ul></div>
+  <div class="dzien"><h3>Śr 18.11</h3><ul><li>Rolki Green Week z zielonymi parami i rolka Zürich</li><li>Reklama nr 4 poprawiona (nogi w całości)</li><li>Nowe zdjęcie na slajd strony</li><li>Maile do akceptu w panelu, finał konkursu Blickfang</li></ul></div>
+  <div class="dzien"><h3>Czw 19.11</h3><ul><li>Baner Green Week na stronie, potem wyłączony na Twoją prośbę</li><li>Story Blickfang (3 slajdy z oznaczeniem)</li><li>Kampania Meta Green Week ustawiona na start 22.11 00:00</li></ul></div>
+  <div class="dzien"><h3>Pt–Sob 20–21.11</h3><ul><li>Pasek „starts tomorrow” na stronie</li><li>Czapki, spódnice i t-shirty zdjęte z outletu na Twoją prośbę</li><li>Stories Blickfang z Twoich materiałów na niedzielę</li><li>Mail i rolka na 22.11 zaplanowane</li></ul></div>
+  <div class="dzien"><h3>Ndz 22.11</h3><ul><li>00:00 −40 % na cały sklep, reklama Meta 100 €/dzień</li><li>08:00 mail Green Week EN i DE</li><li>10:00 stories Blickfang z oznaczeniami</li><li>18:00 rolka „Stop the video on your pair”</li></ul></div>
+</div>
+
+<h2>Reklamy</h2>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Kampania</th><th style="text-align:right">Wydane</th><th style="text-align:right">Kliknięcia</th><th style="text-align:right">Koszyki</th><th style="text-align:right">Zakupy</th></tr>
+  <tr><td>Meta · Green Week 2026 (od 22.11) <span class="znaczek dobry">zakup</span></td><td class="l">131 €</td><td class="l">100</td><td class="l">5</td><td class="l">1 (105 €)</td></tr>
+  <tr><td>Meta · early access, zbieranie maili (do 21.11)</td><td class="l">4 €</td><td class="l">32</td><td class="l">–</td><td class="l">–</td></tr>
+  <tr><td>Meta · remarketing Medium Caramel (do 21.11)</td><td class="l">4 €</td><td class="l">2</td><td class="l">0</td><td class="l">0</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Razem Meta 140 €, 134 kliknięcia, 5 koszyków, 1 zakup. Rok temu w tym tygodniu Meta kosztowała 425 € i dała 5 zakupów (873 €). Pierwszy dzień Green Week: najwięcej koszyków dała reklama z psem z 2025 (DE, 3 koszyki), zakup dała reklama „everything + pies” DE.</p>
+<h3 style="font-weight:400;font-size:19px;margin:28px 0 12px">Reklamy tygodnia</h3>
+<div class="siatka">
+  <div class="post"><img src="img/ad_120250112810860527.jpg" alt="" loading="lazy"><div class="opis"><b>GW DE · pies 2025</b>3 koszyki<div class="st">14 kliknięć · 29 €</div></div></div>
+  <div class="post"><img src="img/ad_120250112258610527.jpg" alt="" loading="lazy"><div class="opis"><b>GW DE · everything + pies</b>1 zakup 105 €<div class="st">7 kliknięć · 18 €</div></div></div>
+  <div class="post"><img src="img/ad_120250112813010527.jpg" alt="" loading="lazy"><div class="opis"><b>GW EN · pies 2025</b>0 koszyków<div class="st">24 kliknięcia · 21 €</div></div></div>
+  <div class="post"><img src="img/ad_120250112261730527.jpg" alt="" loading="lazy"><div class="opis"><b>GW EN · black green week</b>0 koszyków<div class="st">5 kliknięć · 6 €</div></div></div>
+</div>
+
+<h2>Instagram</h2>
+<p class="pod">Konto dotarło do 4 046 osób, 352 wizyty profilu, 26 kliknięć w link, 9 303 obserwujących. Stories: opinie klientek 16–18.11, Blickfang 19.11 i 22.11. W niedzielę rolka Green Week.</p>
+<div class="siatka">
+  <a class="post" href="https://www.instagram.com/reel/DgDSrHtCaKk/" target="_blank" rel="noopener"><img src="img/ig_18115208986888210.jpg" alt="" loading="lazy"><div class="opis"><b>22.11 · Stop the video on your pair</b><div class="st">rolka · zasięg 105 · ♥ 10</div></div></a>
+</div>
+
+<h2>Maile</h2>
+<div class="karta tabW"><table class="tab">
+  <tr><th>Mail</th><th style="text-align:right">Wysłane</th><th style="text-align:right">Otwarte</th><th style="text-align:right">Kliknięte</th><th style="text-align:right">Zamówienia</th></tr>
+  <tr><td>Green Week EN · 22.11</td><td class="l">818</td><td class="l">34 %</td><td class="l">22</td><td class="l">1 (158 €)</td></tr>
+  <tr><td>Green Week DE · 22.11</td><td class="l">118</td><td class="l">29 %</td><td class="l">3</td><td class="l">0</td></tr>
+  <tr><td>Automaty (powitanie, koszyk, powroty, podziękowanie)</td><td class="l">61</td><td class="l">44 %</td><td class="l">3</td><td class="l">0</td></tr>
+</table></div>
+<p class="pod" style="margin-top:12px">Następny mail do całej bazy: 29.11, ostatnie dni Green Week.</p>
+
+<h2>Uczciwie: co nie działa i czego jeszcze nie wiemy</h2>
+<div class="uwaga"><b>Bez rabatu buty dalej stoją.</b> Pary w tym tygodniu to głównie niedziela z −40 % i marketplace'y. Reklama early access prawie nie wydała pieniędzy (4 €), więc lista early access była mała.<br><br><b>Czego jeszcze nie wiemy.</b> Czy Green Week dojdzie do 5 000 €: pierwszy dzień 824 €, rok temu cały tydzień 5 560 €. Reklama kosztowała w niedzielę 131 € i dała 1 zakup za 105 €, za wcześnie na ocenę, sprawdzamy codziennie.</div>
+
+<h2>Do decyzji na spotkaniu</h2>
+<div class="prop">
+  <div class="karta"><h3>Budżet na grudzień</h3><p>Zostało 968 €. Przy 100 € dziennie do 30.11 na grudzień zostanie ok. 170 €. Rok temu grudzień dał 6 984 €. Skąd pieniądze na grudzień (Sabbia, czerwony kapturek)?</p></div>
+  <div class="karta"><h3>Mail 29.11</h3><p>Ostatnie dni Green Week EN i DE, test wyślemy Ci dzień przed.</p></div>
+</div>
+
+<h2>Wszystkie raporty</h2>
+<div class="lista"><a href="#"><b>Tydzień 7 · 16–22.11.2026</b><span>ten raport</span></a><a href="tydzien-6.html"><b>Tydzień 6 · 9–15.11.2026</b><span>otwórz</span></a><a href="tydzien-5.html"><b>Tydzień 5 · 2–8.11.2026</b><span>otwórz</span></a><a href="tydzien-4.html"><b>Raport urodzinowy · 25.10–1.11.2026</b><span>otwórz</span></a><a href="./"><b>Wszystkie raporty</b><span>kalendarz</span></a></div>
+
+<p class="stopka">Dane: Meta Ads, Google Analytics, Shopify, Klaviyo, Instagram. Stan na 23.11.2026, 10:00. Przygotowanie: ZOVU.</p>
+</main>
+
+<script>
+(function(){
+  // powrót: do panelu, z którego przyszedł użytkownik
+  try{ if(document.referrer && /\/zovu\/?/.test(new URL(document.referrer).pathname)) document.getElementById('wroc').href='../zovu/'; }catch(e){}
+
+  function f(n){var s=String(n).split('.');return s[0].replace(/\B(?=(\d{3})+(?!\d))/g,' ')+(s[1]?','+s[1]:'')}
+
+  // rok do roku
+  var rr=[['Sprzedaż w tygodniu',1902,2362,' €'],['Wydane na reklamę Meta',140,425,' €'],['Zamówienia',15,16,''],['Kliknięcia w reklamy Meta',134,396,''],['Koszyki z reklam Meta',5,32,''],['Zakupy z reklam Meta',1,5,'']];
+  var h='';
+  rr.forEach(function(r){var mx=Math.max(r[1],r[2]);
+    h+='<div class="rrW"><div class="nz">'+r[0]+(r[4]?' <span style="color:var(--cichy);font-size:12px">('+r[4]+')</span>':'')+'</div><div>'+
+      '<div class="pas teraz"><i style="width:'+Math.max(2,r[1]/mx*78)+'%"></i><b>'+f(r[1])+r[3]+'</b></div>'+
+      '<div class="pas rok" style="margin-top:4px"><i style="width:'+Math.max(2,r[2]/mx*78)+'%"></i>'+f(r[2])+r[3]+'</div></div></div>';});
+  document.getElementById('rr').innerHTML=h;
+
+  function bary(el,dane,opt){
+    var W=900,H=300,pl=10,pr=10,pt=34,pb=46,n=dane.length,mx=Math.max.apply(0,dane.map(function(d){return d[1]}));
+    var bw=(W-pl-pr)/n,s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+opt.aria+'">';
+    s+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+(H-pb)+'" y2="'+(H-pb)+'" stroke="#e3dfd5"/>';
+    dane.forEach(function(d,i){var bh=(H-pt-pb)*d[1]/mx,x=pl+i*bw+bw*0.18,w=bw*0.64,y=H-pb-bh,kol=d[2]?'#2c4d23':'#a9b8a3';
+      s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+bh+'" rx="5" fill="'+kol+'"><title>'+d[0]+': '+f(d[1])+' €</title></rect>';
+      s+='<text x="'+(x+w/2)+'" y="'+(y-8)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="'+(n>8?13:15)+'" fill="'+(d[2]?'#2c4d23':'#5d5a52')+'" font-weight="'+(d[2]?600:400)+'">'+f(d[1])+' €</text>';
+      s+='<text x="'+(x+w/2)+'" y="'+(H-pb+20)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="'+(n>8?12:14)+'" fill="#7b766c">'+d[0]+'</text>';
+      if(d[3]) s+='<text x="'+(x+w/2)+'" y="'+(H-pb+37)+'" text-anchor="middle" font-family="Figtree,sans-serif" font-size="12" fill="#2c4d23" font-weight="600">'+d[3]+'</text>';
+    });
+    el.innerHTML=s+'</svg>';
+  }
+  bary(document.getElementById('w1'),[['28.09–4.10',512],['5–11.10',2887,0,'start reklam'],['12–18.10',1199],['19–25.10',1569],['26.10–1.11',2987,0,'urodziny'],['2–8.11',636],['9–15.11',554,1,'ten tydzień']],{aria:'Sprzedaż tygodniowa'});
+  bary(document.getElementById('w2'),[['13.10',936],['20.10',701],['27.10',2861,1,'urodziny'],['3.11',1416],['10.11',400,0,'ten tydzień'],['17.11',2362],['24.11',5560,1,'Green Week −40 %'],['1.12',2326],['8.12',1528],['15.12',448],['22.12',1142]],{aria:'Sprzedaż tygodniowa w sezonie 2025'});
+})();
+</script>
+<script src="kalendarz.js?v=14"></script>
+</body></html>
